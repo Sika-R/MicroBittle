@@ -9,3 +9,7 @@ _site
 *.tgz
 .header.json
 .simstate.json
+#Unity
+MicroBittle/Library
+MicroBittle/Logs
+MicroBittle/Build
