@@ -1,0 +1,30 @@
+{
+    "name": "UnityToMicrobitTesting",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "main.py"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v3.0.61",
+        "tag": "v3.0.61",
+        "commits": "https://github.com/microsoft/pxt-microbit/commits/9ff91acb8524c6a52fee90cf7194a4643c424363",
+        "target": "5.0.12",
+        "pxt": "6.0.35",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "pyprj"
+}
