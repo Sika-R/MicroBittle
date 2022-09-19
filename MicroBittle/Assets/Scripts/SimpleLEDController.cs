@@ -12,7 +12,8 @@ public class SimpleLEDController : MonoBehaviour
     [SerializeField]
     Slider slider;
     int lightLvl = 0;
-
+    [SerializeField]
+    Text debugText;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,7 @@ public class SimpleLEDController : MonoBehaviour
         string message = serialController.ReadSerialMessage();
         if (message == null)
             return;
+        message = message.Substring(1, message.Length);
         Debug.Log(int.Parse(message.ToString()));
         // Check if the message is plain data or a connect/disconnect event.
         if (ReferenceEquals(message, SerialController.SERIAL_DEVICE_CONNECTED))

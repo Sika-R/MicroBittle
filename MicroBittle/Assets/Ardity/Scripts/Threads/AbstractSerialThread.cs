@@ -99,7 +99,6 @@ public abstract class AbstractSerialThread
     {
         if (inputQueue.Count == 0)
             return null;
-
         return inputQueue.Dequeue();
     }
 
