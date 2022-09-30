@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SimpleLEDController : MonoBehaviour
 {
-    public SerialController serialController;
+    // public SerialController serialController;
     [SerializeField]
     Text text;
     int cnt;
@@ -17,28 +17,28 @@ public class SimpleLEDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text.text = "Cnt: 0";
+        /*text.text = "Cnt: 0";
         if(!serialController)
         {
             serialController = GameObject.Find("SerialController").GetComponent<SerialController>();
-        }
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        /*if(Input.GetMouseButtonDown(0))
         {
             serialController.SendSerialMessage("u");
             serialController.SendSerialMessage("u");
         }
 
-        ReceiveFeedback();
+        ReceiveFeedback();*/
     }
 
     void ReceiveFeedback()
     {
-        string message = serialController.ReadSerialMessage();
+        /*string message = serialController.ReadSerialMessage();
         if (message == null)
             return;
         message = message.Substring(1, message.Length);
@@ -59,6 +59,6 @@ public class SimpleLEDController : MonoBehaviour
             slider.value = (float)lightLvl / 255.0f;
         }
         else
-            Debug.Log("Message arrived: " + message);
+            Debug.Log("Message arrived: " + message);*/
     }
 }
