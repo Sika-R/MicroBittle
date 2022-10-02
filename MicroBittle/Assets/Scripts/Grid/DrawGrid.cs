@@ -7,6 +7,8 @@ using UnityEditor;
 [ExecuteInEditMode]
 public class DrawGrid : MonoBehaviour
 {
+    public static DrawGrid Instance;
+
 	[SerializeField]
     bool bShowGizmos = true;
 
@@ -23,7 +25,12 @@ public class DrawGrid : MonoBehaviour
 
     [HideInInspector]
     public GameObject m_obstaclePrefab;
- 
+
+    private void Awake()
+    {
+        Instance = this;
+
+    }
  	
  	private void Start()
     {

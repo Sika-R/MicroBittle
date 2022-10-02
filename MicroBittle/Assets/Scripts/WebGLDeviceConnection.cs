@@ -33,19 +33,15 @@ public class WebGLDeviceConnection : MonoBehaviour
             text.text += "Try\n";
         }
 
-        /*if(Input.GetButtonDown("A"))
-        {
-            string line = (string)ReadLine();
-            text.text += (string) line;
-        }*/
         if(Input.GetMouseButton(1))
         {
             SendLine("Hello!");
         }
     }
-
+    
     public void ReadLine(string str)
     {
         text.text += str;
     }
+
 }
