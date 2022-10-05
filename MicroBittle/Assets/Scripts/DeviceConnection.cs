@@ -8,14 +8,6 @@ using UnityEngine.UI;
 using System.IO;
 using Microsoft.Win32; 
 
-public enum MicrobitEventType
-{
-    Connected,
-    Disconnected,
-    ButtonAPressed,
-    ButtonBPressed,
-    LightLvl
-};
 
 public enum UnityEventType
 {

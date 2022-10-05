@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f326021ea30e44f801943812cafbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleType: 2
+  obstacleType: 3
   inputType: 0
   minInput: 0
   index: 0

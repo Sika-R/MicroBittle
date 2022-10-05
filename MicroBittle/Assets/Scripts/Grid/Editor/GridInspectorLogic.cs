@@ -11,13 +11,22 @@ public class GridInspectorLogic : Editor
 	enum ActionType
 	{
 		Create,
-		Destroy
+		Destroy,
+		Rotate,
 	}
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
         DrawGrid gridObj = (DrawGrid)target;
-        gridObj.m_obstaclePrefab = EditorGUILayout.ObjectField("Choose Object to place",gridObj.m_obstaclePrefab,typeof(GameObject),true)as GameObject;
+       	gridObj.m_obstaclePrefab = EditorGUILayout.ObjectField("Choose Object to place",
+						        	gridObj.m_obstaclePrefab,
+						        	typeof(GameObject),
+						        	false)as GameObject;
+       	/*if (GUILayout.Button ("ShowObjectPicker")) {
+            int controlID = EditorGUIUtility.GetControlID (FocusType.Passive);
+            EditorGUIUtility.ShowObjectPicker<GameObject> (null, false, "", controlID);
+        }
+        gridObj.m_obstaclePrefab = EditorGUIUtility.GetObjectPickerObject() as GameObject;*/
     }
 
     void OnEnable() {
@@ -38,7 +47,7 @@ public class GridInspectorLogic : Editor
 
     	switch (current.type)
 	    {
-	      	/*case EventType.MouseDown:
+	      	case EventType.MouseDown:
 	      		current.Use();
 		      	if(current.button == 0)
 		      	{
@@ -50,7 +59,14 @@ public class GridInspectorLogic : Editor
 		      	}
 	        
 	        
-	        	break;*/
+	        	break;
+	        case EventType.KeyDown:
+	        	current.Use();
+	        	if(current.keyCode == KeyCode.LeftShift)
+	        	{
+	        		RaycastTo(ActionType.Rotate);
+	        	}
+	        	break;
 
 	        case EventType.MouseDrag:
 	        	// isDown = false;
@@ -59,10 +75,10 @@ public class GridInspectorLogic : Editor
 		      	{
 		      		RaycastTo(ActionType.Create);
 		      	}
-		      	else if(current.button == 1)
+		      	/*else if(current.button == 1)
 		      	{
 		      		RaycastTo(ActionType.Destroy);
-		      	}
+		      	}*/
 	        
 	        
 	        	break;
@@ -93,7 +109,17 @@ public class GridInspectorLogic : Editor
 	        	{
                 	isDown = true;
                 	GameObject prefab = ((DrawGrid)target).m_obstaclePrefab;
-                	Vector3 initPoint = ((DrawGrid)target).IdentifyCenter(hitInfo.point);
+                	ObstacleType type = ObstacleType.None;
+                	if(prefab.GetComponent<Obstacle>() != null)
+                	{
+                		type = prefab.GetComponent<Obstacle>().obstacleType;
+                	}
+                	Vector3 initPoint = ((DrawGrid)target).EditMaze(hitInfo.point, type);
+                	// Vector3 initPoint = ((DrawGrid)target).IdentifyCenter(hitInfo.point);
+                	if(initPoint.x == -99)
+                	{
+                		return;
+                	}
                 	initPoint.y += prefab.GetComponent<BoxCollider>().size.y * prefab.transform.localScale.y / 2 * ((DrawGrid)target).m_gridSize;
 
 					GameObject newobj = Instantiate(prefab, initPoint, Quaternion.Euler(0, 0, 0), ((DrawGrid)target).transform) as GameObject;  //设置障碍 
@@ -109,6 +135,12 @@ public class GridInspectorLogic : Editor
 	                	DrawGrid drawgrid = bottom.gameObject.GetComponentInParent<DrawGrid>();
 	                	GameObject prefab = drawgrid.m_obstaclePrefab;
 	                	Vector3 initPoint = bottom.position;
+	                	ObstacleType type = ObstacleType.None;
+	                	if(prefab.GetComponent<Obstacle>() != null)
+	                	{
+	                		type = prefab.GetComponent<Obstacle>().obstacleType;
+	                	}
+	                	((DrawGrid)target).EditMaze(hitInfo.point, type);
 	                	initPoint.y += bottom.gameObject.GetComponent<BoxCollider>().size.y * bottom.localScale.y / 2;
 	                	initPoint.y += prefab.GetComponent<BoxCollider>().size.y * prefab.transform.localScale.y / 2 * ((DrawGrid)target).m_gridSize;
 	                	GameObject newobj = Instantiate(prefab, initPoint, Quaternion.Euler(0, 0, 0), ((DrawGrid)target).transform) as GameObject;  //设置障碍 
@@ -130,7 +162,35 @@ public class GridInspectorLogic : Editor
 		            {
 	                	isDown = true;
 	                	Undo.DestroyObjectImmediate(hitInfo.transform.gameObject);
+            	        RaycastHit newhitInfo;
+
+	                	if(Physics.Raycast(ray, out newhitInfo, 2000, ~mask))
+	                	{
+	                		if(newhitInfo.collider.tag == "Floor")
+	                		{
+	                			((DrawGrid)target).DeleteFromMaze(hitInfo.point, true);
+	                			Debug.Log("lAST");
+	                		}
+	                		else
+	                		{
+	                			((DrawGrid)target).DeleteFromMaze(hitInfo.point, false);
+	                		}
+	                	}
 		            }
+	        	}
+	        }
+    	}
+    	else if(action == ActionType.Rotate)
+    	{
+    		if (Physics.Raycast(ray, out hitInfo, 2000, ~mask)) //这里设置层
+	        {
+	        	if(hitInfo.collider.tag == "Cube")
+	        	{
+					Transform cube = hitInfo.transform;
+					cube.Rotate(0, 90, 0);
+					/*Quaternion rotation = cube.rotation;
+					rotation.y += 90;
+					cube.rotation = rotation;*/
 	        	}
 	        }
     	}
