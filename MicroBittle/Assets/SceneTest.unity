@@ -629,7 +629,7 @@ MonoBehaviour:
   m_column: 10
   m_row: 10
   m_gridSize: 2
-  m_obstaclePrefab: {fileID: 7356608650824600773, guid: 914718f2bc3b9204d875d86e73f2b91f,
+  m_obstaclePrefab: {fileID: 919132149155446097, guid: 8252ce514eae652409ea4588179dca19,
     type: 3}
 --- !u!4 &1225512649
 Transform:

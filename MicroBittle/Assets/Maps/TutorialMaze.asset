@@ -14,8 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys:
   - {x: -2, y: -4}
+  - {x: 2, y: -3}
+  - {x: 1, y: -3}
+  - {x: -1, y: 0}
+  - {x: 1, y: -1}
   values:
   - isOccupied: 1
     x: -2
     y: -4
     obstacle: 1
+  - isOccupied: 0
+    x: 2
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: -1
+    y: 0
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: -1
+    obstacle: 0
