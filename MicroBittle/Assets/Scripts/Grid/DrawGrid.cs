@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-
 [ExecuteInEditMode]
 public class DrawGrid : MonoBehaviour
 {
     public static DrawGrid Instance;
-
+    [SerializeField]
+    MazeInformation maze;
 	[SerializeField]
     bool bShowGizmos = true;
 
@@ -16,7 +16,9 @@ public class DrawGrid : MonoBehaviour
     int m_column = 9; //列
     [SerializeField]
     int m_row = 9; //行
- 
+    int prevColumn;
+    int preRow;
+     
  	[SerializeField]
     public float m_gridSize = 1.0f; //大概的大小
     private readonly Color m_color = Color.white;
@@ -29,7 +31,6 @@ public class DrawGrid : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
     }
  	
  	private void Start()
@@ -41,6 +42,12 @@ public class DrawGrid : MonoBehaviour
             m_collider = gameObject.AddComponent<BoxCollider>();
             m_collider.size = new Vector3(100, 0.1f, 100);
         }
+    }
+
+    private void OnValidate()
+    {
+        maze.SetCol(m_column);
+        maze.SetRow(m_row);
     }
 
     private void GridGizmo(int cols, int rows)
@@ -75,14 +82,100 @@ public class DrawGrid : MonoBehaviour
     {
         float x = hit.x - transform.position.x;
         float z = hit.z - transform.position.z;
-    	if(x < -m_column * m_gridSize || x > m_column * m_gridSize / 2 || z < -m_row * m_gridSize / 2 || z > m_row * m_gridSize / 2)
+    	if(x < -m_column * m_gridSize / 2 || x > m_column * m_gridSize / 2 || z < -m_row * m_gridSize / 2 || z > m_row * m_gridSize / 2)
     	{
     		return new Vector3(-1, -1, -1);
     	}
     	int xx = (int)Mathf.Floor(x / m_gridSize);
     	int zz = (int)Mathf.Floor(z / m_gridSize);
+        Debug.Log("x: " + xx + "z: " + zz);
         Vector3 position = new Vector3((xx + 0.5f) * m_gridSize, 0, (zz + 0.5f) * m_gridSize);
     	return position + transform.position;
+    }
+    private Vector3 GetCenterPos(int x, int z)
+    {
+        Vector3 position = new Vector3((x + 0.5f) * m_gridSize, 0, (z + 0.5f) * m_gridSize);
+        return position + transform.position;
+    }
+
+    public Vector2 GetIdx(Vector3 hit)
+    {
+        float x = hit.x - transform.position.x;
+        float z = hit.z - transform.position.z;
+        if(x < -m_column * m_gridSize / 2 || x > m_column * m_gridSize / 2 || z < -m_row * m_gridSize / 2 || z > m_row * m_gridSize / 2)
+        {
+            return new Vector2(-99, -99);
+        }
+        int xx = (int)Mathf.Floor(x / m_gridSize);
+        int zz = (int)Mathf.Floor(z / m_gridSize);
+        // Debug.Log("x: " + xx + "z: " + zz);
+        Vector2 vec = new Vector2(xx, zz);
+        return vec;
+    }
+
+    public Vector3 EditMaze(Vector3 hit, ObstacleType type)
+    {
+        EditorUtility.SetDirty(maze);
+        Vector2 idx = GetIdx(hit);
+        if(idx.x == -99)
+        {
+            return new Vector3(-99, -99, -99);
+        }
+        Vector3 gridPos = GetCenterPos((int)idx.x, (int)idx.y);
+        if(maze.ContainsKey(idx))
+        {
+            maze[idx].SetObstacle(type);
+            // Debug.Log("grid exists.");
+            
+        }
+        else
+        {
+            Grid grid = new Grid((int)idx.x, (int)idx.y);
+            grid.SetObstacle(type);
+            maze.Add(idx, grid);
+            // Debug.Log(maze.Count);
+            // Debug.Log("X: " + grid.x + "Y: " + grid.y);
+            // Debug.Log("X: " + maze[idx].x + "Y: " + maze[idx].y);
+        }
+        return gridPos;
+    }
+
+    public Vector3 DeleteFromMaze(Vector3 hit, bool isFloor)
+    {
+        EditorUtility.SetDirty(maze);
+        Vector2 idx = GetIdx(hit);
+        if(idx.x == -99)
+        {
+            return new Vector3(-99, -99, -99);
+        }
+        Vector3 gridPos = GetCenterPos((int)idx.x, (int)idx.y);
+        if(maze.ContainsKey(idx))
+        {
+            if(isFloor)
+            {
+                maze.Remove(idx);
+            }
+            else
+            {
+                maze[idx].SetObstacle(ObstacleType.None);
+            }
+            // Debug.Log("grid exists.");
+            
+        }
+        return gridPos;
+    }
+
+    public bool canMove(Vector2 idx)
+    {
+        // Debug.Log(idx);
+        if(maze.ContainsKey(idx))
+        {
+            if(maze[idx].obstacle == ObstacleType.None)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

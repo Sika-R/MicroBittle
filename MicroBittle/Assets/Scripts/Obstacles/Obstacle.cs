@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum ObstacleType // *
 {
+    None,
     Humid,
     ButtonA,
     Light,
@@ -50,6 +51,7 @@ public class Obstacle : MonoBehaviour
                     isMovingWithMouse = false;
                     //transform.position = new Vector3(transform.position.x, transform.position.y, hit.collider.transform.position.z);
                     Vector3 initPoint = drawGridScript.IdentifyCenter(hit.point);
+                    // Vector3 initPoint = drawGridScript.EditMaze(hit.point, obstacleType);
                     transform.localScale = drawGridScript.m_gridSize * new Vector3(1, 1, 1);
                     //initPoint.y = GetComponent<BoxCollider>().size.y * transform.localScale.y / 2 * drawGridScript.m_gridSize;
                     
