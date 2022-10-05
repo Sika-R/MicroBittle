@@ -7,6 +7,7 @@ public enum ObstacleType // *
     Humid,
     ButtonA,
     Light,
+    Slider,
 }
 
 public enum InputType
@@ -21,16 +22,27 @@ public class Obstacle : MonoBehaviour
     public InputType inputType;
     public float minInput;
     public int index;
-    [SerializeField]private bool isMovingWithMouse;
-    DrawGrid drawGridScript;
+    public bool isMovingWithMouse;
+    public DrawGrid drawGridScript;
     // Start is called before the first frame update
     void Start()
     {
-        drawGridScript = GameObject.Find("Grid").GetComponent<DrawGrid>();
+        InitializeObstacle();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        ObstacleUpdate();
+    }
+
+    public void InitializeObstacle()
+    {
+        isMovingWithMouse = true;
+        drawGridScript = GameObject.Find("Grid").GetComponent<DrawGrid>();
+    }
+
+    public void ObstacleUpdate()
     {
         if (!isMovingWithMouse)
         {
@@ -52,16 +64,16 @@ public class Obstacle : MonoBehaviour
                     Vector3 initPoint = drawGridScript.IdentifyCenter(hit.point);
                     transform.localScale = drawGridScript.m_gridSize * new Vector3(1, 1, 1);
                     //initPoint.y = GetComponent<BoxCollider>().size.y * transform.localScale.y / 2 * drawGridScript.m_gridSize;
-                    
+
                     transform.position = initPoint;
-                    
+
                     return;
                 }
             }
         }
     }
 
-    public bool getInput(float inputVal)
+    public virtual bool getInput(float inputVal)
     {
         if (inputVal > minInput)
         {
@@ -73,12 +85,18 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        collisonEvent(collision);
+    }
+
+    public void collisonEvent(Collision collision)
+    {
         if (collision.gameObject.tag == "Player" && !isMovingWithMouse)
         {
             ObstacleMgr.Instance.setCurrentEncounteredObstacle(this);
         }
-        
     }
+
 
     private void OnCollisionStay(Collision collision)
     {

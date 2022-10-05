@@ -7,9 +7,8 @@ public class ObstacleMgr : MonoBehaviour
     public static ObstacleMgr Instance = null; 
     public List<GameObject> obstacles;
     public List<GameObject> obstaclePrefabs;
-    public GameObject obstaclePrefab;
     private int currentObstacleIndex = 0;
-    private Obstacle currentEncounteredObstacle;
+    private Obstacle currentEncounteredObstacle = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,17 +54,21 @@ public class ObstacleMgr : MonoBehaviour
 
     public void getInput(float inputVal, ObstacleType obstacleType)
     {
+        OutfitMgr.Instance.chooseToolIcon(obstacleType);
         if (currentEncounteredObstacle == null)
         {
             return;
         }
-        if (obstacleType != currentEncounteredObstacle.obstacleType)
-        {
-            return;
-        }
+        //if (obstacleType != currentEncounteredObstacle.obstacleType)
+        //{
+        //    return;
+        //}
+        //foreach (Obstacle script in currentEncounteredObstacle.GetComponents<Obstacle>())
+        //{
         if (currentEncounteredObstacle.getInput(inputVal))
         {
             currentEncounteredObstacle = null;
         }
+        //}
     }
 }
