@@ -624,12 +624,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f7870ecf86d40488dae135626f09a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maze: {fileID: 11400000, guid: 5784d96c82d5e0346bcaf413a5b88343, type: 2}
+  maze: {fileID: 11400000, guid: 8f4cf6d2abcfe624f95a02dd1c607db5, type: 2}
   bShowGizmos: 1
   m_column: 10
   m_row: 10
   m_gridSize: 2
-  m_obstaclePrefab: {fileID: 1475468151762825842, guid: 88361035a6ffac04192de174c77053c7,
+  m_obstaclePrefab: {fileID: 7356608650824600773, guid: 914718f2bc3b9204d875d86e73f2b91f,
     type: 3}
 --- !u!4 &1225512649
 Transform:
