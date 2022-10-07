@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Runtime.InteropServices;
 using UnityEngine.UI;
 using System;
+using System.Text;
 using UnityEngine.Events;
 
 
@@ -42,7 +43,7 @@ public class WebGLDeviceConnection : MonoBehaviour
     [SerializeField]
     Text text;
 
-    
+    StringBuilder inputBuffer = new StringBuilder("");
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -78,18 +79,34 @@ public class WebGLDeviceConnection : MonoBehaviour
 
     }
 
-    public void ReadLine(string str)
+    /*public void ReadLine(string str)
     {
-        if(isParsing) return;
+        // if(isParsing) return;
+        text.text += str.Length + ": ";
         text.text += str;
+        if(str == "") return;
         ParseLine(str);
         StartCoroutine(text.gameObject.GetComponent<DebugLogController>().ScrollBarBottom());
+    }*/
+
+    public void ReadLine(string str)
+    {
+        inputBuffer.Append(str);
+        string all = inputBuffer.ToString();
+        // text.text = all;
+        int idx = all.IndexOf("\n");
+        
+        if(idx != -1)
+        {
+            string input = all.Substring(0, idx + 1);
+            inputBuffer.Remove(0, idx + 1);
+            ParseLine(input);
+        }
+        text.text = inputBuffer.ToString();
     }
 
     private void ParseLine(string str)
     {   
-        if(str.Length < 2) return;
-        isParsing = true;
         try
         {
             int messageType = Int32.Parse(str.Substring(0, 1));
@@ -120,10 +137,14 @@ public class WebGLDeviceConnection : MonoBehaviour
                     break;
                 case MicrobitEventType.Slider:
                     float sliderValue = float.Parse(str.Substring(1));
+                    sliderValue /= 20;
+                    text.text += "Slider: " + sliderValue + " \n";
                     sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
                     break;
                 case MicrobitEventType.Humid:
                     float waterLvl = float.Parse(str.Substring(1));
+                    waterLvl = (1000 - waterLvl) / 7; 
+                    text.text += "Water: " + waterLvl + " \n";
                     sliderEvent.Invoke(waterLvl, ObstacleType.Humid);
                     break;
 
@@ -140,5 +161,26 @@ public class WebGLDeviceConnection : MonoBehaviour
         }
          
     }
+
+    /*public static int IndexOf(this StringBuilder sb, string value, int startIndex, bool ignoreCase)
+    {
+        int len = value.Length;
+        int max = (sb.Length - len) + 1;
+        var v1 = (ignoreCase)
+            ? value.ToLower() : value;
+        var func1 = (ignoreCase)
+            ? new Func<char, char, bool>((x, y) => char.ToLower(x) == y)
+            : new Func<char, char, bool>((x, y) => x == y);
+        for (int i1 = startIndex; i1 < max; ++i1)
+            if (func1(sb[i1], v1[0]))
+            {
+                int i2 = 1;
+                while ((i2 < len) && func1(sb[i1 + i2], v1[i2]))
+                    ++i2;
+                if (i2 == len)
+                    return i1;
+            }
+        return -1;
+    }*/
 
 }

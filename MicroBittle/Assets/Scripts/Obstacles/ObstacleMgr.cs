@@ -54,7 +54,7 @@ public class ObstacleMgr : MonoBehaviour
 
     public void getInput(float inputVal, ObstacleType obstacleType)
     {
-        if(OutfitMgr.Instance.currentObstacleType == ObstacleType.Humid)
+        if(OutfitMgr.Instance.currentObstacleType == ObstacleType.Humid && obstacleType == ObstacleType.Humid)
         {
             for(int i = 0; i < Mathf.Min(3, inputVal / 10); i++)
             {
