@@ -8,6 +8,8 @@ public class DrawGrid : MonoBehaviour
 {
     public static DrawGrid Instance;
     [SerializeField]
+    MazeInformation originalMaze;
+    [SerializeField]
     MazeInformation maze;
 	[SerializeField]
     bool bShowGizmos = true;
@@ -35,6 +37,7 @@ public class DrawGrid : MonoBehaviour
  	
  	private void Start()
     {
+        maze = Instantiate<MazeInformation>(originalMaze);
         //gameObject.layer = 31;
         m_collider = GetComponent<BoxCollider>();
         if (m_collider == null)
@@ -82,10 +85,10 @@ public class DrawGrid : MonoBehaviour
     {
         float x = hit.x - transform.position.x;
         float z = hit.z - transform.position.z;
-    	if(x < -m_column * m_gridSize / 2 || x > m_column * m_gridSize / 2 || z < -m_row * m_gridSize / 2 || z > m_row * m_gridSize / 2)
+    	/*if(x < -m_column * m_gridSize / 2 || x > m_column * m_gridSize / 2 || z < -m_row * m_gridSize / 2 || z > m_row * m_gridSize / 2)
     	{
     		return new Vector3(-1, -1, -1);
-    	}
+    	}*/
     	int xx = (int)Mathf.Floor(x / m_gridSize);
     	int zz = (int)Mathf.Floor(z / m_gridSize);
         Debug.Log("x: " + xx + "z: " + zz);
@@ -102,10 +105,10 @@ public class DrawGrid : MonoBehaviour
     {
         float x = hit.x - transform.position.x;
         float z = hit.z - transform.position.z;
-        if(x < -m_column * m_gridSize / 2 || x > m_column * m_gridSize / 2 || z < -m_row * m_gridSize / 2 || z > m_row * m_gridSize / 2)
+        /*if(x < -m_column * m_gridSize / 2 || x > m_column * m_gridSize / 2 || z < -m_row * m_gridSize / 2 || z > m_row * m_gridSize / 2)
         {
             return new Vector2(-99, -99);
-        }
+        }*/
         int xx = (int)Mathf.Floor(x / m_gridSize);
         int zz = (int)Mathf.Floor(z / m_gridSize);
         // Debug.Log("x: " + xx + "z: " + zz);
@@ -115,7 +118,7 @@ public class DrawGrid : MonoBehaviour
 
     public Vector3 EditMaze(Vector3 hit, ObstacleType type)
     {
-        EditorUtility.SetDirty(maze);
+        // EditorUtility.SetDirty(maze);
         Vector2 idx = GetIdx(hit);
         if(idx.x == -99)
         {
@@ -142,7 +145,7 @@ public class DrawGrid : MonoBehaviour
 
     public Vector3 DeleteFromMaze(Vector3 hit, bool isFloor)
     {
-        EditorUtility.SetDirty(maze);
+        // EditorUtility.SetDirty(maze);
         Vector2 idx = GetIdx(hit);
         if(idx.x == -99)
         {
@@ -165,12 +168,16 @@ public class DrawGrid : MonoBehaviour
         return gridPos;
     }
 
-    public bool canMove(Vector2 idx)
+    public bool canMove(Vector2 idx, ObstacleType curType)
     {
         // Debug.Log(idx);
         if(maze.ContainsKey(idx))
         {
             if(maze[idx].obstacle == ObstacleType.None)
+            {
+                return true;
+            }
+            if(curType == maze[idx].obstacle)
             {
                 return true;
             }

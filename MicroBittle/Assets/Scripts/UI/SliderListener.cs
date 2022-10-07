@@ -12,6 +12,8 @@ public class SliderListener : MonoBehaviour
     {
         mainSlider = this.gameObject.GetComponent<Slider>();
         mainSlider.onValueChanged.AddListener(delegate { ObstacleMgr.Instance.getInput(mainSlider.value, obstacleType); });
+        mainSlider.onValueChanged.AddListener(delegate { ObstacleMgr.Instance.getInput(mainSlider.value, obstacleType); });
+  
     }
 
     // Update is called once per frame

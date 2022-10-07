@@ -19,12 +19,13 @@ public class SliderObstacle : Obstacle
     {
         ObstacleUpdate();
     }
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         collisonEvent(collision);
-    }
+    }*/
     public override bool getInput(float inputVal)
     {
+        if (OutfitMgr.Instance.currentObstacleType != ObstacleType.Slider) return false;
         if (!isInCoroutine)
         {
             //Debug.Log("is not in Coroutine, value is: " + Mathf.Floor(inputVal).ToString());
@@ -39,6 +40,7 @@ public class SliderObstacle : Obstacle
             if (Mathf.Floor(inputVal) >= endValue)
             {
                 gameObject.SetActive(false);
+                DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
                 return true;
             }
         }

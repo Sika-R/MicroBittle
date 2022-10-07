@@ -14,13 +14,15 @@ public enum MicrobitEventType
     ButtonAPressed = 2,
     ButtonBPressed = 3,
     LightLvl = 4,
-    Accelerometer = 5
+    Accelerometer = 5,
+    Slider = 6,
+    Humid = 7,
 };
 
 [System.Serializable]
-public class MovementEvent : UnityEvent<MovementDirections>
-{
-}
+public class MovementEvent : UnityEvent<MovementDirections>{}
+[System.Serializable]
+public class InputEvent : UnityEvent<float, ObstacleType>{}
 public class WebGLDeviceConnection : MonoBehaviour
 {
     private static WebGLDeviceConnection _instance;
@@ -33,8 +35,10 @@ public class WebGLDeviceConnection : MonoBehaviour
     private static extern void SendLine(string str);
 
     public MovementEvent movementEvent = new MovementEvent();
-    public UnityEvent pressAEvent;
+    public UnityEvent pressAEvent = new UnityEvent();
     public UnityEvent pressBEvent;
+    public InputEvent sliderEvent;
+    bool isParsing = false;
     [SerializeField]
     Text text;
 
@@ -53,33 +57,39 @@ public class WebGLDeviceConnection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        pressAEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(true));
+        pressBEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(false));
+        sliderEvent.AddListener(ObstacleMgr.Instance.getInput);
+        // pressAEvent.AddListener(() => ObstacleMgr.Instance.getInput(1, ObstacleType.ButtonA));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(1))
         {
             OpenPort();
             text.text += "Try\n";
         }
-
-        if(Input.GetMouseButton(1))
+        if(Input.GetMouseButtonDown(2))
         {
-            SendLine("Hello!");
+            pressAEvent.Invoke();
         }
+
     }
 
     public void ReadLine(string str)
     {
+        if(isParsing) return;
         text.text += str;
         ParseLine(str);
         StartCoroutine(text.gameObject.GetComponent<DebugLogController>().ScrollBarBottom());
     }
 
     private void ParseLine(string str)
-    {
+    {   
+        if(str.Length < 2) return;
+        isParsing = true;
         try
         {
             int messageType = Int32.Parse(str.Substring(0, 1));
@@ -87,6 +97,7 @@ public class WebGLDeviceConnection : MonoBehaviour
             switch(type)
             {
                 case MicrobitEventType.ButtonAPressed:
+                    text.text += "Text: " + str + " APressed\n";
                     pressAEvent.Invoke();
                     break;
                 case MicrobitEventType.ButtonBPressed:
@@ -107,6 +118,15 @@ public class WebGLDeviceConnection : MonoBehaviour
                     }
                     
                     break;
+                case MicrobitEventType.Slider:
+                    float sliderValue = float.Parse(str.Substring(1));
+                    sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                    break;
+                case MicrobitEventType.Humid:
+                    float waterLvl = float.Parse(str.Substring(1));
+                    sliderEvent.Invoke(waterLvl, ObstacleType.Humid);
+                    break;
+
             }
 
         }
@@ -114,8 +134,11 @@ public class WebGLDeviceConnection : MonoBehaviour
         {
             Debug.Log("Can not parse instruction: " + str);
         }
+        finally
+        {
+            isParsing = false;
+        }
          
     }
-
 
 }

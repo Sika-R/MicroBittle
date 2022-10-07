@@ -13,20 +13,33 @@ public enum MovementDirections
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public static PlayerMovement Instance;
     bool isMoving = false;
     Vector2 curIdx;
     Vector3 origPos;
     Vector3 targetPos;
     [SerializeField]
     float timeToMove = 0.1f;
+    public ObstacleType canPass = ObstacleType.None;
     // Start is called before the first frame update
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     void Start()
     {
         curIdx = DrawGrid.Instance.GetIdx(transform.position);
         Vector3 pos = DrawGrid.Instance.IdentifyCenter(transform.position);
         pos.y += GetComponent<CapsuleCollider>().height / 2;
         transform.position = pos;
+        // Debug.Log(curIdx);
         if(WebGLDeviceConnection.Instance.movementEvent != null)
         {
             Debug.Log("Add listener");
@@ -66,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         if(direction == MovementDirections.Up && !isMoving)
         {
             Vector2 destination = new Vector2(curIdx.x, curIdx.y + 1);
-            if(DrawGrid.Instance.canMove(destination))
+            if(DrawGrid.Instance.canMove(destination, canPass))
             {
                 StartCoroutine(MovePlayer(Vector3.forward));
                 curIdx = destination;
@@ -75,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         else if(direction == MovementDirections.Down && !isMoving)
         {
             Vector2 destination = new Vector2(curIdx.x, curIdx.y - 1);
-            if(DrawGrid.Instance.canMove(destination))
+            if(DrawGrid.Instance.canMove(destination, canPass))
             {
                 StartCoroutine(MovePlayer(-Vector3.forward));
                 curIdx = destination;
@@ -84,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         else if(direction == MovementDirections.Left && !isMoving)
         {
             Vector2 destination = new Vector2(curIdx.x - 1, curIdx.y);
-            if(DrawGrid.Instance.canMove(destination))
+            if(DrawGrid.Instance.canMove(destination, canPass))
             {
                 StartCoroutine(MovePlayer(-Vector3.right));
                 curIdx = destination;
@@ -93,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         else if(direction == MovementDirections.Right && !isMoving)
         {
             Vector2 destination = new Vector2(curIdx.x + 1, curIdx.y);
-            if(DrawGrid.Instance.canMove(destination))
+            if(DrawGrid.Instance.canMove(destination, canPass))
             {
                 StartCoroutine(MovePlayer(Vector3.right));
                 curIdx = destination;

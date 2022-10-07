@@ -9,6 +9,7 @@ public enum ObstacleType // *
     ButtonA,
     Light,
     Slider,
+    Wall,
 }
 
 public enum InputType
@@ -39,7 +40,7 @@ public class Obstacle : MonoBehaviour
 
     public void InitializeObstacle()
     {
-        isMovingWithMouse = true;
+        // isMovingWithMouse = true;
         drawGridScript = GameObject.Find("Grid").GetComponent<DrawGrid>();
     }
 
@@ -79,21 +80,29 @@ public class Obstacle : MonoBehaviour
     {
         if (inputVal > minInput)
         {
-            gameObject.SetActive(false);
+            // DrawGrid.Instance.DeleteFromMaze(transform.position, false);
+            // gameObject.
+            // gameObject.SetActive(false);
             return true;
         }
         return false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
-
+        Debug.Log("Enter");
         collisonEvent(collision);
-    }
-
-    public void collisonEvent(Collision collision)
+    }*/
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.tag == "Player" && !isMovingWithMouse)
+        //Debug.Log("Enter");
+        collisonEvent(collider);
+    }
+    public void collisonEvent(Collider collider)
+    // public void collisonEvent(Collision collision)
+    {
+        // if (collision.gameObject.tag == "Player" && !isMovingWithMouse)
+        if(collider.gameObject.tag == "Player" && !isMovingWithMouse)
         {
             ObstacleMgr.Instance.setCurrentEncounteredObstacle(this);
         }

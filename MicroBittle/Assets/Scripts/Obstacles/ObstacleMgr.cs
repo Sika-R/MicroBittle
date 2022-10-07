@@ -54,15 +54,27 @@ public class ObstacleMgr : MonoBehaviour
 
     public void getInput(float inputVal, ObstacleType obstacleType)
     {
-        OutfitMgr.Instance.chooseToolIcon(obstacleType);
+        if(OutfitMgr.Instance.currentObstacleType == ObstacleType.Humid)
+        {
+            for(int i = 0; i < Mathf.Min(3, inputVal / 10); i++)
+            {
+                OutfitMgr.Instance.PutOnDivingSuit(i);
+            }
+            for(int i = ((int)inputVal) / 10; i < 3; i++)
+            {
+                OutfitMgr.Instance.TakeOffDivingSuitByPiece(i);
+            }
+
+        }
+        // OutfitMgr.Instance.chooseToolIcon(obstacleType);
         if (currentEncounteredObstacle == null)
         {
             return;
         }
-        //if (obstacleType != currentEncounteredObstacle.obstacleType)
-        //{
-        //    return;
-        //}
+        if (obstacleType != currentEncounteredObstacle.obstacleType)
+        {
+            return;
+        }
         //foreach (Obstacle script in currentEncounteredObstacle.GetComponents<Obstacle>())
         //{
         if (currentEncounteredObstacle.getInput(inputVal))

@@ -7,7 +7,9 @@ public class OutfitMgr : MonoBehaviour
     public static OutfitMgr Instance = null;
     public List<GameObject> divingSuits;
     public GameObject jackhammer;
-    [SerializeField] ObstacleType currentObstacleType;
+    public ObstacleType currentObstacleType = ObstacleType.None;
+    [SerializeField]
+    List<ObstacleType> allPossibleTypes = new List<ObstacleType>();
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +40,12 @@ public class OutfitMgr : MonoBehaviour
         {
             takeOffOutfit(currentObstacleType);
             currentObstacleType = obstacleType;
+            
         }
         if (obstacleType == ObstacleType.Slider)
         {
             jackhammer.SetActive(true);
+            PlayerMovement.Instance.canPass = obstacleType;
         }
     }
 
@@ -63,5 +67,19 @@ public class OutfitMgr : MonoBehaviour
     public void PutOnDivingSuit(int index)
     {
         divingSuits[index].SetActive(true);
+    }
+
+    public void TakeOffDivingSuitByPiece(int index)
+    {
+        divingSuits[index].SetActive(false);
+    }
+
+    public void ChangeOutfit(bool isLeft)
+    {
+        int newOutfitIdx = allPossibleTypes.IndexOf(currentObstacleType) + (isLeft ? -1 : 1);
+        int cnt = allPossibleTypes.Count;
+        Debug.Log((newOutfitIdx + cnt) % cnt);
+        ObstacleType newType = allPossibleTypes[(newOutfitIdx + cnt) % cnt];
+        chooseToolIcon(newType);
     }
 }

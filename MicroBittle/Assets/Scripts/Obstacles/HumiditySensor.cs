@@ -17,23 +17,39 @@ public class HumiditySensor : Obstacle
         ObstacleUpdate();
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        if(OutfitMgr.Instance.currentObstacleType != ObstacleType.Humid) return;
+        if(!OutfitMgr.Instance.divingSuits[2].activeSelf)
+        {
+            PlayerMovement.Instance.canPass = ObstacleType.None;
+        }
+        else
+        {
+            PlayerMovement.Instance.canPass = ObstacleType.Humid;
+        }
+        
+    }
     public override bool getInput(float inputVal)
     {
-        for (int i = 0; i < inputValues.Count; ++i)
+        if(OutfitMgr.Instance.currentObstacleType != ObstacleType.Humid) return false;
+        /*for (int i = 0; i < inputValues.Count; ++i)
         {
             if (inputVal < inputValues[i])
             {
                 return false;
             }
-            OutfitMgr.Instance.PutOnDivingSuit(i);
-        }
-        gameObject.SetActive(false);
+            // OutfitMgr.Instance.PutOnDivingSuit(i);
+        }*/
+        if(!OutfitMgr.Instance.divingSuits[2].activeSelf) return false;
+        PlayerMovement.Instance.canPass = ObstacleType.Humid;
+        // gameObject.SetActive(false);
         return true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         collisonEvent(collision);
-    }
+    }*/
 
 }
