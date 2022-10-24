@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{542A1B97-2C5E-5F7D-B869-76B45B8A107A}</ProjectGuid>
+    <ProjectGuid>{ADB5ECD4-55C7-6CA5-E6E8-266F20293BCA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -48,233 +48,15 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.12</UnityProjectGeneratorVersion>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_Wait.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_And.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\BE2_UI_BlocksSelectionViewer.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_SpotProgEnvViewport.cs" />
-    <Compile Include="Assets\Scripts\Hui\programUI.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_ChangeColor.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Utils\BE2_Paths.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\Threads\AbstractSerialThread.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_BlockContextMenu.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_WhenKeyPressed.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Random.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\Samples\SampleCustomDelimiter.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Serialization\BE2_BlockXML.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\Variable\I_BE2_VariablesManager.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\Samples\SampleUserPolling_ReadWrite.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\Variable\Lists\BE2_UI_NewVariableListPanel.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\EventSystem\BE2_EventsManager.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_WhenPlayClicked.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Utils\BE2_ArrayUtils.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\Samples\SampleTearDown.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\Samples\SampleUserPolling_JustRead.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\BE2_Canvas.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Nor.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\BE2_UI_SelectionPanel.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\BE2_UI_SelectionBlock.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EnvironmentElements\BE2_ProgrammingEnv.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_DropdownDynamicResize.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_Dropdown.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\HumiditySensor.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_InputField.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_IndexOfValueAtList.cs" />
-    <Compile Include="Assets\Scripts\UI\SensorCreatorButtonListener.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\BlockSections\BE2_BlockSectionBody.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RepeatForever.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_SpotBlockBody.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RemoveValueFromList.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_ReplaceIndexOfList.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Cst_LookAtAndMove.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_PanelCancel.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_DragOperation.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_BiggerThan.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\I_BE2_Instruction.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_MoveForward.cs" />
-    <Compile Include="Assets\Scripts\Grid\MazeInformation.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_DragSelectionBlock.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\InputManager\BE2_InputManager.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Serialization\BE2_BlocksSerializer.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\Samples\SampleMessageListener.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\I_BE2_InstructionBase.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Ins_SpacecraftShoot.cs" />
-    <Compile Include="Assets\Scripts\ExampleClass.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RemoveIndexFromList.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-    <Compile Include="Assets\Scripts\Grid\ScriptableDictionary.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\Attributes\BE2_Attributes.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_Raycaster.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\Threads\SerialThreadCustomDelimiter.cs" />
-    <Compile Include="Assets\Scripts\TestUI.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Utils\BE2_BlockUtils.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Equal.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\SliderObstacle.cs" />
-    <Compile Include="Assets\Scripts\Grid\DrawGrid.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\Variable\Lists\BE2_UI_ListItem.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_DragTrigger.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EnvironmentElements\BE2_TargetObjectSpacecraft3D.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\BE2_BlocksStack.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Block\BE2_BlockVerticalLayout.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RepeatUntil.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_Toggle.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_VariableLabel.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\I_BE2_Drag.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_SaveLoadContextMenu.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_PlaySound.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\BlockSections\I_BE2_BlockSection.cs" />
-    <Compile Include="Assets\Scripts\WebGLTest.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EnvironmentElements\I_BE2_TargetObject.cs" />
-    <Compile Include="Assets\Scripts\UI\SensorInputValueListener.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_DragBlock.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\EventSystem\BE2_MainEventsManager.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\BlockSections\I_BE2_BlockSectionHeader.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_ClearList.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_SpotOuterArea.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\VirtualJoystick\BE2_VirtualJoystickButton.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Sum.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\Variable\Lists\BE2_UI_VariableListViewer.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_If.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Extras\BE2_AudioManager.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\I_BE2_BlocksStack.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\Threads\SerialThreadLines.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_DragSelectionVariable.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Serialization\BE2_SerializableBlock.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Block\I_BE2_BlockLayout.cs" />
-    <Compile Include="Assets\Scripts\Hui\slotsUI.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Not.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_SpotProgrammingEnv.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_InsertAtList.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Or.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_SetVariable.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\ObstacleMgr.cs" />
-    <Compile Include="Assets\Scripts\Hui\lookchanger.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\Variable\BE2_VariablesManager.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\Variable\BE2_UI_NewVariablePanel.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_IfElse.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_DragDropManager.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BE2_InstructionBase.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Multiply.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Block\I_BE2_Block.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\InputManager\I_BE2_InputManager.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\SerialController.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_ListLength.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\CustomScrollRect.cs" />
-    <Compile Include="Assets\Scripts\Character\OutfitMgr.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_Return.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Extras\BE2_HideBlocksSelection.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_InputValues.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_BreakLoop.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Utils\BE2_Text.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_AddToList.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\Threads\SerialThread.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\BE2_UI_SelectionButton.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_JoystickKeyPressed.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_Repeat.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Block\BE2_GhostBlock.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_AddVariable.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\I_BE2_Raycaster.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_WhenJoystickKeyPressed.cs" />
-    <Compile Include="Assets\Scripts\DebugLogController.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_ListContains.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_KeyPressed.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\I_BE2_Spot.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\Variable\BE2_VariablesListManager.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\BE2_ExecutionManager.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_InputFieldDynamicResize.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_TurnDirection.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_Operation.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EnvironmentElements\BE2_TargetObject.cs" />
-    <Compile Include="Assets\Scripts\UI\SliderListener.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\Block\BE2_Block.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_Pointer.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\BlockSections\BE2_BlockSection.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Xnor.cs" />
-    <Compile Include="Assets\Art\Ardity\Scripts\SerialControllerCustomDelimiter.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_SpotBlockInput.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\BlockSections\BE2_BlockSectionHeader.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EnvironmentElements\I_BE2_ProgrammingEnv.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Variable.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_SlideForward.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\I_BE2_BlockSectionHeaderItem.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EditorScripts\BE2_Inspector.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\Variable\BE2_UI_VariableViewer.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\I_BE2_UI_ContextMenu.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_List.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\BlockSections\I_BE2_BlockSectionBody.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Xor.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\VirtualJoystick\BE2_VirtualJoystick.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_Label.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\I_BE2_BlockSectionHeaderInput.cs" />
-    <Compile Include="Assets\Scripts\WebGLDeviceConnection.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_ValueAtIndexAtList.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RotateAxis.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Nand.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_ContextMenuManager.cs" />
-    <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_TranslateToPosition.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\BlocksEngine2\Scripts\EditorScripts\InstructionScriptTemplate.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <Compile Include="Assets\BlocksEngine2\Scripts\EditorScripts\Editor\BE2_Editor_BlocksStack.cs" />
+    <Compile Include="Assets\BlocksEngine2\Scripts\EditorScripts\Editor\BE2_Editor_Inspector.cs" />
+    <Compile Include="Assets\Scripts\Grid\Editor\GridInspectorLogic.cs" />
+    <Compile Include="Assets\Scripts\Grid\Editor\ScriptableDictionaryEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -499,8 +281,44 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\PlaybackEngines\WebGLSupport\UnityEditor.WebGL.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UWP.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\PlaybackEngines\MetroSupport\UnityEditor.UWP.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.7\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.7\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="log4netPlastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.7\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -856,6 +674,12 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -888,6 +712,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{542A1B97-2C5E-5F7D-B869-76B45B8A107A}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
