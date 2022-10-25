@@ -21,6 +21,13 @@ public class programUI : MonoBehaviour
     public GameObject Microbitintro;
     public GameObject Expansionintro;
     public GameObject Jumpintro;
+
+    public GameObject sliderJack;
+    public GameObject sliderdiv;
+    public GameObject sliderHead;
+
+    private bool[] sliderJackiftrue = new bool[2];
+    private bool[] sliderdivingiftrue = new bool[2];
     private enum panelstage { Compo,Jack,Dive,Head};
     panelstage stagenow = panelstage.Compo;
 
@@ -79,13 +86,13 @@ public class programUI : MonoBehaviour
                 checkifreadall();
                 break;
             case panelstage.Jack:
-                checkifhammermovefine();
+                //checkifhammermovefine();
                 break;
             case panelstage.Dive:
-                
+                //checkifdivinggearfine();
                 break;
             case panelstage.Head:
-                
+                //checkifHeadLampfine();
                 break;
         }
     }
@@ -171,7 +178,63 @@ public class programUI : MonoBehaviour
     public void checkifhammermovefine()
     {
 
+
+    }
+    public void checkifdivinggearfine()
+    {
+
+    }
+    public void checkifHeadLampfine()
+    {
+
         //set to next stage
-        buttondive.GetComponent<Button>().interactable = true;
+        
+    }
+
+
+    public void sliderforDivingGear(float a)
+    {
+
+        sliderdiv.GetComponent<Slider>().value = a;
+        if (a == 1.0f)
+        {
+            sliderdivingiftrue[0] = true;
+        }
+
+        if (sliderdivingiftrue[0] == true && a == 0.0f)
+        {
+            sliderdivingiftrue[1] = true;
+        }
+
+        //set to next stage
+        if (sliderdivingiftrue[0] == true && sliderdivingiftrue[1] == true)
+            buttonHead.GetComponent<Button>().interactable = true;
+
+    }
+    public void sliderforJackhamer(float a)
+    {
+
+        sliderJack.GetComponent<Slider>().value = a;
+        
+        if (a == 1.0f)
+        {
+            sliderJackiftrue[0] = true;
+        }
+
+        if (sliderJackiftrue[0] == true && a == 0.0f)
+        {
+            sliderJackiftrue[1] = true;
+        }
+
+        //set to next stage
+        if (sliderJackiftrue[0] == true && sliderJackiftrue[1] == true)
+            buttondive.GetComponent<Button>().interactable = true;
+
+    }
+    public void sliderforHeadLamp(float a)
+    {
+
+        sliderHead.GetComponent<Slider>().value = a;
+
     }
 }
