@@ -9,8 +9,9 @@ public class programUI : MonoBehaviour
 {
     private static programUI _instance;
     public static programUI Instance { get { return _instance; } }
-    //[SerializeField] private Canvas canvas;
-    //public RectTransform rectTransform;
+
+    //=============Wiring==============//
+    
     public GameObject panelCompo;
     public GameObject panelJack;
     public GameObject paneldive;
@@ -26,18 +27,44 @@ public class programUI : MonoBehaviour
     public GameObject Sliderintro;
     public GameObject Photointro;
     public GameObject Waterintro;
+    public GameObject jackintro1;
+    public GameObject jackintro2;
+    public GameObject jackintro3;
 
     public GameObject sliderJack;
     public GameObject sliderdiv;
     public GameObject sliderHead;
 
+    public GameObject buttonCheckWiring;
+    public GameObject PanelForWiring;
+    public GameObject PanelForprogramming;
+
     private bool[] sliderJackiftrue = new bool[2];
     private bool[] sliderdivingiftrue = new bool[2];
     private bool[] sliderheadiftrue = new bool[2];
-    private enum panelstage { Compo,Jack,Dive,Head};
+    private enum panelstage { Compo,Jack,Dive,Head,ViewCode,ViewData};
     panelstage stagenow = panelstage.Compo;
 
     private bool[] imageread = new bool[6];
+
+
+    //============programming===========//
+    public GameObject viewinputData;
+    public GameObject viewdeviceCode;
+    public GameObject viewinputDatabutton;
+    public GameObject viewdeviceCodebutton;
+    public GameObject viewdevicedemobutton;
+    public GameObject backbutton;
+
+    public GameObject paneljackProgramming;
+    public GameObject paneldivProgramming;
+    public GameObject panelheadlampProgramming;
+    public GameObject paneljackinputdata;
+    public GameObject paneldivinputdata;
+    public GameObject panelheadlampinputdata;
+
+    public GameObject paneldemoProgramming;
+    
 
     void Awake()
     {
@@ -92,6 +119,8 @@ public class programUI : MonoBehaviour
     {
         throw new System.NotImplementedException();
     }*/
+
+    //=============Wiring==============//
     public void Wiringchanger()
     {
         switch (stagenow)
@@ -213,6 +242,14 @@ public class programUI : MonoBehaviour
     {
         Waterintro.SetActive(false);
     }
+    public void wiringintroopen(GameObject objinto)
+    {
+        objinto.SetActive(true);
+    }
+    public void wiringintroclose(GameObject objinto)
+    {
+        objinto.SetActive(false);
+    }
     public void checkifreadall()
     {
         foreach(var af in imageread)
@@ -242,7 +279,6 @@ public class programUI : MonoBehaviour
         //set to next stage
         
     }
-
 
     public void sliderforDivingGear(float a)
     {
@@ -288,4 +324,82 @@ public class programUI : MonoBehaviour
         sliderHead.GetComponent<Slider>().value = a2;
 
     }
+    public void moveontopragramming()
+    {
+        PanelForWiring.SetActive(false);
+        PanelForprogramming.SetActive(true);
+        stagenow = panelstage.ViewCode;
+    }
+
+
+    //=============Programming==============//
+
+    public void jackhammerprogrammingpressed()
+    {
+        paneljackProgramming.SetActive(true);
+        paneldivProgramming.SetActive(false);
+        panelheadlampProgramming.SetActive(false);
+    }
+    public void divinggearprogrammingpressed()
+    {
+        paneljackProgramming.SetActive(false);
+        paneldivProgramming.SetActive(true);
+        panelheadlampProgramming.SetActive(false);
+    }
+    public void headlampprogrammingpressed()
+    {
+        paneljackProgramming.SetActive(false);
+        paneldivProgramming.SetActive(false);
+        panelheadlampProgramming.SetActive(true);
+    }
+
+    public void jackhammershowdatapressed()
+    {
+        paneljackinputdata.SetActive(true);
+        paneldivinputdata.SetActive(false);
+        panelheadlampinputdata.SetActive(false);
+    }
+    public void divinggearshowdatapressed()
+    {
+        paneljackinputdata.SetActive(false);
+        paneldivinputdata.SetActive(true);
+        panelheadlampinputdata.SetActive(false);
+    }
+    public void headlampshowdatapressed()
+    {
+        paneljackinputdata.SetActive(false);
+        paneldivinputdata.SetActive(false);
+        panelheadlampinputdata.SetActive(true);
+    }
+    public void viewinputdataClicked()
+    {
+        stagenow = panelstage.ViewData;
+        viewinputData.SetActive(true);
+        viewdeviceCode.SetActive(false);
+        viewinputDatabutton.SetActive(false);
+        viewdeviceCodebutton.SetActive(true);
+}
+    public void viewinputViewCodeClicked()
+    {
+        stagenow = panelstage.ViewCode;
+        viewinputData.SetActive(false);
+        viewdeviceCode.SetActive(true);
+        viewinputDatabutton.SetActive(true);
+        viewdeviceCodebutton.SetActive(false);
+    }
+    public void viewDevicedemoClicked()
+    {
+        paneldemoProgramming.SetActive(true);
+        viewdevicedemobutton.SetActive(false);
+        backbutton.SetActive(true);
+
+    }
+    public void backbuttonprogrammingClicked()
+    {
+        paneldemoProgramming.SetActive(false);
+        viewdevicedemobutton.SetActive(true);
+        backbutton.SetActive(false);
+
+    }
+
 }
