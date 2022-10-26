@@ -361,7 +361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6f76a38c27fa14f4284916fa38def957, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d49439e1bc3a48240b2864d33adda749, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2008,6 +2008,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   sliderValueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  waterValueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  lightValueEvent:
     m_PersistentCalls:
       m_Calls: []
   text: {fileID: 1718994638}

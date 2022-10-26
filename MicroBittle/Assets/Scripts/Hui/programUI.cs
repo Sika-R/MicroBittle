@@ -248,12 +248,12 @@ public class programUI : MonoBehaviour
     {
 
         sliderdiv.GetComponent<Slider>().value = a;
-        if (a == 1.0f)
+        if (a > 0.0f)
         {
             sliderdivingiftrue[0] = true;
         }
 
-        if (sliderdivingiftrue[0] == true && a == 0.0f)
+        if (sliderdivingiftrue[0] == true && a < 0.0f)
         {
             sliderdivingiftrue[1] = true;
         }
@@ -263,16 +263,16 @@ public class programUI : MonoBehaviour
             buttonHead.GetComponent<Button>().interactable = true;
 
     }
-    public void sliderforJackhamer(float a1)
+    public void sliderforJackhamer(float a)
     {
-        sliderJack.GetComponent<Slider>().value = a1;
+        sliderJack.GetComponent<Slider>().value = a;
         
-        if (a1 == 1.0f)
+        if (a == 1.0f)
         {
             sliderJackiftrue[0] = true;
         }
 
-        if (sliderJackiftrue[0] == true && a1 == 0.0f)
+        if (sliderJackiftrue[0] == true && a == 0.0f)
         {
             sliderJackiftrue[1] = true;
         }
