@@ -24,6 +24,8 @@ public enum MicrobitEventType
 public class MovementEvent : UnityEvent<MovementDirections>{}
 [System.Serializable]
 public class InputEvent : UnityEvent<float, ObstacleType>{}
+[System.Serializable]
+public class SliderEvent : UnityEvent<float>{}
 public class WebGLDeviceConnection : MonoBehaviour
 {
     private static WebGLDeviceConnection _instance;
@@ -39,6 +41,7 @@ public class WebGLDeviceConnection : MonoBehaviour
     public UnityEvent pressAEvent = new UnityEvent();
     public UnityEvent pressBEvent;
     public InputEvent sliderEvent;
+    public SliderEvent sliderValueEvent;
     bool isParsing = false;
     [SerializeField]
     Text text;
@@ -58,9 +61,21 @@ public class WebGLDeviceConnection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pressAEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(true));
-        pressBEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(false));
-        sliderEvent.AddListener(ObstacleMgr.Instance.getInput);
+        if(OutfitMgr.Instance)
+        {
+            pressAEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(true));
+            pressBEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(false));
+        }
+        if(ObstacleMgr.Instance)
+        {
+            sliderEvent.AddListener(ObstacleMgr.Instance.getInput);
+        }
+        if(programUI.Instance)
+        {
+            sliderValueEvent.AddListener(programUI.Instance.sliderforJackhamer);
+            sliderValueEvent.AddListener(programUI.Instance.sliderforDivingGear);
+            sliderValueEvent.AddListener(programUI.Instance.sliderforHeadLamp);
+        }
         // pressAEvent.AddListener(() => ObstacleMgr.Instance.getInput(1, ObstacleType.ButtonA));
     }
 
@@ -69,8 +84,13 @@ public class WebGLDeviceConnection : MonoBehaviour
     {
         if(Input.GetMouseButton(1))
         {
-            OpenPort();
-            text.text += "Try\n";
+            ParseLine("61024");
+            // OpenPort();
+            if(text)
+            {
+                text.text += "Try\n";
+            }
+            
         }
         if(Input.GetMouseButtonDown(2))
         {
@@ -102,7 +122,11 @@ public class WebGLDeviceConnection : MonoBehaviour
             inputBuffer.Remove(0, idx + 1);
             ParseLine(input);
         }
-        text.text = inputBuffer.ToString();
+        if(text)
+        {
+            text.text = inputBuffer.ToString();
+        }
+        
     }
 
     private void ParseLine(string str)
@@ -140,6 +164,7 @@ public class WebGLDeviceConnection : MonoBehaviour
                     sliderValue /= 20;
                     text.text += "Slider: " + sliderValue + " \n";
                     sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                    sliderValueEvent.Invoke(Mathf.Floor(sliderValue / 50));
                     break;
                 case MicrobitEventType.Humid:
                     float waterLvl = float.Parse(str.Substring(1));

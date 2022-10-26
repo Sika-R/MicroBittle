@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class programUI : MonoBehaviour
     //, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    private static programUI _instance;
+    public static programUI Instance { get { return _instance; } }
     //[SerializeField] private Canvas canvas;
     //public RectTransform rectTransform;
     public GameObject panelCompo;
@@ -38,6 +40,14 @@ public class programUI : MonoBehaviour
 
     void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            _instance = this;
+        }
         //rectTransform = GetComponent<RectTransform>();
     }
     void Start()
@@ -254,7 +264,6 @@ public class programUI : MonoBehaviour
     }
     public void sliderforJackhamer(float a)
     {
-
         sliderJack.GetComponent<Slider>().value = a;
         
         if (a == 1.0f)
