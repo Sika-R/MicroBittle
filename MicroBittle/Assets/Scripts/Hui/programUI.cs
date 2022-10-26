@@ -33,6 +33,7 @@ public class programUI : MonoBehaviour
 
     private bool[] sliderJackiftrue = new bool[2];
     private bool[] sliderdivingiftrue = new bool[2];
+    private bool[] sliderheadiftrue = new bool[2];
     private enum panelstage { Compo,Jack,Dive,Head};
     panelstage stagenow = panelstage.Compo;
 
@@ -262,16 +263,16 @@ public class programUI : MonoBehaviour
             buttonHead.GetComponent<Button>().interactable = true;
 
     }
-    public void sliderforJackhamer(float a)
+    public void sliderforJackhamer(float a1)
     {
-        sliderJack.GetComponent<Slider>().value = a;
+        sliderJack.GetComponent<Slider>().value = a1;
         
-        if (a == 1.0f)
+        if (a1 == 1.0f)
         {
             sliderJackiftrue[0] = true;
         }
 
-        if (sliderJackiftrue[0] == true && a == 0.0f)
+        if (sliderJackiftrue[0] == true && a1 == 0.0f)
         {
             sliderJackiftrue[1] = true;
         }
@@ -281,10 +282,10 @@ public class programUI : MonoBehaviour
             buttondive.GetComponent<Button>().interactable = true;
 
     }
-    public void sliderforHeadLamp(float a)
+    public void sliderforHeadLamp(float a2)
     {
 
-        sliderHead.GetComponent<Slider>().value = a;
+        sliderHead.GetComponent<Slider>().value = a2;
 
     }
 }

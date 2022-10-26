@@ -94,6 +94,7 @@ public class WebGLDeviceConnection : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(2))
         {
+            ParseLine("60");
             pressAEvent.Invoke();
         }
 
