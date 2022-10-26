@@ -21,6 +21,9 @@ public class programUI : MonoBehaviour
     public GameObject Microbitintro;
     public GameObject Expansionintro;
     public GameObject Jumpintro;
+    public GameObject Sliderintro;
+    public GameObject Photointro;
+    public GameObject Waterintro;
 
     public GameObject sliderJack;
     public GameObject sliderdiv;
@@ -31,7 +34,7 @@ public class programUI : MonoBehaviour
     private enum panelstage { Compo,Jack,Dive,Head};
     panelstage stagenow = panelstage.Compo;
 
-    private bool[] imageread = new bool[2];
+    private bool[] imageread = new bool[6];
 
     void Awake()
     {
@@ -162,6 +165,42 @@ public class programUI : MonoBehaviour
     public void expanclose()
     {
         Expansionintro.SetActive(false);
+    }
+    public void jumpintro()
+    {
+        Jumpintro.SetActive(true);
+        imageread[2] = true;
+    }
+    public void jumpclose()
+    {
+        Jumpintro.SetActive(false);
+    }
+    public void slderintro()
+    {
+        Sliderintro.SetActive(true);
+        imageread[3] = true;
+    }
+    public void sliderclose()
+    {
+        Sliderintro.SetActive(false);
+    }
+    public void photointro()
+    {
+        Photointro.SetActive(true);
+        imageread[4] = true;
+    }
+    public void photoclose()
+    {
+        Photointro.SetActive(false);
+    }
+    public void waterintro()
+    {
+        Waterintro.SetActive(true);
+        imageread[5] = true;
+    }
+    public void waterclose()
+    {
+        Waterintro.SetActive(false);
     }
     public void checkifreadall()
     {
