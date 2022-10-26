@@ -213,6 +213,8 @@ public class programUI : MonoBehaviour
         }
         //set to next stage
         buttonJack.GetComponent<Button>().interactable = true;
+        //change mentor text
+
     }
     public void checkifhammermovefine()
     {
