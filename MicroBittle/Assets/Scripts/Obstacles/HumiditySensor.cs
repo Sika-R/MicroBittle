@@ -19,10 +19,16 @@ public class HumiditySensor : Obstacle
 
     public void OnTriggerStay(Collider other)
     {
-        if(OutfitMgr.Instance.currentObstacleType != ObstacleType.Humid) return;
+        if (other.gameObject.tag != "Player")
+        {
+            return;
+        }
+        if (OutfitMgr.Instance.currentObstacleType != ObstacleType.Humid) return;
         if(!OutfitMgr.Instance.divingSuits[2].activeSelf)
         {
             PlayerMovement.Instance.canPass = ObstacleType.None;
+            PlayerMovement.Instance.PlayerFreeze();
+            SoundMgr.Instance.PlayAudio("teethChatter");
         }
         else
         {
@@ -30,8 +36,12 @@ public class HumiditySensor : Obstacle
         }
         
     }
-    public override bool getInput(float inputVal)
+    public override bool getInput(float inputVal, ObstacleType obstacleType)
     {
+        if (obstacleType != this.obstacleType)
+        {
+            return false;
+        }
         if(OutfitMgr.Instance.currentObstacleType != ObstacleType.Humid) return false;
         /*for (int i = 0; i < inputValues.Count; ++i)
         {
