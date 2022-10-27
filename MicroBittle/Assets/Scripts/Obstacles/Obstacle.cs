@@ -76,7 +76,7 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    public virtual bool getInput(float inputVal)
+    public virtual bool getInput(float inputVal, ObstacleType obstacleType)
     {
         if (inputVal > minInput)
         {
@@ -88,16 +88,23 @@ public class Obstacle : MonoBehaviour
         return false;
     }
 
+
     /*private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Enter");
         collisonEvent(collision);
     }*/
-    private void OnTriggerEnter(Collider collider)
+    public void OnTriggerEnter(Collider collider)
     {
         //Debug.Log("Enter");
         collisonEvent(collider);
     }
+
+    public void OnTriggerExit(Collider other)
+    {
+        exitTriggerEvent(other);
+    }
+
     public void collisonEvent(Collider collider)
     // public void collisonEvent(Collision collision)
     {
@@ -108,6 +115,13 @@ public class Obstacle : MonoBehaviour
         }
     }
 
+    public void exitTriggerEvent(Collider collider)
+    {
+        if (collider.gameObject.tag == "Player" && !isMovingWithMouse)
+        {
+            ObstacleMgr.Instance.setCurrentEncounteredObstacle(null);
+        }
+    }
 
     private void OnCollisionStay(Collision collision)
     {

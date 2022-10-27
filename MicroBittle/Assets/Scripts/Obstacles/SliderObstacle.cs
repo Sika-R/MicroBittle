@@ -23,8 +23,12 @@ public class SliderObstacle : Obstacle
     {
         collisonEvent(collision);
     }*/
-    public override bool getInput(float inputVal)
+    public override bool getInput(float inputVal, ObstacleType obstacleType)
     {
+        if (obstacleType != this.obstacleType)
+        {
+            return false;
+        }
         if (OutfitMgr.Instance.currentObstacleType != ObstacleType.Slider) return false;
         if (!isInCoroutine)
         {

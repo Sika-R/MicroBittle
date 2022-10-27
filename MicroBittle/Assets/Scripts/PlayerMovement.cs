@@ -14,6 +14,8 @@ public enum MovementDirections
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance;
+    bool _isFreezing = false;
+    public bool isFreezing { get { return _isFreezing; } }
     bool isMoving = false;
     Vector2 curIdx;
     Vector3 origPos;
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float timeToMove = 0.1f;
     public ObstacleType canPass = ObstacleType.None;
+    [SerializeField] float freezeTime = 1.0f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_isFreezing)
+        {
+            return;
+        }
         if(Input.GetKey(KeyCode.W) && !isMoving)
         {
             StartMovement(MovementDirections.Up);
@@ -138,5 +145,21 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.position = targetPos;
         isMoving = false;
+    }
+
+    public void PlayerFreeze()
+    {
+        if (_isFreezing)
+        {
+            return;
+        }
+        StartCoroutine(FreezePlayer());
+    }
+
+    private IEnumerator FreezePlayer()
+    {
+        _isFreezing = true;
+        yield return new WaitForSeconds(freezeTime);
+        _isFreezing = false;
     }
 }

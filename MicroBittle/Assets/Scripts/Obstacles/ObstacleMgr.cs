@@ -54,6 +54,11 @@ public class ObstacleMgr : MonoBehaviour
 
     public void getInput(float inputVal, ObstacleType obstacleType)
     {
+        if (PlayerMovement.Instance.isFreezing)
+        {
+            return;
+        }
+        /*
         if(OutfitMgr.Instance.currentObstacleType == ObstacleType.Humid && obstacleType == ObstacleType.Humid)
         {
             for(int i = 0; i < Mathf.Min(3, inputVal / 10); i++)
@@ -66,21 +71,19 @@ public class ObstacleMgr : MonoBehaviour
             }
 
         }
-        // OutfitMgr.Instance.chooseToolIcon(obstacleType);
+        */
+        OutfitMgr.Instance.chooseToolIcon(obstacleType);
         if (currentEncounteredObstacle == null)
         {
             return;
         }
-        if (obstacleType != currentEncounteredObstacle.obstacleType)
-        {
-            return;
-        }
-        //foreach (Obstacle script in currentEncounteredObstacle.GetComponents<Obstacle>())
+        //if (obstacleType != currentEncounteredObstacle.obstacleType)
         //{
-        if (currentEncounteredObstacle.getInput(inputVal))
+        //    return;
+        //}
+        if (currentEncounteredObstacle.getInput(inputVal, obstacleType))
         {
             currentEncounteredObstacle = null;
         }
-        //}
     }
 }
