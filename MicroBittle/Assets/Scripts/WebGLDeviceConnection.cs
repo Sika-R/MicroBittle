@@ -24,6 +24,8 @@ public enum MicrobitEventType
 public class MovementEvent : UnityEvent<MovementDirections>{}
 [System.Serializable]
 public class InputEvent : UnityEvent<float, ObstacleType>{}
+[System.Serializable]
+public class FloatEvent : UnityEvent<float>{}
 public class WebGLDeviceConnection : MonoBehaviour
 {
     private static WebGLDeviceConnection _instance;
@@ -39,9 +41,13 @@ public class WebGLDeviceConnection : MonoBehaviour
     public UnityEvent pressAEvent = new UnityEvent();
     public UnityEvent pressBEvent;
     public InputEvent sliderEvent;
+    public FloatEvent sliderValueEvent;
+    public FloatEvent waterValueEvent;
+    public FloatEvent lightValueEvent;
     bool isParsing = false;
     [SerializeField]
     Text text;
+    bool temp = false;
 
     StringBuilder inputBuffer = new StringBuilder("");
     void Awake()
@@ -58,24 +64,62 @@ public class WebGLDeviceConnection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pressAEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(true));
-        pressBEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(false));
-        sliderEvent.AddListener(ObstacleMgr.Instance.getInput);
+        if(OutfitMgr.Instance)
+        {
+            pressAEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(true));
+            pressBEvent.AddListener(() => OutfitMgr.Instance.ChangeOutfit(false));
+        }
+        if(ObstacleMgr.Instance)
+        {
+            sliderEvent.AddListener(ObstacleMgr.Instance.getInput);
+        }
+        if(programUI.Instance)
+        {
+            sliderValueEvent.AddListener(programUI.Instance.sliderforJackhamer);
+            waterValueEvent.AddListener(programUI.Instance.sliderforDivingGear);
+            lightValueEvent.AddListener(programUI.Instance.sliderforHeadLamp);
+        }
         // pressAEvent.AddListener(() => ObstacleMgr.Instance.getInput(1, ObstacleType.ButtonA));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButton(1))
+        if(Input.GetMouseButtonDown(1))
         {
-            OpenPort();
-            text.text += "Try\n";
+            if(temp)
+            {
+                ParseLine("61024");
+                temp = false;
+            }
+            else
+            {
+                ParseLine("60");
+                temp = true;
+            }
+            
+            // OpenPort();
+            if(text)
+            {
+                text.text += "Try\n";
+            }
+            
         }
         if(Input.GetMouseButtonDown(2))
         {
+            if(temp)
+            {
+                ParseLine("71024");
+                temp = false;
+            }
+            else
+            {
+                ParseLine("70");
+                temp = true;
+            }
             pressAEvent.Invoke();
         }
+        
 
     }
 
@@ -102,7 +146,11 @@ public class WebGLDeviceConnection : MonoBehaviour
             inputBuffer.Remove(0, idx + 1);
             ParseLine(input);
         }
-        text.text = inputBuffer.ToString();
+        if(text)
+        {
+            text.text = inputBuffer.ToString();
+        }
+        
     }
 
     private void ParseLine(string str)
@@ -140,12 +188,14 @@ public class WebGLDeviceConnection : MonoBehaviour
                     sliderValue /= 20;
                     text.text += "Slider: " + sliderValue + " \n";
                     sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                    sliderValueEvent.Invoke(Mathf.Floor(sliderValue / 50));
                     break;
                 case MicrobitEventType.Humid:
                     float waterLvl = float.Parse(str.Substring(1));
                     waterLvl = (1000 - waterLvl) / 7; 
                     text.text += "Water: " + waterLvl + " \n";
                     sliderEvent.Invoke(waterLvl, ObstacleType.Humid);
+                    waterValueEvent.Invoke(Mathf.Floor(waterLvl / 30));
                     break;
 
             }
