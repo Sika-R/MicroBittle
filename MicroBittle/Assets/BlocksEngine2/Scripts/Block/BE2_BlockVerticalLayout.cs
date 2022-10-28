@@ -72,13 +72,15 @@ namespace MG_BlocksEngine2.Block
 
         void OnEnable()
         {
+            if(BE2_ExecutionManager.Instance)
             // v2.9 - Blocsk layout update is now executed by the execution manager
-            BE2_ExecutionManager.Instance.AddToLateUpdate(UpdateLayout);
+                BE2_ExecutionManager.Instance.AddToLateUpdate(UpdateLayout);
         }
         void OnDisable()
         {
+            if(BE2_ExecutionManager.Instance)
             // v2.9 - Blocsk layout update is now executed by the execution manager
-            BE2_ExecutionManager.Instance?.RemoveFromLateUpdate(UpdateLayout);
+                BE2_ExecutionManager.Instance?.RemoveFromLateUpdate(UpdateLayout);
         }
 
         public void Initialize()

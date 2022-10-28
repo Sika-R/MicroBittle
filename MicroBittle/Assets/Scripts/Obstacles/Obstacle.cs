@@ -127,4 +127,9 @@ public class Obstacle : MonoBehaviour
     {
         return;
     }
+
+    public virtual void SetBoundary(List<float> values)
+    { 
+        return;
+    }
 }

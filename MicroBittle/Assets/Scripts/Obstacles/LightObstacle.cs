@@ -16,6 +16,10 @@ public class LightObstacle : Obstacle
         myCollider = GetComponent<SphereCollider>();
         myCollider.radius = radius;
         player = GameObject.FindGameObjectWithTag("Player");
+        if(ParamManager.Instance)
+        {
+            SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.headlamp));
+        }
     }
 
     // Update is called once per frame
@@ -54,5 +58,10 @@ public class LightObstacle : Obstacle
             }
         }
         return false;
+    }
+
+    public override void SetBoundary(List<float> values)
+    { 
+        minInput = (int)values[0];
     }
 }

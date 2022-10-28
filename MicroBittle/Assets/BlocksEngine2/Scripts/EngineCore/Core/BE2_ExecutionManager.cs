@@ -103,8 +103,13 @@ namespace MG_BlocksEngine2.Core
         void Update()
         {
             // v2.7 - Execution Manager agregates the Pointer and Input Manager updates to be execute in the same update call to improve performance 
-            _pointer.OnUpdate();
+            if(BE2_Pointer.Instance)
+            {
+                _pointer.OnUpdate();
+            }
             _inputManager.OnUpdate();
+            
+            
 
             // v2.9 - added possibility to run the block instructions in FixedUpdate by adding BE2_FIXED_UPDATE_INSTRUCTIONS scripting define symbol 
 #if !BE2_FIXED_UPDATE_INSTRUCTIONS

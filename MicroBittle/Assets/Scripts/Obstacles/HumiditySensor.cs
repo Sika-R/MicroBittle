@@ -9,6 +9,11 @@ public class HumiditySensor : Obstacle
     void Start()
     {
         InitializeObstacle();
+        if(ParamManager.Instance)
+        {
+            SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.divinggear));
+        }
+        
     }
 
     // Update is called once per frame
@@ -56,6 +61,14 @@ public class HumiditySensor : Obstacle
         // gameObject.SetActive(false);
         return true;
     }
+
+    public override void SetBoundary(List<float> values)
+    { 
+        inputValues[0] = (int)values[0];
+        inputValues[1] = (int)values[3];
+        inputValues[2] = (int)values[6];
+    }
+
 
     /*private void OnCollisionEnter(Collision collision)
     {

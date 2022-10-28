@@ -40,12 +40,14 @@ namespace MG_BlocksEngine2.Block
 
         void OnEnable()
         {
-            _dragDropManager.AddToSpotsList(this);
+            if(_dragDropManager)
+                _dragDropManager.AddToSpotsList(this);
         }
 
         void OnDisable()
         {
-            _dragDropManager.RemoveFromSpotsList(this);
+            if(_dragDropManager)
+                _dragDropManager.RemoveFromSpotsList(this);
         }
     }
 }
