@@ -12,6 +12,10 @@ public class SliderObstacle : Obstacle
     void Start()
     {
         InitializeObstacle();
+        if(ParamManager.Instance)
+        {
+            SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.jackhammer));
+        }
     }
 
     // Update is called once per frame
@@ -56,6 +60,13 @@ public class SliderObstacle : Obstacle
         isInCoroutine = true;
         yield return new WaitForSeconds(slideTime);
         isInCoroutine = false;
+    }
+
+    public override void SetBoundary(List<float> values)
+    { 
+        startValue = (int)values[0];
+        endValue = (int)values[1];
+        slideTime = (int)values[2];
     }
 
 }
