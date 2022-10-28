@@ -34,6 +34,11 @@ public class lookchanger : MonoBehaviour
     public GameObject panelShape;
     public GameObject panelColor;
     public int curUI = 1;
+
+    public GameObject namepanel;
+    public GameObject afternamepanel;
+    public Text namelabel;
+    public Text namedtext;
     void Start()
     {
        // meshtochange = meshchange.GetComponent<MeshFilter>();
@@ -240,9 +245,17 @@ public class lookchanger : MonoBehaviour
     public void saveasprefab()
     {
         PrefabUtility.SaveAsPrefabAsset(gameObjectListtosave[currentOptionForMesh],"Assets/Player.prefab");
+        Debug.Log(currentOptionForMesh);
         //AssetDatabase.CreateAsset(newmaterial, "Assets/Player.mat");
         //AssetDatabase.SaveAssets();
         //AssetDatabase.Refresh();
+    }
+    public void namebuttonClicked()
+    {
+        namelabel.text = namedtext.text;
+        namepanel.SetActive(false);
+        afternamepanel.SetActive(true);
+        
     }
 
 }
