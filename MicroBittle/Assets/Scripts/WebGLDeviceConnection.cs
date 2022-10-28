@@ -116,22 +116,23 @@ public class WebGLDeviceConnection : MonoBehaviour
                 ParseLine("50");
                 temp = true;
             }
-            pressAEvent.Invoke();
+            // pressAEvent.Invoke();
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+
+        if(Input.GetMouseButtonDown(0))
         {
-            if (temp)
+            if(temp)
             {
-                ParseLine("71024");
+                ParseLine("61024");
                 temp = false;
             }
             else
             {
-                ParseLine("70");
+                ParseLine("60");
                 temp = true;
             }
-            pressAEvent.Invoke();
+            // pressAEvent.Invoke();
         }
 
     }

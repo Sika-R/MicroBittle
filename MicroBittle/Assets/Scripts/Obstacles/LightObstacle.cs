@@ -37,26 +37,40 @@ public class LightObstacle : Obstacle
 
     public override bool getInput(float inputVal, ObstacleType obstacleType)
     {
-        if (obstacleType == ObstacleType.Slider)
+        Debug.Log(obstacleType);
+        if(obstacleType == OutfitMgr.Instance.currentObstacleType)
         {
-            if (inputVal > minInput)
+            if(obstacleType != ObstacleType.Light)
+            // if (obstacleType == ObstacleType.Slider)
             {
-                if (Vector3.Distance(player.transform.position, transform.position) <= playerCollideRadius)
+                PlayerMovement.Instance.canPass = ObstacleType.None;
+                if (inputVal > minInput)
                 {
-                    ScarePlayer();
+                    if (Vector3.Distance(player.transform.position, transform.position) <= playerCollideRadius)
+                    {
+                        PlayerMovement.Instance.canPass = ObstacleType.None;
+                        ScarePlayer();
+                    }
+                    //scream
                 }
-                //scream
-
+                return false;
             }
-            return false;
-        }
-        else if (obstacleType == ObstacleType.Light)
-        {
-            if (inputVal > minInput)
+            else if (obstacleType == ObstacleType.Light)
             {
-                 ScarePlayer();
+                if (inputVal > minInput)
+                {
+                    Debug.Log("??");
+                    ScarePlayer();
+                    PlayerMovement.Instance.canPass = ObstacleType.None;
+                }
+                else
+                {
+                    Debug.Log(">>");
+                    PlayerMovement.Instance.canPass = ObstacleType.Light;
+                }
             }
         }
+        
         return false;
     }
 
