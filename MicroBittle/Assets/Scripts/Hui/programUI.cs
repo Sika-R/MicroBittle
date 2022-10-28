@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class programUI : MonoBehaviour
     //, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
@@ -284,12 +285,12 @@ public class programUI : MonoBehaviour
     {
         // ??why >0 and < 0
         sliderdiv.GetComponent<Slider>().value = a;
-        if (a > 0.0f)
+        if (a >= sliderdiv.GetComponent<Slider>().maxValue)
         {
             sliderdivingiftrue[0] = true;
         }
 
-        if (sliderdivingiftrue[0] == true && a < 0.0f)
+        if (sliderdivingiftrue[0] == true && a <= sliderdiv.GetComponent<Slider>().minValue)
         {
             sliderdivingiftrue[1] = true;
         }
@@ -303,7 +304,7 @@ public class programUI : MonoBehaviour
     {
         sliderJack.GetComponent<Slider>().value = a;
         
-        if (a == sliderJack.GetComponent<Slider>().maxValue)
+        if (a >= sliderJack.GetComponent<Slider>().maxValue)
         {
             sliderJackiftrue[0] = true;
         }
@@ -422,5 +423,8 @@ public class programUI : MonoBehaviour
         backbutton.SetActive(false);
 
     }
-
+    public void movetonextScene()
+    {
+        SceneManager.LoadScene("SceneTest");
+    }
 }

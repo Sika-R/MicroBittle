@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DialogueSystem/Scenes/Hui/Start.unity
     guid: da758ced796fe2747bd39c967486c5f8
+  - enabled: 1
+    path: Assets/SceneTest.unity
+    guid: aa793eef34d726a47bcb748b57250e31
   m_configObjects: {}

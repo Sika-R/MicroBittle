@@ -88,12 +88,12 @@ public class WebGLDeviceConnection : MonoBehaviour
         {
             if(temp)
             {
-                ParseLine("61024");
+                ParseLine("41024");
                 temp = false;
             }
             else
             {
-                ParseLine("60");
+                ParseLine("40");
                 temp = true;
             }
             
@@ -108,6 +108,21 @@ public class WebGLDeviceConnection : MonoBehaviour
         {
             if(temp)
             {
+                ParseLine("51024");
+                temp = false;
+            }
+            else
+            {
+                ParseLine("50");
+                temp = true;
+            }
+            pressAEvent.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (temp)
+            {
                 ParseLine("71024");
                 temp = false;
             }
@@ -118,7 +133,6 @@ public class WebGLDeviceConnection : MonoBehaviour
             }
             pressAEvent.Invoke();
         }
-        
 
     }
 

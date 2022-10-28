@@ -289,6 +289,11 @@
     <Compile Include="Assets\Scripts\3C\Interaction\Interactable.cs" />
     <Compile Include="Assets\Scripts\Narration\Dialogue\Data\Nodes\ChoiceDialogueNode.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
+    <Compile Include="Assets\Scripts\BlockCoding\JackHammerParamController.cs" />
+    <Compile Include="Assets\Scripts\BlockCoding\HeadLampParamController.cs" />
+    <Compile Include="Assets\Scripts\BlockCoding\DivingGearParamController.cs" />
+    <Compile Include="Assets\Scripts\BlockCoding\ParamManager.cs" />
+    <Compile Include="Assets\Scripts\BlockCoding\ParamController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

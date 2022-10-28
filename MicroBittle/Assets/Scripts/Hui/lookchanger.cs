@@ -249,6 +249,7 @@ public class lookchanger : MonoBehaviour
         //AssetDatabase.CreateAsset(newmaterial, "Assets/Player.mat");
         //AssetDatabase.SaveAssets();
         //AssetDatabase.Refresh();
+        SceneManager.LoadScene("program");
     }
     public void namebuttonClicked()
     {
@@ -256,6 +257,10 @@ public class lookchanger : MonoBehaviour
         namepanel.SetActive(false);
         afternamepanel.SetActive(true);
         
+    }
+    public void changetoWiring()
+    {
+        SceneManager.LoadScene("program");
     }
 
 }
