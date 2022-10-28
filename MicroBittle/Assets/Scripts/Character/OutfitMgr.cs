@@ -19,7 +19,11 @@ public class OutfitMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            ChangeOutfit(true);
+            Debug.Log("Current outfit: " + currentObstacleType);
+        }
     }
 
     private void Awake()
@@ -78,7 +82,6 @@ public class OutfitMgr : MonoBehaviour
     {
         int newOutfitIdx = allPossibleTypes.IndexOf(currentObstacleType) + (isLeft ? -1 : 1);
         int cnt = allPossibleTypes.Count;
-        Debug.Log((newOutfitIdx + cnt) % cnt);
         ObstacleType newType = allPossibleTypes[(newOutfitIdx + cnt) % cnt];
         chooseToolIcon(newType);
     }

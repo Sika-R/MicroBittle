@@ -142,7 +142,11 @@ public class GridInspectorLogic : Editor
 	                	}
 	                	((DrawGrid)target).EditMaze(hitInfo.point, type);
 	                	initPoint.y += bottom.gameObject.GetComponent<BoxCollider>().size.y * bottom.localScale.y / 2;
-	                	initPoint.y += prefab.GetComponent<BoxCollider>().size.y * prefab.transform.localScale.y / 2 * ((DrawGrid)target).m_gridSize;
+	                	if(prefab.GetComponent<BoxCollider>())
+	                	{
+		                	initPoint.y += prefab.GetComponent<BoxCollider>().size.y * prefab.transform.localScale.y / 2 * ((DrawGrid)target).m_gridSize;
+	                	}
+
 	                	GameObject newobj = Instantiate(prefab, initPoint, Quaternion.Euler(0, 0, 0), ((DrawGrid)target).transform) as GameObject;  //设置障碍 
                 		newobj.transform.localScale = newobj.transform.localScale = ((DrawGrid)target).m_gridSize * newobj.transform.localScale;
                 		Undo.RegisterCreatedObjectUndo(newobj, "NewObject");

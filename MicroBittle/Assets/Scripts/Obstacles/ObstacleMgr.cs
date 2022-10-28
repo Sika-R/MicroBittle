@@ -58,7 +58,7 @@ public class ObstacleMgr : MonoBehaviour
         {
             return;
         }
-        /*
+        // TODO:Fix this!!!
         if(OutfitMgr.Instance.currentObstacleType == ObstacleType.Humid && obstacleType == ObstacleType.Humid)
         {
             for(int i = 0; i < Mathf.Min(3, inputVal / 10); i++)
@@ -71,7 +71,7 @@ public class ObstacleMgr : MonoBehaviour
             }
 
         }
-        */
+        
         OutfitMgr.Instance.chooseToolIcon(obstacleType);
         if (currentEncounteredObstacle == null)
         {

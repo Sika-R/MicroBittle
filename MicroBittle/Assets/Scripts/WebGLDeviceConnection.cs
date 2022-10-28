@@ -14,10 +14,9 @@ public enum MicrobitEventType
     Disconnected = 1,
     ButtonAPressed = 2,
     ButtonBPressed = 3,
-    LightLvl = 4,
-    Accelerometer = 5,
-    Slider = 6,
-    Humid = 7,
+    P0 = 4,
+    P1 = 5,
+    P2 = 6
 };
 
 [System.Serializable]
@@ -89,12 +88,12 @@ public class WebGLDeviceConnection : MonoBehaviour
         {
             if(temp)
             {
-                ParseLine("61024");
+                ParseLine("41024");
                 temp = false;
             }
             else
             {
-                ParseLine("60");
+                ParseLine("40");
                 temp = true;
             }
             
@@ -109,17 +108,32 @@ public class WebGLDeviceConnection : MonoBehaviour
         {
             if(temp)
             {
-                ParseLine("71024");
+                ParseLine("51024");
                 temp = false;
             }
             else
             {
-                ParseLine("70");
+                ParseLine("50");
                 temp = true;
             }
-            pressAEvent.Invoke();
+            // pressAEvent.Invoke();
         }
-        
+
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(temp)
+            {
+                ParseLine("61024");
+                temp = false;
+            }
+            else
+            {
+                ParseLine("60");
+                temp = true;
+            }
+            // pressAEvent.Invoke();
+        }
 
     }
 
@@ -168,7 +182,7 @@ public class WebGLDeviceConnection : MonoBehaviour
                 case MicrobitEventType.ButtonBPressed:
                     pressBEvent.Invoke();
                     break;
-                case MicrobitEventType.Accelerometer:
+                /*case MicrobitEventType.Accelerometer:
                     int movementDirection;
                     if(Int32.TryParse(str.Substring(1, 1), out movementDirection))
                     {
@@ -182,22 +196,32 @@ public class WebGLDeviceConnection : MonoBehaviour
                         Debug.Log("Can not parse direction: " + str);
                     }
                     
-                    break;
-                case MicrobitEventType.Slider:
+                    break;*/
+                case MicrobitEventType.P0:
                     float sliderValue = float.Parse(str.Substring(1));
-                    sliderValue /= 20;
+                    // sliderValue /= 20;
                     text.text += "Slider: " + sliderValue + " \n";
                     sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
-                    sliderValueEvent.Invoke(Mathf.Floor(sliderValue / 50));
+                    sliderValueEvent.Invoke(sliderValue);
+                    // sliderValueEvent.Invoke(Mathf.Floor(sliderValue / 50));
                     break;
-                case MicrobitEventType.Humid:
+                case MicrobitEventType.P1:
                     float waterLvl = float.Parse(str.Substring(1));
-                    waterLvl = (1000 - waterLvl) / 7; 
+                    waterLvl = 1024 - waterLvl;
+                    // waterLvl = (1000 - waterLvl) / 7; 
                     text.text += "Water: " + waterLvl + " \n";
                     sliderEvent.Invoke(waterLvl, ObstacleType.Humid);
-                    waterValueEvent.Invoke(Mathf.Floor(waterLvl / 30));
+                    waterValueEvent.Invoke(waterLvl);
+                    // waterValueEvent.Invoke(Mathf.Floor(waterLvl / 30));
                     break;
 
+                case MicrobitEventType.P2:
+                    float lightLvl = float.Parse(str.Substring(1));
+                    lightLvl = 1024 - lightLvl;
+                    text.text += "Light: " + lightLvl + " \n";
+                    sliderEvent.Invoke(lightLvl, ObstacleType.Light);
+                    lightValueEvent.Invoke(lightLvl);
+                    break;
             }
 
         }

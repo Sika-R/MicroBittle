@@ -15,7 +15,10 @@ public class BE2_Cst_FunctionJackhammer : BE2_InstructionBase, I_BE2_Instruction
     // ► Refer to the documentation for more on the variables and methods
 
     // ### Execution Methods ###
-
+    public void Update()
+    {
+        Debug.Log(Section0Inputs[0]);
+    }
     // --- Method used to implement Function Blocks (will only be called by types: simple, condition, loop, trigger)
     public new void Function()
     {

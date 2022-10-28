@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class programUI : MonoBehaviour
     //, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
@@ -282,14 +283,14 @@ public class programUI : MonoBehaviour
 
     public void sliderforDivingGear(float a)
     {
-
+        // ??why >0 and < 0
         sliderdiv.GetComponent<Slider>().value = a;
-        if (a > 0.0f)
+        if (a >= sliderdiv.GetComponent<Slider>().maxValue)
         {
             sliderdivingiftrue[0] = true;
         }
 
-        if (sliderdivingiftrue[0] == true && a < 0.0f)
+        if (sliderdivingiftrue[0] == true && a <= sliderdiv.GetComponent<Slider>().minValue)
         {
             sliderdivingiftrue[1] = true;
         }
@@ -303,12 +304,12 @@ public class programUI : MonoBehaviour
     {
         sliderJack.GetComponent<Slider>().value = a;
         
-        if (a == 1.0f)
+        if (a >= sliderJack.GetComponent<Slider>().maxValue)
         {
             sliderJackiftrue[0] = true;
         }
 
-        if (sliderJackiftrue[0] == true && a == 0.0f)
+        if (sliderJackiftrue[0] == true && a == sliderJack.GetComponent<Slider>().minValue)
         {
             sliderJackiftrue[1] = true;
         }
@@ -318,6 +319,27 @@ public class programUI : MonoBehaviour
             buttondive.GetComponent<Button>().interactable = true;
 
     }
+
+    public void setValueforSlider(FunctionType f, float min, float max)
+    {
+        if(f == FunctionType.jackhammer)
+        {
+            sliderJack.GetComponent<Slider>().maxValue = max;
+            sliderJack.GetComponent<Slider>().minValue = min;
+        }
+        if(f == FunctionType.headlamp)
+        {
+            sliderHead.GetComponent<Slider>().maxValue = max;
+            sliderHead.GetComponent<Slider>().minValue = min;
+        }
+        if(f == FunctionType.divinggear)
+        {
+            sliderdiv.GetComponent<Slider>().maxValue = max;
+            sliderdiv.GetComponent<Slider>().minValue = min;
+        }
+        
+    }
+
     public void sliderforHeadLamp(float a2)
     {
 
@@ -401,5 +423,8 @@ public class programUI : MonoBehaviour
         backbutton.SetActive(false);
 
     }
-
+    public void movetonextScene()
+    {
+        SceneManager.LoadScene("SceneTest");
+    }
 }
