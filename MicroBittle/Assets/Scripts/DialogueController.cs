@@ -8,6 +8,7 @@ public class DialogueController : MonoBehaviour
     public static DialogueController Instance = null;
     [SerializeField] List<UnityEvent> dialogues;
     [SerializeField] UnityEvent m_OnInteraction;
+    [SerializeField] UnityEvent dialogueEndEvent;
     int dialogueIndex = 0;
     private void Awake()
     {
@@ -37,14 +38,18 @@ public class DialogueController : MonoBehaviour
 
     public void DoInteraction()
     {
+        if (dialogueIndex > dialogues.Count - 1)
+        {
+            return;
+        }
         dialogues[dialogueIndex].Invoke();
     }
 
     public void IncreaseDialogueIndex()
      {
-        if (dialogueIndex >= dialogues.Count - 1)
+        if (dialogueIndex == dialogues.Count - 1)
         {
-            return;
+            dialogueEndEvent.Invoke();
         }
         dialogueIndex++;
     }
