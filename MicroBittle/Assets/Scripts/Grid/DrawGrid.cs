@@ -125,9 +125,9 @@ public class DrawGrid : MonoBehaviour
             return new Vector3(-99, -99, -99);
         }
         Vector3 gridPos = GetCenterPos((int)idx.x, (int)idx.y);
-        if(maze.ContainsKey(idx))
+        if(originalMaze.ContainsKey(idx))
         {
-            maze[idx].SetObstacle(type);
+            originalMaze[idx].SetObstacle(type);
             // Debug.Log("grid exists.");
             
         }
@@ -135,7 +135,7 @@ public class DrawGrid : MonoBehaviour
         {
             Grid grid = new Grid((int)idx.x, (int)idx.y);
             grid.SetObstacle(type);
-            maze.Add(idx, grid);
+            originalMaze.Add(idx, grid);
             // Debug.Log(maze.Count);
             // Debug.Log("X: " + grid.x + "Y: " + grid.y);
             // Debug.Log("X: " + maze[idx].x + "Y: " + maze[idx].y);
@@ -152,6 +152,7 @@ public class DrawGrid : MonoBehaviour
             return new Vector3(-99, -99, -99);
         }
         Vector3 gridPos = GetCenterPos((int)idx.x, (int)idx.y);
+
         if(maze.ContainsKey(idx))
         {
             if(isFloor)
@@ -170,7 +171,6 @@ public class DrawGrid : MonoBehaviour
 
     public bool canMove(Vector2 idx, ObstacleType curType)
     {
-        // Debug.Log(idx);
         if(maze.ContainsKey(idx))
         {
             if(maze[idx].obstacle == ObstacleType.None)

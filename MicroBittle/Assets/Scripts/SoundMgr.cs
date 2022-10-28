@@ -8,6 +8,7 @@ public class SoundMgr : MonoBehaviour
     public List<AudioClip> dialogues;
     public List<AudioClip> audios;
     public static SoundMgr Instance = null;
+    bool isPlaying = false;
     AudioSource audioSource;
 
     private float ringClipLength = 3.5f;
@@ -44,11 +45,24 @@ public class SoundMgr : MonoBehaviour
 
     public void PlayAudio(string clipName)
     {
-        audioSource.PlayOneShot(audios.Find(x => x.name.Equals(clipName)));
+        AudioClip ac = audios.Find(x => x.name.Equals(clipName));
+        if(isPlaying)
+        {
+            return;
+        }
+        StartCoroutine(Play(ac.length));
+        audioSource.PlayOneShot(ac);
     }
 
     public void PlayAudio(string clipName, AudioSource AS)
     {
         AS.PlayOneShot(audios.Find(x => x.name.Equals(clipName)));
+    }
+
+    IEnumerator Play(float time)
+    {
+        isPlaying = true;
+        yield return new WaitForSeconds(time);
+        isPlaying = false;
     }
 }
