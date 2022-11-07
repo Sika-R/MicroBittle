@@ -175,6 +175,18 @@ MonoBehaviour:
   pressBEvent:
     m_PersistentCalls:
       m_Calls: []
+  sliderEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  sliderValueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  waterValueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  lightValueEvent:
+    m_PersistentCalls:
+      m_Calls: []
   text: {fileID: 2004433742264933983}
 --- !u!1 &250564663
 GameObject:
@@ -1479,6 +1491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f7870ecf86d40488dae135626f09a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalMaze: {fileID: 0}
   maze: {fileID: 11400000, guid: 5784d96c82d5e0346bcaf413a5b88343, type: 2}
   bShowGizmos: 1
   m_column: 10
@@ -2125,6 +2138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToMove: 0.5
+  canPass: 0
+  freezeTime: 1
 --- !u!136 &1627945087
 CapsuleCollider:
   m_ObjectHideFlags: 0

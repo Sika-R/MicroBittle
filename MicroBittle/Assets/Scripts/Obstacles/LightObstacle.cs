@@ -37,10 +37,27 @@ public class LightObstacle : Obstacle
 
     public override bool getInput(float inputVal, ObstacleType obstacleType)
     {
-        Debug.Log(obstacleType);
         if(obstacleType == OutfitMgr.Instance.currentObstacleType)
         {
-            if(obstacleType != ObstacleType.Light)
+            if (obstacleType == ObstacleType.Light)
+            {
+                if (inputVal > minInput)
+                {
+                    ScarePlayer();
+                    PlayerMovement.Instance.canPass = ObstacleType.None;
+                    OutfitMgr.Instance.headLight.transform.GetChild(0).gameObject.SetActive(true);
+                }
+                else
+                {
+                    PlayerMovement.Instance.canPass = ObstacleType.Light;
+                    OutfitMgr.Instance.headLight.transform.GetChild(0).gameObject.SetActive(false);
+                }
+            }
+        }
+
+        /*else
+        {
+            if (OutfitMgr.Instance.currentObstacleType != ObstacleType.Light)
             // if (obstacleType == ObstacleType.Slider)
             {
                 PlayerMovement.Instance.canPass = ObstacleType.None;
@@ -53,23 +70,13 @@ public class LightObstacle : Obstacle
                     }
                     //scream
                 }
-                return false;
-            }
-            else if (obstacleType == ObstacleType.Light)
-            {
-                if (inputVal > minInput)
-                {
-                    Debug.Log("??");
-                    ScarePlayer();
-                    PlayerMovement.Instance.canPass = ObstacleType.None;
-                }
                 else
                 {
-                    Debug.Log(">>");
                     PlayerMovement.Instance.canPass = ObstacleType.Light;
                 }
+                return false;
             }
-        }
+        }*/
         
         return false;
     }

@@ -30,7 +30,7 @@ public class DialogueSequencer
         }
         else
         {
-            throw new DialogueException("Can't start a dialogue when another is already running.");
+            // throw new DialogueException("Can't start a dialogue when another is already running.");
         }
     }
 

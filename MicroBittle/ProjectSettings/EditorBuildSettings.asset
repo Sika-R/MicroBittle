@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SceneTest.unity
     guid: aa793eef34d726a47bcb748b57250e31
+  - enabled: 0
+    path: Assets/SceneTestBackup.unity
+    guid: 7934284dec2a51f4fb3b516ab4b4db7c
   m_configObjects: {}

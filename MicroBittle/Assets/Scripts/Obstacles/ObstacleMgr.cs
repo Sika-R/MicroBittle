@@ -72,7 +72,7 @@ public class ObstacleMgr : MonoBehaviour
 
         }
         
-        OutfitMgr.Instance.chooseToolIcon(obstacleType);
+        // OutfitMgr.Instance.chooseToolIcon(obstacleType);
         if (currentEncounteredObstacle == null)
         {
             return;
