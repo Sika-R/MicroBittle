@@ -137,7 +137,7 @@ public class DrawGrid : MonoBehaviour
             grid.SetObstacle(type);
             originalMaze.Add(idx, grid);
             // Debug.Log(maze.Count);
-            // Debug.Log("X: " + grid.x + "Y: " + grid.y);
+            Debug.Log("X: " + grid.x + "Y: " + grid.y);
             // Debug.Log("X: " + maze[idx].x + "Y: " + maze[idx].y);
         }
         return gridPos;
@@ -162,6 +162,32 @@ public class DrawGrid : MonoBehaviour
             else
             {
                 maze[idx].SetObstacle(ObstacleType.None);
+            }
+            // Debug.Log("grid exists.");
+            
+        }
+        return gridPos;
+    }
+
+    public Vector3 EditorDeleteFromMaze(Vector3 hit, bool isFloor)
+    {
+        // EditorUtility.SetDirty(maze);
+        Vector2 idx = GetIdx(hit);
+        if(idx.x == -99)
+        {
+            return new Vector3(-99, -99, -99);
+        }
+        Vector3 gridPos = GetCenterPos((int)idx.x, (int)idx.y);
+
+        if(originalMaze.ContainsKey(idx))
+        {
+            if(isFloor)
+            {
+                originalMaze.Remove(idx);
+            }
+            else
+            {
+                originalMaze[idx].SetObstacle(ObstacleType.None);
             }
             // Debug.Log("grid exists.");
             

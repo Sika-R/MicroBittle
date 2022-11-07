@@ -38,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
+#if UNITY_EDITOR
+#else
+        WebGLDeviceConnection.Instance.SendStartLine();
+#endif
         curIdx = DrawGrid.Instance.GetIdx(transform.position);
         Vector3 pos = DrawGrid.Instance.IdentifyCenter(transform.position);
         pos.y += GetComponent<CapsuleCollider>().height / 2;
@@ -91,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(MovePlayer(Vector3.forward));
                 curIdx = destination;
             }
+            Quaternion q = Quaternion.Euler(0, 0, 0);
+            transform.rotation = q;
         }
         else if(direction == MovementDirections.Down && !isMoving)
         {
@@ -100,6 +106,8 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(MovePlayer(-Vector3.forward));
                 curIdx = destination;
             }
+            Quaternion q = Quaternion.Euler(0, 180, 0);
+            transform.rotation = q;
         }
         else if(direction == MovementDirections.Left && !isMoving)
         {
@@ -109,6 +117,8 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(MovePlayer(-Vector3.right));
                 curIdx = destination;
             }
+            Quaternion q = Quaternion.Euler(0, 270, 0);
+            transform.rotation = q;
         }
         else if(direction == MovementDirections.Right && !isMoving)
         {
@@ -118,6 +128,8 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(MovePlayer(Vector3.right));
                 curIdx = destination;
             }
+            Quaternion q = Quaternion.Euler(0, 90, 0);
+            transform.rotation = q;
         }
 
     }

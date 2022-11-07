@@ -1,41 +1,23 @@
 function createUnityInstance(canvas, config, onProgress) {
   onProgress = onProgress || function () {};
 
-  function showBanner(msg, type) {
-    // Only ever show one error at most - other banner messages after that should get ignored
-    // to avoid noise.
-    if (!showBanner.aborted && config.showBanner) {
-      if (type == 'error') showBanner.aborted = true;
-      return config.showBanner(msg, type);
-    }
-
-    // Fallback to console logging if visible banners have been suppressed
-    // from the main page.
-    switch(type) {
-      case 'error': console.error(msg); break;
-      case 'warning': console.warn(msg); break;
-      default: console.log(msg); break;
-    }
-  }
-
   function errorListener(e) {
-    var error = e.reason || e.error;
-    var message = error ? error.toString() : (e.message || e.reason || '');
-    var stack = (error && error.stack) ? error.stack.toString() : '';
-
-    // Do not repeat the error message if it's present in the stack trace.
-    if (stack.startsWith(message)) {
-      stack = stack.substring(message.length);
-    }
-
-    message += '\n' + stack.trim();
-
+    var error = e.type == "unhandledrejection" && typeof e.reason == "object" ? e.reason : typeof e.error == "object" ? e.error : null;
+    var message = error ? error.toString() : typeof e.message == "string" ? e.message : typeof e.reason == "string" ? e.reason : "";
+    if (error && typeof error.stack == "string")
+      message += "\n" + error.stack.substring(!error.stack.lastIndexOf(message, 0) ? message.length : 0).replace(/(^\n*|\n*$)/g, "");
     if (!message || !Module.stackTraceRegExp || !Module.stackTraceRegExp.test(message))
       return;
-
-    var filename = e.filename || (error && (error.fileName || error.sourceURL)) || '';
-    var lineno = e.lineno || (error && (error.lineNumber || error.line)) || 0;
-
+    var filename =
+      e instanceof ErrorEvent ? e.filename :
+      error && typeof error.fileName == "string" ? error.fileName :
+      error && typeof error.sourceURL == "string" ? error.sourceURL :
+      "";
+    var lineno =
+      e instanceof ErrorEvent ? e.lineno :
+      error && typeof error.lineNumber == "number" ? error.lineNumber :
+      error && typeof error.line == "number" ? error.line :
+      0;
     errorHandler(message, filename, lineno);
   }
 
@@ -67,14 +49,6 @@ function createUnityInstance(canvas, config, onProgress) {
     },
     printErr: function (message) {
       console.error(message);
-
-      if (typeof message === 'string' && message.indexOf('wasm streaming compile failed') != -1) {
-        if (message.toLowerCase().indexOf('mime') != -1) {
-          showBanner('HTTP Response Header "Content-Type" configured incorrectly on the server for file ' + Module.codeUrl + ' , should be "application/wasm". Startup time performance will suffer.', 'warning');
-        } else {
-          showBanner('WebAssembly streaming compilation failed! This can happen for example if "Content-Encoding" HTTP header is incorrectly enabled on the server for file ' + Module.codeUrl + ', but the file is not pre-compressed on disk (or vice versa). Check the Network tab in browser Devtools to debug server header configuration.', 'warning');
-        }
-      }
     },
     locateFile: function (url) {
       return (
@@ -108,33 +82,6 @@ function createUnityInstance(canvas, config, onProgress) {
 
   window.addEventListener("error", errorListener);
   window.addEventListener("unhandledrejection", errorListener);
-
-  // Safari does not automatically stretch the fullscreen element to fill the screen.
-  // The CSS width/height of the canvas causes it to remain the same size in the full screen
-  // window on Safari, resulting in it being a small canvas with black borders filling the
-  // rest of the screen.
-  var _savedElementWidth = "";
-  var _savedElementHeight = "";
-  // Safari uses webkitfullscreenchange event and not fullscreenchange
-  document.addEventListener("webkitfullscreenchange", function(e) {
-    // Safari uses webkitCurrentFullScreenElement and not fullscreenElement.
-    var fullscreenElement = document.webkitCurrentFullScreenElement;
-    if (fullscreenElement === canvas) {
-      if (canvas.style.width) {
-        _savedElementWidth = canvas.style.width;
-        _savedElementHeight = canvas.style.height;
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
-      }
-    } else {
-      if (_savedElementWidth) {
-        canvas.style.width = _savedElementWidth;
-        canvas.style.height = _savedElementHeight;
-        _savedElementWidth = "";
-        _savedElementHeight = "";
-      }
-    }
-  });
 
   var unityInstance = {
     Module: Module,
@@ -258,7 +205,7 @@ function createUnityInstance(canvas, config, onProgress) {
       language: navigator.userLanguage || navigator.language,
       hasWebGL: glVersion,
       hasCursorLock: !!document.body.requestPointerLock,
-      hasFullscreen: !!document.body.requestFullscreen || !!document.body.webkitRequestFullscreen,
+      hasFullscreen: !!document.body.requestFullscreen,
       hasThreads: hasThreads,
       hasWasm: hasWasm,
       // This should be updated when we re-enable wasm threads. Previously it checked for WASM thread
@@ -398,25 +345,12 @@ function createUnityInstance(canvas, config, onProgress) {
           openRequest.onsuccess = function (e) { initDatabase(e.target.result); };
           openRequest.onerror = function () { initDatabase(null); };
         }
-
-        // Workaround for WebKit bug 226547:
-        // On very first page load opening a connection to IndexedDB hangs without triggering onerror.
-        // Add a timeout that triggers the error handling code.
-        var indexedDBTimeout = setTimeout(function () {
-          if (typeof cache.database != "undefined")
-            return;
-          
-          initDatabase(null);  
-        }, 2000);
-
         var openRequest = indexedDB.open(UnityCacheDatabase.name);
         openRequest.onupgradeneeded = function (e) {
           var objectStore = e.target.result.createObjectStore(XMLHttpRequestStore.name, { keyPath: "url" });
           ["version", "company", "product", "updated", "revalidated", "accessed"].forEach(function (index) { objectStore.createIndex(index, index); });
         };
         openRequest.onsuccess = function (e) {
-          clearTimeout(indexedDBTimeout);
-
           var database = e.target.result;
           if (database.version < UnityCacheDatabase.version) {
             database.close();
@@ -425,12 +359,8 @@ function createUnityInstance(canvas, config, onProgress) {
             initDatabase(database);
           }
         };
-        openRequest.onerror = function () {
-          clearTimeout(indexedDBTimeout);
-          initDatabase(null);
-        };
+        openRequest.onerror = function () { initDatabase(null); };
       } catch (e) {
-        clearTimeout(indexedDBTimeout);
         initDatabase(null);
       }
     };
@@ -602,16 +532,6 @@ function createUnityInstance(canvas, config, onProgress) {
         progressUpdate(urlId, e);
         resolve(new Uint8Array(xhr.response));
       });
-
-      xhr.addEventListener("error", function(e) {
-        var error = 'Failed to download file ' + Module[urlId]
-        if (location.protocol == 'file:') {
-          showBanner(error + '. Loading web pages via a file:// URL without a web server is not supported by this browser. Please use a local development web server to host Unity content, or use the Unity Build and Run option.', 'error');
-        } else {
-          console.error(error);
-        }
-      });
-
       xhr.send();
     });
   }
@@ -623,32 +543,6 @@ function createUnityInstance(canvas, config, onProgress) {
         script.onload = function () {
           // Adding the framework.js script to DOM created a global
           // 'unityFramework' variable that should be considered internal.
-          // If not, then we have received a malformed file.
-          if (typeof unityFramework === 'undefined' || !unityFramework) {
-            var compressions = [['br', 'br'], ['gz', 'gzip']];
-            for(var i in compressions) {
-              var compression = compressions[i];
-              if (Module.frameworkUrl.endsWith('.' + compression[0])) {
-                var error = 'Unable to parse ' + Module.frameworkUrl + '!';
-                if (location.protocol == 'file:') {
-                  showBanner(error + ' Loading pre-compressed (brotli or gzip) content via a file:// URL without a web server is not supported by this browser. Please use a local development web server to host compressed Unity content, or use the Unity Build and Run option.', 'error');
-                  return;
-                }
-                error += ' This can happen if build compression was enabled but web server hosting the content was misconfigured to not serve the file with HTTP Response Header "Content-Encoding: ' + compression[1] + '" present. Check browser Console and Devtools Network tab to debug.';
-                if (compression[0] == 'br') {
-                  if (location.protocol == 'http:') {
-                    var migrationHelp = ['localhost', '127.0.0.1'].indexOf(location.hostname) != -1 ? '' : 'Migrate your server to use HTTPS.'
-                    if (/Firefox/.test(navigator.userAgent)) error = 'Unable to parse ' + Module.frameworkUrl + '!<br>If using custom web server, verify that web server is sending .br files with HTTP Response Header "Content-Encoding: br". Brotli compression may not be supported in Firefox over HTTP connections. ' + migrationHelp + ' See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1670675">https://bugzilla.mozilla.org/show_bug.cgi?id=1670675</a> for more information.';
-                    else error = 'Unable to parse ' + Module.frameworkUrl + '!<br>If using custom web server, verify that web server is sending .br files with HTTP Response Header "Content-Encoding: br". Brotli compression may not be supported over HTTP connections. Migrate your server to use HTTPS.';
-                  }
-                }
-                showBanner(error, 'error');
-                return;
-              }
-            };
-            showBanner('Unable to parse ' + Module.frameworkUrl + '! The file is corrupt, or compression was misconfigured? (check Content-Encoding HTTP Response Header on web server)', 'error');
-          }
-
           // Capture the variable to local scope and clear it from global
           // scope so that JS garbage collection can take place on
           // application quit.
@@ -658,9 +552,6 @@ function createUnityInstance(canvas, config, onProgress) {
           // references to prevent JS garbage collection.
           script.onload = null;
           resolve(fw);
-        }
-        script.onerror = function(e) {
-          showBanner('Unable to load file ' + Module.frameworkUrl + '! Check that the file exists on the remote server. (also check browser Console and Devtools Network tab to debug)', 'error');
         }
         document.body.appendChild(script);
         Module.deinitializers.push(function() {

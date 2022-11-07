@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class OutfitMgr : MonoBehaviour
 {
+    public GameObject player;
     public static OutfitMgr Instance = null;
     public List<GameObject> divingSuits;
     public GameObject jackhammer;
+    public GameObject headLight;
     public ObstacleType currentObstacleType = ObstacleType.None;
     [SerializeField]
     List<ObstacleType> allPossibleTypes = new List<ObstacleType>();
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        GameObject[] all = GameObject.FindGameObjectsWithTag("Beatle");
+        if(all.Length != 0)
+        {
+            Vector3 newPos = player.transform.position;
+            newPos.y -= 0.5f;
+            all[0].transform.position = newPos;
+            all[0].transform.localScale = new Vector3(80f, 80f, 80f);
+            Quaternion q = Quaternion.Euler(0f, 180f, 0f);
+            all[0].transform.rotation = q; 
+            all[0].transform.SetParent(player.transform);
+        }
     }
 
     // Update is called once per frame
@@ -38,6 +50,7 @@ public class OutfitMgr : MonoBehaviour
         }
     }
 
+
     public void chooseToolIcon(ObstacleType obstacleType)
     {
         if (currentObstacleType != obstacleType)
@@ -53,7 +66,10 @@ public class OutfitMgr : MonoBehaviour
         }
         else if (obstacleType == ObstacleType.ButtonA)
         { 
-
+        }
+        else if(obstacleType == ObstacleType.Light)
+        {
+            headLight.SetActive(true);
         }
     }
 
@@ -62,6 +78,10 @@ public class OutfitMgr : MonoBehaviour
         if (obstacleType == ObstacleType.Slider)
         {
             jackhammer.SetActive(false);
+        }
+        else if(obstacleType == ObstacleType.Light)
+        {
+            headLight.SetActive(false);
         }
         else if (obstacleType == ObstacleType.Humid)
         { 

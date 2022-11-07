@@ -244,7 +244,11 @@ public class lookchanger : MonoBehaviour
     }
     public void saveasprefab()
     {
-        PrefabUtility.SaveAsPrefabAsset(gameObjectListtosave[currentOptionForMesh],"Assets/Player.prefab");
+        GameObject character = gameObjectList[currentOptionForMesh];
+        character.transform.localScale = new Vector3(0f, 0f, 0f);
+        character.transform.SetParent(null);
+        DontDestroyOnLoad(character);
+        // PrefabUtility.SaveAsPrefabAsset(gameObjectListtosave[currentOptionForMesh],"Assets/Player.prefab");
         Debug.Log(currentOptionForMesh);
         //AssetDatabase.CreateAsset(newmaterial, "Assets/Player.mat");
         //AssetDatabase.SaveAssets();

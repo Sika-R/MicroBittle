@@ -1913,11 +1913,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a35ded47f27b7a40bdbc8e871fbafa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1129286179664975881}
   divingSuits:
   - {fileID: 246974629496900399}
   - {fileID: 246974628974154355}
   - {fileID: 246974627777095647}
   jackhammer: {fileID: 246974627747761774}
+  headLight: {fileID: 0}
   currentObstacleType: 0
   allPossibleTypes: 000000000100000004000000
 --- !u!1 &1129286179412351471
@@ -8239,7 +8241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f7870ecf86d40488dae135626f09a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalMaze: {fileID: 11400000, guid: 43bd67998d0bb4a47bea87fa490ad2c0, type: 2}
+  originalMaze: {fileID: 0}
   maze: {fileID: 2059180368}
   bShowGizmos: 1
   m_column: 11
@@ -10650,6 +10652,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   sliderEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  sliderValueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  waterValueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  lightValueEvent:
     m_PersistentCalls:
       m_Calls: []
   text: {fileID: 0}

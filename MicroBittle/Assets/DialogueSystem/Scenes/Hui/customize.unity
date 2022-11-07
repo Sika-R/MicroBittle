@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 74180579}
   m_Layer: 0
   m_Name: cube1 (1)
-  m_TagString: Untagged
+  m_TagString: Beatle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2067,7 +2067,7 @@ GameObject:
   - component: {fileID: 729156581}
   m_Layer: 0
   m_Name: cube0 (1)
-  m_TagString: Untagged
+  m_TagString: Beatle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2820,7 +2820,7 @@ GameObject:
   - component: {fileID: 1006951660}
   m_Layer: 0
   m_Name: cube2 (1)
-  m_TagString: Untagged
+  m_TagString: Beatle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6783,7 +6783,7 @@ GameObject:
   - component: {fileID: 1913705085325203717}
   m_Layer: 0
   m_Name: body_all2
-  m_TagString: Untagged
+  m_TagString: Beatle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7167,7 +7167,7 @@ GameObject:
   - component: {fileID: 553123658059266542}
   m_Layer: 0
   m_Name: body_all1
-  m_TagString: Untagged
+  m_TagString: Beatle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7298,7 +7298,7 @@ GameObject:
   - component: {fileID: 6383699348170470045}
   m_Layer: 0
   m_Name: body_all0
-  m_TagString: Untagged
+  m_TagString: Beatle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

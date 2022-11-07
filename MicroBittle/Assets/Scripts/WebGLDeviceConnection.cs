@@ -84,7 +84,7 @@ public class WebGLDeviceConnection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(1))
+        /*if(Input.GetMouseButtonDown(1))
         {
             if(temp)
             {
@@ -133,6 +133,11 @@ public class WebGLDeviceConnection : MonoBehaviour
                 temp = true;
             }
             // pressAEvent.Invoke();
+        }*/
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            OpenPort();
         }
 
     }
@@ -144,7 +149,7 @@ public class WebGLDeviceConnection : MonoBehaviour
         text.text += str;
         if(str == "") return;
         ParseLine(str);
-        StartCoroutine(text.gameObject.GetComponent<DebugLogController>().ScrollBarBottom());
+        
     }*/
 
     public void ReadLine(string str)
@@ -159,6 +164,7 @@ public class WebGLDeviceConnection : MonoBehaviour
             string input = all.Substring(0, idx + 1);
             inputBuffer.Remove(0, idx + 1);
             ParseLine(input);
+            StartCoroutine(text.gameObject.GetComponent<DebugLogController>().ScrollBarBottom());
         }
         if(text)
         {
@@ -234,6 +240,11 @@ public class WebGLDeviceConnection : MonoBehaviour
             isParsing = false;
         }
          
+    }
+
+    public void SendStartLine()
+    {
+        SendLine("start");
     }
 
     /*public static int IndexOf(this StringBuilder sb, string value, int startIndex, bool ignoreCase)

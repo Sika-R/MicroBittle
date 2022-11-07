@@ -172,12 +172,12 @@ public class GridInspectorLogic : Editor
 	                	{
 	                		if(newhitInfo.collider.tag == "Floor")
 	                		{
-	                			((DrawGrid)target).DeleteFromMaze(hitInfo.point, true);
+	                			((DrawGrid)target).EditorDeleteFromMaze(hitInfo.point, true);
 	                			Debug.Log("lAST");
 	                		}
 	                		else
 	                		{
-	                			((DrawGrid)target).DeleteFromMaze(hitInfo.point, false);
+	                			((DrawGrid)target).EditorDeleteFromMaze(hitInfo.point, false);
 	                		}
 	                	}
 		            }

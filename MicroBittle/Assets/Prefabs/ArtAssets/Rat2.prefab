@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1355668268206930688
+--- !u!1 &107770416775326936
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5437762414330015000}
-  - component: {fileID: 4394190698488711874}
-  - component: {fileID: 2802928093262314254}
-  - component: {fileID: 1355668268206930689}
-  - component: {fileID: 1355668268206930690}
-  - component: {fileID: 1855295966238119591}
+  - component: {fileID: 107770416775326951}
+  - component: {fileID: 107770416775326946}
+  - component: {fileID: 107770416775326947}
+  - component: {fileID: 107770416775326948}
+  - component: {fileID: 107770416775326949}
+  - component: {fileID: 107770416775326950}
   m_Layer: 0
   m_Name: Rat2
   m_TagString: Cube
@@ -21,35 +21,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5437762414330015000
+--- !u!4 &107770416775326951
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355668268206930688}
-  m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9455, y: 0.31921506, z: -0.2958}
-  m_LocalScale: {x: 0.41723, y: 0.41723, z: 0.41723}
+  m_GameObject: {fileID: 107770416775326936}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.075, y: 1.8491, z: -1}
+  m_LocalScale: {x: 0.23904225, y: 0.23904225, z: 0.23904225}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4394190698488711874
+--- !u!33 &107770416775326946
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355668268206930688}
+  m_GameObject: {fileID: 107770416775326936}
   m_Mesh: {fileID: 4174104299196237, guid: fe1db842c47e15d4b97f28f5b1f18708, type: 3}
---- !u!23 &2802928093262314254
+--- !u!23 &107770416775326947
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355668268206930688}
+  m_GameObject: {fileID: 107770416775326936}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,13 +84,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1355668268206930689
+--- !u!114 &107770416775326948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355668268206930688}
+  m_GameObject: {fileID: 107770416775326936}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 869c9fc2e9a96da41a3f4760e9821d0d, type: 3}
@@ -102,28 +102,28 @@ MonoBehaviour:
   index: 0
   isMovingWithMouse: 0
   drawGridScript: {fileID: 0}
-  radius: 0.5
-  playerCollideRadius: 2
---- !u!135 &1355668268206930690
+  radius: 2
+  playerCollideRadius: 4
+--- !u!135 &107770416775326949
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355668268206930688}
+  m_GameObject: {fileID: 107770416775326936}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.98235816
-  m_Center: {x: -0.12589361, y: -0.9291273, z: -6.973968e-15}
---- !u!65 &1855295966238119591
+  m_Radius: 3.6465716
+  m_Center: {x: -0.12589361, y: 1.7350858, z: 0}
+--- !u!65 &107770416775326950
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355668268206930688}
+  m_GameObject: {fileID: 107770416775326936}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
