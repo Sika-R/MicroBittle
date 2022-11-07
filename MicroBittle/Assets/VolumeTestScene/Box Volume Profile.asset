@@ -40,12 +40,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.989
+    m_Value: 0.728
     min: 0
     max: 1
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.486
+    m_Value: 0.578
     min: 0.01
     max: 1
   rounded:
@@ -75,7 +75,7 @@ MonoBehaviour:
     max: 100
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1

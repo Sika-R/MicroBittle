@@ -69,7 +69,7 @@ public class OutfitMgr : MonoBehaviour
         }
         else if(obstacleType == ObstacleType.Light)
         {
-            headLight.SetActive(true);
+            //headLight.SetActive(true);
         }
     }
 
@@ -81,7 +81,7 @@ public class OutfitMgr : MonoBehaviour
         }
         else if(obstacleType == ObstacleType.Light)
         {
-            headLight.SetActive(false);
+            //headLight.SetActive(false);
         }
         else if (obstacleType == ObstacleType.Humid)
         { 

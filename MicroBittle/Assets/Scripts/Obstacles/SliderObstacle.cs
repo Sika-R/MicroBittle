@@ -48,6 +48,7 @@ public class SliderObstacle : Obstacle
             if (Mathf.Floor(inputVal) >= endValue)
             {
                 //gameObject.SetActive(false);
+                CameraShake.Shake(1000,1000);
                 transform.Find("explosion").gameObject.SetActive(true);
                 transform.Find("rock1").gameObject.SetActive(false);
                 DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
