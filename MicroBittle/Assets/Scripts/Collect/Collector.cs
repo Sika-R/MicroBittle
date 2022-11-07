@@ -13,7 +13,7 @@ public class Collector : MonoBehaviour
 
     private void Start()
     {
-        gemText.text = "Gem: 0";
+        gemText.text = "        : 0 / 5";
     }
     public virtual void OnCollect(Collectable collectable)
     {
@@ -26,10 +26,16 @@ public class Collector : MonoBehaviour
             collections[collectable.name] = 1;
 
         Debug.Log(collectable.name);
-        if(collectable.name == "crystal")
+        if(collectable.name.Contains("crystal"))
         {
-            gemText.text = "Gem: " + collections[collectable.name];
+            gemText.text = "        : " + collections[collectable.name] + " / 5";
         }
+    }
+
+    public void PlayerPlayAudio(AudioClip onCollectAudio)
+    {
+        var audio = GetComponent<AudioSource>();
+        if (audio) audio.PlayOneShot(onCollectAudio);
     }
 
     public bool HasCollectable(string name)

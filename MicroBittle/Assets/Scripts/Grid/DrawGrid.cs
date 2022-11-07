@@ -171,7 +171,10 @@ public class DrawGrid : MonoBehaviour
 
     public Vector3 EditorDeleteFromMaze(Vector3 hit, bool isFloor)
     {
-        // EditorUtility.SetDirty(maze);
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(maze);
+        AssetDatabase.SaveAssets();
+#endif
         Vector2 idx = GetIdx(hit);
         if(idx.x == -99)
         {

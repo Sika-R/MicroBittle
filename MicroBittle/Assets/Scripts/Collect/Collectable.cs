@@ -10,6 +10,11 @@ public class Collectable : MonoBehaviour
     public AudioClip onCollectAudio;
     public bool disableOnCollect = false;
 
+
+    void Update()
+    {
+        transform.Rotate(0, 50 * Time.deltaTime, 0);
+    }
     void Reset()
     {
         collider = GetComponent<Collider>();
@@ -24,13 +29,26 @@ public class Collectable : MonoBehaviour
 
     protected virtual void Collect(Collider other)
     {
-        if (collectEffect) collectEffect.SetActive(true);
-        if (onCollectAudio)
+        if (collectEffect)
         {
-            var audio = GetComponent<AudioSource>();
-            if (audio) audio.PlayOneShot(onCollectAudio);
+            Transform effectTransform = collectEffect.transform;
+            Vector3 localScale = effectTransform.localScale;
+
+            collectEffect.transform.SetParent(null);
+            effectTransform.localScale = localScale;
+            collectEffect.SetActive(true);
         }
         var collector = other.GetComponent<Collector>();
+        if (onCollectAudio)
+        {
+            /*var audio = GetComponent<AudioSource>();
+            if (audio) audio.PlayOneShot(onCollectAudio);*/
+            if(collector)
+            {
+                collector.PlayerPlayAudio(onCollectAudio);
+            }
+        }
+        
         if (collector)
             collector.OnCollect(this);
         if (disableOnCollect)
