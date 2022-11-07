@@ -10,6 +10,8 @@ public enum ObstacleType // *
     Light,
     Slider,
     Wall,
+    Photoresistor,
+    TrimmerPotentiometer
 }
 
 public enum InputType

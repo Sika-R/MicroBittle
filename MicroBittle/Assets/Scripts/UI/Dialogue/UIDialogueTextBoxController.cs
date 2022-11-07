@@ -49,6 +49,8 @@ public class UIDialogueTextBoxController : MonoBehaviour, DialogueNodeVisitor
 
         m_DialogueText.text = node.DialogueLine.Text;
         m_SpeakerText.text = node.DialogueLine.Speaker.CharacterName;
+        GameObject.Find(node.DialogueLine.Speaker.CharacterName).GetComponent<Animator>().Play(node.animationName);
+
 
         node.Accept(this);
     }

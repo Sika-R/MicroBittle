@@ -47,7 +47,9 @@ public class SliderObstacle : Obstacle
             //Debug.Log("isInCoroutine, value is: " + Mathf.Floor(inputVal).ToString());
             if (Mathf.Floor(inputVal) >= endValue)
             {
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
+                transform.Find("explosion").gameObject.SetActive(true);
+                transform.Find("rock1").gameObject.SetActive(false);
                 DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
                 return true;
             }
