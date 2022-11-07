@@ -5,6 +5,7 @@ using UnityEngine;
 public class LightObstacle : Obstacle
 {
     // Start is called before the first frame update
+    [SerializeField] float minVal = 10f;
     [SerializeField] float radius;
     SphereCollider myCollider;
     [SerializeField] float playerCollideRadius;

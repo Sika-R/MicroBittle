@@ -11,7 +11,8 @@ public enum ObstacleType // *
     Slider,
     Wall,
     Photoresistor,
-    TrimmerPotentiometer
+    TrimmerPotentiometer,
+    Vacuum
 }
 
 public enum InputType
@@ -102,7 +103,7 @@ public class Obstacle : MonoBehaviour
         collisonEvent(collider);
     }
 
-    public void OnTriggerExit(Collider other)
+    public virtual void OnTriggerExit(Collider other)
     {
         exitTriggerEvent(other);
     }

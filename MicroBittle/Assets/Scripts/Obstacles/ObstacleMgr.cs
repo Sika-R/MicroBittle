@@ -72,7 +72,23 @@ public class ObstacleMgr : MonoBehaviour
         //
         //}
         
-        // OutfitMgr.Instance.chooseToolIcon(obstacleType);
+        OutfitMgr.Instance.chooseToolIcon(obstacleType);
+        if (obstacleType == ObstacleType.Light)
+        {
+            Photoresistor.Instance.currentLightVal = inputVal;
+            if (inputVal < 10)
+            {
+                Photoresistor.Instance.LightOff();
+            }
+            else
+            {
+                if (currentEncounteredObstacle && currentEncounteredObstacle.obstacleType != ObstacleType.Vacuum)
+                {
+                    Photoresistor.Instance.LightOn();
+                }
+                
+            }
+        }
         if (currentEncounteredObstacle == null)
         {
             return;
