@@ -64,6 +64,9 @@ public class OutfitMgr : MonoBehaviour
             jackhammer.SetActive(true);
             PlayerMovement.Instance.canPass = obstacleType;
         }
+        else if (obstacleType == ObstacleType.ButtonA)
+        { 
+        }
         else if(obstacleType == ObstacleType.Light)
         {
             headLight.SetActive(true);

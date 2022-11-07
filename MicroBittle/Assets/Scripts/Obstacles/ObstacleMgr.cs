@@ -59,18 +59,18 @@ public class ObstacleMgr : MonoBehaviour
             return;
         }
         // TODO:Fix this!!!
-        if(OutfitMgr.Instance.currentObstacleType == ObstacleType.Humid && obstacleType == ObstacleType.Humid)
-        {
-            for(int i = 0; i < Mathf.Min(3, inputVal / 10); i++)
-            {
-                OutfitMgr.Instance.PutOnDivingSuit(i);
-            }
-            for(int i = ((int)inputVal) / 10; i < 3; i++)
-            {
-                OutfitMgr.Instance.TakeOffDivingSuitByPiece(i);
-            }
-
-        }
+        //if(OutfitMgr.Instance.currentObstacleType == ObstacleType.Humid && obstacleType == ObstacleType.Humid)
+        //{
+        //    for(int i = 0; i < Mathf.Min(3, inputVal / 10); i++)
+        //    {
+        //        OutfitMgr.Instance.PutOnDivingSuit(i);
+        //    }
+        //    for(int i = ((int)inputVal) / 10; i < 3; i++)
+        //    {
+        //        OutfitMgr.Instance.TakeOffDivingSuitByPiece(i);
+        //    }
+        //
+        //}
         
         // OutfitMgr.Instance.chooseToolIcon(obstacleType);
         if (currentEncounteredObstacle == null)

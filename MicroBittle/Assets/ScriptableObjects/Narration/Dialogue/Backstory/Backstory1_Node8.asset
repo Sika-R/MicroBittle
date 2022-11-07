@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Backstory1_Node8
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 08be82c5b6ed31d408fc90eb0cb51b1e, type: 2}
+  dialogueAudio: {fileID: 0}
+  animationName: meeting_speaker_discuss_f_270764
   m_NextNode: {fileID: 11400000, guid: 6b2c1667d23149d48a31c534dde82450, type: 2}

@@ -5682,7 +5682,7 @@ GameObject:
   - component: {fileID: 5583926394449805997}
   - component: {fileID: 5059169470097627160}
   m_Layer: 0
-  m_Name: my_autorig_actor
+  m_Name: Bard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -53,4 +53,15 @@ public class DialogueController : MonoBehaviour
         }
         dialogueIndex++;
     }
+
+    public void PlayDialogue(int nodeIndex)
+    {
+        dialogueIndex = nodeIndex;
+        DoInteraction();
+    }
+
+    public void PlayDialogue()
+    {
+        DoInteraction();
+    }
 }
