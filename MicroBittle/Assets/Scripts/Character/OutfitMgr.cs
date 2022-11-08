@@ -9,6 +9,7 @@ public class OutfitMgr : MonoBehaviour
     public List<GameObject> divingSuits;
     public GameObject jackhammer;
     public GameObject headLight;
+    public GameObject vacuum;
     public ObstacleType currentObstacleType = ObstacleType.None;
     [SerializeField]
     List<ObstacleType> allPossibleTypes = new List<ObstacleType>();
@@ -71,6 +72,10 @@ public class OutfitMgr : MonoBehaviour
         {
             //headLight.SetActive(true);
         }
+        else if(obstacleType == ObstacleType.Vacuum)
+        {
+            vacuum.SetActive(true);
+        }
     }
 
     public void takeOffOutfit(ObstacleType obstacleType)
@@ -89,6 +94,10 @@ public class OutfitMgr : MonoBehaviour
             {
                 piece.SetActive(false);
             }
+        }
+        else if(obstacleType == ObstacleType.Vacuum)
+        {
+            vacuum.SetActive(false);
         }
     }
 

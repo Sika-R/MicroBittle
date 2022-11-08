@@ -1123,10 +1123,10 @@ MonoBehaviour:
     x: 1
     y: -7
     obstacle: 0
-  - isOccupied: 0
+  - isOccupied: 1
     x: -1
     y: -4
-    obstacle: 0
+    obstacle: 3
   - isOccupied: 0
     x: -3
     y: 1
