@@ -146,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
             yield break;
         }
         isMoving = true;
+        SoundMgr.Instance.PlayAudio("CHARACTER_MOVING_SFX_v1");
         float elapsedTime = 0;
         origPos = transform.position;
         targetPos = origPos + direction * DrawGrid.Instance.m_gridSize;

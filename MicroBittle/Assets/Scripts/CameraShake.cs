@@ -41,7 +41,7 @@ public class CameraShake : MonoBehaviour
     public IEnumerator cShake(float duration, float amount)
     {
         float endTime = Time.time + duration;
-
+        gameObject.GetComponent<CameraFollow>().isFollowing = false;
         while (duration > 0)
         {
             transform.localPosition = _originalPos + Random.insideUnitSphere * amount;
@@ -50,7 +50,7 @@ public class CameraShake : MonoBehaviour
 
             yield return null;
         }
-
+        gameObject.GetComponent<CameraFollow>().isFollowing = true;
         transform.localPosition = _originalPos;
     }
 }
