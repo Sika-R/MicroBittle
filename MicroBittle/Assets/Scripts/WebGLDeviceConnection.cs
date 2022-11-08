@@ -84,7 +84,7 @@ public class WebGLDeviceConnection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(1))
         {
             if(temp)
             {
@@ -120,7 +120,7 @@ public class WebGLDeviceConnection : MonoBehaviour
         }
 
 
-        if(Input.GetMouseButtonDown(0))
+        /*if(Input.GetMouseButtonDown(0))
         {
             if(temp)
             {
@@ -135,10 +135,13 @@ public class WebGLDeviceConnection : MonoBehaviour
             // pressAEvent.Invoke();
         }*/
 
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
+            pressAEvent.Invoke();
             OpenPort();
+            
         }
+
 
     }
 

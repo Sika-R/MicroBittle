@@ -65,7 +65,7 @@ public class OutfitMgr : MonoBehaviour
         if (obstacleType == ObstacleType.Slider)
         {
             jackhammer.SetActive(true);
-            PlayerMovement.Instance.canPass = obstacleType;
+            // PlayerMovement.Instance.canPass = obstacleType;
         }
         else if (obstacleType == ObstacleType.ButtonA)
         { 
