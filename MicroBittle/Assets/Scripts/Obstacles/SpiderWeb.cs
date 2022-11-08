@@ -41,6 +41,7 @@ public class SpiderWeb : Obstacle
         if (other.gameObject.tag == "Player" && !isMovingWithMouse)
         {
             Photoresistor.Instance.LightShrink();
+            SoundMgr.Instance.PlayAudio("CHARACTER_DIZZY_SFX_v1");
         }
     }
 

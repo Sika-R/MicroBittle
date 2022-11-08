@@ -5823,7 +5823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalMaze: {fileID: 11400000, guid: ac54e6070f9524d40ba1e747e135a6fe, type: 2}
-  maze: {fileID: 820894240}
+  maze: {fileID: 1113368818}
   bShowGizmos: 1
   m_column: 11
   m_row: 11
@@ -11101,6 +11101,7 @@ GameObject:
   - component: {fileID: 590268121}
   - component: {fileID: 590268120}
   - component: {fileID: 590268119}
+  - component: {fileID: 590268124}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -11120,6 +11121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8102dd03ac2642a42af37f2a08b0fcf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFollowing: 1
 --- !u!114 &590268120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11219,6 +11221,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 36.748, y: 0, z: 0}
+--- !u!114 &590268124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590268118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919c881bf0699eb41910f0cdca94a965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &592256158
 GameObject:
   m_ObjectHideFlags: 0
@@ -13480,20 +13494,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806263175}
   m_Mesh: {fileID: -4855243574250553854, guid: 9fb81ab7eb21fd741ab5de8b35a3dd6b, type: 3}
---- !u!114 &820894240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e2c2c40c6dfcb4599c0433cd730f2d, type: 3}
-  m_Name: ForestCavern(Clone)
-  m_EditorClassIdentifier: 
-  keys: []
-  values: []
 --- !u!1 &832645643
 GameObject:
   m_ObjectHideFlags: 0
@@ -24594,6 +24594,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100891903}
   m_Mesh: {fileID: 6162401304737288215, guid: ea26748b7b48f6e4dae426b0e78ff6d5, type: 3}
+--- !u!114 &1113368818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e2c2c40c6dfcb4599c0433cd730f2d, type: 3}
+  m_Name: ForestCavern(Clone)
+  m_EditorClassIdentifier: 
+  keys: []
+  values: []
 --- !u!1 &1123180392
 GameObject:
   m_ObjectHideFlags: 0
@@ -24692,6 +24706,7 @@ MonoBehaviour:
   - {fileID: 1036780561}
   jackhammer: {fileID: 187714176}
   headLight: {fileID: 1270197498}
+  vacuum: {fileID: 0}
   currentObstacleType: 0
   allPossibleTypes: 00000000010000000400000003000000
 --- !u!4 &1125956096
@@ -35176,6 +35191,10 @@ MonoBehaviour:
   audios:
   - {fileID: 8300000, guid: 5199b4456c43ffd4dbeb625e5758a7ed, type: 3}
   - {fileID: 8300000, guid: e90073e3906dfce4f846d47cb53a427b, type: 3}
+  - {fileID: 8300000, guid: 18f416a3e5713034fbb79c9d3bf39bda, type: 3}
+  - {fileID: 8300000, guid: 82602ce42b7276044a82d6521bc3dbc3, type: 3}
+  - {fileID: 8300000, guid: 01512f127ac1514468ec1583ea1e4add, type: 3}
+  - {fileID: 8300000, guid: 460e175a47dc71a45b1fbe6775dede06, type: 3}
 --- !u!82 &1754030347
 AudioSource:
   m_ObjectHideFlags: 0
@@ -37272,6 +37291,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007377934}
   m_CullTransparentMesh: 0
+--- !u!1 &2015508048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015508050}
+  - component: {fileID: 2015508049}
+  m_Layer: 0
+  m_Name: BGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2015508049
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015508048}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bfb8374947f9c4748aa5729e0f8adff7, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2015508050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015508048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017792772
 GameObject:
   m_ObjectHideFlags: 0
