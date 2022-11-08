@@ -49,8 +49,21 @@ public class SliderObstacle : Obstacle
             {
                 //gameObject.SetActive(false);
                 CameraShake.Shake(0.3f,0.1f);
-                transform.Find("explosion").gameObject.SetActive(true);
-                transform.Find("rock1").gameObject.SetActive(false);
+                if(transform.Find("explosion"))
+                {
+                    transform.Find("explosion").gameObject.SetActive(true);
+                }
+                if(transform.Find("rock1"))
+                {
+                    transform.Find("rock1").gameObject.SetActive(false);
+                }
+                MeshDestroy meshDestroy = GetComponentInChildren(typeof(MeshDestroy)) as MeshDestroy;
+                if (meshDestroy != null)
+                {
+                    meshDestroy.DestroyMesh();
+                }
+                
+                
                 DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
                 return true;
             }
