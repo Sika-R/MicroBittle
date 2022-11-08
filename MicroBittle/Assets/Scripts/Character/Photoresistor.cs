@@ -8,7 +8,7 @@ public class Photoresistor : MonoBehaviour
 {
     public static Photoresistor Instance = null;
     public Light FlashLight;
-    public float currentLightVal;
+    public float currentLightVal = 100f;
     [SerializeField] Volume boxVolume;
     [SerializeField] VolumeProfile boxVolumeProfile;
     [SerializeField] float shrinkedVal = 0.78f;
@@ -21,6 +21,7 @@ public class Photoresistor : MonoBehaviour
     {
         boxVolumeProfile = boxVolume.profile;
         normalIntensityVal = FlashLight.GetComponent<Light>().intensity;
+        LightOn();
     }
 
     // Update is called once per frame
