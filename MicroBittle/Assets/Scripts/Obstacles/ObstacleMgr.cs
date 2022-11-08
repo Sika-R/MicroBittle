@@ -72,7 +72,7 @@ public class ObstacleMgr : MonoBehaviour
         //
         //}
         
-        OutfitMgr.Instance.chooseToolIcon(obstacleType);
+        // OutfitMgr.Instance.chooseToolIcon(obstacleType);
         if (obstacleType == ObstacleType.Light)
         {
             Photoresistor.Instance.currentLightVal = inputVal;
@@ -83,6 +83,10 @@ public class ObstacleMgr : MonoBehaviour
             else
             {
                 if (currentEncounteredObstacle && currentEncounteredObstacle.obstacleType != ObstacleType.Vacuum)
+                {
+                    Photoresistor.Instance.LightOn();
+                }
+                else if(currentEncounteredObstacle == null)
                 {
                     Photoresistor.Instance.LightOn();
                 }

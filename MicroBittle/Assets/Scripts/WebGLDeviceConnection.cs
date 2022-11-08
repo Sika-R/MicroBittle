@@ -165,11 +165,12 @@ public class WebGLDeviceConnection : MonoBehaviour
             inputBuffer.Remove(0, idx + 1);
             ParseLine(input);
             StartCoroutine(text.gameObject.GetComponent<DebugLogController>().ScrollBarBottom());
+            if(text)
+            {
+                text.text += input;
+            }
         }
-        if(text)
-        {
-            text.text = inputBuffer.ToString();
-        }
+        
         
     }
 
@@ -213,17 +214,18 @@ public class WebGLDeviceConnection : MonoBehaviour
                     break;
                 case MicrobitEventType.P1:
                     float waterLvl = float.Parse(str.Substring(1));
-                    waterLvl = 1024 - waterLvl;
+                    // waterLvl = 1024 - waterLvl;
                     // waterLvl = (1000 - waterLvl) / 7; 
                     text.text += "Water: " + waterLvl + " \n";
-                    sliderEvent.Invoke(waterLvl, ObstacleType.Humid);
+                    // sliderEvent.Invoke(waterLvl, ObstacleType.Humid);
+                    sliderEvent.Invoke(waterLvl, ObstacleType.Vacuum);
                     waterValueEvent.Invoke(waterLvl);
                     // waterValueEvent.Invoke(Mathf.Floor(waterLvl / 30));
                     break;
 
                 case MicrobitEventType.P2:
                     float lightLvl = float.Parse(str.Substring(1));
-                    lightLvl = 1024 - lightLvl;
+                    lightLvl = 830 - lightLvl;
                     text.text += "Light: " + lightLvl + " \n";
                     sliderEvent.Invoke(lightLvl, ObstacleType.Light);
                     lightValueEvent.Invoke(lightLvl);
