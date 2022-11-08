@@ -420,10 +420,10 @@ MonoBehaviour:
     x: 0
     y: -1
     obstacle: 0
-  - isOccupied: 0
+  - isOccupied: 1
     x: -2
     y: -1
-    obstacle: 0
+    obstacle: 4
   - isOccupied: 0
     x: -3
     y: 0
