@@ -33,7 +33,7 @@ public class LightObstacle : Obstacle
     {
         // PlayerMovement.Instance.PlayerFreeze();
         SoundMgr.Instance.PlayAudio("mouseScream");
-        SoundMgr.Instance.PlayAudio("teethChatter");
+        SoundMgr.Instance.PlayAudio("CHARACTER_SCARED_SFX_v1");
     }
 
     public override bool getInput(float inputVal, ObstacleType obstacleType)
