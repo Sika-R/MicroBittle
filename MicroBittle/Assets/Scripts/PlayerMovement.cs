@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
 #if UNITY_EDITOR
 #else
-        WebGLDeviceConnection.Instance.SendStartLine();
+        // WebGLDeviceConnection.Instance.SendStartLine();
 #endif
         curIdx = DrawGrid.Instance.GetIdx(transform.position);
         Vector3 pos = DrawGrid.Instance.IdentifyCenter(transform.position);
