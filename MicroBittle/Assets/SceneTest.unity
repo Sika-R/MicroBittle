@@ -1218,6 +1218,124 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &138291534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 138291535}
+  - component: {fileID: 138291537}
+  - component: {fileID: 138291536}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &138291535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138291534}
+  m_LocalRotation: {x: -0.07311726, y: -0.93174493, z: 0.35458577, w: -0.027825538}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.0062150685, y: 0.006215065, z: 0.0062150676}
+  m_Children: []
+  m_Father: {fileID: 1686499040}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 41.67, y: -180, z: 8.974}
+--- !u!114 &138291536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138291534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c4dccf9379ba6488023cb8b89ce7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlashLight: {fileID: 138291537}
+  currentLightVal: 100
+  boxVolume: {fileID: 1543723412}
+  boxVolumeProfile: {fileID: 11400000, guid: 91bd9bcbcfe4ac54fb54a3c4917a906b, type: 2}
+  shrinkedVal: 0.5
+  normalIntensityVal: 3.66
+  normalLightColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 0}
+  shrinkedColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0}
+  offColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 0}
+  equippedNormalLightColor: {r: 0.99542594, g: 1, b: 0.7987421, a: 0}
+  equippedShrinkedColor: {r: 0.6226415, g: 0.618653, b: 0.51495194, a: 0}
+  equippedOffColor: {r: 0.23584908, g: 0.2286942, b: 0.17503265, a: 0}
+--- !u!108 &138291537
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138291534}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 2.01
+  m_Range: 7.24
+  m_SpotAngle: 51.503395
+  m_InnerSpotAngle: 43.30548
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &146521514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,625 +1433,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146521514}
   m_Mesh: {fileID: -4851001423541414395, guid: bbe41bffddf4b144e9c0c22280bc8fbc, type: 3}
---- !u!114 &149423431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e2c2c40c6dfcb4599c0433cd730f2d, type: 3}
-  m_Name: TutorialMaze 2(Clone)
-  m_EditorClassIdentifier: 
-  keys:
-  - {x: -4, y: 5}
-  - {x: -4, y: 4}
-  - {x: -3, y: 5}
-  - {x: -2, y: 4}
-  - {x: -1, y: 4}
-  - {x: 0, y: 4}
-  - {x: 1, y: 4}
-  - {x: 2, y: 4}
-  - {x: 4, y: 4}
-  - {x: 5, y: 5}
-  - {x: 5, y: 4}
-  - {x: 4, y: 5}
-  - {x: -5, y: 2}
-  - {x: -4, y: 2}
-  - {x: -3, y: 2}
-  - {x: -2, y: 2}
-  - {x: -2, y: 1}
-  - {x: -2, y: 0}
-  - {x: -1, y: 1}
-  - {x: 0, y: 0}
-  - {x: 0, y: 2}
-  - {x: 1, y: 2}
-  - {x: 2, y: 2}
-  - {x: 4, y: 2}
-  - {x: 4, y: 1}
-  - {x: 4, y: 0}
-  - {x: 5, y: 0}
-  - {x: 3, y: 0}
-  - {x: 2, y: 0}
-  - {x: 2, y: -1}
-  - {x: 2, y: -2}
-  - {x: 2, y: -3}
-  - {x: 2, y: -4}
-  - {x: 1, y: -2}
-  - {x: 0, y: -2}
-  - {x: -1, y: -2}
-  - {x: -2, y: -2}
-  - {x: -3, y: -2}
-  - {x: -4, y: -2}
-  - {x: -4, y: -1}
-  - {x: -4, y: 0}
-  - {x: -5, y: -5}
-  - {x: -4, y: -5}
-  - {x: -4, y: -4}
-  - {x: -3, y: -5}
-  - {x: -2, y: -5}
-  - {x: -1, y: -5}
-  - {x: 0, y: -5}
-  - {x: 0, y: -4}
-  - {x: -1, y: -4}
-  - {x: -2, y: -4}
-  - {x: 4, y: -2}
-  - {x: 4, y: -3}
-  - {x: 5, y: -3}
-  - {x: 5, y: -2}
-  - {x: 4, y: -4}
-  - {x: -5, y: 5}
-  - {x: -5, y: 4}
-  - {x: -4, y: 3}
-  - {x: -2, y: 3}
-  - {x: 0, y: 3}
-  - {x: 1, y: 3}
-  - {x: 2, y: 3}
-  - {x: -1, y: 5}
-  - {x: 0, y: 5}
-  - {x: 1, y: 5}
-  - {x: 2, y: 5}
-  - {x: 4, y: 3}
-  - {x: 5, y: 2}
-  - {x: 5, y: -1}
-  - {x: 4, y: -1}
-  - {x: 3, y: -2}
-  - {x: 3, y: -3}
-  - {x: 3, y: -4}
-  - {x: 4, y: -5}
-  - {x: 1, y: -4}
-  - {x: 0, y: -3}
-  - {x: -1, y: -3}
-  - {x: -4, y: -3}
-  - {x: -5, y: -2}
-  - {x: -2, y: -1}
-  - {x: 0, y: -1}
-  - {x: 3, y: 4}
-  - {x: 3, y: 2}
-  - {x: 2, y: 1}
-  - {x: 1, y: 0}
-  - {x: -4, y: 1}
-  - {x: -5, y: 3}
-  - {x: 5, y: 3}
-  - {x: 3, y: 1}
-  - {x: 5, y: -5}
-  - {x: 1, y: -5}
-  - {x: 1, y: -3}
-  - {x: -3, y: 4}
-  - {x: -2, y: 5}
-  - {x: 5, y: 1}
-  - {x: 5, y: -4}
-  - {x: -5, y: -4}
-  - {x: -3, y: -4}
-  - {x: -3, y: 3}
-  - {x: -1, y: 3}
-  - {x: -1, y: -1}
-  - {x: -3, y: -3}
-  - {x: 3, y: -5}
-  - {x: -3, y: 1}
-  - {x: -5, y: 1}
-  - {x: -3, y: -1}
-  - {x: 3, y: 5}
-  - {x: -5, y: 0}
-  - {x: -5, y: -3}
-  - {x: 3, y: 3}
-  - {x: -1, y: 2}
-  - {x: 0, y: 1}
-  - {x: -1, y: 0}
-  - {x: -2, y: -3}
-  - {x: 1, y: -1}
-  - {x: 1, y: 1}
-  - {x: -3, y: 0}
-  - {x: -5, y: -1}
-  - {x: 2, y: -5}
-  - {x: 3, y: -1}
-  values:
-  - isOccupied: 1
-    x: -4
-    y: 5
-    obstacle: 5
-  - isOccupied: 1
-    x: -4
-    y: 4
-    obstacle: 5
-  - isOccupied: 1
-    x: -3
-    y: 5
-    obstacle: 5
-  - isOccupied: 1
-    x: -2
-    y: 4
-    obstacle: 5
-  - isOccupied: 1
-    x: -1
-    y: 4
-    obstacle: 5
-  - isOccupied: 1
-    x: 0
-    y: 4
-    obstacle: 5
-  - isOccupied: 1
-    x: 1
-    y: 4
-    obstacle: 5
-  - isOccupied: 1
-    x: 2
-    y: 4
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
-    y: 4
-    obstacle: 5
-  - isOccupied: 1
-    x: 5
-    y: 5
-    obstacle: 5
-  - isOccupied: 0
-    x: 5
-    y: 4
-    obstacle: 0
-  - isOccupied: 1
-    x: 4
-    y: 5
-    obstacle: 5
-  - isOccupied: 1
-    x: -5
-    y: 2
-    obstacle: 5
-  - isOccupied: 1
-    x: -4
-    y: 2
-    obstacle: 5
-  - isOccupied: 1
-    x: -3
-    y: 2
-    obstacle: 5
-  - isOccupied: 1
-    x: -2
-    y: 2
-    obstacle: 5
-  - isOccupied: 1
-    x: -2
-    y: 1
-    obstacle: 5
-  - isOccupied: 1
-    x: -2
-    y: 0
-    obstacle: 5
-  - isOccupied: 1
-    x: -1
-    y: 1
-    obstacle: 5
-  - isOccupied: 1
-    x: 0
-    y: 0
-    obstacle: 5
-  - isOccupied: 1
-    x: 0
-    y: 2
-    obstacle: 5
-  - isOccupied: 1
-    x: 1
-    y: 2
-    obstacle: 5
-  - isOccupied: 1
-    x: 2
-    y: 2
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
-    y: 2
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
-    y: 1
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
-    y: 0
-    obstacle: 5
-  - isOccupied: 1
-    x: 5
-    y: 0
-    obstacle: 5
-  - isOccupied: 1
-    x: 3
-    y: 0
-    obstacle: 5
-  - isOccupied: 1
-    x: 2
-    y: 0
-    obstacle: 5
-  - isOccupied: 0
-    x: 2
-    y: -1
-    obstacle: 0
-  - isOccupied: 1
-    x: 2
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: 2
-    y: -3
-    obstacle: 5
-  - isOccupied: 1
-    x: 2
-    y: -4
-    obstacle: 5
-  - isOccupied: 1
-    x: 1
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: 0
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: -1
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: -2
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: -3
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: -4
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: -4
-    y: -1
-    obstacle: 5
-  - isOccupied: 1
-    x: -4
-    y: 0
-    obstacle: 5
-  - isOccupied: 1
-    x: -5
-    y: -5
-    obstacle: 5
-  - isOccupied: 1
-    x: -4
-    y: -5
-    obstacle: 5
-  - isOccupied: 1
-    x: -4
-    y: -4
-    obstacle: 5
-  - isOccupied: 1
-    x: -3
-    y: -5
-    obstacle: 5
-  - isOccupied: 1
-    x: -2
-    y: -5
-    obstacle: 5
-  - isOccupied: 1
-    x: -1
-    y: -5
-    obstacle: 5
-  - isOccupied: 1
-    x: 0
-    y: -5
-    obstacle: 5
-  - isOccupied: 1
-    x: 0
-    y: -4
-    obstacle: 5
-  - isOccupied: 1
-    x: -1
-    y: -4
-    obstacle: 5
-  - isOccupied: 1
-    x: -2
-    y: -4
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
-    y: -3
-    obstacle: 5
-  - isOccupied: 1
-    x: 5
-    y: -3
-    obstacle: 5
-  - isOccupied: 1
-    x: 5
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
-    y: -4
-    obstacle: 5
-  - isOccupied: 0
-    x: -5
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: 4
-    obstacle: 0
-  - isOccupied: 0
-    x: -4
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: -2
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 0
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 2
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: 0
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: 2
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: 4
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: 2
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 4
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: -2
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: 4
-    y: -5
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: 0
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: -4
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: -2
-    obstacle: 0
-  - isOccupied: 0
-    x: -2
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 0
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: 4
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: 2
-    obstacle: 0
-  - isOccupied: 0
-    x: 2
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: 0
-    obstacle: 0
-  - isOccupied: 0
-    x: -4
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: -5
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: -5
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: 4
-    obstacle: 0
-  - isOccupied: 0
-    x: -2
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: -5
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: 0
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: 2
-    obstacle: 0
-  - isOccupied: 0
-    x: 0
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: 0
-    obstacle: 0
-  - isOccupied: 0
-    x: -2
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: 1
-    obstacle: 1
-  - isOccupied: 0
-    x: -3
-    y: 0
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: -1
-    obstacle: 2
-  - isOccupied: 0
-    x: 2
-    y: -5
-    obstacle: 1
-  - isOccupied: 0
-    x: 3
-    y: -1
-    obstacle: 2
 --- !u!1 &156197753
 GameObject:
   m_ObjectHideFlags: 0
@@ -5789,6 +5288,8 @@ MonoBehaviour:
   audios:
   - {fileID: 8300000, guid: 5199b4456c43ffd4dbeb625e5758a7ed, type: 3}
   - {fileID: 8300000, guid: e90073e3906dfce4f846d47cb53a427b, type: 3}
+  - {fileID: 8300000, guid: e92e4bb952d21014abfa6ec87dbb9095, type: 3}
+  - {fileID: 8300000, guid: 01512f127ac1514468ec1583ea1e4add, type: 3}
 --- !u!82 &473597881
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8035,6 +7536,7 @@ MonoBehaviour:
   index: 0
   isMovingWithMouse: 0
   drawGridScript: {fileID: 0}
+  minVal: 10
   radius: 2
   playerCollideRadius: 4
 --- !u!23 &802315482
@@ -8835,6 +8337,7 @@ MonoBehaviour:
   index: 0
   isMovingWithMouse: 0
   drawGridScript: {fileID: 0}
+  minVal: 10
   radius: 2
   playerCollideRadius: 4
 --- !u!23 &910986470
@@ -9744,6 +9247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8102dd03ac2642a42af37f2a08b0fcf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFollowing: 1
 --- !u!114 &985100498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9843,6 +9347,625 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 36.748, y: 0, z: 0}
+--- !u!114 &990950543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e2c2c40c6dfcb4599c0433cd730f2d, type: 3}
+  m_Name: TutorialMaze 2(Clone)
+  m_EditorClassIdentifier: 
+  keys:
+  - {x: -4, y: 5}
+  - {x: -4, y: 4}
+  - {x: -3, y: 5}
+  - {x: -2, y: 4}
+  - {x: -1, y: 4}
+  - {x: 0, y: 4}
+  - {x: 1, y: 4}
+  - {x: 2, y: 4}
+  - {x: 4, y: 4}
+  - {x: 5, y: 5}
+  - {x: 5, y: 4}
+  - {x: 4, y: 5}
+  - {x: -5, y: 2}
+  - {x: -4, y: 2}
+  - {x: -3, y: 2}
+  - {x: -2, y: 2}
+  - {x: -2, y: 1}
+  - {x: -2, y: 0}
+  - {x: -1, y: 1}
+  - {x: 0, y: 0}
+  - {x: 0, y: 2}
+  - {x: 1, y: 2}
+  - {x: 2, y: 2}
+  - {x: 4, y: 2}
+  - {x: 4, y: 1}
+  - {x: 4, y: 0}
+  - {x: 5, y: 0}
+  - {x: 3, y: 0}
+  - {x: 2, y: 0}
+  - {x: 2, y: -1}
+  - {x: 2, y: -2}
+  - {x: 2, y: -3}
+  - {x: 2, y: -4}
+  - {x: 1, y: -2}
+  - {x: 0, y: -2}
+  - {x: -1, y: -2}
+  - {x: -2, y: -2}
+  - {x: -3, y: -2}
+  - {x: -4, y: -2}
+  - {x: -4, y: -1}
+  - {x: -4, y: 0}
+  - {x: -5, y: -5}
+  - {x: -4, y: -5}
+  - {x: -4, y: -4}
+  - {x: -3, y: -5}
+  - {x: -2, y: -5}
+  - {x: -1, y: -5}
+  - {x: 0, y: -5}
+  - {x: 0, y: -4}
+  - {x: -1, y: -4}
+  - {x: -2, y: -4}
+  - {x: 4, y: -2}
+  - {x: 4, y: -3}
+  - {x: 5, y: -3}
+  - {x: 5, y: -2}
+  - {x: 4, y: -4}
+  - {x: -5, y: 5}
+  - {x: -5, y: 4}
+  - {x: -4, y: 3}
+  - {x: -2, y: 3}
+  - {x: 0, y: 3}
+  - {x: 1, y: 3}
+  - {x: 2, y: 3}
+  - {x: -1, y: 5}
+  - {x: 0, y: 5}
+  - {x: 1, y: 5}
+  - {x: 2, y: 5}
+  - {x: 4, y: 3}
+  - {x: 5, y: 2}
+  - {x: 5, y: -1}
+  - {x: 4, y: -1}
+  - {x: 3, y: -2}
+  - {x: 3, y: -3}
+  - {x: 3, y: -4}
+  - {x: 4, y: -5}
+  - {x: 1, y: -4}
+  - {x: 0, y: -3}
+  - {x: -1, y: -3}
+  - {x: -4, y: -3}
+  - {x: -5, y: -2}
+  - {x: -2, y: -1}
+  - {x: 0, y: -1}
+  - {x: 3, y: 4}
+  - {x: 3, y: 2}
+  - {x: 2, y: 1}
+  - {x: 1, y: 0}
+  - {x: -4, y: 1}
+  - {x: -5, y: 3}
+  - {x: 5, y: 3}
+  - {x: 3, y: 1}
+  - {x: 5, y: -5}
+  - {x: 1, y: -5}
+  - {x: 1, y: -3}
+  - {x: -3, y: 4}
+  - {x: -2, y: 5}
+  - {x: 5, y: 1}
+  - {x: 5, y: -4}
+  - {x: -5, y: -4}
+  - {x: -3, y: -4}
+  - {x: -3, y: 3}
+  - {x: -1, y: 3}
+  - {x: -1, y: -1}
+  - {x: -3, y: -3}
+  - {x: 3, y: -5}
+  - {x: -3, y: 1}
+  - {x: -5, y: 1}
+  - {x: -3, y: -1}
+  - {x: 3, y: 5}
+  - {x: -5, y: 0}
+  - {x: -5, y: -3}
+  - {x: 3, y: 3}
+  - {x: -1, y: 2}
+  - {x: 0, y: 1}
+  - {x: -1, y: 0}
+  - {x: -2, y: -3}
+  - {x: 1, y: -1}
+  - {x: 1, y: 1}
+  - {x: -3, y: 0}
+  - {x: -5, y: -1}
+  - {x: 2, y: -5}
+  - {x: 3, y: -1}
+  values:
+  - isOccupied: 1
+    x: -4
+    y: 5
+    obstacle: 5
+  - isOccupied: 1
+    x: -4
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: -3
+    y: 5
+    obstacle: 5
+  - isOccupied: 1
+    x: -2
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: -1
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: 0
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: 1
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: 5
+    y: 5
+    obstacle: 5
+  - isOccupied: 0
+    x: 5
+    y: 4
+    obstacle: 0
+  - isOccupied: 1
+    x: 4
+    y: 5
+    obstacle: 5
+  - isOccupied: 1
+    x: -5
+    y: 2
+    obstacle: 5
+  - isOccupied: 1
+    x: -4
+    y: 2
+    obstacle: 5
+  - isOccupied: 1
+    x: -3
+    y: 2
+    obstacle: 5
+  - isOccupied: 1
+    x: -2
+    y: 2
+    obstacle: 5
+  - isOccupied: 1
+    x: -2
+    y: 1
+    obstacle: 5
+  - isOccupied: 1
+    x: -2
+    y: 0
+    obstacle: 5
+  - isOccupied: 1
+    x: -1
+    y: 1
+    obstacle: 5
+  - isOccupied: 1
+    x: 0
+    y: 0
+    obstacle: 5
+  - isOccupied: 1
+    x: 0
+    y: 2
+    obstacle: 5
+  - isOccupied: 1
+    x: 1
+    y: 2
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: 2
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: 2
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: 1
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: 0
+    obstacle: 5
+  - isOccupied: 1
+    x: 5
+    y: 0
+    obstacle: 5
+  - isOccupied: 1
+    x: 3
+    y: 0
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: 0
+    obstacle: 5
+  - isOccupied: 0
+    x: 2
+    y: -1
+    obstacle: 0
+  - isOccupied: 1
+    x: 2
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: -3
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: 1
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: 0
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: -1
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: -2
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: -3
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: -4
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: -4
+    y: -1
+    obstacle: 5
+  - isOccupied: 1
+    x: -4
+    y: 0
+    obstacle: 5
+  - isOccupied: 1
+    x: -5
+    y: -5
+    obstacle: 5
+  - isOccupied: 1
+    x: -4
+    y: -5
+    obstacle: 5
+  - isOccupied: 1
+    x: -4
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: -3
+    y: -5
+    obstacle: 5
+  - isOccupied: 1
+    x: -2
+    y: -5
+    obstacle: 5
+  - isOccupied: 1
+    x: -1
+    y: -5
+    obstacle: 5
+  - isOccupied: 1
+    x: 0
+    y: -5
+    obstacle: 5
+  - isOccupied: 1
+    x: 0
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: -1
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: -2
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: -3
+    obstacle: 5
+  - isOccupied: 1
+    x: 5
+    y: -3
+    obstacle: 5
+  - isOccupied: 1
+    x: 5
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: -4
+    obstacle: 5
+  - isOccupied: 0
+    x: -5
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: 4
+    obstacle: 0
+  - isOccupied: 0
+    x: -4
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: -2
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: 0
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: 2
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: -1
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: 0
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: 2
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: 4
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: 2
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: 4
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: -2
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: -4
+    obstacle: 0
+  - isOccupied: 0
+    x: 4
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: -4
+    obstacle: 0
+  - isOccupied: 0
+    x: 0
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: -1
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: -4
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: -2
+    obstacle: 0
+  - isOccupied: 0
+    x: -2
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: 0
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: 4
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: 2
+    obstacle: 0
+  - isOccupied: 0
+    x: 2
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: 0
+    obstacle: 0
+  - isOccupied: 0
+    x: -4
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: 4
+    obstacle: 0
+  - isOccupied: 0
+    x: -2
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: -4
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: -4
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: -4
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: -1
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: -1
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: 0
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: -1
+    y: 2
+    obstacle: 0
+  - isOccupied: 0
+    x: 0
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: -1
+    y: 0
+    obstacle: 0
+  - isOccupied: 0
+    x: -2
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: 1
+    obstacle: 1
+  - isOccupied: 0
+    x: -3
+    y: 0
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: -1
+    obstacle: 2
+  - isOccupied: 0
+    x: 2
+    y: -5
+    obstacle: 1
+  - isOccupied: 0
+    x: 3
+    y: -1
+    obstacle: 2
 --- !u!1 &993559207
 GameObject:
   m_ObjectHideFlags: 0
@@ -12722,7 +12845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalMaze: {fileID: 11400000, guid: 16dd48f41f742dd4ebdaaddfb9535c67, type: 2}
-  maze: {fileID: 149423431}
+  maze: {fileID: 990950543}
   bShowGizmos: 1
   m_column: 11
   m_row: 11
@@ -17987,6 +18110,7 @@ MonoBehaviour:
   - {fileID: 1521438590}
   jackhammer: {fileID: 1692608827}
   headLight: {fileID: 1686499039}
+  vacuum: {fileID: 0}
   currentObstacleType: 0
   allPossibleTypes: 00000000010000000400000003000000
 --- !u!4 &1891893799

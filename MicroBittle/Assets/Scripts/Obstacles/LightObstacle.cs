@@ -90,7 +90,6 @@ public class LightObstacle : Obstacle
         {
             if (Photoresistor.Instance.currentLightVal > minInput)
             {
-                ScarePlayer();
                 PlayerMovement.Instance.canPass = ObstacleType.None;
                 //OutfitMgr.Instance.headLight.transform.GetChild(0).gameObject.SetActive(true);
             }
@@ -98,8 +97,19 @@ public class LightObstacle : Obstacle
             {
                 PlayerMovement.Instance.canPass = ObstacleType.Light;
                 //OutfitMgr.Instance.headLight.transform.GetChild(0).gameObject.SetActive(false);
+            } 
+        }
+    }
+
+    public override void OnTriggerEnter(Collider collider)
+    {
+        base.OnTriggerEnter(collider);
+        if (collider.gameObject.tag == "Player" && !isMovingWithMouse)
+        {
+            if (Photoresistor.Instance.currentLightVal > minInput)
+            {
+                ScarePlayer();
             }
-            
         }
     }
 

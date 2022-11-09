@@ -79,6 +79,7 @@ public class ObstacleMgr : MonoBehaviour
             if (inputVal < 10)
             {
                 Photoresistor.Instance.LightOff();
+                SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
             }
             else
             {
@@ -90,7 +91,7 @@ public class ObstacleMgr : MonoBehaviour
                 {
                     Photoresistor.Instance.LightOn();
                 }
-                
+                SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
             }
         }
         if (currentEncounteredObstacle == null)
