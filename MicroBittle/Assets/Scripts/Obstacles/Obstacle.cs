@@ -91,13 +91,7 @@ public class Obstacle : MonoBehaviour
         return false;
     }
 
-
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Enter");
-        collisonEvent(collision);
-    }*/
-    public void OnTriggerEnter(Collider collider)
+    public virtual void OnTriggerEnter(Collider collider)
     {
         //Debug.Log("Enter");
         collisonEvent(collider);

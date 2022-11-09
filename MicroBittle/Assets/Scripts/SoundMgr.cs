@@ -54,9 +54,24 @@ public class SoundMgr : MonoBehaviour
         audioSource.PlayOneShot(ac);
     }
 
+    public void PlayOnce(string clipName)
+    {
+        audioSource.PlayOneShot(audios.Find(x => x.name.Equals(clipName)));
+    }
+
     public void PlayAudio(string clipName, AudioSource AS)
     {
         AS.PlayOneShot(audios.Find(x => x.name.Equals(clipName)));
+    }
+
+    public void StopAudio()
+    {
+        audioSource.Pause();
+    }
+
+    public void StopAudio(AudioSource AS)
+    {
+        AS.Pause();
     }
 
     IEnumerator Play(float time)
