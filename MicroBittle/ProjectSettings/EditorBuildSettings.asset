@@ -5,25 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/DialogueSystem/Scenes/Intro.unity
     guid: 7208dfffeca7dc34ab4cde4b790a281d
-  - enabled: 0
+  - enabled: 1
     path: Assets/DialogueSystem/Scenes/Hui/customize.unity
     guid: 275ab7cfe14ea2d44b2d249b6839a8e6
-  - enabled: 0
+  - enabled: 1
     path: Assets/DialogueSystem/Scenes/Hui/program.unity
     guid: 61ed7bfb7ebf07946a5bf70b48db5914
-  - enabled: 0
+  - enabled: 1
     path: Assets/DialogueSystem/Scenes/Hui/Start.unity
     guid: da758ced796fe2747bd39c967486c5f8
-  - enabled: 0
+  - enabled: 1
     path: Assets/SceneTest.unity
     guid: aa793eef34d726a47bcb748b57250e31
-  - enabled: 0
+  - enabled: 1
     path: Assets/SceneTestBackup.unity
     guid: 7934284dec2a51f4fb3b516ab4b4db7c
   - enabled: 1
     path: Assets/LayoutScenes/DesertPyramid.unity
     guid: 09265735da241e0459dd0296bc4d95b8
+  - enabled: 1
+    path: Assets/DialogueSystem/Scenes/Hui/test.unity
+    guid: 56ea29b371a3612418cb5bb53a8f3436
   m_configObjects: {}

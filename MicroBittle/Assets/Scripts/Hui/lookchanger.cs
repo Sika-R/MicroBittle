@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class lookchanger : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject debug;
     [Header("Mesh to change")]
     public MeshFilter meshtochange;
     public GameObject meshchange;
@@ -91,7 +92,7 @@ public class lookchanger : MonoBehaviour
                 materialchange = gameObjectList[currentOptionForMesh].GetComponent<MeshRenderer>();
                 newmaterial.SetTexture("_MainTex", texturelist[currentOptionForTexture]);
                 newmaterial.SetTexture("_MainTex", materialchange.material.GetTexture("_MainTex"));
-                newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+                newmaterial.SetColor("_BaseColor", materialchange.material.GetColor("_BaseColor"));
 
                 break;
             case 1:
@@ -99,7 +100,7 @@ public class lookchanger : MonoBehaviour
                 materialchange = gameObjectList[currentOptionForMesh].GetComponent<MeshRenderer>();
                 newmaterial.SetTexture("_MainTex", texturelist[currentOptionForTexture]);
                 newmaterial.SetTexture("_MainTex", materialchange.material.GetTexture("_MainTex"));
-                newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+                newmaterial.SetColor("_BaseColor", materialchange.material.GetColor("_BaseColor"));
 
                 break;
             case 2:
@@ -107,7 +108,7 @@ public class lookchanger : MonoBehaviour
                 materialchange = gameObjectList[currentOptionForMesh].GetComponent<MeshRenderer>();
                 newmaterial.SetTexture("_MainTex", texturelist[currentOptionForTexture]);
                 newmaterial.SetTexture("_MainTex", materialchange.material.GetTexture("_MainTex"));
-                newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+                newmaterial.SetColor("_BaseColor", materialchange.material.GetColor("_BaseColor"));
 
                 break;
         }
@@ -127,22 +128,22 @@ public class lookchanger : MonoBehaviour
             case 0:
                 objecttoTransfrom.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, -180, 0), 0.4f);
                 materialchange = gameObjectList[currentOptionForMesh].GetComponent<MeshRenderer>();
-                newmaterial.SetTexture("_MainTex", materialchange.material.GetTexture("_MainTex"));
-                newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+                newmaterial.SetTexture("_BaseMap", materialchange.material.GetTexture("_BaseMap"));
+                newmaterial.SetColor("_BaseColor", materialchange.material.GetColor("_BaseColor"));
 
                 break;
             case 1:
                 objecttoTransfrom.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), 0.4f);
                 materialchange = gameObjectList[currentOptionForMesh].GetComponent<MeshRenderer>();
-                newmaterial.SetTexture("_MainTex", materialchange.material.GetTexture("_MainTex"));
-                newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+                newmaterial.SetTexture("_BaseMap", materialchange.material.GetTexture("_BaseMap"));
+                newmaterial.SetColor("_BaseColor", materialchange.material.GetColor("_BaseColor"));
 
                 break;
             case 2:
                 objecttoTransfrom.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 180, 0), 0.4f);
                 materialchange = gameObjectList[currentOptionForMesh].GetComponent<MeshRenderer>();
-                newmaterial.SetTexture("_MainTex", materialchange.material.GetTexture("_MainTex"));
-                newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+                newmaterial.SetTexture("_BaseMap", materialchange.material.GetTexture("_BaseMap"));
+                newmaterial.SetColor("_BaseColor", materialchange.material.GetColor("_BaseColor"));
 
                 break;
         }
@@ -154,9 +155,9 @@ public class lookchanger : MonoBehaviour
         {
             currentOptionForTexture = 0;
         }
-        materialchange.material.SetTexture("_MainTex", texturelist[currentOptionForTexture]);
-        newmaterial.SetTexture("_MainTex", materialchange.material.GetTexture("_MainTex"));
-        newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+        materialchange.material.SetTexture("_BaseMap", texturelist[currentOptionForTexture]);
+        newmaterial.SetTexture("_BaseMap", materialchange.material.GetTexture("_BaseMap"));
+        newmaterial.SetColor("_BaseColor", materialchange.material.GetColor("_BaseColor"));
     }
     public void preOptionForTexture()
     {
@@ -165,9 +166,9 @@ public class lookchanger : MonoBehaviour
         {
             currentOptionForTexture = texturelist.Count - 1;
         }
-        materialchange.material.SetTexture("_MainTex", texturelist[currentOptionForTexture]);
-        newmaterial.SetTexture("_MainTex", materialchange.material.GetTexture("_MainTex"));
-        newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+        materialchange.material.SetTexture("_BaseMap", texturelist[currentOptionForTexture]);
+        newmaterial.SetTexture("_BaseMap", materialchange.material.GetTexture("_BaseMap"));
+        newmaterial.SetColor("_BaseColor", materialchange.material.GetColor("_BaseColor"));
     }
     /*
     public void nextOptionForColor()
@@ -238,9 +239,13 @@ public class lookchanger : MonoBehaviour
     public void UIcolorpicker(GameObject buttonClick)
     {
         Color colrochange = buttonClick.GetComponent<Image>().color;
-        materialchange.material.SetColor("_Color", colrochange);
-        newmaterial.SetTexture("_MainTex", materialchange.material.GetTexture("_MainTex"));
-        newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+        materialchange.GetComponent<Renderer>().material.SetColor("_BaseColor", colrochange);
+        Debug.Log(colrochange);
+        Debug.Log(currentOptionForMesh);
+        //newmaterial.SetTexture("_BaseMap", materialchange.material.GetTexture("_BaseMap"));
+        //newmaterial.SetColor("_Color", materialchange.material.GetColor("_Color"));
+        //gameObjectList[currentOptionForMesh].SetTexture("_BaseMap", materialchange.material.GetTexture("_BaseMap"));
+        // gameObjectList[currentOptionForMesh].SetColor("_Color", materialchange.material.GetColor("_Color"));
     }
     public void saveasprefab()
     {
@@ -253,11 +258,15 @@ public class lookchanger : MonoBehaviour
         //AssetDatabase.CreateAsset(newmaterial, "Assets/Player.mat");
         //AssetDatabase.SaveAssets();
         //AssetDatabase.Refresh();
-        SceneManager.LoadScene("program");
+       SceneManager.LoadScene("program");
+        //SceneManager.LoadScene("test");
     }
     public void namebuttonClicked()
     {
         namelabel.text = namedtext.text;
+        PlayerPrefs.SetString("name", namelabel.text);
+        Debug.Log("name is " + PlayerPrefs.GetString("name"));
+        
         namepanel.SetActive(false);
         afternamepanel.SetActive(true);
         
