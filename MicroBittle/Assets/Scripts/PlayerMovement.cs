@@ -65,22 +65,22 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if(Input.GetKey(KeyCode.W) && !isMoving)
+        if((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !isMoving)
         {
             StartMovement(MovementDirections.Up);
             // StartCoroutine(MovePlayer(Vector3.forward));
         }
-        else if(Input.GetKey(KeyCode.S) && !isMoving)
+        else if((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !isMoving)
         {
             StartMovement(MovementDirections.Down);
             // StartCoroutine(MovePlayer(-Vector3.forward));
         }
-        else if(Input.GetKey(KeyCode.A) && !isMoving)
+        else if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !isMoving)
         {
             StartMovement(MovementDirections.Left);
             // StartCoroutine(MovePlayer(-Vector3.right));
         }
-        else if(Input.GetKey(KeyCode.D) && !isMoving)
+        else if((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !isMoving)
         {
             StartMovement(MovementDirections.Right);
             // StartCoroutine(MovePlayer(Vector3.right));

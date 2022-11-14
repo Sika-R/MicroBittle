@@ -44,7 +44,8 @@ public class Obstacle : MonoBehaviour
     public void InitializeObstacle()
     {
         // isMovingWithMouse = true;
-        drawGridScript = GameObject.Find("Grid").GetComponent<DrawGrid>();
+        // drawGridScript = GameObject.Find("Grid").GetComponent<DrawGrid>();
+        drawGridScript = DrawGrid.Instance;
     }
 
     public void ObstacleUpdate()
@@ -59,23 +60,42 @@ public class Obstacle : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit[] hits;
             hits = Physics.RaycastAll(ray, 2000);
-            for (int i = 0; i < hits.Length; ++i)
+            // for (int i = 0; i < hits.Length; ++i)
+            // {
+                // RaycastHit hit = hits[i];
+            RaycastHit hit = hits[0];
+            if (hit.collider.tag == "Floor")
             {
-                RaycastHit hit = hits[i];
-                if (hit.collider.tag == "Floor")
+                isMovingWithMouse = false;
+                Transform bottom = hit.transform;
+                DrawGrid drawgrid = DrawGrid.Instance;
+                GameObject prefab = drawgrid.m_obstaclePrefab;
+                Vector3 initPoint = bottom.position;
+                ObstacleType type = GetComponent<Obstacle>().obstacleType;
+                drawgrid.EditMaze(hit.point, type);
+                initPoint.y += bottom.gameObject.GetComponent<BoxCollider>().size.y * bottom.localScale.y / 2;
+                if(prefab.GetComponent<BoxCollider>())
                 {
-                    isMovingWithMouse = false;
-                    //transform.position = new Vector3(transform.position.x, transform.position.y, hit.collider.transform.position.z);
-                    Vector3 initPoint = drawGridScript.IdentifyCenter(hit.point);
-                    // Vector3 initPoint = drawGridScript.EditMaze(hit.point, obstacleType);
-                    transform.localScale = drawGridScript.m_gridSize * new Vector3(1, 1, 1);
-                    //initPoint.y = GetComponent<BoxCollider>().size.y * transform.localScale.y / 2 * drawGridScript.m_gridSize;
-
-                    transform.position = initPoint;
-
-                    return;
+                    initPoint.y += GetComponent<BoxCollider>().size.y * transform.localScale.y / 2 * drawgrid.m_gridSize;
                 }
+
+                // GameObject newobj = Instantiate(prefab, initPoint, Quaternion.Euler(0, 0, 0), ((DrawGrid)target).transform) as GameObject;  //设置障碍 
+                transform.SetParent(drawgrid.transform);
+                transform.localScale = transform.localScale = drawgrid.m_gridSize * transform.localScale;
+                transform.position = initPoint;
+
+                //transform.position = new Vector3(transform.position.x, transform.position.y, hit.collider.transform.position.z);
+                /*Vector3 initPoint = drawGridScript.IdentifyCenter(hit.point);
+                // Vector3 initPoint = drawGridScript.EditMaze(hit.point, obstacleType);
+                transform.localScale = drawGridScript.m_gridSize * new Vector3(1, 1, 1);
+                //initPoint.y = GetComponent<BoxCollider>().size.y * transform.localScale.y / 2 * drawGridScript.m_gridSize;
+
+                transform.position = initPoint;
+                drawGridScript.EditMaze()*/
+
+                return;
             }
+            // }
         }
     }
 

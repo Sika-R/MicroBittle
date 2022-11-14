@@ -28,13 +28,20 @@ public class SpiderWeb : Obstacle
         {
             if (inputVal > minInput)
             {
-                gameObject.SetActive(false);
-                SoundMgr.Instance.PlayAudio("VACUUM_CLEANER_WORKING_SFX_v1");
-                DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+                
+                SoundMgr.Instance.PlayAudio("VACUUM_CLEANER_WORKING_SHORT");
+                Invoke("disappear", 0.5f);
                 return true;
             }
         }
         return false;
+    }
+
+    private void disappear()
+    {
+        gameObject.SetActive(false);
+        DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+
     }
 
     private void OnTriggerStay(Collider other)

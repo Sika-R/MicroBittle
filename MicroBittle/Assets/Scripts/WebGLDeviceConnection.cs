@@ -78,13 +78,15 @@ public class WebGLDeviceConnection : MonoBehaviour
             waterValueEvent.AddListener(programUI.Instance.sliderforDivingGear);
             lightValueEvent.AddListener(programUI.Instance.sliderforHeadLamp);
         }
+        // OpenPort();
         // pressAEvent.AddListener(() => ObstacleMgr.Instance.getInput(1, ObstacleType.ButtonA));
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetMouseButtonDown(1))
+#if UNITY_EDITOR
+        if(Input.GetMouseButtonDown(1))
         {
             if(temp)
             {
@@ -133,7 +135,8 @@ public class WebGLDeviceConnection : MonoBehaviour
                 temp = true;
             }
             // pressAEvent.Invoke();
-        }*/
+        }
+#endif
 
         if (Input.GetMouseButtonDown(1))
         {

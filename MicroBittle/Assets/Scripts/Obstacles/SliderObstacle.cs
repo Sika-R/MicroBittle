@@ -62,6 +62,10 @@ public class SliderObstacle : Obstacle
                 {
                     meshDestroy.DestroyMesh();
                 }
+                if(SoundMgr.Instance)
+                {
+                    SoundMgr.Instance.PlayAudio("CHARACTER_BREAK_SFX_v1");
+                }
                 
                 
                 DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);

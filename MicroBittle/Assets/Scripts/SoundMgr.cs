@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class SoundMgr : MonoBehaviour
@@ -8,8 +9,11 @@ public class SoundMgr : MonoBehaviour
     public List<AudioClip> dialogues;
     public List<AudioClip> audios;
     public static SoundMgr Instance = null;
+    public AudioSource bgm;
     bool isPlaying = false;
     AudioSource audioSource;
+    public Sprite[] muteSprite = new Sprite[2];
+    public Image muteButton;
 
     private float ringClipLength = 3.5f;
     // Start is called before the first frame update
@@ -45,13 +49,31 @@ public class SoundMgr : MonoBehaviour
 
     public void PlayAudio(string clipName)
     {
+        Debug.Log(clipName);
         AudioClip ac = audios.Find(x => x.name.Equals(clipName));
         if(isPlaying)
         {
             return;
         }
-        StartCoroutine(Play(ac.length));
-        audioSource.PlayOneShot(ac);
+        if (ac)
+        {
+            StartCoroutine(Play(ac.length));
+            audioSource.PlayOneShot(ac);
+        }
+        
+    }
+    public void PlayAudio(AudioClip clip)
+    {
+        if(isPlaying)
+        {
+            return;
+        }
+        if (clip)
+        {
+            StartCoroutine(Play(clip.length));
+            audioSource.PlayOneShot(clip);
+        }
+        
     }
 
     public void PlayOnce(string clipName)
@@ -74,6 +96,18 @@ public class SoundMgr : MonoBehaviour
         AS.Pause();
     }
 
+    public void Mute()
+    {
+        bgm.mute = !bgm.mute;
+        muteButton.sprite = muteSprite[bgm.mute ? 1 : 0];
+    }
+
+    public void Mute(AudioSource AS)
+    {
+        AS.mute = !AS.mute;
+    }
+
+   
     IEnumerator Play(float time)
     {
         isPlaying = true;

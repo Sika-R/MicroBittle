@@ -75,23 +75,38 @@ public class ObstacleMgr : MonoBehaviour
         // OutfitMgr.Instance.chooseToolIcon(obstacleType);
         if (obstacleType == ObstacleType.Light)
         {
-            Photoresistor.Instance.currentLightVal = inputVal;
+            if(Photoresistor.Instance)
+            {
+                Photoresistor.Instance.currentLightVal = inputVal;
+            }
+            
             if (inputVal < 10)
             {
-                Photoresistor.Instance.LightOff();
-                SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
+                if (Photoresistor.Instance)
+                {
+                    // SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
+                    Photoresistor.Instance.LightOff();
+                }
+                
             }
             else
             {
                 if (currentEncounteredObstacle && currentEncounteredObstacle.obstacleType != ObstacleType.Vacuum)
                 {
-                    Photoresistor.Instance.LightOn();
+                    if (Photoresistor.Instance)
+                    {
+                        // SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
+                        Photoresistor.Instance.LightOn();
+                    }
                 }
                 else if(currentEncounteredObstacle == null)
                 {
-                    Photoresistor.Instance.LightOn();
+                    if (Photoresistor.Instance)
+                    {
+                        // SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
+                        Photoresistor.Instance.LightOn();
+                    }
                 }
-                SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
             }
         }
         if (currentEncounteredObstacle == null)
