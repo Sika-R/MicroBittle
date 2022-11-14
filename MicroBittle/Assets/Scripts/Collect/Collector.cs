@@ -25,7 +25,6 @@ public class Collector : MonoBehaviour
         else
             collections[collectable.name] = 1;
 
-        Debug.Log(collectable.name);
         if(collectable.name.Contains("crystal"))
         {
             gemText.text = "        : " + collections[collectable.name] + " / 5";

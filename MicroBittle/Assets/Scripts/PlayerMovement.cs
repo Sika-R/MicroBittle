@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     float timeToMove = 0.1f;
     public ObstacleType canPass = ObstacleType.None;
     [SerializeField] float freezeTime = 1.0f;
+    AudioSource AS;
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Add listener");
             WebGLDeviceConnection.Instance.movementEvent.AddListener(StartMovement);
         }
-        // 
+        //
+        AS = GetComponent<AudioSource>();
     }
 
 
@@ -63,22 +65,22 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if(Input.GetKey(KeyCode.W) && !isMoving)
+        if((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !isMoving)
         {
             StartMovement(MovementDirections.Up);
             // StartCoroutine(MovePlayer(Vector3.forward));
         }
-        else if(Input.GetKey(KeyCode.S) && !isMoving)
+        else if((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !isMoving)
         {
             StartMovement(MovementDirections.Down);
             // StartCoroutine(MovePlayer(-Vector3.forward));
         }
-        else if(Input.GetKey(KeyCode.A) && !isMoving)
+        else if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !isMoving)
         {
             StartMovement(MovementDirections.Left);
             // StartCoroutine(MovePlayer(-Vector3.right));
         }
-        else if(Input.GetKey(KeyCode.D) && !isMoving)
+        else if((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !isMoving)
         {
             StartMovement(MovementDirections.Right);
             // StartCoroutine(MovePlayer(Vector3.right));
@@ -146,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
             yield break;
         }
         isMoving = true;
-        SoundMgr.Instance.PlayAudio("CHARACTER_MOVING_SFX_v1");
+        SoundMgr.Instance.PlayAudio("CHARACTER_MOVING_SFX_v1", AS);
         float elapsedTime = 0;
         origPos = transform.position;
         targetPos = origPos + direction * DrawGrid.Instance.m_gridSize;
@@ -157,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         transform.position = targetPos;
+        SoundMgr.Instance.StopAudio(AS);
         isMoving = false;
     }
 

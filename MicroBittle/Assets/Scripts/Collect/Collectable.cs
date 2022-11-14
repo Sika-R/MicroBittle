@@ -43,9 +43,13 @@ public class Collectable : MonoBehaviour
         {
             /*var audio = GetComponent<AudioSource>();
             if (audio) audio.PlayOneShot(onCollectAudio);*/
-            if(collector)
+            /*if(collector)
             {
                 collector.PlayerPlayAudio(onCollectAudio);
+            }*/
+            if(SoundMgr.Instance)
+            {
+                SoundMgr.Instance.PlayAudio(onCollectAudio);
             }
         }
         

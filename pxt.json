@@ -4,7 +4,8 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "MicroBittleHelperModule": "github:sika-r/microbittlehelpermodule#master"
     },
     "files": [
         "main.blocks",

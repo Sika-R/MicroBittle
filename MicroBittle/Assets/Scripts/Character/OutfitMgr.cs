@@ -115,9 +115,11 @@ public class OutfitMgr : MonoBehaviour
 
     public void ChangeOutfit(bool isLeft)
     {
+        // SoundMgr.Instance.StopAudio();
         int newOutfitIdx = allPossibleTypes.IndexOf(currentObstacleType) + (isLeft ? -1 : 1);
         int cnt = allPossibleTypes.Count;
         ObstacleType newType = allPossibleTypes[(newOutfitIdx + cnt) % cnt];
         chooseToolIcon(newType);
+        
     }
 }

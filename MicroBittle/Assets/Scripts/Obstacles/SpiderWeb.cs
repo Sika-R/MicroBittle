@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpiderWeb : Obstacle
 {
     // Start is called before the first frame update
+    bool isAudioPlayed = false;
     void Start()
     {
         InitializeObstacle();
@@ -18,7 +19,7 @@ public class SpiderWeb : Obstacle
 
     public override bool getInput(float inputVal, ObstacleType obstacleType)
     {
-        if (obstacleType != this.obstacleType)
+        if (obstacleType != this.obstacleType || OutfitMgr.Instance.currentObstacleType != this.obstacleType)
         {
             // change light radius
             return false;
@@ -27,22 +28,44 @@ public class SpiderWeb : Obstacle
         {
             if (inputVal > minInput)
             {
-                gameObject.SetActive(false);
-                Photoresistor.Instance.LightOn();
-                DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+                
+                SoundMgr.Instance.PlayAudio("VACUUM_CLEANER_WORKING_SHORT");
+                Invoke("disappear", 0.5f);
                 return true;
             }
         }
         return false;
     }
 
+    private void disappear()
+    {
+        gameObject.SetActive(false);
+        DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player" && !isMovingWithMouse)
         {
-            Photoresistor.Instance.LightShrink();
-            SoundMgr.Instance.PlayAudio("CHARACTER_DIZZY_SFX_v1");
+            //if (isAudioPlayed)
+            //{
+            //    return;
+            //}
+            //isAudioPlayed = true;
+            //StartCoroutine(SetAudioPlayedFalse());
+            //SoundMgr.Instance.PlayAudio("CHARACTER_DIZZY_SFX_v1");
         }
+    }
+
+    public override void OnTriggerEnter(Collider collider)
+    {
+        base.OnTriggerEnter(collider);
+        if (collider.gameObject.tag == "Player" && !isMovingWithMouse)
+        {
+            SoundMgr.Instance.PlayOnce("CHARACTER_DIZZY_SFX_v1");
+            Debug.Log("play audio!");
+        }   
     }
 
     public override void OnTriggerExit(Collider other)
@@ -55,5 +78,11 @@ public class SpiderWeb : Obstacle
             }
             exitTriggerEvent(other);
         }
+    }
+
+    private IEnumerator SetAudioPlayedFalse()
+    {
+        yield return new WaitForSeconds(3);
+        isAudioPlayed = false;
     }
 }

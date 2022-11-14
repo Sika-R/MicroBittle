@@ -1,3 +1,6 @@
+let showGear = false
+let gear = 0
+let isHalf = false
 class MicrobitEventType {
     static Connected: number
     private ___Connected_is_set: boolean
@@ -43,15 +46,37 @@ class MicrobitEventType {
         this.___ButtonBPressed = value
     }
     
-    static LightLvl: number
-    private ___LightLvl_is_set: boolean
-    private ___LightLvl: number
-    get LightLvl(): number {
-        return this.___LightLvl_is_set ? this.___LightLvl : MicrobitEventType.LightLvl
+    static P0: number
+    private ___P0_is_set: boolean
+    private ___P0: number
+    get P0(): number {
+        return this.___P0_is_set ? this.___P0 : MicrobitEventType.P0
     }
-    set LightLvl(value: number) {
-        this.___LightLvl_is_set = true
-        this.___LightLvl = value
+    set P0(value: number) {
+        this.___P0_is_set = true
+        this.___P0 = value
+    }
+    
+    static P1: number
+    private ___P1_is_set: boolean
+    private ___P1: number
+    get P1(): number {
+        return this.___P1_is_set ? this.___P1 : MicrobitEventType.P1
+    }
+    set P1(value: number) {
+        this.___P1_is_set = true
+        this.___P1 = value
+    }
+    
+    static P2: number
+    private ___P2_is_set: boolean
+    private ___P2: number
+    get P2(): number {
+        return this.___P2_is_set ? this.___P2 : MicrobitEventType.P2
+    }
+    set P2(value: number) {
+        this.___P2_is_set = true
+        this.___P2 = value
     }
     
     public static __initMicrobitEventType() {
@@ -59,7 +84,9 @@ class MicrobitEventType {
         MicrobitEventType.Disconnected = 1
         MicrobitEventType.ButtonAPressed = 2
         MicrobitEventType.ButtonBPressed = 3
-        MicrobitEventType.LightLvl = 4
+        MicrobitEventType.P0 = 4
+        MicrobitEventType.P1 = 5
+        MicrobitEventType.P2 = 6
     }
     
 }
@@ -81,119 +108,54 @@ function ReceiveMessage(msg: string) {
 let readLine = ""
 //  serial.write_line("hi")
 input.onButtonPressed(Button.A, function on_button_pressed_a() {
+    
+    gear = (gear + 3) % 4
     SendMessage(MicrobitEventType.ButtonAPressed, "hi")
+})
+//  serial.write_line("hi")
+input.onButtonPressed(Button.B, function on_button_pressed_b() {
+    
+    gear = (gear + 1) % 4
+    SendMessage(MicrobitEventType.ButtonBPressed, "hi")
 })
 serial.onDataReceived(serial.delimiters(Delimiters.CarriageReturn), function on_data_received() {
     
-    serial.writeLine(serial.readLine())
+    //  serial.write_line(serial.read_line())
     readLine = serial.readLine().charAt(0)
+    //  print(readLine)
+    // if readLine == "s":
+    
+    showGear = true
+    
+    gear = 0
 })
 basic.forever(function on_forever() {
     
-    if (readLine == "u") {
-        basic.showLeds(`
-            . . # . .
-                        . # # # .
-                        # . # . #
-                        . . # . .
-                        . . # . .
-        `)
-        basic.pause(200)
-        readLine = ""
-        basic.showLeds(`
-            . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        `)
-    } else if (readLine == "d") {
-        basic.showLeds(`
-            . . # . .
-                        . . # . .
-                        # . # . #
-                        . # # # .
-                        . . # . .
-        `)
-        basic.pause(200)
-        readLine = ""
-        basic.showLeds(`
-            . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        `)
-    } else if (readLine == "l") {
-        basic.showLeds(`
-            . . # . .
-                        . # . . .
-                        # # # # #
-                        . # . . .
-                        . . # . .
-        `)
-        basic.pause(200)
-        readLine = ""
-        basic.showLeds(`
-            . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        `)
-    } else if (readLine == "r") {
-        basic.showLeds(`
-            . . # . .
-                        . . . # .
-                        # # # # #
-                        . . . # .
-                        . . # . .
-        `)
-        basic.pause(200)
-        readLine = ""
-        basic.showLeds(`
-            . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        `)
-    } else if (readLine == "b") {
-        basic.showString("B")
-        basic.pause(200)
-        readLine = ""
-        basic.showLeds(`
-            . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        `)
-    } else if (readLine == "a") {
-        basic.showString("A")
-        basic.pause(200)
-        readLine = ""
-        basic.showLeds(`
-            . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        `)
-    } else if (readLine == "s") {
-        basic.showString("START")
-        basic.pause(200)
-        readLine = ""
-        basic.showLeds(`
-            . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        `)
+    
+    
+    
+    //  SendMessage(MicrobitEventType.LightLvl, "" + str((input.light_level())))
+    //  serial.write_line("" + str((input.light_level())))
+    //  direction = parse_accelerometer()
+    //  SendMessage(MicrobitEventType.accelerometer, "" + str(direction))
+    //  x = input.acceleration(Dimension.X)
+    //  y = input.acceleration(Dimension.Y)
+    let P0 = parse_P0()
+    let P1 = parse_P1()
+    let P2 = parse_P2()
+    //  print(humid)
+    //  print(slider)
+    if (isHalf) {
+        SendMessage(MicrobitEventType.P1, "" + ("" + P1))
+        SendMessage(MicrobitEventType.P2, "" + ("" + P2))
+        
+        if (showGear) {
+            ShowGear(gear)
+        }
+        
     }
     
-    SendMessage(MicrobitEventType.LightLvl, "" + ("" + input.lightLevel()))
-    //  serial.write_line("" + str((input.light_level())))
-    basic.pause(100)
+    SendMessage(MicrobitEventType.P0, "" + ("" + P0))
+    isHalf = !isHalf
+    basic.pause(250)
 })
