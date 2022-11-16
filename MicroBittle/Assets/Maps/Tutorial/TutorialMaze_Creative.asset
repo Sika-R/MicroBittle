@@ -42,9 +42,6 @@ MonoBehaviour:
   - {x: 5, y: 0}
   - {x: 3, y: 0}
   - {x: 2, y: 0}
-  - {x: 2, y: -2}
-  - {x: 2, y: -3}
-  - {x: 2, y: -4}
   - {x: 1, y: -2}
   - {x: 0, y: -2}
   - {x: -1, y: -2}
@@ -61,7 +58,6 @@ MonoBehaviour:
   - {x: -1, y: -5}
   - {x: 0, y: -5}
   - {x: 0, y: -4}
-  - {x: -1, y: -4}
   - {x: -2, y: -4}
   - {x: 4, y: -2}
   - {x: 4, y: -3}
@@ -134,6 +130,10 @@ MonoBehaviour:
   - {x: 2, y: -5}
   - {x: 3, y: -1}
   - {x: 2, y: -1}
+  - {x: -1, y: -4}
+  - {x: 2, y: -3}
+  - {x: 2, y: -4}
+  - {x: 2, y: -2}
   values:
   - isOccupied: 1
     x: -4
@@ -252,18 +252,6 @@ MonoBehaviour:
     y: 0
     obstacle: 5
   - isOccupied: 1
-    x: 2
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: 2
-    y: -3
-    obstacle: 5
-  - isOccupied: 1
-    x: 2
-    y: -4
-    obstacle: 5
-  - isOccupied: 1
     x: 1
     y: -2
     obstacle: 5
@@ -327,10 +315,6 @@ MonoBehaviour:
     x: 0
     y: -4
     obstacle: 5
-  - isOccupied: 0
-    x: -1
-    y: -4
-    obstacle: 0
   - isOccupied: 1
     x: -2
     y: -4
@@ -618,4 +602,20 @@ MonoBehaviour:
   - isOccupied: 1
     x: 2
     y: -1
+    obstacle: 5
+  - isOccupied: 1
+    x: -1
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: -3
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: -2
     obstacle: 5
