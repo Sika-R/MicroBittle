@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalMaze: {fileID: 11400000, guid: 680db83f432a5474bbcfe9187ad2fb18, type: 2}
-  maze: {fileID: 291760741}
+  maze: {fileID: 310738809}
   bShowGizmos: 1
   m_column: 14
   m_row: 14
@@ -10204,7 +10204,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286319748}
   m_Mesh: {fileID: -4855243574250553854, guid: 9fb81ab7eb21fd741ab5de8b35a3dd6b, type: 3}
---- !u!114 &291760741
+--- !u!114 &310738809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
