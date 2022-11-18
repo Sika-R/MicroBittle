@@ -24,7 +24,7 @@ public class KnobObstacle : Obstacle
         {
             return false;
         }
-        if (OutfitMgr.Instance.currentObstacleType != this.obstacleType) return false;
+        //if (OutfitMgr.Instance.currentObstacleType != this.obstacleType) return false;
         for (int i = 1; i < knobValueRange.Count; ++i)
         {
             if (inputVal >= knobValueRange[i - 1] && inputVal < knobValueRange[i]) {
@@ -48,12 +48,14 @@ public class KnobObstacle : Obstacle
         CameraShake.Shake(0.1f, 0.05f);
         if (transform.Find("explosion"))
         {
-            transform.Find("explosion").gameObject.SetActive(true);
+            transform.Find("explosion").gameObject.GetComponent<ParticleSystem>().Play();
         }
         if (SoundMgr.Instance)
         {
             SoundMgr.Instance.PlayAudio("CHARACTER_BREAK_SFX_v1");
         }
+        rocks[index].SetActive(false);
+        rocks[index] = null;
     }
 
     private bool isAllRockDestroyed()
