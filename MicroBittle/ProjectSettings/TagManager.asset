@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Cube
   - Beatle
+  - Gem
   layers:
   - Default
   - TransparentFX

@@ -8,11 +8,14 @@ public class OutfitMgr : MonoBehaviour
     public static OutfitMgr Instance = null;
     public List<GameObject> divingSuits;
     public GameObject jackhammer;
+    public GameObject powerlog;
     public GameObject headLight;
     public GameObject vacuum;
     public ObstacleType currentObstacleType = ObstacleType.None;
     [SerializeField]
     List<ObstacleType> allPossibleTypes = new List<ObstacleType>();
+
+    Vector3 logPos;
 
     void Start()
     {
@@ -27,6 +30,7 @@ public class OutfitMgr : MonoBehaviour
             all[0].transform.rotation = q; 
             all[0].transform.SetParent(player.transform);
         }
+        logPos = powerlog.transform.localPosition;
     }
 
     // Update is called once per frame
@@ -64,7 +68,8 @@ public class OutfitMgr : MonoBehaviour
         }
         if (obstacleType == ObstacleType.Slider)
         {
-            jackhammer.SetActive(true);
+            powerlog.SetActive(true);
+            // jackhammer.SetActive(true);
             // PlayerMovement.Instance.canPass = obstacleType;
         }
         else if (obstacleType == ObstacleType.ButtonA)
@@ -84,7 +89,8 @@ public class OutfitMgr : MonoBehaviour
     {
         if (obstacleType == ObstacleType.Slider)
         {
-            jackhammer.SetActive(false);
+            powerlog.SetActive(false);
+            //jackhammer.SetActive(false);
         }
         else if(obstacleType == ObstacleType.Light)
         {
@@ -121,5 +127,23 @@ public class OutfitMgr : MonoBehaviour
         ObstacleType newType = allPossibleTypes[(newOutfitIdx + cnt) % cnt];
         chooseToolIcon(newType);
         
+    }
+
+    public void getInput(float inputVal, ObstacleType obstacleType)
+    {
+        if(obstacleType == currentObstacleType)
+        {
+            if(currentObstacleType == ObstacleType.Slider)
+            {
+                MovePowerlog(inputVal);
+            }
+        }
+    }
+
+    private void MovePowerlog(float value)
+    {
+        Vector3 newPos = logPos;
+        newPos.z += value / 2000;
+        powerlog.transform.localPosition = newPos;
     }
 }

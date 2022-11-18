@@ -28,7 +28,7 @@ public class SliderObstacle : Obstacle
         {
             slidingTime = Time.time - startSlideTime;
             Debug.Log("slidingTime: " + slidingTime + " changed value: " + Mathf.Abs(startValue - endValue));
-            if (Mathf.Abs(startValue - endValue) >= 30)
+            if (Mathf.Abs(startValue - endValue) >= 600)
             {
                 destroyRock();
                 isInCoroutine = false;
@@ -50,6 +50,7 @@ public class SliderObstacle : Obstacle
             return false;
         }
         if (OutfitMgr.Instance.currentObstacleType != ObstacleType.Slider) return false;
+
         if (!isInCoroutine)
         {
             isInCoroutine = true;
