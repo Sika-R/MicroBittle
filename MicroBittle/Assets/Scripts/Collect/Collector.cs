@@ -26,14 +26,26 @@ public class Collector : MonoBehaviour
     private void Start()
     {
         gemText.text = "        : 0 / 5";
-        finalUI.SetActive(false);
+        if(inGameUI)
+        {
+            inGameUI.SetActive(true);
+        }
+        if(finalUI)
+        {
+            finalUI.SetActive(false);
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Destination")
         {
-            showFinalPanel();
+            if (finalUI)
+            {
+                showFinalPanel();
+            }
+            
         }
     }
     public virtual void OnCollect(Collectable collectable)
