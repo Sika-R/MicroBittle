@@ -109,6 +109,7 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_ClearList.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\VirtualJoystick\BE2_VirtualJoystickButton.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\Variable\Lists\BE2_UI_VariableListViewer.cs" />
+    <Compile Include="Assets\Scripts\GrassPaint\GeometryGrassPainter.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\Serialization\BE2_SerializableBlock.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Hui\slotsUI.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_InputFieldDynamicResize.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\Block\BE2_Block.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\BlockSections\BE2_BlockSection.cs" />
+    <Compile Include="Assets\Scripts\GrassPaint\GrassPainterEditor.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Xnor.cs" />
     <Compile Include="Assets\Scripts\3C\Interaction\Interactable.cs" />
@@ -227,6 +229,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EnvironmentElements\BE2_TargetObjectSpacecraft3D.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\Block\BE2_BlockVerticalLayout.cs" />
+    <Compile Include="Assets\DialogueSystem\Scenes\Hui\test.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_Toggle.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Cst_FunctionHeadlamp.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_VariableLabel.cs" />
@@ -303,7 +306,6 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RotateAxis.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Nand.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_ContextMenuManager.cs" />
-    <Compile Include="Assets\DialogueSystem\Scenes\Hui\test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Decal\decalScreenspace.shader" />
@@ -327,6 +329,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Scripts\GrassPaint\GeometryGrassURP.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

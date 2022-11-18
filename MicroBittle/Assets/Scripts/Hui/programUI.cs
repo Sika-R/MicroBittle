@@ -14,6 +14,10 @@ public class programUI : MonoBehaviour
     //=============Wiring==============//
     
     public GameObject panelCompo;
+    public GameObject panelCompo1;
+    public GameObject panelCompo2;
+    public GameObject panelCompo3;
+    public GameObject panelCompo4;
     public GameObject panelJack;
     public GameObject paneldive;
     public GameObject panelHead;
@@ -21,6 +25,10 @@ public class programUI : MonoBehaviour
     public GameObject buttonJack;
     public GameObject buttondive;
     public GameObject buttonHead;
+    public GameObject buttonCompo1;
+    public GameObject buttonCompo2;
+    public GameObject buttonCompo3;
+    public GameObject buttonCompo4;
 
     public GameObject Microbitintro;
     public GameObject Expansionintro;
@@ -43,13 +51,19 @@ public class programUI : MonoBehaviour
     private bool[] sliderJackiftrue = new bool[2];
     private bool[] sliderdivingiftrue = new bool[2];
     private bool[] sliderheadiftrue = new bool[2];
-    private enum panelstage { Compo,Jack,Dive,Head,ViewCode,ViewData};
+    private enum panelstage { Compo, Compo1, Compo2, Compo3, Compo4,GetData,Jack, Dive,Head,ViewCode,ViewData,ViewDemo};
     panelstage stagenow = panelstage.Compo;
 
-    private bool[] imageread = new bool[6];
+    private bool[] imageread = new bool[5];
 
-
+    public Text characterdialog;
+    public GameObject datashow;
+    public List<string> stringdiag;
+    public List<string> stringdata;
+    public List<string> stringdiagforprogram;
+    private bool readdataornot = false;
     //============programming===========//
+
     public GameObject viewinputData;
     public GameObject viewdeviceCode;
     public GameObject viewinputDatabutton;
@@ -65,8 +79,25 @@ public class programUI : MonoBehaviour
     public GameObject panelheadlampinputdata;
 
     public GameObject paneldemoProgramming;
-    
+    //new used
+    //dropdown
+    public Dropdown dropdownforprogram;
+    public Dropdown dropdownforshowdata;
+    public Dropdown dropdownforshowdemo;
 
+    public GameObject functionforJack;
+    public GameObject functionforgear;
+
+    public GameObject dataforpin0;
+    public GameObject dataforpin1;
+    public GameObject dataforpin2;
+
+    public GameObject panelprogram;
+    public GameObject panelshowdata;
+    public GameObject panelshowdemo;
+    private bool[] demoworks = new bool[2];
+    private bool demowork = false;
+    public GameObject movetonextscnebutton;
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -89,7 +120,15 @@ public class programUI : MonoBehaviour
         buttonJack.GetComponent<Button>().interactable = false;
         buttondive.GetComponent<Button>().interactable = false;
         buttonHead.GetComponent<Button>().interactable = false;
-
+        
+        buttonCompo1.GetComponent<Button>().interactable = false;
+        buttonCompo2.GetComponent<Button>().interactable = false;
+        buttonCompo3.GetComponent<Button>().interactable = false;
+        buttonCompo4.GetComponent<Button>().interactable = false;
+        buttonCompo1.GetComponent<Image>().color = Color.gray;
+        buttonCompo2.GetComponent<Image>().color = Color.gray;
+        buttonCompo3.GetComponent<Image>().color = Color.gray;
+        buttonCompo4.GetComponent<Image>().color = Color.gray;
     }
 
     // Update is called once per frame
@@ -127,7 +166,26 @@ public class programUI : MonoBehaviour
         switch (stagenow)
         {
             case panelstage.Compo:
+                datashow.GetComponent<Text>().text = stringdata[0];
                 checkifreadall();
+                characterdialog.text = stringdiag[0];
+                break;
+            case panelstage.Compo1:
+                datashow.GetComponent<Text>().text = stringdata[0];
+                break;
+            case panelstage.Compo2:
+                datashow.GetComponent<Text>().text = stringdata[0];
+                break;
+            case panelstage.Compo3:
+                datashow.GetComponent<Text>().text = stringdata[0];
+                break;
+            case panelstage.Compo4:
+                datashow.GetComponent<Text>().text = stringdata[1];
+                break;
+            case panelstage.GetData:
+                buttonCheckWiring.SetActive(true);
+                characterdialog.text = stringdiag[4];
+                datashow.GetComponent<Text>().text = stringdata[2];
                 break;
             case panelstage.Jack:
                 //checkifhammermovefine();
@@ -138,6 +196,47 @@ public class programUI : MonoBehaviour
             case panelstage.Head:
                 //checkifHeadLampfine();
                 break;
+            case panelstage.ViewCode:
+                if(dropdownforprogram.value == 0)
+                {
+                    characterdialog.text = stringdiagforprogram[0];
+                }
+                else if(dropdownforprogram.value != 0 && readdataornot == false)
+                {
+                    characterdialog.text = stringdiagforprogram[1];
+                }
+                else if(dropdownforprogram.value != 0 && readdataornot == true)
+                {
+                    characterdialog.text = stringdiagforprogram[2];
+                }
+                break;
+            case panelstage.ViewData:
+                if(dropdownforshowdata.value == 0)
+                {
+                    characterdialog.text = stringdiagforprogram[3];
+                }
+                else
+                {
+                    characterdialog.text = stringdiagforprogram[4];
+                }
+                break;
+            case panelstage.ViewDemo:
+                checkifdemoworks();
+                if (dropdownforshowdemo.value == 0)
+                {
+                    characterdialog.text = stringdiagforprogram[0];
+                }
+                else if(dropdownforshowdemo.value != 0 && !demowork)
+                {
+                    characterdialog.text = stringdiagforprogram[5];
+                }
+                else if(dropdownforshowdemo.value != 0 && demowork)
+                {
+                    characterdialog.text = stringdiagforprogram[6];
+                    movetonextscnebutton.SetActive(true);
+                }
+                
+                break;
         }
     }
     public void componentpress()
@@ -147,11 +246,12 @@ public class programUI : MonoBehaviour
         panelJack.SetActive(false);
         paneldive.SetActive(false);
         panelHead.SetActive(false);
-
+        
         buttonCompo.GetComponent<Image>().color = Color.white;
         buttonJack.GetComponent<Image>().color = Color.gray;
         buttondive.GetComponent<Image>().color = Color.gray;
         buttonHead.GetComponent<Image>().color = Color.gray;
+        characterdialog.text = stringdiag[0];
     }
     public void jackhammerpress()
     {
@@ -188,6 +288,49 @@ public class programUI : MonoBehaviour
         buttonJack.GetComponent<Image>().color = Color.gray;
         buttondive.GetComponent<Image>().color = Color.gray;
         buttonHead.GetComponent<Image>().color = Color.white;
+    }
+    public void component1press()
+    {
+        stagenow = panelstage.Compo1;
+        characterdialog.text = stringdiag[1];
+
+        panelCompo.SetActive(false);
+        panelCompo1.SetActive(true);
+        panelCompo2.SetActive(false);
+        panelCompo3.SetActive(false);
+        panelCompo4.SetActive(false);
+    }
+    public void component2press()
+    {
+        stagenow = panelstage.Compo2;
+        characterdialog.text = stringdiag[2];
+
+        panelCompo.SetActive(false);
+        panelCompo1.SetActive(false);
+        panelCompo2.SetActive(true);
+        panelCompo3.SetActive(false);
+        panelCompo4.SetActive(false);
+    }
+    public void component3press()
+    {
+        stagenow = panelstage.Compo3;
+        characterdialog.text = stringdiag[3];
+
+        panelCompo.SetActive(false);
+        panelCompo1.SetActive(false);
+        panelCompo2.SetActive(false);
+        panelCompo3.SetActive(true);
+        panelCompo4.SetActive(false);
+    }
+    public void component4press()
+    {
+        stagenow = panelstage.Compo4;
+        characterdialog.text = stringdiag[3];
+        panelCompo.SetActive(false);
+        panelCompo1.SetActive(false);
+        panelCompo2.SetActive(false);
+        panelCompo3.SetActive(false);
+        panelCompo4.SetActive(true);
     }
     public void micbrobitintro()
     {
@@ -237,7 +380,7 @@ public class programUI : MonoBehaviour
     public void waterintro()
     {
         Waterintro.SetActive(true);
-        imageread[5] = true;
+        imageread[4] = true;
     }
     public void waterclose()
     {
@@ -262,24 +405,55 @@ public class programUI : MonoBehaviour
         }
         //set to next stage
         buttonJack.GetComponent<Button>().interactable = true;
+        buttonCompo1.GetComponent<Button>().interactable = true;
+        buttonCompo2.GetComponent<Button>().interactable = true;
+        buttonCompo3.GetComponent<Button>().interactable = true;
+        buttonCompo4.GetComponent<Button>().interactable = true;
+        buttonCompo1.GetComponent<Image>().color = Color.white;
+        buttonCompo2.GetComponent<Image>().color = Color.white;
+        buttonCompo3.GetComponent<Image>().color = Color.white;
+        buttonCompo4.GetComponent<Image>().color = Color.white;
         //change mentor text
 
     }
-    public void checkifhammermovefine()
+    public void checkifdemoworks()
     {
 
-
+        foreach (var af in demoworks)
+        {
+            if (!af)
+            {
+                demowork = false;
+                return;
+            }
+        }
+        demowork = true;
     }
-    public void checkifdivinggearfine()
-    {
 
-    }
-    public void checkifHeadLampfine()
-    {
+    //public void checkifhammermovefine()
+    //{
 
-        //set to next stage
-        
-    }
+
+    //}
+    //public void checkifdivinggearfine()
+    //{
+
+    //}
+    //public void checkifHeadLampfine()
+    //{
+
+    //    //set to next stage
+
+    //}
+
+    //public void checkifgetdata(float a)
+    //{
+    //    if(a != 0.0f)
+    //    {
+    //        stagenow = panelstage.GetData;
+
+    //    }
+    //}
 
     public void sliderforDivingGear(float a)
     {
@@ -303,7 +477,7 @@ public class programUI : MonoBehaviour
     public void sliderforJackhamer(float a)
     {
         sliderJack.GetComponent<Slider>().value = a;
-        
+
         if (a >= sliderJack.GetComponent<Slider>().maxValue)
         {
             sliderJackiftrue[0] = true;
@@ -322,22 +496,22 @@ public class programUI : MonoBehaviour
 
     public void setValueforSlider(FunctionType f, float min, float max)
     {
-        if(f == FunctionType.jackhammer)
+        if (f == FunctionType.jackhammer)
         {
             sliderJack.GetComponent<Slider>().maxValue = max;
             sliderJack.GetComponent<Slider>().minValue = min;
         }
-        if(f == FunctionType.headlamp)
+        if (f == FunctionType.headlamp)
         {
             sliderHead.GetComponent<Slider>().maxValue = max;
             sliderHead.GetComponent<Slider>().minValue = min;
         }
-        if(f == FunctionType.divinggear)
+        if (f == FunctionType.divinggear)
         {
             sliderdiv.GetComponent<Slider>().maxValue = max;
             sliderdiv.GetComponent<Slider>().minValue = min;
         }
-        
+
     }
 
     public void sliderforHeadLamp(float a2)
@@ -350,81 +524,206 @@ public class programUI : MonoBehaviour
     {
         PanelForWiring.SetActive(false);
         PanelForprogramming.SetActive(true);
+        datashow.SetActive(false);
         stagenow = panelstage.ViewCode;
     }
 
 
     //=============Programming==============//
 
-    public void jackhammerprogrammingpressed()
-    {
-        paneljackProgramming.SetActive(true);
-        paneldivProgramming.SetActive(false);
-        panelheadlampProgramming.SetActive(false);
-    }
-    public void divinggearprogrammingpressed()
-    {
-        paneljackProgramming.SetActive(false);
-        paneldivProgramming.SetActive(true);
-        panelheadlampProgramming.SetActive(false);
-    }
-    public void headlampprogrammingpressed()
-    {
-        paneljackProgramming.SetActive(false);
-        paneldivProgramming.SetActive(false);
-        panelheadlampProgramming.SetActive(true);
-    }
+//    public void jackhammerprogrammingpressed()
+//    {
+//        paneljackProgramming.SetActive(true);
+//        paneldivProgramming.SetActive(false);
+//        panelheadlampProgramming.SetActive(false);
+//    }
+//    public void divinggearprogrammingpressed()
+//    {
+//        paneljackProgramming.SetActive(false);
+//        paneldivProgramming.SetActive(true);
+//        panelheadlampProgramming.SetActive(false);
+//    }
+//    public void headlampprogrammingpressed()
+//    {
+//        paneljackProgramming.SetActive(false);
+//        paneldivProgramming.SetActive(false);
+//        panelheadlampProgramming.SetActive(true);
+//    }
 
-    public void jackhammershowdatapressed()
-    {
-        paneljackinputdata.SetActive(true);
-        paneldivinputdata.SetActive(false);
-        panelheadlampinputdata.SetActive(false);
-    }
-    public void divinggearshowdatapressed()
-    {
-        paneljackinputdata.SetActive(false);
-        paneldivinputdata.SetActive(true);
-        panelheadlampinputdata.SetActive(false);
-    }
-    public void headlampshowdatapressed()
-    {
-        paneljackinputdata.SetActive(false);
-        paneldivinputdata.SetActive(false);
-        panelheadlampinputdata.SetActive(true);
-    }
-    public void viewinputdataClicked()
-    {
-        stagenow = panelstage.ViewData;
-        viewinputData.SetActive(true);
-        viewdeviceCode.SetActive(false);
-        viewinputDatabutton.SetActive(false);
-        viewdeviceCodebutton.SetActive(true);
-}
-    public void viewinputViewCodeClicked()
-    {
-        stagenow = panelstage.ViewCode;
-        viewinputData.SetActive(false);
-        viewdeviceCode.SetActive(true);
-        viewinputDatabutton.SetActive(true);
-        viewdeviceCodebutton.SetActive(false);
-    }
-    public void viewDevicedemoClicked()
-    {
-        paneldemoProgramming.SetActive(true);
-        viewdevicedemobutton.SetActive(false);
-        backbutton.SetActive(true);
+//    public void jackhammershowdatapressed()
+//    {
+//        paneljackinputdata.SetActive(true);
+//        paneldivinputdata.SetActive(false);
+//        panelheadlampinputdata.SetActive(false);
+//    }
+//    public void divinggearshowdatapressed()
+//    {
+//        paneljackinputdata.SetActive(false);
+//        paneldivinputdata.SetActive(true);
+//        panelheadlampinputdata.SetActive(false);
+//    }
+//    public void headlampshowdatapressed()
+//    {
+//        paneljackinputdata.SetActive(false);
+//        paneldivinputdata.SetActive(false);
+//        panelheadlampinputdata.SetActive(true);
+//    }
+//    public void viewinputdataClicked()
+//    {
+//        stagenow = panelstage.ViewData;
+//        viewinputData.SetActive(true);
+//        viewdeviceCode.SetActive(false);
+//        viewinputDatabutton.SetActive(false);
+//        viewdeviceCodebutton.SetActive(true);
+//}
+//    public void viewinputViewCodeClicked()
+//    {
+//        stagenow = panelstage.ViewCode;
+//        viewinputData.SetActive(false);
+//        viewdeviceCode.SetActive(true);
+//        viewinputDatabutton.SetActive(true);
+//        viewdeviceCodebutton.SetActive(false);
+//    }
+//    public void viewDevicedemoClicked()
+//    {
+//        paneldemoProgramming.SetActive(true);
+//        viewdevicedemobutton.SetActive(false);
+//        backbutton.SetActive(true);
 
-    }
-    public void backbuttonprogrammingClicked()
-    {
-        paneldemoProgramming.SetActive(false);
-        viewdevicedemobutton.SetActive(true);
-        backbutton.SetActive(false);
+//    }
+//    public void backbuttonprogrammingClicked()
+//    {
+//        paneldemoProgramming.SetActive(false);
+//        viewdevicedemobutton.SetActive(true);
+//        backbutton.SetActive(false);
 
-    }
+//    }
     public void movetonextScene()
     {
         SceneManager.LoadScene("SceneTest");
     }
+    //new
+    public void dropdownvaluechange()
+    {
+        switch (dropdownforprogram.value)
+        {
+            case 0:
+                functionforJack.SetActive(false);
+                break;
+            case 1:
+                functionforJack.SetActive(true);
+                //functionforgear.SetActive(false);
+                break;
+            case 2:
+                functionforJack.SetActive(false);
+                //functionforgear.SetActive(true);
+                break;
+        }
+    }
+    public void dropdownshowdatavaluechange()
+    {
+        switch (dropdownforshowdata.value)
+        {
+            case 0:
+                dataforpin0.SetActive(false);
+                dataforpin1.SetActive(false);
+                dataforpin2.SetActive(false);
+                break;
+            case 1:
+                dataforpin0.SetActive(true);
+                dataforpin1.SetActive(false);
+                dataforpin2.SetActive(false);
+                break;
+            case 2:
+                dataforpin0.SetActive(false);
+                dataforpin1.SetActive(true);
+                dataforpin2.SetActive(false);
+                break;
+            case 3:
+                dataforpin0.SetActive(false);
+                dataforpin1.SetActive(false);
+                dataforpin2.SetActive(true);
+                break;
+        }
+    }
+    public void programpress()
+    {
+        panelprogram.SetActive(true);
+        panelshowdata.SetActive(false);
+        panelshowdemo.SetActive(false);
+        stagenow = panelstage.ViewCode;
+    }
+    public void showdatapress()
+    {
+        panelprogram.SetActive(false);
+        panelshowdata.SetActive(true);
+        panelshowdemo.SetActive(false);
+        stagenow = panelstage.ViewData;
+        readdataornot = true;
+    }
+    public void showdemopress()
+    {
+        panelprogram.SetActive(false);
+        panelshowdata.SetActive(false);
+        panelshowdemo.SetActive(true);
+        stagenow = panelstage.ViewDemo;
+    }
+
+    //new Interface functions for robin
+    //new function for setting up pin value and get value
+    public void showpinvalue(int i,float value)
+    {
+        switch (i)
+        {
+            case 0:
+                dataforpin0.GetComponent<Text>().text = value.ToString();
+                break;
+            case 1:
+                dataforpin1.GetComponent<Text>().text = value.ToString();
+                break;
+            case 2:
+                dataforpin2.GetComponent<Text>().text = value.ToString();
+                break;
+        }
+    }
+    public void getdataornot(int i,float value)
+    {
+        switch (i)
+        {
+            case 0:
+                if(value > 0.0f)
+                {
+                    stagenow = panelstage.GetData;
+                }
+                break;
+            case 1:
+                if (value > 0.0f)
+                {
+                    stagenow = panelstage.GetData;
+                }
+                break;
+            case 2:
+                if (value > 0.0f)
+                {
+                    stagenow = panelstage.GetData;
+                }
+                break;
+        }
+    }
+    public void demoworkornot(float a, FunctionType f, float min,float max)
+    {
+        // if the float a change from max to min or min to max the demo work
+        if (f == FunctionType.jackhammer)
+        { 
+            if(a == min)
+            {
+                demoworks[0] = true;
+            }
+            if (a == max)
+            {
+                demoworks[1] = true;
+            }
+        }
+    }
+
 }
