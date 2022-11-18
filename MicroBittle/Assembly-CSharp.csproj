@@ -305,6 +305,7 @@
     <Compile Include="Assets\Scripts\PlaytestLoadScene.cs" />
     <Compile Include="Assets\DialogueSystem\Scenes\Hui\test.cs" />
     <Compile Include="Assets\Scripts\Obstacles\KnobObstacle.cs" />
+    <Compile Include="Assets\Scripts\CreativeMgr.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Decal\decalScreenspace.shader" />

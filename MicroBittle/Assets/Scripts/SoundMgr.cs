@@ -42,6 +42,12 @@ public class SoundMgr : MonoBehaviour
         audioSource.PlayOneShot(dialogues.Find(x => x.name.Equals(clipName)));
     }
 
+    public void PlayDialogue(AudioClip clip)
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(clip);
+    }
+
     public void PlayDialogue(string clipName, AudioSource AS)
     {
         AS.PlayOneShot(dialogues.Find(x => x.name.Equals(clipName)));
