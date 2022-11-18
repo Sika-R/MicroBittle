@@ -93,6 +93,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\Flow\FlowListener.cs" />
     <Compile Include="Assets\Art\Ardity\Scripts\Threads\SerialThreadCustomDelimiter.cs" />
+    <Compile Include="Assets\Scripts\Collect\Collector.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\Variable\Lists\BE2_UI_ListItem.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\BE2_BlocksStack.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RepeatUntil.cs" />
@@ -149,9 +150,11 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Xnor.cs" />
     <Compile Include="Assets\Scripts\3C\Interaction\Interactable.cs" />
     <Compile Include="Assets\Scripts\Narration\Dialogue\Components\DialogueInstigator.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\SpiderWeb.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_SpotBlockInput.cs" />
     <Compile Include="Assets\Scripts\Flow\FlowChannel.cs" />
+    <Compile Include="Assets\Scripts\CreativeMgr.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_SlideForward.cs" />
     <Compile Include="Assets\Scripts\Narration\Dialogue\Data\Dialogue.cs" />
@@ -213,6 +216,7 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RemoveIndexFromList.cs" />
     <Compile Include="Assets\Scripts\Grid\ScriptableDictionary.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Cst_SetLightRadius.cs" />
+    <Compile Include="Assets\Scripts\Collect\Collectable.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\Attributes\BE2_Attributes.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_Raycaster.cs" />
     <Compile Include="Assets\Scripts\TestUI.cs" />
@@ -224,6 +228,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EnvironmentElements\BE2_TargetObjectSpacecraft3D.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\Block\BE2_BlockVerticalLayout.cs" />
+    <Compile Include="Assets\DialogueSystem\Scenes\Hui\test.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_Toggle.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Cst_FunctionHeadlamp.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_BlockSectionHeader_VariableLabel.cs" />
@@ -254,6 +259,7 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Multiply.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\Block\I_BE2_Block.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Scripts\PlaytestLoadScene.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_ListLength.cs" />
     <Compile Include="Assets\Scripts\Character\OutfitMgr.cs" />
     <Compile Include="Assets\Scripts\BlockCoding\DivingGearParamController.cs" />
@@ -263,9 +269,11 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_AddToList.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\BE2_UI_SelectionButton.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_Repeat.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueStartAtBeginning.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Cst_IfAllGear.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_ListContains.cs" />
     <Compile Include="Assets\Scripts\UI\Dialogue\UIDialogueTextBoxController.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\KnobObstacle.cs" />
     <Compile Include="Assets\Scripts\Narration\Dialogue\Data\DialogueNodeVisitor.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\Variable\BE2_VariablesListManager.cs" />
     <Compile Include="Assets\Scripts\BlockCoding\HeadLampParamController.cs" />
@@ -284,6 +292,7 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EnvironmentElements\I_BE2_ProgrammingEnv.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Variable.cs" />
     <Compile Include="Assets\Scripts\Narration\Dialogue\DialogueChannel.cs" />
+    <Compile Include="Assets\Scripts\MeshDestroy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\I_BE2_BlockSectionHeaderItem.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EditorScripts\BE2_Inspector.cs" />
@@ -297,15 +306,8 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RotateAxis.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Nand.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_ContextMenuManager.cs" />
-    <Compile Include="Assets\Scripts\Collect\Collector.cs" />
-    <Compile Include="Assets\Scripts\MeshDestroy.cs" />
-    <Compile Include="Assets\Scripts\Collect\Collectable.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueStartAtBeginning.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\SpiderWeb.cs" />
-    <Compile Include="Assets\Scripts\PlaytestLoadScene.cs" />
-    <Compile Include="Assets\DialogueSystem\Scenes\Hui\test.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\KnobObstacle.cs" />
-    <Compile Include="Assets\Scripts\CreativeMgr.cs" />
+    <Compile Include="Assets\Scripts\GrassPaint\GrassPainterEditor.cs" />
+    <Compile Include="Assets\Scripts\GrassPaint\GeometryGrassPainter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Decal\decalScreenspace.shader" />
@@ -329,6 +331,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Scripts\GrassPaint\GeometryGrassURP.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

@@ -44,6 +44,10 @@ public class SoundMgr : MonoBehaviour
 
     public void PlayDialogue(AudioClip clip)
     {
+        if (audioSource == null)
+        {
+            return;
+        }
         audioSource.Stop();
         audioSource.PlayOneShot(clip);
     }
