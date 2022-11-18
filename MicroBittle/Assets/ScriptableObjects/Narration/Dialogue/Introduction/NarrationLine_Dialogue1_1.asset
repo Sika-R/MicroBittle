@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: NarrationLine_Dialogue1_1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "Hello, young one! You look.. Confused? Lost? Worry not: I, Bard, I\u2019m
-    here to help you prepare for the challenge ahead. "
+  m_Text: 'Hello, young one! '
