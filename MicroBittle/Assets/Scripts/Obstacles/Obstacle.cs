@@ -11,7 +11,7 @@ public enum ObstacleType // *
     Slider,
     Wall,
     Photoresistor,
-    TrimmerPotentiometer,
+    Knob,
     Vacuum
 }
 

@@ -129,6 +129,24 @@ public class OutfitMgr : MonoBehaviour
         
     }
 
+
+    public void ControlJackhammer(int index)
+    {
+        Vector3 currentLocalPos = jackhammer.transform.localPosition;
+        if (index == 0)
+        {
+            jackhammer.transform.localPosition = new Vector3(0.6f, currentLocalPos.y, currentLocalPos.z);
+        }
+        else if (index == 1)
+        {
+            jackhammer.transform.localPosition = new Vector3(0f, currentLocalPos.y, currentLocalPos.z);
+        }
+        else
+        {
+            jackhammer.transform.localPosition = new Vector3(-0.6f, currentLocalPos.y, currentLocalPos.z);
+        }
+    }
+
     public void getInput(float inputVal, ObstacleType obstacleType)
     {
         if(obstacleType == currentObstacleType)
@@ -146,4 +164,5 @@ public class OutfitMgr : MonoBehaviour
         newPos.z += value / 2000;
         powerlog.transform.localPosition = newPos;
     }
+
 }
