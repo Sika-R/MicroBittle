@@ -122,4 +122,21 @@ public class OutfitMgr : MonoBehaviour
         chooseToolIcon(newType);
         
     }
+
+    public void ControlJackhammer(int index)
+    {
+        Vector3 currentLocalPos = jackhammer.transform.localPosition;
+        if (index == 0)
+        {
+            jackhammer.transform.localPosition = new Vector3(0.6f, currentLocalPos.y, currentLocalPos.z);
+        }
+        else if (index == 1)
+        {
+            jackhammer.transform.localPosition = new Vector3(0f, currentLocalPos.y, currentLocalPos.z);
+        }
+        else
+        {
+            jackhammer.transform.localPosition = new Vector3(-0.6f, currentLocalPos.y, currentLocalPos.z);
+        }
+    }
 }

@@ -109,6 +109,10 @@ public class ObstacleMgr : MonoBehaviour
                 }
             }
         }
+        if (obstacleType == ObstacleType.Knob)
+        {
+            OutfitMgr.Instance.ControlJackhammer(Mathf.Clamp(Mathf.FloorToInt( (inputVal-1) / 300), 0, 2));
+        }
         if (currentEncounteredObstacle == null)
         {
             return;
