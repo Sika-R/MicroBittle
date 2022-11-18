@@ -10,38 +10,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13e2c2c40c6dfcb4599c0433cd730f2d, type: 3}
-  m_Name: TutorialMaze_Creative
+  m_Name: ForestCavern_Creative
   m_EditorClassIdentifier: 
   keys:
-  - {x: -4, y: 5}
-  - {x: -4, y: 4}
+  - {x: -1, y: 3}
+  - {x: 0, y: 0}
+  - {x: 1, y: 6}
   - {x: -3, y: 5}
-  - {x: -2, y: 4}
+  - {x: -2, y: 5}
+  - {x: -1, y: 5}
   - {x: -1, y: 4}
-  - {x: 0, y: 4}
-  - {x: 1, y: 4}
-  - {x: 2, y: 4}
-  - {x: 4, y: 4}
-  - {x: 5, y: 5}
-  - {x: 5, y: 4}
-  - {x: 4, y: 5}
+  - {x: -2, y: 4}
+  - {x: -3, y: 4}
+  - {x: -5, y: 4}
+  - {x: -5, y: 3}
   - {x: -5, y: 2}
   - {x: -4, y: 2}
   - {x: -3, y: 2}
   - {x: -2, y: 2}
-  - {x: -2, y: 1}
-  - {x: -2, y: 0}
-  - {x: -1, y: 1}
-  - {x: 0, y: 0}
+  - {x: -1, y: 2}
   - {x: 0, y: 2}
   - {x: 1, y: 2}
   - {x: 2, y: 2}
+  - {x: 2, y: 3}
+  - {x: 1, y: 3}
+  - {x: 1, y: 4}
+  - {x: 2, y: 4}
+  - {x: 4, y: 4}
+  - {x: 5, y: 4}
+  - {x: 5, y: 5}
   - {x: 4, y: 2}
   - {x: 4, y: 1}
   - {x: 4, y: 0}
   - {x: 5, y: 0}
-  - {x: 3, y: 0}
   - {x: 2, y: 0}
+  - {x: 3, y: 0}
+  - {x: 2, y: -1}
+  - {x: 2, y: -2}
+  - {x: 2, y: -3}
+  - {x: 2, y: -4}
+  - {x: 4, y: -4}
+  - {x: 4, y: -3}
+  - {x: 4, y: -2}
+  - {x: 5, y: -2}
+  - {x: 5, y: -3}
   - {x: 1, y: -2}
   - {x: 0, y: -2}
   - {x: -1, y: -2}
@@ -50,138 +62,123 @@ MonoBehaviour:
   - {x: -4, y: -2}
   - {x: -4, y: -1}
   - {x: -4, y: 0}
-  - {x: -5, y: -5}
-  - {x: -4, y: -5}
-  - {x: -4, y: -4}
-  - {x: -3, y: -5}
+  - {x: -3, y: -4}
+  - {x: -2, y: -4}
   - {x: -2, y: -5}
   - {x: -1, y: -5}
-  - {x: 0, y: -5}
+  - {x: -1, y: -4}
   - {x: 0, y: -4}
-  - {x: -2, y: -4}
-  - {x: 4, y: -2}
-  - {x: 4, y: -3}
-  - {x: 5, y: -3}
-  - {x: 5, y: -2}
-  - {x: 4, y: -4}
-  - {x: -5, y: 5}
-  - {x: -5, y: 4}
-  - {x: -4, y: 3}
+  - {x: 0, y: -5}
+  - {x: -5, y: -5}
+  - {x: -5, y: -4}
+  - {x: -4, y: 4}
+  - {x: -3, y: 3}
   - {x: -2, y: 3}
-  - {x: 0, y: 3}
-  - {x: 1, y: 3}
-  - {x: 2, y: 3}
-  - {x: -1, y: 5}
-  - {x: 0, y: 5}
+  - {x: 0, y: 4}
   - {x: 1, y: 5}
   - {x: 2, y: 5}
+  - {x: 3, y: 4}
   - {x: 4, y: 3}
   - {x: 5, y: 2}
-  - {x: 5, y: -1}
-  - {x: 4, y: -1}
-  - {x: 3, y: -2}
-  - {x: 3, y: -3}
-  - {x: 3, y: -4}
-  - {x: 4, y: -5}
-  - {x: 1, y: -4}
-  - {x: 0, y: -3}
-  - {x: -1, y: -3}
-  - {x: -4, y: -3}
-  - {x: -5, y: -2}
-  - {x: -2, y: -1}
-  - {x: 0, y: -1}
-  - {x: 3, y: 4}
   - {x: 3, y: 2}
   - {x: 2, y: 1}
   - {x: 1, y: 0}
+  - {x: 0, y: -1}
+  - {x: -2, y: -1}
+  - {x: -3, y: 0}
   - {x: -4, y: 1}
-  - {x: -5, y: 3}
+  - {x: -5, y: 0}
+  - {x: -5, y: -1}
+  - {x: -5, y: -2}
+  - {x: -3, y: -3}
+  - {x: -2, y: -3}
+  - {x: -1, y: -3}
+  - {x: 0, y: -3}
+  - {x: 1, y: -4}
+  - {x: 2, y: -5}
+  - {x: 3, y: -4}
+  - {x: 3, y: -3}
+  - {x: 3, y: -2}
+  - {x: 4, y: -1}
+  - {x: 5, y: -1}
+  - {x: 4, y: -5}
+  - {x: -4, y: -4}
+  - {x: -4, y: 5}
+  - {x: -4, y: 3}
+  - {x: 0, y: 3}
+  - {x: 0, y: 5}
   - {x: 5, y: 3}
   - {x: 3, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: -1}
+  - {x: -3, y: -1}
+  - {x: -5, y: 1}
+  - {x: -5, y: -3}
+  - {x: 1, y: -3}
+  - {x: 3, y: -1}
   - {x: 5, y: -5}
   - {x: 1, y: -5}
-  - {x: 1, y: -3}
-  - {x: -3, y: 4}
-  - {x: -2, y: 5}
-  - {x: 5, y: 1}
-  - {x: 5, y: -4}
-  - {x: -5, y: -4}
-  - {x: -3, y: -4}
-  - {x: -3, y: 3}
-  - {x: -1, y: 3}
-  - {x: -1, y: -1}
-  - {x: -3, y: -3}
-  - {x: 3, y: -5}
-  - {x: -3, y: 1}
-  - {x: -5, y: 1}
-  - {x: -3, y: -1}
   - {x: 3, y: 5}
-  - {x: -5, y: 0}
-  - {x: -5, y: -3}
   - {x: 3, y: 3}
-  - {x: -1, y: 2}
-  - {x: 0, y: 1}
+  - {x: -3, y: 1}
+  - {x: -4, y: -3}
+  - {x: 3, y: -5}
+  - {x: -4, y: -5}
+  - {x: -3, y: -5}
+  - {x: 5, y: -4}
+  - {x: 5, y: 1}
+  - {x: 4, y: 5}
+  - {x: -5, y: 5}
+  - {x: -2, y: 1}
+  - {x: -2, y: 0}
   - {x: -1, y: 0}
-  - {x: -2, y: -3}
-  - {x: 1, y: -1}
-  - {x: 1, y: 1}
-  - {x: -3, y: 0}
-  - {x: -5, y: -1}
-  - {x: 2, y: -5}
-  - {x: 3, y: -1}
-  - {x: 2, y: -1}
-  - {x: -1, y: -4}
-  - {x: 2, y: -3}
-  - {x: 2, y: -4}
-  - {x: 2, y: -2}
+  - {x: -1, y: 1}
+  - {x: 0, y: 1}
+  - {x: -1, y: -1}
   values:
+  - isOccupied: 0
+    x: -1
+    y: 3
+    obstacle: 0
   - isOccupied: 1
-    x: -4
-    y: 5
+    x: 0
+    y: 0
     obstacle: 5
-  - isOccupied: 1
-    x: -4
-    y: 4
-    obstacle: 5
+  - isOccupied: 0
+    x: 1
+    y: 6
+    obstacle: 0
   - isOccupied: 1
     x: -3
     y: 5
     obstacle: 5
   - isOccupied: 1
     x: -2
-    y: 4
+    y: 5
+    obstacle: 5
+  - isOccupied: 1
+    x: -1
+    y: 5
     obstacle: 5
   - isOccupied: 1
     x: -1
     y: 4
     obstacle: 5
   - isOccupied: 1
-    x: 0
+    x: -2
     y: 4
     obstacle: 5
   - isOccupied: 1
-    x: 1
+    x: -3
     y: 4
     obstacle: 5
   - isOccupied: 1
-    x: 2
+    x: -5
     y: 4
     obstacle: 5
   - isOccupied: 1
-    x: 4
-    y: 4
-    obstacle: 5
-  - isOccupied: 1
-    x: 5
-    y: 5
-    obstacle: 5
-  - isOccupied: 0
-    x: 5
-    y: 4
-    obstacle: 0
-  - isOccupied: 1
-    x: 4
-    y: 5
+    x: -5
+    y: 3
     obstacle: 5
   - isOccupied: 1
     x: -5
@@ -200,20 +197,8 @@ MonoBehaviour:
     y: 2
     obstacle: 5
   - isOccupied: 1
-    x: -2
-    y: 1
-    obstacle: 5
-  - isOccupied: 1
-    x: -2
-    y: 0
-    obstacle: 5
-  - isOccupied: 1
     x: -1
-    y: 1
-    obstacle: 5
-  - isOccupied: 1
-    x: 0
-    y: 0
+    y: 2
     obstacle: 5
   - isOccupied: 1
     x: 0
@@ -226,6 +211,34 @@ MonoBehaviour:
   - isOccupied: 1
     x: 2
     y: 2
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: 3
+    obstacle: 5
+  - isOccupied: 1
+    x: 1
+    y: 3
+    obstacle: 5
+  - isOccupied: 1
+    x: 1
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: 5
+    y: 4
+    obstacle: 5
+  - isOccupied: 1
+    x: 5
+    y: 5
     obstacle: 5
   - isOccupied: 1
     x: 4
@@ -244,12 +257,48 @@ MonoBehaviour:
     y: 0
     obstacle: 5
   - isOccupied: 1
+    x: 2
+    y: 0
+    obstacle: 5
+  - isOccupied: 1
     x: 3
     y: 0
     obstacle: 5
   - isOccupied: 1
     x: 2
-    y: 0
+    y: -1
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: -3
+    obstacle: 5
+  - isOccupied: 1
+    x: 2
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: -3
+    obstacle: 5
+  - isOccupied: 1
+    x: 4
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: 5
+    y: -2
+    obstacle: 5
+  - isOccupied: 1
+    x: 5
+    y: -3
     obstacle: 5
   - isOccupied: 1
     x: 1
@@ -284,20 +333,12 @@ MonoBehaviour:
     y: 0
     obstacle: 5
   - isOccupied: 1
-    x: -5
-    y: -5
-    obstacle: 5
-  - isOccupied: 1
-    x: -4
-    y: -5
-    obstacle: 5
-  - isOccupied: 1
-    x: -4
+    x: -3
     y: -4
     obstacle: 5
   - isOccupied: 1
-    x: -3
-    y: -5
+    x: -2
+    y: -4
     obstacle: 5
   - isOccupied: 1
     x: -2
@@ -308,47 +349,31 @@ MonoBehaviour:
     y: -5
     obstacle: 5
   - isOccupied: 1
+    x: -1
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
+    x: 0
+    y: -4
+    obstacle: 5
+  - isOccupied: 1
     x: 0
     y: -5
     obstacle: 5
   - isOccupied: 1
-    x: 0
-    y: -4
+    x: -5
+    y: -5
     obstacle: 5
   - isOccupied: 1
-    x: -2
-    y: -4
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
-    y: -3
-    obstacle: 5
-  - isOccupied: 1
-    x: 5
-    y: -3
-    obstacle: 5
-  - isOccupied: 1
-    x: 5
-    y: -2
-    obstacle: 5
-  - isOccupied: 1
-    x: 4
+    x: -5
     y: -4
     obstacle: 5
   - isOccupied: 0
-    x: -5
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
+    x: -4
     y: 4
     obstacle: 0
   - isOccupied: 0
-    x: -4
+    x: -3
     y: 3
     obstacle: 0
   - isOccupied: 0
@@ -357,23 +382,7 @@ MonoBehaviour:
     obstacle: 0
   - isOccupied: 0
     x: 0
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 2
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: 0
-    y: 5
+    y: 4
     obstacle: 0
   - isOccupied: 0
     x: 1
@@ -382,6 +391,10 @@ MonoBehaviour:
   - isOccupied: 0
     x: 2
     y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: 4
     obstacle: 0
   - isOccupied: 0
     x: 4
@@ -390,62 +403,6 @@ MonoBehaviour:
   - isOccupied: 0
     x: 5
     y: 2
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 4
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: -2
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: 4
-    y: -5
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: 0
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: -4
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: -2
-    obstacle: 0
-  - isOccupied: 0
-    x: -2
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 0
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: 4
     obstacle: 0
   - isOccupied: 0
     x: 3
@@ -460,136 +417,52 @@ MonoBehaviour:
     y: 0
     obstacle: 0
   - isOccupied: 0
+    x: 0
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: -2
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: 0
+    obstacle: 0
+  - isOccupied: 0
     x: -4
     y: 1
     obstacle: 0
   - isOccupied: 0
     x: -5
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: -5
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: -5
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: 4
-    obstacle: 0
-  - isOccupied: 0
-    x: -2
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: 5
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: -4
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: 3
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: -3
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: -5
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 3
-    y: 5
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
     y: 0
     obstacle: 0
   - isOccupied: 0
     x: -5
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: -2
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
     y: -3
     obstacle: 0
   - isOccupied: 0
-    x: 3
-    y: 3
+    x: -2
+    y: -3
     obstacle: 0
   - isOccupied: 0
     x: -1
-    y: 2
+    y: -3
     obstacle: 0
   - isOccupied: 0
     x: 0
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: -1
-    y: 0
-    obstacle: 0
-  - isOccupied: 0
-    x: -2
     y: -3
     obstacle: 0
   - isOccupied: 0
     x: 1
-    y: -1
-    obstacle: 0
-  - isOccupied: 0
-    x: 1
-    y: 1
-    obstacle: 0
-  - isOccupied: 0
-    x: -3
-    y: 0
-    obstacle: 0
-  - isOccupied: 0
-    x: -5
-    y: -1
+    y: -4
     obstacle: 0
   - isOccupied: 0
     x: 2
@@ -597,25 +470,157 @@ MonoBehaviour:
     obstacle: 0
   - isOccupied: 0
     x: 3
+    y: -4
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: -2
+    obstacle: 0
+  - isOccupied: 0
+    x: 4
     y: -1
     obstacle: 0
-  - isOccupied: 1
-    x: 2
+  - isOccupied: 0
+    x: 5
     y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: 4
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: -4
+    y: -4
+    obstacle: 0
+  - isOccupied: 0
+    x: -4
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: -4
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: 0
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: 0
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: -1
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: 1
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: 3
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: -4
+    y: -3
+    obstacle: 0
+  - isOccupied: 0
+    x: 3
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: -4
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: -3
+    y: -5
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: -4
+    obstacle: 0
+  - isOccupied: 0
+    x: 5
+    y: 1
+    obstacle: 0
+  - isOccupied: 0
+    x: 4
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: -5
+    y: 5
+    obstacle: 0
+  - isOccupied: 0
+    x: -2
+    y: 1
+    obstacle: 0
+  - isOccupied: 1
+    x: -2
+    y: 0
     obstacle: 5
   - isOccupied: 1
     x: -1
-    y: -4
+    y: 0
     obstacle: 5
   - isOccupied: 1
-    x: 2
-    y: -3
+    x: -1
+    y: 1
     obstacle: 5
   - isOccupied: 1
-    x: 2
-    y: -4
+    x: 0
+    y: 1
     obstacle: 5
-  - isOccupied: 1
-    x: 2
-    y: -2
-    obstacle: 5
+  - isOccupied: 0
+    x: -1
+    y: -1
+    obstacle: 0
