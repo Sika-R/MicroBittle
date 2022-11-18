@@ -54,7 +54,10 @@ public class Obstacle : MonoBehaviour
         {
             return;
         }
-        gameObject.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+        // gameObject.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+        Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y - 2.0f));
+        // pos.y -= Camera.main.transform.position.y - 3;
+        gameObject.transform.position = pos;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -64,6 +67,7 @@ public class Obstacle : MonoBehaviour
             // {
                 // RaycastHit hit = hits[i];
             RaycastHit hit = hits[0];
+            Debug.Log(hit.collider.tag + hit.collider.name);
             if (hit.collider.tag == "Floor")
             {
                 isMovingWithMouse = false;
@@ -72,7 +76,7 @@ public class Obstacle : MonoBehaviour
                 GameObject prefab = drawgrid.m_obstaclePrefab;
                 Vector3 initPoint = bottom.position;
                 ObstacleType type = GetComponent<Obstacle>().obstacleType;
-                drawgrid.EditMaze(hit.point, type);
+                initPoint = drawgrid.InGameEditMaze(hit.point, type);
                 initPoint.y += bottom.gameObject.GetComponent<BoxCollider>().size.y * bottom.localScale.y / 2;
                 if(prefab.GetComponent<BoxCollider>())
                 {
@@ -83,6 +87,17 @@ public class Obstacle : MonoBehaviour
                 transform.SetParent(drawgrid.transform);
                 transform.localScale = transform.localScale = drawgrid.m_gridSize * transform.localScale;
                 transform.position = initPoint;
+                gameObject.layer = LayerMask.NameToLayer("Default");
+                if(gameObject.tag == "Cube")
+                {
+                    CreativeMgr.Instance.addObstacle(1);
+                }
+                else
+                {
+                    CreativeMgr.Instance.addGem(1);
+                    Destroy(this);
+                }
+                
 
                 //transform.position = new Vector3(transform.position.x, transform.position.y, hit.collider.transform.position.z);
                 /*Vector3 initPoint = drawGridScript.IdentifyCenter(hit.point);

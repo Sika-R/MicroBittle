@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1688429296831714536}
   m_Layer: 0
   m_Name: crystal 1
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688429296831714539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0.000000069092}
-  m_LocalScale: {x: 28.832718, y: 37.481457, z: 10.906939}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0.000000072567}
+  m_LocalScale: {x: 31.382553, y: 40.796146, z: 11.871499}
   m_Children:
   - {fileID: 2612330707855971419}
   m_Father: {fileID: 0}

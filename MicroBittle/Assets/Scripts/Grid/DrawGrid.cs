@@ -49,8 +49,12 @@ public class DrawGrid : MonoBehaviour
 
     private void OnValidate()
     {
-        maze.SetCol(m_column);
-        maze.SetRow(m_row);
+        if(maze)
+        {
+            maze.SetCol(m_column);
+            maze.SetRow(m_row);
+        }
+        
     }
 
     private void GridGizmo(int cols, int rows)
@@ -168,6 +172,22 @@ public class DrawGrid : MonoBehaviour
             }
             // Debug.Log("grid exists.");
             
+        }
+        return gridPos;
+    }
+
+    public Vector3 InGameEditMaze(Vector3 hit, ObstacleType type)
+    {
+        Vector2 idx = GetIdx(hit);
+        if (idx.x == -99)
+        {
+            return new Vector3(-99, -99, -99);
+        }
+        Vector3 gridPos = GetCenterPos((int)idx.x, (int)idx.y);
+        if (maze.ContainsKey(idx) && maze[idx].obstacle == ObstacleType.None)
+        {
+            maze[idx].SetObstacle(type);
+            // Debug.Log("grid exists.");
         }
         return gridPos;
     }

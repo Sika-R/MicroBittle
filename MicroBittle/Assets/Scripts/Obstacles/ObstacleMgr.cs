@@ -35,6 +35,10 @@ public class ObstacleMgr : MonoBehaviour
 
     public void CreateNewObstacles(ObstacleType obstacleType)
     {
+        if(!CreativeMgr.Instance.canAddObstacle())
+        {
+            return;
+        }
         //Debug.Log();
         //Debug.Log("Prefabs/Obstacles/Test" + obstacleType.ToString() + "Obstacle");
         //Debug.Log("Test" + obstacleType.ToString() + "Obstacle");
@@ -42,8 +46,10 @@ public class ObstacleMgr : MonoBehaviour
         GameObject newObstacle = Instantiate(obstaclePrefabs[(int)obstacleType]);
         //GameObject newObstacle = Instantiate(Resources.Load<P>("Prefabs/Obstacles/Test" + obstacleType.ToString() + "Obstacle"));
         Obstacle obstacle = newObstacle.GetComponent<Obstacle>();
+        obstacle.isMovingWithMouse = true;
         obstacle.index = currentObstacleIndex;
         obstacle.obstacleType = obstacleType;
+        obstacle.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         currentObstacleIndex++;
     }
 
@@ -54,7 +60,7 @@ public class ObstacleMgr : MonoBehaviour
 
     public void getInput(float inputVal, ObstacleType obstacleType)
     {
-        if (PlayerMovement.Instance.isFreezing)
+        if (PlayerMovement.Instance && PlayerMovement.Instance.isFreezing)
         {
             return;
         }
