@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbd2c1887a808da4b8f0a6cec8d8b890, type: 3}
-  m_Name: Backstory1_Line8
+  m_Name: NarrationLine_Dialogue1_3
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: 'In the Cavern Challenge, young micro bittles demonstrate their abilities
-    by traversing a maze, overcoming obstacles, and collecting five precious gems. '
+  m_Text: "But first, allow me to share the story of our species and the test you
+    will soon face\u2026"

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: NarrationLine_Dialogue1_2
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "But first, allow me to share the story of our species and the test you
-    will soon face\u2026"
+  m_Text: 'I am Bard, and I will be your mentor as you prepare for the challenge
+    ahead. '

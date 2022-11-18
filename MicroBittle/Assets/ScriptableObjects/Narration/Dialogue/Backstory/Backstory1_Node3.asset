@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 327f99a6bbb93724cb90d6c01f8e4608, type: 2}
   dialogueAudio: {fileID: 0}
-  animationName: birdcage_251067
+  animationName: dance
   m_NextNode: {fileID: 11400000, guid: 9c6d38de47bfa9b43a2c6cc4b8dc96d7, type: 2}

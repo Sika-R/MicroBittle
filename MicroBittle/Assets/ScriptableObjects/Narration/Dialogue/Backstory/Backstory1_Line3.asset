@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Backstory1_Line3
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "We call ourselves micro bittles. We look like beetles, and act like beetles
-    for the most part, except for one incredible aspect\u2026"
+  m_Text: 'But we have an intelligence so sophisticated we could put the smartest
+    human rocket scientists to shame. '

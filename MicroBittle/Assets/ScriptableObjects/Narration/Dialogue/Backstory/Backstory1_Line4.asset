@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Backstory1_Line4
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: 'Despite our teeny weeny size, micro bittles have an intelligence so sophisticated
-    we could put the smartest human rocket scientists to shame. '
+  m_Text: Every micro bittle is an engineer. We wire and program our own devices,
+    and we use them to go on adventures around the world.

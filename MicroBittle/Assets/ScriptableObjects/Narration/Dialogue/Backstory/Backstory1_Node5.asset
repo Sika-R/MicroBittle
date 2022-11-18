@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 724e42beac4de8340b92ca3750edfd0c, type: 2}
   dialogueAudio: {fileID: 0}
-  animationName: walk01_start_251151
-  m_NextNode: {fileID: 11400000, guid: 654f0bc0512416945818d117b01d47c7, type: 2}
+  animationName: dance
+  m_NextNode: {fileID: 0}

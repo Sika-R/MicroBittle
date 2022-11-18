@@ -71,6 +71,7 @@ public class WebGLDeviceConnection : MonoBehaviour
         if(ObstacleMgr.Instance)
         {
             sliderEvent.AddListener(ObstacleMgr.Instance.getInput);
+            sliderEvent.AddListener(OutfitMgr.Instance.getInput);
         }
         if(programUI.Instance)
         {
@@ -136,8 +137,9 @@ public class WebGLDeviceConnection : MonoBehaviour
             }
             // pressAEvent.Invoke();
         }
-#endif
 
+
+#else
         if (Input.GetMouseButtonDown(1))
         {
             // pressAEvent.Invoke();
@@ -145,8 +147,9 @@ public class WebGLDeviceConnection : MonoBehaviour
             
         }
 
-
+#endif
     }
+
 
     /*public void ReadLine(string str)
     {
