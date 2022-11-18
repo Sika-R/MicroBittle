@@ -9,11 +9,44 @@ public class Collector : MonoBehaviour
     [SerializeField]
     Text gemText;
 
+    [SerializeField]
+    GameObject inGameUI;
+    [SerializeField]
+    GameObject finalUI;
+    [SerializeField]
+    List<Sprite> badgeSprites = new List<Sprite>();
+    [SerializeField]
+    Image finalBadge;
+    [SerializeField]
+    Text finalCnt;
+    
+
     Dictionary<string, int> collections = new Dictionary<string, int>();
 
     private void Start()
     {
         gemText.text = "        : 0 / 5";
+        if(inGameUI)
+        {
+            inGameUI.SetActive(true);
+        }
+        if(finalUI)
+        {
+            finalUI.SetActive(false);
+        }
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Destination")
+        {
+            if (finalUI)
+            {
+                showFinalPanel();
+            }
+            
+        }
     }
     public virtual void OnCollect(Collectable collectable)
     {
@@ -48,6 +81,27 @@ public class Collector : MonoBehaviour
         if (collections.TryGetValue(name, out count))
             return count >= requiredCount;
         return false;
+    }
+
+
+    public void showFinalPanel()
+    {
+        inGameUI.SetActive(false);
+        finalUI.SetActive(true);
+        float cnt = 0;
+        if(collections.ContainsKey("crystal"))
+        {
+            cnt = collections["crystal"];
+        }
+        finalCnt.text = cnt.ToString();
+        if(cnt == 5)
+        {
+            finalBadge.sprite = badgeSprites[0];
+        }
+        else
+        {
+            finalBadge.sprite = badgeSprites[1];
+        }
     }
 }
 
