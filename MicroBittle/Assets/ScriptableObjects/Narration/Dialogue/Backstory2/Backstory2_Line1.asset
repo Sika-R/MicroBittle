@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Backstory2_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: 'With my help, young micro bittle, you will be ready for the Cavern Challenge. '
+  m_Text: With my guidance, you will be ready to overcome the Cavern Challenge and
+    become a world traveler!

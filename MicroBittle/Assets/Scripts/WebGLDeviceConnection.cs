@@ -86,7 +86,7 @@ public class WebGLDeviceConnection : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if(Input.GetMouseButtonDown(1))
+        /*if(Input.GetMouseButtonDown(1))
         {
             if(temp)
             {
@@ -135,7 +135,7 @@ public class WebGLDeviceConnection : MonoBehaviour
                 temp = true;
             }
             // pressAEvent.Invoke();
-        }
+        }*/
 #endif
 
         if (Input.GetMouseButtonDown(1))
