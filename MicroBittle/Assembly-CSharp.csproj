@@ -156,6 +156,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\BE2_SpotBlockInput.cs" />
     <Compile Include="Assets\Scripts\Flow\FlowChannel.cs" />
+    <Compile Include="Assets\Scripts\CreativeMgr.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_SlideForward.cs" />
     <Compile Include="Assets\Scripts\Narration\Dialogue\Data\Dialogue.cs" />
@@ -274,6 +275,7 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Cst_IfAllGear.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_ListContains.cs" />
     <Compile Include="Assets\Scripts\UI\Dialogue\UIDialogueTextBoxController.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\KnobObstacle.cs" />
     <Compile Include="Assets\Scripts\Narration\Dialogue\Data\DialogueNodeVisitor.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\Variable\BE2_VariablesListManager.cs" />
     <Compile Include="Assets\Scripts\BlockCoding\HeadLampParamController.cs" />
@@ -306,8 +308,6 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RotateAxis.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Nand.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_ContextMenuManager.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\KnobObstacle.cs" />
-    <Compile Include="Assets\Scripts\CreativeMgr.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Decal\decalScreenspace.shader" />

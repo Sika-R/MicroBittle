@@ -1,0 +1,9 @@
+diff a/MicroBittle/Assets/Scripts/Hui/programUI.cs b/MicroBittle/Assets/Scripts/Hui/programUI.cs	(rejected hunks)
+@@ -248,6 +248,7 @@
+         paneldive.SetActive(false);
+         panelHead.SetActive(false);
+         */
++        panelCompo.SetActive(true);
+         panelCompo1.SetActive(false);
+         panelCompo2.SetActive(false);
+         panelCompo3.SetActive(false);
