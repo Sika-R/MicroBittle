@@ -242,15 +242,23 @@ public class programUI : MonoBehaviour
     public void componentpress()
     {
         stagenow = panelstage.Compo;
+        /*
         panelCompo.SetActive(true);
         panelJack.SetActive(false);
         paneldive.SetActive(false);
         panelHead.SetActive(false);
-        
+        */
+        panelCompo.SetActive(true);
+        panelCompo1.SetActive(false);
+        panelCompo2.SetActive(false);
+        panelCompo3.SetActive(false);
+        panelCompo4.SetActive(false);
+        /*
         buttonCompo.GetComponent<Image>().color = Color.white;
         buttonJack.GetComponent<Image>().color = Color.gray;
         buttondive.GetComponent<Image>().color = Color.gray;
         buttonHead.GetComponent<Image>().color = Color.gray;
+        */
         characterdialog.text = stringdiag[0];
     }
     public void jackhammerpress()
