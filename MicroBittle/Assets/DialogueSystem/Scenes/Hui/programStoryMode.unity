@@ -5045,12 +5045,14 @@ MonoBehaviour:
   dropdownforshowdemo: {fileID: 0}
   functionforJack: {fileID: 0}
   functionforgear: {fileID: 0}
+  dataValue: {fileID: 0}
   dataforpin0: {fileID: 0}
   dataforpin1: {fileID: 0}
   dataforpin2: {fileID: 0}
   panelprogram: {fileID: 0}
   panelshowdata: {fileID: 0}
   panelshowdemo: {fileID: 0}
+  livedemo: {fileID: 0}
   movetonextscnebutton: {fileID: 0}
 --- !u!1 &433598362
 GameObject:
@@ -7968,8 +7970,8 @@ Canvas:
   m_GameObject: {fileID: 497981272}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 83060749}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -8097,12 +8099,14 @@ MonoBehaviour:
   dropdownforshowdemo: {fileID: 69190419}
   functionforJack: {fileID: 1717723706}
   functionforgear: {fileID: 2137677822}
+  dataValue: {fileID: 0}
   dataforpin0: {fileID: 156412423}
   dataforpin1: {fileID: 856207444}
   dataforpin2: {fileID: 692943051}
   panelprogram: {fileID: 1433606512}
   panelshowdata: {fileID: 633086705}
   panelshowdemo: {fileID: 1607816199}
+  livedemo: {fileID: 0}
   movetonextscnebutton: {fileID: 0}
 --- !u!1 &519721196
 GameObject:
