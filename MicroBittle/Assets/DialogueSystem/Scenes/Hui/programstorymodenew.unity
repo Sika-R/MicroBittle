@@ -4210,7 +4210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0a52e35df744a14419702340bc09f996, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c1cf7ad0d2c66248b10a02b5e02176a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5462,7 +5462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &336476489
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6195,7 +6195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &435837848
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9252,59 +9252,34 @@ MonoBehaviour:
   characterdialog: {fileID: 848977033}
   datashow: {fileID: 1616628716}
   stringdiag:
-  - "Remember to read each component\u2019s description to learn what they each do.
-    Once you do this, check out the diagrams that will help you connect and wire
-    all the components to each other. Click on the check mark when you\u2019re done
-    wiring! "
-  - "Remember to read each component\u2019s description to learn what they each do.
-    Once you do this, check out the diagrams that will help you connect and wire
-    all the components to each other. Click on the check mark when you\u2019re done
-    wiring! "
-  - "Remember to read each component\u2019s description to learn what they each do.
-    Once you do this, check out the diagrams that will help you connect and wire
-    all the components to each other. Click on the check mark when you\u2019re done
-    wiring! "
-  - "Remember to read each component\u2019s description to learn what they each do.
-    Once you do this, check out the diagrams that will help you connect and wire
-    all the components to each other. Click on the check mark when you\u2019re done
-    wiring! "
-  - "Remember to read each component\u2019s description to learn what they each do.
-    Once you do this, check out the diagrams that will help you connect and wire
-    all the components to each other. Click on the check mark when you\u2019re done
-    wiring! "
+  - "These are the components you will be using. If your physical components look
+    slightly different, that\u2019s ok! They\u2019ll work in the same way. Hover
+    over each component to learn more about it! "
+  - "Follow these 3 steps. The micro:bit should light up when it\u2019s connected
+    to the computer (its power source)!"
+  - Follow these 2 steps. The slider should light up when power and ground are connected
+    to the micro:bit!
+  - Follow these 2 steps.
+  - Amazing, you wired the power log! Click here to continue.
   stringdata:
   - 
   - NO DATA YET,TRY INTERACTING WITH THE SENSOR.
   - GETTING DATA
   stringdiagforprogram:
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
+  - 'Here, you will add values and select options in a block function that controls
+    the power log. Click on the drop-down menu and select the power log. '
+  - 'This is the function! Before you fill it out, click on the Input Data button
+    to get important information for the function. '
+  - 'Fill out the function, and pay attention to any alert messages!  You can click
+    on the Input Data button anytime to check the input data values from the slider. '
+  - 'Click on the drop-down menu and select the data pin that the slider is connected
+    to. When you select it, you should see data changes on screen as you move the
+    slider! '
+  - 'Great! This is the input pin you should select in the function! And you can
+    see the input data values you will need, too. Click on the Code Blocks button
+    to continue. '
+  - 'Move the slider to see a live demo of the power log breaking a wall! '
+  - 'Fantastic, the power log works perfectly! Click here to continue. '
   viewinputData: {fileID: 73212990}
   viewdeviceCode: {fileID: 1500486110}
   viewinputDatabutton: {fileID: 1060496642}
@@ -9561,7 +9536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: debb00eb29ae8794caa7cadc7393ba1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 416b867aff5d64643b0924df4074e5a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14481,7 +14456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.90588236, g: 0.90588236, b: 0.90588236, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14563,7 +14538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dfc7792eccf00a14e83f75b09361c9a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4886c6b0e488b294b9d1945ce10c0d39, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14679,8 +14654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 610, y: -226}
-  m_SizeDelta: {x: 466.19, y: 531.269}
+  m_AnchoredPosition: {x: 618, y: 46}
+  m_SizeDelta: {x: 466.19, y: 248.4671}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848977033
 MonoBehaviour:
@@ -17279,7 +17254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 971, y: -256}
+  m_AnchoredPosition: {x: 1067, y: -186}
   m_SizeDelta: {x: 108.5679, y: 107.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1180929684
@@ -22332,7 +22307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1657132366
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22379,7 +22354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.90588236, g: 0.90588236, b: 0.90588236, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -26227,8 +26202,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 129}
-  m_SizeDelta: {x: 648.575, y: 636.169}
+  m_AnchoredPosition: {x: 0, y: 8}
+  m_SizeDelta: {x: 648.5747, y: 413.828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969389186
 MonoBehaviour:
