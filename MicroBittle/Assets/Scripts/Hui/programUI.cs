@@ -112,6 +112,7 @@ public class programUI : MonoBehaviour
     }
     void Start()
     {
+        /*
         buttonCompo.GetComponent<Image>().color = Color.white;
         buttonJack.GetComponent<Image>().color = Color.gray;
         buttondive.GetComponent<Image>().color = Color.gray;
@@ -129,6 +130,7 @@ public class programUI : MonoBehaviour
         buttonCompo2.GetComponent<Image>().color = Color.gray;
         buttonCompo3.GetComponent<Image>().color = Color.gray;
         buttonCompo4.GetComponent<Image>().color = Color.gray;
+        */
     }
 
     // Update is called once per frame
@@ -167,7 +169,7 @@ public class programUI : MonoBehaviour
         {
             case panelstage.Compo:
                 datashow.GetComponent<Text>().text = stringdata[0];
-                checkifreadall();
+                //checkifreadall();
                 characterdialog.text = stringdiag[0];
                 break;
             case panelstage.Compo1:
@@ -242,6 +244,7 @@ public class programUI : MonoBehaviour
     public void componentpress()
     {
         stagenow = panelstage.Compo;
+        /*
         panelCompo.SetActive(true);
         panelJack.SetActive(false);
         paneldive.SetActive(false);
@@ -251,6 +254,12 @@ public class programUI : MonoBehaviour
         buttonJack.GetComponent<Image>().color = Color.gray;
         buttondive.GetComponent<Image>().color = Color.gray;
         buttonHead.GetComponent<Image>().color = Color.gray;
+        */
+        panelCompo.SetActive(true);
+        panelCompo1.SetActive(false);
+        panelCompo2.SetActive(false);
+        panelCompo3.SetActive(false);
+        panelCompo4.SetActive(false);
         characterdialog.text = stringdiag[0];
     }
     public void jackhammerpress()
