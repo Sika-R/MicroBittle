@@ -258,7 +258,7 @@ public class lookchanger : MonoBehaviour
         //AssetDatabase.CreateAsset(newmaterial, "Assets/Player.mat");
         //AssetDatabase.SaveAssets();
         //AssetDatabase.Refresh();
-       SceneManager.LoadScene("program");
+        SceneManager.LoadScene("program");
         //SceneManager.LoadScene("test");
     }
     public void namebuttonClicked()
@@ -273,6 +273,10 @@ public class lookchanger : MonoBehaviour
     }
     public void changetoWiring()
     {
+        GameObject character = gameObjectList[currentOptionForMesh];
+        character.transform.localScale = new Vector3(0f, 0f, 0f);
+        character.transform.SetParent(null);
+        DontDestroyOnLoad(character);
         SceneManager.LoadScene("program");
     }
 

@@ -62,6 +62,7 @@ public class programUI : MonoBehaviour
     public List<string> stringdata;
     public List<string> stringdiagforprogram;
     private bool readdataornot = false;
+    private bool hasGetData = false;
     //============programming===========//
 
     public GameObject viewinputData;
@@ -88,6 +89,8 @@ public class programUI : MonoBehaviour
     public GameObject functionforJack;
     public GameObject functionforgear;
 
+    public Text dataValue;
+    private int curDataPin = -1;
     public GameObject dataforpin0;
     public GameObject dataforpin1;
     public GameObject dataforpin2;
@@ -95,6 +98,7 @@ public class programUI : MonoBehaviour
     public GameObject panelprogram;
     public GameObject panelshowdata;
     public GameObject panelshowdemo;
+    public GameObject livedemo;
     private bool[] demoworks = new bool[2];
     private bool demowork = false;
     public GameObject movetonextscnebutton;
@@ -129,6 +133,8 @@ public class programUI : MonoBehaviour
         buttonCompo2.GetComponent<Image>().color = Color.gray;
         buttonCompo3.GetComponent<Image>().color = Color.gray;
         buttonCompo4.GetComponent<Image>().color = Color.gray;
+        hasGetData = true;
+
     }
 
     // Update is called once per frame
@@ -241,6 +247,7 @@ public class programUI : MonoBehaviour
     }
     public void componentpress()
     {
+        hasGetData = true;
         stagenow = panelstage.Compo;
         panelCompo.SetActive(true);
         panelJack.SetActive(false);
@@ -291,6 +298,7 @@ public class programUI : MonoBehaviour
     }
     public void component1press()
     {
+        hasGetData = true;
         stagenow = panelstage.Compo1;
         characterdialog.text = stringdiag[1];
 
@@ -302,6 +310,7 @@ public class programUI : MonoBehaviour
     }
     public void component2press()
     {
+        hasGetData = true;
         stagenow = panelstage.Compo2;
         characterdialog.text = stringdiag[2];
 
@@ -313,6 +322,7 @@ public class programUI : MonoBehaviour
     }
     public void component3press()
     {
+        hasGetData = true;
         stagenow = panelstage.Compo3;
         characterdialog.text = stringdiag[3];
 
@@ -324,6 +334,7 @@ public class programUI : MonoBehaviour
     }
     public void component4press()
     {
+        hasGetData = false;
         stagenow = panelstage.Compo4;
         characterdialog.text = stringdiag[3];
         panelCompo.SetActive(false);
@@ -526,6 +537,7 @@ public class programUI : MonoBehaviour
         PanelForprogramming.SetActive(true);
         datashow.SetActive(false);
         stagenow = panelstage.ViewCode;
+        hasGetData = true;
     }
 
 
@@ -600,7 +612,8 @@ public class programUI : MonoBehaviour
 //    }
     public void movetonextScene()
     {
-        SceneManager.LoadScene("SceneTest");
+        DontDestroyOnLoad(ParamManager.Instance);
+        SceneManager.LoadScene("ForestCavern");
     }
     //new
     public void dropdownvaluechange()
@@ -622,27 +635,32 @@ public class programUI : MonoBehaviour
     }
     public void dropdownshowdatavaluechange()
     {
+        dataValue.text = "";
         switch (dropdownforshowdata.value)
         {
             case 0:
                 dataforpin0.SetActive(false);
                 dataforpin1.SetActive(false);
                 dataforpin2.SetActive(false);
+                curDataPin = -1;
                 break;
             case 1:
-                dataforpin0.SetActive(true);
+                // dataforpin0.SetActive(true);
                 dataforpin1.SetActive(false);
                 dataforpin2.SetActive(false);
+                curDataPin = 0;
                 break;
             case 2:
                 dataforpin0.SetActive(false);
-                dataforpin1.SetActive(true);
+                // dataforpin1.SetActive(true);
                 dataforpin2.SetActive(false);
+                curDataPin = 1;
                 break;
             case 3:
                 dataforpin0.SetActive(false);
                 dataforpin1.SetActive(false);
-                dataforpin2.SetActive(true);
+                // dataforpin2.SetActive(true);
+                curDataPin = 2;
                 break;
         }
     }
@@ -651,6 +669,7 @@ public class programUI : MonoBehaviour
         panelprogram.SetActive(true);
         panelshowdata.SetActive(false);
         panelshowdemo.SetActive(false);
+        livedemo.SetActive(false);
         stagenow = panelstage.ViewCode;
     }
     public void showdatapress()
@@ -658,6 +677,7 @@ public class programUI : MonoBehaviour
         panelprogram.SetActive(false);
         panelshowdata.SetActive(true);
         panelshowdemo.SetActive(false);
+        livedemo.SetActive(false);
         stagenow = panelstage.ViewData;
         readdataornot = true;
     }
@@ -666,6 +686,9 @@ public class programUI : MonoBehaviour
         panelprogram.SetActive(false);
         panelshowdata.SetActive(false);
         panelshowdemo.SetActive(true);
+        livedemo.SetActive(true);
+        livedemo.GetComponentInChildren<SliderObstacle>().TryInit();
+        ObstacleMgr.Instance.SetCurrentObstacle(livedemo.GetComponentInChildren<SliderObstacle>());
         stagenow = panelstage.ViewDemo;
     }
 
@@ -673,7 +696,12 @@ public class programUI : MonoBehaviour
     //new function for setting up pin value and get value
     public void showpinvalue(int i,float value)
     {
-        switch (i)
+        if(i == curDataPin)
+        {
+            dataValue.text += "Pin " + i + ": " + value + "\n";
+            StartCoroutine(dataValue.gameObject.GetComponent<DebugLogController>().ScrollBarBottom());
+        }
+        /*switch (i)
         {
             case 0:
                 dataforpin0.GetComponent<Text>().text = value.ToString();
@@ -684,31 +712,41 @@ public class programUI : MonoBehaviour
             case 2:
                 dataforpin2.GetComponent<Text>().text = value.ToString();
                 break;
-        }
+        }*/
     }
-    public void getdataornot(int i,float value)
+    public void getdataornot(float value, ObstacleType type)
     {
-        switch (i)
+        if (hasGetData) return;
+        switch (type)
         {
-            case 0:
+            case ObstacleType.Slider:
                 if(value > 0.0f)
                 {
                     stagenow = panelstage.GetData;
                 }
                 break;
-            case 1:
-                if (value > 0.0f)
-                {
-                    stagenow = panelstage.GetData;
-                }
-                break;
-            case 2:
-                if (value > 0.0f)
-                {
-                    stagenow = panelstage.GetData;
-                }
-                break;
+                /*case 1:
+                    if (value > 0.0f)
+                    {
+                        stagenow = panelstage.GetData;
+                    }
+                    break;
+                case 2:
+                    if (value > 0.0f)
+                    {
+                        stagenow = panelstage.GetData;
+                    }
+                    break;*/
         }
+    }
+
+    public void setDemoWork()
+    {
+        demoworks[0] = true;
+        demoworks[1] = false;
+        movetonextscnebutton.SetActive(true);
+        
+
     }
     public void demoworkornot(float a, FunctionType f, float min,float max)
     {

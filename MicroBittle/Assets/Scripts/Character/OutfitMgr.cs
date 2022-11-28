@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OutfitMgr : MonoBehaviour
 {
+    public bool isProgram = false;
     public GameObject player;
     public static OutfitMgr Instance = null;
     public List<GameObject> divingSuits;
@@ -19,18 +20,27 @@ public class OutfitMgr : MonoBehaviour
 
     void Start()
     {
-        GameObject[] all = GameObject.FindGameObjectsWithTag("Beatle");
-        if(all.Length != 0)
+        if(!isProgram)
         {
-            Vector3 newPos = player.transform.position;
-            newPos.y -= 0.5f;
-            all[0].transform.position = newPos;
-            all[0].transform.localScale = new Vector3(80f, 80f, 80f);
-            Quaternion q = Quaternion.Euler(0f, 180f, 0f);
-            all[0].transform.rotation = q; 
-            all[0].transform.SetParent(player.transform);
+            GameObject[] all = GameObject.FindGameObjectsWithTag("Beatle");
+            if(all.Length != 0)
+            {
+                Vector3 newPos = player.transform.position;
+                newPos.y -= 0.5f;
+                all[0].transform.position = newPos;
+                all[0].transform.localScale = new Vector3(80f, 80f, 80f);
+                Quaternion q = Quaternion.Euler(0f, 180f, 0f);
+                all[0].transform.rotation = q; 
+                all[0].transform.SetParent(player.transform);
+            }
         }
-        logPos = powerlog.transform.localPosition;
+        if(powerlog)
+        {
+            logPos = powerlog.transform.localPosition;
+        }
+        
+        ChangeOutfit(true);
+        ChangeOutfit(false);
     }
 
     // Update is called once per frame

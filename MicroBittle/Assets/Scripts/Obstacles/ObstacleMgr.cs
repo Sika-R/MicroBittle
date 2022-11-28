@@ -9,6 +9,7 @@ public class ObstacleMgr : MonoBehaviour
     public List<GameObject> obstaclePrefabs;
     private int currentObstacleIndex = 0;
     private Obstacle currentEncounteredObstacle = null;
+    private Dictionary<int, List<GameObject>> allCreatedObstacles = new Dictionary<int, List<GameObject>>();
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +45,15 @@ public class ObstacleMgr : MonoBehaviour
         //Debug.Log("Test" + obstacleType.ToString() + "Obstacle");
         //GameObject newObstacle_ = Resources.Load("enemy") as GameObject;
         GameObject newObstacle = Instantiate(obstaclePrefabs[(int)obstacleType]);
+        if(allCreatedObstacles.ContainsKey((int)obstacleType))
+        {
+            allCreatedObstacles[(int)obstacleType].Add(newObstacle);
+        }
+        else
+        {
+            allCreatedObstacles[(int)obstacleType] = new List<GameObject>();
+            allCreatedObstacles[(int)obstacleType].Add(newObstacle);
+        }
         //GameObject newObstacle = Instantiate(Resources.Load<P>("Prefabs/Obstacles/Test" + obstacleType.ToString() + "Obstacle"));
         Obstacle obstacle = newObstacle.GetComponent<Obstacle>();
         obstacle.isMovingWithMouse = true;
@@ -131,5 +141,10 @@ public class ObstacleMgr : MonoBehaviour
         {
             currentEncounteredObstacle = null;
         }
+    }
+
+    public void SetCurrentObstacle(Obstacle o)
+    {
+        currentEncounteredObstacle = o;
     }
 }
