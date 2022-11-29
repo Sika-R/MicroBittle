@@ -31,7 +31,11 @@ public class KnobObstacle : Obstacle
                 DestroyRock(i-1);
                 if (isAllRockDestroyed())
                 {
-                    DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+                    if(DrawGrid.Instance)
+                    {
+                        DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+                    }
+                    
                     return true;
                 }
             }
@@ -45,7 +49,11 @@ public class KnobObstacle : Obstacle
         {
             return;
         }
-        CameraShake.Shake(0.1f, 0.05f);
+        if(CameraShake.Instance)
+        {
+            CameraShake.Shake(0.1f, 0.05f);
+        }
+        
         if (transform.Find("explosion"))
         {
             transform.Find("explosion").gameObject.GetComponent<ParticleSystem>().Play();

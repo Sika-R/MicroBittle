@@ -93,6 +93,10 @@ public class OutfitMgr : MonoBehaviour
         {
             vacuum.SetActive(true);
         }
+        else if(obstacleType == ObstacleType.Knob)
+        {
+            jackhammer.SetActive(true);
+        }
     }
 
     public void takeOffOutfit(ObstacleType obstacleType)

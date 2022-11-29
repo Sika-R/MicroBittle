@@ -29,7 +29,11 @@ public class SpiderWeb : Obstacle
             if (inputVal > minInput)
             {
                 
-                SoundMgr.Instance.PlayAudio("VACUUM_CLEANER_WORKING_SHORT");
+                if(SoundMgr.Instance)
+                {
+                    SoundMgr.Instance.PlayAudio("VACUUM_CLEANER_WORKING_SHORT");
+                }
+                
                 Invoke("disappear", 0.5f);
                 return true;
             }
@@ -40,7 +44,11 @@ public class SpiderWeb : Obstacle
     private void disappear()
     {
         gameObject.SetActive(false);
-        DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+        if(DrawGrid.Instance)
+        {
+            DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+        }
+        
 
     }
 
@@ -63,7 +71,11 @@ public class SpiderWeb : Obstacle
         base.OnTriggerEnter(collider);
         if (collider.gameObject.tag == "Player" && !isMovingWithMouse)
         {
-            SoundMgr.Instance.PlayOnce("CHARACTER_DIZZY_SFX_v1");
+            if (SoundMgr.Instance)
+            {
+                SoundMgr.Instance.PlayOnce("CHARACTER_DIZZY_SFX_v1");
+            }
+            
             Debug.Log("play audio!");
         }   
     }

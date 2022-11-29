@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class JackHammerParamController : ParamController
 {
-    //Has three params for now:
+    //Has two params for now:
     //paramInputs[0] : slider min
     //paramInputs[1] : slider max
-    //paramInputs[2] : in how many seconds
     // Start is called before the first frame update
     void Awake()
     {

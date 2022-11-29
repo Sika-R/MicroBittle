@@ -19,7 +19,11 @@ public class LightObstacle : Obstacle
         player = GameObject.FindGameObjectWithTag("Player");
         if(ParamManager.Instance)
         {
-            SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.headlamp));
+            if(ParamManager.Instance.GetParamByFunction(FunctionType.headlamp) != null)
+            {
+                SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.headlamp));
+            }
+           
         }
     }
 

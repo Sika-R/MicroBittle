@@ -120,7 +120,7 @@ public class SliderObstacle : Obstacle
     {
         // startValue = (int)values[0];
         // endValue = (int)values[1];
-        minInput = (int)values[1];
+        minInput = (int)values[0];
         // slideTime = (int)values[2];
     }
 
