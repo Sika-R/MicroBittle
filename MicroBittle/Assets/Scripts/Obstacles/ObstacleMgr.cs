@@ -77,15 +77,15 @@ public class ObstacleMgr : MonoBehaviour
         //    }
         //
         //}
-        
+
         // OutfitMgr.Instance.chooseToolIcon(obstacleType);
         if (obstacleType == ObstacleType.Light)
         {
-            if(Photoresistor.Instance)
+            if (Photoresistor.Instance)
             {
                 Photoresistor.Instance.currentLightVal = inputVal;
             }
-            
+
             if (inputVal < 10)
             {
                 if (Photoresistor.Instance)
@@ -93,7 +93,7 @@ public class ObstacleMgr : MonoBehaviour
                     // SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
                     Photoresistor.Instance.LightOff();
                 }
-                
+
             }
             else
             {
@@ -105,7 +105,7 @@ public class ObstacleMgr : MonoBehaviour
                         Photoresistor.Instance.LightOn();
                     }
                 }
-                else if(currentEncounteredObstacle == null)
+                else if (currentEncounteredObstacle == null)
                 {
                     if (Photoresistor.Instance)
                     {
@@ -117,7 +117,7 @@ public class ObstacleMgr : MonoBehaviour
         }
         if (obstacleType == ObstacleType.Knob)
         {
-            OutfitMgr.Instance.ControlJackhammer(Mathf.Clamp(Mathf.FloorToInt( (inputVal-1) / 300), 0, 2));
+            OutfitMgr.Instance.ControlJackhammer(Mathf.Clamp(Mathf.FloorToInt((inputVal - 1) / 300), 0, 2));
         }
         if (currentEncounteredObstacle == null)
         {

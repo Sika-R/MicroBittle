@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abaa1d01ebe65f6469c9f7f9cd89f2dc, type: 3}
+  m_Name: StoryMode_Intro_Node2
+  m_EditorClassIdentifier: 
+  m_DialogueLine: {fileID: 11400000, guid: 63f06503d9d6f1b418dbce54e8dc872d, type: 2}
+  dialogueAudio: {fileID: 0}
+  animationName: 
+  m_NextNode: {fileID: 0}

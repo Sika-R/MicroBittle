@@ -27,15 +27,18 @@ public class SliderObstacle : Obstacle
         if (isInCoroutine)
         {
             slidingTime = Time.time - startSlideTime;
-            Debug.Log("slidingTime: " + slidingTime + " changed value: " + Mathf.Abs(startValue - endValue));
+            //Debug.Log("slidingTime: " + slidingTime);
+            //Debug.Log("slidingTime: " + slidingTime + " start value: " + startValue + " end value: " + endValue + " changed value: " + Mathf.Abs(startValue - endValue));
             if (Mathf.Abs(startValue - endValue) >= 600)
             {
                 destroyRock();
                 isInCoroutine = false;
+                //Debug.Log("destroy rock!!!!!");
             }
             if (slidingTime >= slideTime)
             {
                 isInCoroutine = false;
+                //Debug.Log("============time out==========");
             }
         }
     }
@@ -55,11 +58,14 @@ public class SliderObstacle : Obstacle
         {
             isInCoroutine = true;
             startValue = inputVal;
+            endValue = inputVal;
+            //Debug.Log("start val: " + startValue);
             resetTimer();
         }
         else
         {
             endValue = inputVal;
+            //Debug.Log("end value: " + endValue);
         }
         return false;
     }
@@ -67,6 +73,7 @@ public class SliderObstacle : Obstacle
     private void resetTimer()
     {
         startSlideTime = Time.time;
+        slidingTime = 0;
     }
 
     private void destroyRock()

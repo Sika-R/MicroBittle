@@ -49,8 +49,15 @@ public class UIDialogueTextBoxController : MonoBehaviour, DialogueNodeVisitor
 
         m_DialogueText.text = node.DialogueLine.Text;
         m_SpeakerText.text = node.DialogueLine.Speaker.CharacterName;
-        GameObject.Find(node.DialogueLine.Speaker.CharacterName).GetComponent<Animator>().Play(node.animationName);
-        SoundMgr.Instance.PlayDialogue(node.dialogueAudio);
+        if (node.animationName != null && node.animationName.Length > 0) {
+            GameObject speaker = GameObject.Find(node.DialogueLine.Speaker.CharacterName);
+            if (speaker != null) {
+                speaker.GetComponent<Animator>().Play(node.animationName);
+            }
+        }
+        if (node.dialogueAudio) {
+            SoundMgr.Instance.PlayDialogue(node.dialogueAudio);
+        }
         node.Accept(this);
     }
 

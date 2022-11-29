@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Dialogue1Node1
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: ca71ffef1a9b4d3438fee923f9fbf46e, type: 2}
-  dialogueAudio: {fileID: 8300000, guid: ebc75ba985aff4549a54cd205ef4b984, type: 3}
+  dialogueAudio: {fileID: 8300000, guid: 2af589c7fb42edc4e886db73c8bdf2a8, type: 3}
   animationName: idle01
   m_NextNode: {fileID: 11400000, guid: 7fa286906464c5049a4e28145f465a32, type: 2}
