@@ -14,7 +14,6 @@ public class DebugLogController : MonoBehaviour
 
     public IEnumerator ScrollBarBottom()
     {
-        // yield return null;
         verticalScrollbar.value = 0;
         yield break;
     }

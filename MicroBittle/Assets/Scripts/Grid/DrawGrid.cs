@@ -225,14 +225,27 @@ public class DrawGrid : MonoBehaviour
     {
         if(maze.ContainsKey(idx))
         {
+            
             if(maze[idx].obstacle == ObstacleType.None)
             {
                 return true;
             }
-            if(curType == maze[idx].obstacle)
+            if(!CreativeMgr.Instance)
             {
-                return true;
+                if(curType == maze[idx].obstacle)
+                {
+                    return true;
+                } 
             }
+            else
+            {
+                ObstacleType realType = CreativeMgr.Instance.GetObstacleType((int)curType);
+                if(realType == maze[idx].obstacle)
+                {
+                    return true;
+                } 
+            }
+            
         }
         return false;
     }

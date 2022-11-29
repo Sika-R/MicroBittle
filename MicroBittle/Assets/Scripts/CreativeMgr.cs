@@ -17,7 +17,7 @@ public class CreativeMgr : MonoBehaviour
     #region Parameter Setup
     public Biome curBiome = Biome.desert;
     public int curLayout = 0;
-    public List<ObstacleType> curObstacle = new List<ObstacleType>();
+    public List<ParamManager.Obstacle> curObstacle = new List<ParamManager.Obstacle>();
     [SerializeField]
     GameObject setupPanel;
     [SerializeField]
@@ -47,7 +47,12 @@ public class CreativeMgr : MonoBehaviour
     [SerializeField]
     Text warningText;
     float warningTimer = 0.0f;
+    [SerializeField]
+    GameObject toProgrammingButton;
     #endregion
+
+
+    Dictionary<int, ObstacleType> realObstacleType = new Dictionary<int, ObstacleType>();
 
 
     private void Awake()
@@ -66,6 +71,7 @@ public class CreativeMgr : MonoBehaviour
     void Start()
     {
         startPlacement();
+        toProgrammingButton.SetActive(false);
     }
     #region Parameter setup
     public void setBiome(int i)
@@ -79,7 +85,7 @@ public class CreativeMgr : MonoBehaviour
 
     public void setObstacle(int i)
     {
-        ObstacleType type = (ObstacleType)i;
+        ParamManager.Obstacle type = (ParamManager.Obstacle)i;
         if(curObstacle.Contains(type))
         {
             curObstacle.Remove(type);
@@ -116,8 +122,8 @@ public class CreativeMgr : MonoBehaviour
 
     private void setObstacleChoice()
     {
-        allButtons[0].SetActive(true);
-        Vector3 pos = allButtons[0].transform.position;
+        allButtons[2].SetActive(true);
+        Vector3 pos = allButtons[2].transform.position;
         for(int i = 0; i < curObstacle.Count; i++)
         {
             pos.y -= 100;
@@ -158,12 +164,14 @@ public class CreativeMgr : MonoBehaviour
     {
         gemCnt += num;
         gemText.text = "Gem: " + gemCnt;
+        canShowProgramming();
     }
 
     public void addObstacle(int num)
     {
         obstacleCnt += num;
         obstacleText.text = "Obstacle: " + obstacleCnt;
+        canShowProgramming();
     }
 
     public bool canAddObstacle()
@@ -175,6 +183,18 @@ public class CreativeMgr : MonoBehaviour
         }
         UpdateWarning("Cannot add more obstacles");
         return false;
+    }
+
+    private void canShowProgramming()
+    {
+        if(gemCnt ==  5 && obstacleCnt >= 3)
+        {
+            toProgrammingButton.SetActive(true);
+        }
+        else
+        {
+            toProgrammingButton.SetActive(false);
+        }
     }
 
 
@@ -212,6 +232,11 @@ public class CreativeMgr : MonoBehaviour
     }
     #endregion
 
+
+    public ObstacleType GetObstacleType(int o)
+    {
+        return realObstacleType[o];
+    }
     // Update is called once per frame
     void Update()
     {

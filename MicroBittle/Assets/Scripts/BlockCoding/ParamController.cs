@@ -26,6 +26,7 @@ public class ParamController : MonoBehaviour
     public int pinNum;
     public ParamManager.Obstacle obstacle;
     public List<float> allParams = new List<float>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,14 +56,13 @@ public class ParamController : MonoBehaviour
             inputField.onValueChanged.AddListener(delegate{ParamValueChanged(inputField);});
         }
         
-        if(mode == 0)
+        /*if(mode == 0)
         {
             for(int i = 0; i < paramInputs.Count; i++)
             {
-                
                 paramInputs[i].readOnly = true;
             }
-        }
+        }*/
         SaveParams();
     }
 
@@ -111,7 +111,7 @@ public class ParamController : MonoBehaviour
         }
     }
 
-    void ParamValueChanged(InputField i)
+    public virtual void ParamValueChanged(InputField i)
     {
         int idx = paramInputs.IndexOf(i);
         try

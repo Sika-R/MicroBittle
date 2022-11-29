@@ -14,10 +14,7 @@ public class SliderObstacle : Obstacle
     void Start()
     {
         InitializeObstacle();
-        if(ParamManager.Instance)
-        {
-            SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.jackhammer));
-        }
+        TryInit();
     }
 
     // Update is called once per frame
@@ -78,7 +75,11 @@ public class SliderObstacle : Obstacle
 
     private void destroyRock()
     {
-        CameraShake.Shake(0.1f, 0.05f);
+        if(CameraShake.Instance)
+        {
+            CameraShake.Shake(0.1f, 0.05f);
+        }
+        
         if (transform.Find("explosion"))
         {
             transform.Find("explosion").gameObject.SetActive(true);
@@ -96,7 +97,16 @@ public class SliderObstacle : Obstacle
         {
             SoundMgr.Instance.PlayAudio("CHARACTER_BREAK_SFX_v1");
         }
-        DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+        if(DrawGrid.Instance)
+        {
+            DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
+        }
+
+        if(programUI.Instance)
+        {
+            programUI.Instance.setDemoWork();
+        }
+        
     }
 
     IEnumerator slideCoroutine()
@@ -107,10 +117,23 @@ public class SliderObstacle : Obstacle
     }
 
     public override void SetBoundary(List<float> values)
-    { 
-        //startValue = (int)values[0];
-        //endValue = (int)values[1];
-        slideTime = (int)values[2];
+    {
+        // startValue = (int)values[0];
+        // endValue = (int)values[1];
+        minInput = (int)values[1];
+        // slideTime = (int)values[2];
+    }
+
+    public void TryInit()
+    {
+        if (ParamManager.Instance)
+        {
+            if (ParamManager.Instance.GetParamByFunction(FunctionType.jackhammer) != null)
+            {
+                SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.jackhammer));
+            }
+
+        }
     }
 
 }
