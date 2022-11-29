@@ -548,6 +548,7 @@ public class programUI : MonoBehaviour
         datashow.SetActive(false);
         stagenow = panelstage.ViewCode;
         hasGetData = true;
+        DialogueControllerProgramFlow_StoryMode.Instance_.AfterFollowingInstruction();
     }
 
 

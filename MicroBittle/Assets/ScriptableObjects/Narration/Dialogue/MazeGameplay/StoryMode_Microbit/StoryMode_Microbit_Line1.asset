@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbd2c1887a808da4b8f0a6cec8d8b890, type: 3}
-  m_Name: StoryMode_Keys_Line1
+  m_Name: StoryMode_Microbit_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: The cavern is a maze. Your challenge is to traverse it and find the exit.
-    Use the arrow keys or WASD to move.
+  m_Text: "And, of course, you must break the walls you find along your path. To
+    activate your power log so you can use it, press the A or B button on your micro:bit.
+    The power log is active when you can see it. Your power log will only break walls
+    when it\u2019s active!"
