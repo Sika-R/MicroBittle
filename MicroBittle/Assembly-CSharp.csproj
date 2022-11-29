@@ -308,6 +308,11 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Nand.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_ContextMenuManager.cs" />
     <Compile Include="Assets\Scripts\BlockCoding\PowerLogParamController.cs" />
+    <Compile Include="Assets\Scripts\BlockCoding\VacuumCleanerParamController.cs" />
+    <Compile Include="Assets\Scripts\Hui\ProgramUIMgr.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueController_Intro_Scene.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueControllerCustomize.cs" />
+    <Compile Include="Assets\Scripts\GrassPaint\New\GrassPainter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Decal\decalScreenspace.shader" />

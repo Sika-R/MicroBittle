@@ -29,7 +29,7 @@ Shader "Custom/GeometryGrass"
 #pragma fragment frag
 #pragma require geometry
 #pragma geometry geom
-
+#pragma target 2.5
 #define GrassSegments 5 // segments per blade
 #define GrassBlades 4 // blades per vertex
 

@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GrassPaint\Editor\GrassPainterEditor.cs" />
+    <Compile Include="Assets\Editor\GrassPainterEditor.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EditorScripts\Editor\BE2_Editor_BlocksStack.cs" />
     <Compile Include="Assets\Scripts\Grid\Editor\GridInspectorLogic.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EditorScripts\Editor\BE2_Editor_Inspector.cs" />
