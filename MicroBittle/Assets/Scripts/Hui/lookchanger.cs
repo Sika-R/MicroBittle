@@ -269,7 +269,7 @@ public class lookchanger : MonoBehaviour
         
         namepanel.SetActive(false);
         afternamepanel.SetActive(true);
-        
+        DialogueControllerCustomize.Instance_.AfterTypeName();
     }
     public void changetoWiring()
     {

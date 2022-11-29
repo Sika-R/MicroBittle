@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Customization_ChooseShape_Node1
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: aee70b8dd19bed54493bb15e446149a1, type: 2}
-  m_NextNode: {fileID: 0}
+  dialogueAudio: {fileID: 0}
+  animationName: talk02
+  m_NextNode: {fileID: 11400000, guid: 5c2d83a423ff71043a6e97cea59f546a, type: 2}

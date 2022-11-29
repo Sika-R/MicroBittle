@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: Customization_ChooseShape_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "Now, you can choose your micro bittle shape, color, and exoskeleton pattern.
-    Use the buttons on screen to view all your options and click on the check mark
-    when you\u2019re done!"
+  m_Text: 'Here, you can choose your micro bittle shape, color, and pattern. '

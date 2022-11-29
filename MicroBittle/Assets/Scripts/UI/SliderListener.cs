@@ -11,7 +11,8 @@ public class SliderListener : MonoBehaviour
     void Start()
     {
         mainSlider = this.gameObject.GetComponent<Slider>();
-        mainSlider.onValueChanged.AddListener(delegate { ObstacleMgr.Instance.getInput(mainSlider.value, obstacleType); });
+        mainSlider.onValueChanged.AddListener(delegate { ObstacleMgr.Instance.getInput(mainSlider.value, obstacleType);});
+ 
         //mainSlider.onValueChanged.AddListener(delegate { ObstacleMgr.Instance.getInput(mainSlider.value, obstacleType); });
   
     }

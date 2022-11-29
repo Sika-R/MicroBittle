@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Backstory2_Node2
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 7757a6d453780114ab4a149309b8a7ec, type: 2}
-  dialogueAudio: {fileID: 0}
+  dialogueAudio: {fileID: 8300000, guid: e757b7c6698370b4f985008d2e04341d, type: 3}
   animationName: idle02
   m_NextNode: {fileID: 0}

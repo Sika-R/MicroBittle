@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Programmingflow_Intro_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: The next step in the challenge is to program the devices through code.
+  m_Text: The second thing you must do is program the power log.

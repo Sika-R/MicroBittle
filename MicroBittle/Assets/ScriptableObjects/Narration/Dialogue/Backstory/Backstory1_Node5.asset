@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Backstory1_Node5
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 724e42beac4de8340b92ca3750edfd0c, type: 2}
-  dialogueAudio: {fileID: 0}
+  dialogueAudio: {fileID: 8300000, guid: 34ae9112e31ed8c438ff889b34fe9c0b, type: 3}
   animationName: dance
   m_NextNode: {fileID: 0}

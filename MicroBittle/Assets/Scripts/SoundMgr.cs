@@ -59,7 +59,6 @@ public class SoundMgr : MonoBehaviour
 
     public void PlayAudio(string clipName)
     {
-        Debug.Log(clipName);
         AudioClip ac = audios.Find(x => x.name.Equals(clipName));
         if(isPlaying)
         {

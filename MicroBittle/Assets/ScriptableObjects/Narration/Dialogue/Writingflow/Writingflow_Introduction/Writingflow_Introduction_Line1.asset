@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Writingflow_Introduction_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: The first step in the Cavern Challenge is wiring the devices you will need
-    to complete it.
+  m_Text: "Okay, let\u2019s get started! The Cavern Challenge is a maze with incomplete
+    paths, and you\u2019ll have to break through walls to move forward."
