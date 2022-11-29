@@ -1233,7 +1233,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 279, y: 480}
+  m_SizeDelta: {x: 254, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8146809116956820814
 MonoBehaviour:
@@ -1310,7 +1310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 654.5, y: 0}
+  m_AnchoredPosition: {x: 673.5, y: 0}
   m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2639200904863137992
@@ -1354,7 +1354,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: seconds
+  m_Text: 'repetitions
+
+'
 --- !u!114 &650167126614688596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2308,7 +2310,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 279, y: 80}
+  m_SizeDelta: {x: 254, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4395930046421554097
 CanvasRenderer:
@@ -4617,7 +4619,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 717, y: 300}
+  m_SizeDelta: {x: 747, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4923135382389915352
 MonoBehaviour:
@@ -5266,7 +5268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 497, y: 0}
+  m_AnchoredPosition: {x: 501, y: 0}
   m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6115775474494067293
@@ -5310,7 +5312,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: in
+  m_Text: 'on
+
+'
 --- !u!114 &101553115650093053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5492,7 +5496,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 717, y: 300}
+  m_SizeDelta: {x: 747, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819243290394138543
 MonoBehaviour:
@@ -5574,7 +5578,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 279, y: 400}
+  m_SizeDelta: {x: 254, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2065793169097997814
 CanvasRenderer:
@@ -6090,7 +6094,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 717, y: 220}
+  m_SizeDelta: {x: 747, y: 220}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4440160036136110935
 CanvasRenderer:
@@ -6306,7 +6310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 139.5, y: 0}
+  m_AnchoredPosition: {x: 127, y: 0}
   m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3923581222552933863
@@ -6350,7 +6354,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Function Jackhammer
+  m_Text: 'Function Power Log
+
+'
 --- !u!114 &8130330690778897660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6658,7 +6664,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 717, y: 80}
+  m_SizeDelta: {x: 747, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8256281051217519639
 CanvasRenderer:

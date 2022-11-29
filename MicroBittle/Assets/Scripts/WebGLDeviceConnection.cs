@@ -112,7 +112,7 @@ public class WebGLDeviceConnection : MonoBehaviour
             }
             
         }
-        if(Input.GetMouseButtonDown(2))
+        if(Input.GetKeyDown(KeyCode.X))
         {
             if(temp)
             {
@@ -141,6 +141,11 @@ public class WebGLDeviceConnection : MonoBehaviour
                 temp = true;
             }
             // pressAEvent.Invoke();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            ParseLine("4450");
         }
 
 
@@ -223,6 +228,7 @@ public class WebGLDeviceConnection : MonoBehaviour
                     // sliderValue /= 20;
                     text.text += "Slider: " + sliderValue + " \n";
                     sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                    sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
                     sliderValueEvent.Invoke(sliderValue);
                     getDataEvent.Invoke(0, sliderValue);
                     // sliderValueEvent.Invoke(Mathf.Floor(sliderValue / 50));
