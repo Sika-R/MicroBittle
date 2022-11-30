@@ -36,8 +36,12 @@ public class LightObstacle : Obstacle
     private void ScarePlayer()
     {
         // PlayerMovement.Instance.PlayerFreeze();
-        SoundMgr.Instance.PlayAudio("mouseScream");
-        SoundMgr.Instance.PlayAudio("CHARACTER_SCARED_SFX_v1");
+        if(SoundMgr.Instance)
+        {
+            SoundMgr.Instance.PlayAudio("mouseScream");
+            SoundMgr.Instance.PlayAudio("CHARACTER_SCARED_SFX_v1");
+        }
+        
     }
 
     public override bool getInput(float inputVal, ObstacleType obstacleType)
@@ -120,5 +124,17 @@ public class LightObstacle : Obstacle
     public override void SetBoundary(List<float> values)
     { 
         minInput = (int)values[0];
+    }
+
+    public override void TryInit()
+    {
+        if (ParamManager.Instance)
+        {
+            if (ParamManager.Instance.GetParamByFunction(FunctionType.headlamp) != null)
+            {
+                SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.headlamp));
+            }
+
+        }
     }
 }

@@ -11,7 +11,7 @@ public class HumiditySensor : Obstacle
         InitializeObstacle();
         if(ParamManager.Instance)
         {
-            SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.divinggear));
+            // SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.divinggear));
         }
         
     }

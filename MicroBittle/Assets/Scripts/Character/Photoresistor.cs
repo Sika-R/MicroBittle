@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Photoresistor : MonoBehaviour
 {
-    enum LightStatus{ON, OFF}
+    public enum LightStatus{ON, OFF}
     public static Photoresistor Instance = null;
     public Light FlashLight;
     public float currentLightVal = 100f;
@@ -20,7 +20,7 @@ public class Photoresistor : MonoBehaviour
     [SerializeField] Color equippedNormalLightColor;
     [SerializeField] Color equippedShrinkedColor;
     [SerializeField] Color equippedOffColor;
-    LightStatus lightStatus = LightStatus.ON;
+    public LightStatus lightStatus = LightStatus.ON;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +66,11 @@ public class Photoresistor : MonoBehaviour
             }
             boxVolumeProfile.TryGet<Vignette>(out var cameraVignetteOff);
             cameraVignetteOff.intensity.value = 1;
-            SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
+            if(SoundMgr.Instance)
+            {
+                SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
+            }
+            
             lightStatus = LightStatus.OFF;
         }
         
@@ -88,7 +92,11 @@ public class Photoresistor : MonoBehaviour
             }
             boxVolumeProfile.TryGet<Vignette>(out var cameraVignetteOn);
             cameraVignetteOn.intensity.value = 0.75f;
-            SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
+            if(SoundMgr.Instance)
+            {
+                SoundMgr.Instance.PlayAudio("HEADLAMP_ON_OFF_v1");
+            }
+            
             lightStatus = LightStatus.ON;
         }
         

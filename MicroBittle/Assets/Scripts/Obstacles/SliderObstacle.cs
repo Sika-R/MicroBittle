@@ -101,8 +101,12 @@ public class SliderObstacle : Obstacle
         {
             DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
         }
+        if (ProgramUIMgr.Instance)
+        {
+            ProgramUIMgr.Instance.AddSuccess();
+        }
 
-        if(programUI.Instance)
+        if (programUI.Instance)
         {
             programUI.Instance.setDemoWork();
         }
@@ -124,13 +128,13 @@ public class SliderObstacle : Obstacle
         // slideTime = (int)values[2];
     }
 
-    public void TryInit()
+    public override void TryInit()
     {
         if (ParamManager.Instance)
         {
-            if (ParamManager.Instance.GetParamByFunction(FunctionType.jackhammer) != null)
+            if (ParamManager.Instance.GetParamByFunction(FunctionType.powerlog) != null)
             {
-                SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.jackhammer));
+                SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.powerlog));
             }
 
         }

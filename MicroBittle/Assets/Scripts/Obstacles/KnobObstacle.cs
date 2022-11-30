@@ -35,7 +35,11 @@ public class KnobObstacle : Obstacle
                     {
                         DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
                     }
-                    
+                    if (ProgramUIMgr.Instance)
+                    {
+                        ProgramUIMgr.Instance.AddSuccess();
+                    }
+
                     return true;
                 }
             }
@@ -62,6 +66,7 @@ public class KnobObstacle : Obstacle
         {
             SoundMgr.Instance.PlayAudio("CHARACTER_BREAK_SFX_v1");
         }
+        
         rocks[index].SetActive(false);
         rocks[index] = null;
     }
@@ -76,5 +81,25 @@ public class KnobObstacle : Obstacle
             }
         }
         return true;
+    }
+
+    public override void SetBoundary(List<float> values)
+    {
+        knobValueRange[1] = values[0];
+        knobValueRange[2] = values[1];
+    }
+
+
+    public override void TryInit()
+    {
+        if (ParamManager.Instance)
+        {
+            if (ParamManager.Instance.GetParamByFunction(FunctionType.jackhammer) != null)
+            {
+                Debug.Log(">>>>>");
+                SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.jackhammer));
+            }
+
+        }
     }
 }

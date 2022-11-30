@@ -16,6 +16,12 @@ public class ProgramUIMgr : MonoBehaviour
     List<GameObject> allCodingBlocks = new List<GameObject>();
     [SerializeField]
     List<GameObject> allLiveDemos = new List<GameObject>();
+    GameObject curLiveDemo = null;
+    Dictionary<ParamManager.Obstacle, ObstacleType> obstacleMap = new Dictionary<ParamManager.Obstacle, ObstacleType>();
+    public int successCnt = 0;
+    [SerializeField]
+    GameObject nextButton;
+    public String nextSceneName = " ";
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -33,6 +39,10 @@ public class ProgramUIMgr : MonoBehaviour
     {
         InitObstacleDropdown(obstacleTypeDropdown);
         InitObstacleDropdown(liveDemoDropdown);
+        obstacleMap.Add(ParamManager.Obstacle.mouse, ObstacleType.Light);
+        obstacleMap.Add(ParamManager.Obstacle.spiderweb, ObstacleType.Vacuum);
+        obstacleMap.Add(ParamManager.Obstacle.rock, ObstacleType.Knob);
+        obstacleMap.Add(ParamManager.Obstacle.wall, ObstacleType.Slider);
     }
 
     // Update is called once per frame
@@ -61,6 +71,7 @@ public class ProgramUIMgr : MonoBehaviour
             if((int)allObstacles[obstacleTypeDropdown.value] == i)
             {
                 allCodingBlocks[i].SetActive(true);
+                allCodingBlocks[i].GetComponent<ParamController>().Init();
             }
             else
             {
@@ -72,23 +83,61 @@ public class ProgramUIMgr : MonoBehaviour
             }
         }
     }
+    
+    public void InitLiveDemo()
+    {
+        SwitchLiveDemoPanel();
+    }
+
+    public void DisableLiveDemo()
+    {
+        if (curLiveDemo)
+        {
+            curLiveDemo.SetActive(false);
+        }
+        
+    }
 
     public void SwitchLiveDemoPanel()
     {
+        if(curLiveDemo)
+        {
+            curLiveDemo.SetActive(false);
+        }
+        
         for (int i = 0; i < allCodingBlocks.Count; i++)
         {
-            if ((int)allObstacles[obstacleTypeDropdown.value] == i)
+            if ((int)allObstacles[liveDemoDropdown.value] == i)
             {
                 allLiveDemos[i].SetActive(true);
+                curLiveDemo = allLiveDemos[i];
+                Obstacle obstacle = curLiveDemo.GetComponentInChildren<Obstacle>();
+                if(obstacle)
+                {
+                    obstacle.TryInit();
+                }
+                OutfitMgr.Instance.allPossibleTypes.Clear();
+                OutfitMgr.Instance.allPossibleTypes.Add(obstacleMap[allObstacles[liveDemoDropdown.value]]);
+                OutfitMgr.Instance.ChangeOutfit(true);
+                OutfitMgr.Instance.ChangeOutfit(false);
             }
-            else
+            /*else
             {
                 if (allLiveDemos[i])
                 {
                     allLiveDemos[i].SetActive(false);
                 }
+            }*/
+        }
+    }
 
-            }
+    public void AddSuccess()
+    {
+        successCnt++;
+        if(successCnt >= 3)
+        {
+            nextButton.SetActive(true);
+            nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene(nextSceneName));
         }
     }
 }
