@@ -628,7 +628,7 @@ public class programUI : MonoBehaviour
     public void movetonextScene()
     {
         DontDestroyOnLoad(ParamManager.Instance);
-        SceneManager.LoadScene("ForestCavern");
+        SceneManager.LoadScene("TransitionToStoryMode");
     }
 
     public void movetospecificScene(string s)

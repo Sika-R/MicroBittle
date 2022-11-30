@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,7 +44,10 @@ public class Collector : MonoBehaviour
         {
             if (finalUI)
             {
-                showFinalPanel();
+                GetComponent<PlayerMovement>().PlayerFreeze();
+                DialogueController.Instance.DoInteraction();
+                //showFinalPanel();
+                StartCoroutine(doInteraction());
             }
             
         }
@@ -102,6 +106,12 @@ public class Collector : MonoBehaviour
         {
             finalBadge.sprite = badgeSprites[1];
         }
+    }
+
+    IEnumerator doInteraction()
+    {
+        yield return new WaitForSeconds(3);
+        showFinalPanel();
     }
 }
 
