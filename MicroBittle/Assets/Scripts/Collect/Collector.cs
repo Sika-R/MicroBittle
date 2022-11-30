@@ -20,7 +20,8 @@ public class Collector : MonoBehaviour
     Image finalBadge;
     [SerializeField]
     Text finalCnt;
-    
+    [SerializeField]
+    GameObject DialogueUI;
 
     Dictionary<string, int> collections = new Dictionary<string, int>();
 
@@ -45,6 +46,7 @@ public class Collector : MonoBehaviour
             if (finalUI)
             {
                 GetComponent<PlayerMovement>().PlayerFreeze();
+                DialogueUI.SetActive(true);
                 DialogueController.Instance.DoInteraction();
                 //showFinalPanel();
                 StartCoroutine(doInteraction());
