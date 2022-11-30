@@ -624,7 +624,7 @@ public class programUI : MonoBehaviour
     public void movetonextScene()
     {
         DontDestroyOnLoad(ParamManager.Instance);
-        SceneManager.LoadScene("ForestCavern");
+        SceneManager.LoadScene("TransitionToStoryMode");
     }
     //new
     public void dropdownvaluechange()
