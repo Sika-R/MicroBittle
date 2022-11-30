@@ -33,7 +33,7 @@ public class DialogueControllerProgramFlow_PlayMode : DialogueController
 
     private void Start()
     {
-        PlayerPrefs.SetString("mazeselection", "DesertPyramid");
+        //PlayerPrefs.SetString("mazeselection", "DesertPyramid");
         string mazeSelection = PlayerPrefs.GetString("mazeselection");
         if (mazeSelection == "DesertPyramid") {
             headlamp.SetActive(true);
