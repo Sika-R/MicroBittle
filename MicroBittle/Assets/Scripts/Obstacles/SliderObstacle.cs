@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SliderObstacle : Obstacle
 {
@@ -91,7 +92,14 @@ public class SliderObstacle : Obstacle
         MeshDestroy meshDestroy = GetComponentInChildren(typeof(MeshDestroy)) as MeshDestroy;
         if (meshDestroy != null)
         {
-            meshDestroy.DestroyMesh();
+            try
+            {
+                meshDestroy.DestroyMesh();
+            } catch (Exception e)
+            {
+                //nothing
+            }
+            
         }
         if (SoundMgr.Instance)
         {
