@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/LayoutScenes/StoryScene.unity
     guid: cfeeb79aee54f494cb5e576556ffcbbd
+  - enabled: 1
+    path: Assets/DialogueSystem/Scenes/TransitionToStoryMode.unity
+    guid: 169be9ac39bde9541be6c9b011674fa5
   m_configObjects: {}

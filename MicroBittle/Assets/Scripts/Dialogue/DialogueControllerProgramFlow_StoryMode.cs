@@ -49,6 +49,10 @@ public class DialogueControllerProgramFlow_StoryMode : DialogueController
             PowerLog.SetActive(false);
             DialogueUI.SetActive(false);
         }
+        else if (dialogueIndex == 2)
+        {
+            DialogueUI.SetActive(false);
+        }
         if (dialogueIndex == dialogues.Count - 1)
         {
             dialogueEndEvent.Invoke();
