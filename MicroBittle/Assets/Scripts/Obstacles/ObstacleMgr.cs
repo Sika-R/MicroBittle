@@ -127,7 +127,35 @@ public class ObstacleMgr : MonoBehaviour
         }
         if (obstacleType == ObstacleType.Knob)
         {
-            OutfitMgr.Instance.ControlJackhammer(Mathf.Clamp(Mathf.FloorToInt((inputVal - 1) / 300), 0, 2));
+            if(ParamManager.Instance)
+            {
+                List<float> values = ParamManager.Instance.GetParamByFunction(FunctionType.jackhammer);
+                if (values != null)
+                {
+                    if(inputVal <= values[0])
+                    {
+                        OutfitMgr.Instance.ControlJackhammer(0);
+                    }
+                    else if(inputVal <= values[1])
+                    {
+                        OutfitMgr.Instance.ControlJackhammer(1);
+                    }
+                    else
+                    {
+                        OutfitMgr.Instance.ControlJackhammer(2);
+                    }
+                }
+                else
+                {
+                    OutfitMgr.Instance.ControlJackhammer(Mathf.Clamp(Mathf.FloorToInt((inputVal - 1) / 300), 0, 2));
+
+                }
+            }
+            else
+            {
+                OutfitMgr.Instance.ControlJackhammer(Mathf.Clamp(Mathf.FloorToInt((inputVal - 1) / 300), 0, 2));
+            }
+            
         }
         if (currentEncounteredObstacle == null)
         {

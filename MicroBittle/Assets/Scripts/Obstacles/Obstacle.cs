@@ -164,4 +164,9 @@ public class Obstacle : MonoBehaviour
     { 
         return;
     }
+
+    public virtual void TryInit()
+    {
+        return;
+    }
 }

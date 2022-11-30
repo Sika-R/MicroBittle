@@ -8,7 +8,8 @@ public enum FunctionType
 {
     jackhammer,
     headlamp,
-    divinggear
+    vacuum,
+    powerlog
 }
 
 public class ParamController : MonoBehaviour
@@ -30,32 +31,43 @@ public class ParamController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(pinSelection)
+        Init();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void Init()
+    {
+        if (pinSelection)
         {
             pinSelection.value = 0;
             PinValueChanged(pinSelection);
-            pinSelection.onValueChanged.AddListener(delegate{PinValueChanged(pinSelection);});
+            pinSelection.onValueChanged.AddListener(delegate { PinValueChanged(pinSelection); });
         }
-        if(obstacleSelection)
+        if (obstacleSelection)
         {
             obstacleSelection.value = 0;
             ObstacleValueChanged(obstacleSelection);
             obstacleSelection.captionText.text = obstacleSelection.options[0].text;
             MG_BlocksEngine2.Block.BE2_DropdownDynamicResize dropdownResize = obstacleSelection.GetComponent<MG_BlocksEngine2.Block.BE2_DropdownDynamicResize>();
             dropdownResize.Resize();
-            obstacleSelection.onValueChanged.AddListener(delegate{ObstacleValueChanged(obstacleSelection);});
+            obstacleSelection.onValueChanged.AddListener(delegate { ObstacleValueChanged(obstacleSelection); });
         }
 
-        for(int i = 0; i < paramInputs.Count; i++)
+        for (int i = 0; i < paramInputs.Count; i++)
         {
             allParams.Add(0);
             ParamValueChanged(paramInputs[i]);
             MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize inputResize = paramInputs[i].GetComponent<MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize>();
             inputResize.Resize();
             InputField inputField = paramInputs[i];
-            inputField.onValueChanged.AddListener(delegate{ParamValueChanged(inputField);});
+            inputField.onValueChanged.AddListener(delegate { ParamValueChanged(inputField); });
         }
-        
+
         /*if(mode == 0)
         {
             for(int i = 0; i < paramInputs.Count; i++)
@@ -64,12 +76,6 @@ public class ParamController : MonoBehaviour
             }
         }*/
         SaveParams();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void PinValueChanged(Dropdown d)
@@ -117,6 +123,7 @@ public class ParamController : MonoBehaviour
         try
         {
             allParams[idx] = float.Parse(i.text);
+            Debug.Log("Changed");
         }
         catch(Exception e)
         {

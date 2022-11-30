@@ -242,7 +242,11 @@ public class programUI : MonoBehaviour
                 else if(dropdownforshowdemo.value != 0 && demowork)
                 {
                     characterdialog.text = stringdiagforprogram[6];
-                    movetonextscnebutton.SetActive(true);
+                    if(movetonextscnebutton)
+                    {
+                        movetonextscnebutton.SetActive(true);
+                    }
+                    
                 }
                 
                 break;
@@ -527,11 +531,11 @@ public class programUI : MonoBehaviour
             sliderHead.GetComponent<Slider>().maxValue = max;
             sliderHead.GetComponent<Slider>().minValue = min;
         }
-        if (f == FunctionType.divinggear)
+        /*if (f == FunctionType.divinggear)
         {
             sliderdiv.GetComponent<Slider>().maxValue = max;
             sliderdiv.GetComponent<Slider>().minValue = min;
-        }
+        }*/
 
     }
 
@@ -626,6 +630,12 @@ public class programUI : MonoBehaviour
         DontDestroyOnLoad(ParamManager.Instance);
         SceneManager.LoadScene("ForestCavern");
     }
+
+    public void movetospecificScene(string s)
+    {
+        DontDestroyOnLoad(ParamManager.Instance);
+        SceneManager.LoadScene(s);
+    }
     //new
     public void dropdownvaluechange()
     {
@@ -680,7 +690,11 @@ public class programUI : MonoBehaviour
         panelprogram.SetActive(true);
         panelshowdata.SetActive(false);
         panelshowdemo.SetActive(false);
-        livedemo.SetActive(false);
+        if(livedemo)
+        {
+            livedemo.SetActive(false);
+        }
+        
         stagenow = panelstage.ViewCode;
     }
     public void showdatapress()
@@ -688,7 +702,11 @@ public class programUI : MonoBehaviour
         panelprogram.SetActive(false);
         panelshowdata.SetActive(true);
         panelshowdemo.SetActive(false);
-        livedemo.SetActive(false);
+        if(livedemo)
+        {
+            livedemo.SetActive(false);
+        }
+        
         stagenow = panelstage.ViewData;
         readdataornot = true;
     }
@@ -697,9 +715,13 @@ public class programUI : MonoBehaviour
         panelprogram.SetActive(false);
         panelshowdata.SetActive(false);
         panelshowdemo.SetActive(true);
-        livedemo.SetActive(true);
-        livedemo.GetComponentInChildren<SliderObstacle>().TryInit();
-        ObstacleMgr.Instance.SetCurrentObstacle(livedemo.GetComponentInChildren<SliderObstacle>());
+        if(livedemo)
+        {
+            livedemo.SetActive(true);
+            // livedemo.GetComponentInChildren<SliderObstacle>().TryInit();
+            // ObstacleMgr.Instance.SetCurrentObstacle(livedemo.GetComponentInChildren<SliderObstacle>());
+        }
+        
         stagenow = panelstage.ViewDemo;
     }
 
@@ -755,7 +777,11 @@ public class programUI : MonoBehaviour
     {
         demoworks[0] = true;
         demoworks[1] = false;
-        movetonextscnebutton.SetActive(true);
+        if(movetonextscnebutton)
+        {
+            movetonextscnebutton.SetActive(true);
+        }
+        
         
 
     }

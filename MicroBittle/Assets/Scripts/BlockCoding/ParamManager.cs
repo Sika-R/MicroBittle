@@ -105,10 +105,10 @@ public class ParamManager : MonoBehaviour
             {
                 programUI.Instance.setValueforSlider(type, param[0], param[5]);
             }
-            else if(type == FunctionType.divinggear)
+            /*else if(type == FunctionType.divinggear)
             {
                 programUI.Instance.setValueforSlider(type, 0, param[1]);
-            }
+            }*/
         }
     }
 }

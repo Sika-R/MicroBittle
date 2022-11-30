@@ -14,7 +14,7 @@ public class OutfitMgr : MonoBehaviour
     public GameObject vacuum;
     public ObstacleType currentObstacleType = ObstacleType.None;
     [SerializeField]
-    List<ObstacleType> allPossibleTypes = new List<ObstacleType>();
+    public List<ObstacleType> allPossibleTypes = new List<ObstacleType>();
 
     Vector3 logPos;
 
@@ -87,6 +87,10 @@ public class OutfitMgr : MonoBehaviour
         }
         else if(obstacleType == ObstacleType.Light)
         {
+            if(ProgramUIMgr.Instance)
+            {
+                headLight.SetActive(true);
+            }
             //headLight.SetActive(true);
         }
         else if(obstacleType == ObstacleType.Vacuum)
@@ -108,7 +112,12 @@ public class OutfitMgr : MonoBehaviour
         }
         else if(obstacleType == ObstacleType.Light)
         {
-            //headLight.SetActive(false);
+            if (ProgramUIMgr.Instance)
+            {
+                headLight.SetActive(false);
+            }
+
+            //
         }
         else if (obstacleType == ObstacleType.Humid)
         { 
@@ -120,6 +129,10 @@ public class OutfitMgr : MonoBehaviour
         else if(obstacleType == ObstacleType.Vacuum)
         {
             vacuum.SetActive(false);
+        }
+        else if(obstacleType == ObstacleType.Knob)
+        {
+            jackhammer.SetActive(false);
         }
     }
 

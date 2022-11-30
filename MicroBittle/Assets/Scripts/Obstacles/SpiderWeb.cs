@@ -48,7 +48,11 @@ public class SpiderWeb : Obstacle
         {
             DrawGrid.Instance.DeleteFromMaze(gameObject.transform.position, false);
         }
-        
+        if (ProgramUIMgr.Instance)
+        {
+            ProgramUIMgr.Instance.AddSuccess();
+        }
+
 
     }
 
@@ -96,5 +100,25 @@ public class SpiderWeb : Obstacle
     {
         yield return new WaitForSeconds(3);
         isAudioPlayed = false;
+    }
+
+    public override void SetBoundary(List<float> values)
+    {
+        // startValue = (int)values[0];
+        // endValue = (int)values[1];
+        minInput = (int)values[0];
+        // slideTime = (int)values[2];
+    }
+
+    public override void TryInit()
+    {
+        if (ParamManager.Instance)
+        {
+            if (ParamManager.Instance.GetParamByFunction(FunctionType.vacuum) != null)
+            {
+                SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.vacuum));
+            }
+
+        }
     }
 }

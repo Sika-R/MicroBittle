@@ -1618,6 +1618,7 @@ MonoBehaviour:
   equippedNormalLightColor: {r: 0.99542594, g: 1, b: 0.7987421, a: 0}
   equippedShrinkedColor: {r: 0.6226415, g: 0.618653, b: 0.51495194, a: 0}
   equippedOffColor: {r: 0.23584908, g: 0.2286942, b: 0.17503265, a: 0}
+  lightStatus: 0
 --- !u!108 &138291537
 Light:
   m_ObjectHideFlags: 0
@@ -15781,7 +15782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1469716878
 Transform:
   m_ObjectHideFlags: 0
