@@ -10829,7 +10829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalMaze: {fileID: 11400000, guid: ac54e6070f9524d40ba1e747e135a6fe, type: 2}
-  maze: {fileID: 1716188882}
+  maze: {fileID: 1722174092}
   bShowGizmos: 1
   m_column: 11
   m_row: 11
@@ -11656,7 +11656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b301fa86bc2f27c409b693a1b14475e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Start
 --- !u!4 &172207214
 Transform:
   m_ObjectHideFlags: 0
@@ -12104,6 +12104,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e3294adf06b2154d821e4e9d6a16a20, type: 3}
   finalBadge: {fileID: 1805479247}
   finalCnt: {fileID: 2033173606}
+  DialogueUI: {fileID: 249625251}
 --- !u!54 &221170719
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12531,6 +12532,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249458085}
   m_Mesh: {fileID: -4380055155486638445, guid: 74cf229e38544034194be2214ae1c5bf, type: 3}
+--- !u!1 &249625251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8152326096788112557, guid: c1c374edb5c8e16449442f0a7e04070b,
+    type: 3}
+  m_PrefabInstance: {fileID: 657627196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &250941362
 GameObject:
   m_ObjectHideFlags: 0
@@ -13842,6 +13849,7 @@ MonoBehaviour:
   equippedNormalLightColor: {r: 0, g: 0, b: 0, a: 0}
   equippedShrinkedColor: {r: 0, g: 0, b: 0, a: 0}
   equippedOffColor: {r: 0, g: 0, b: 0, a: 0}
+  lightStatus: 0
 --- !u!108 &385964826
 Light:
   m_ObjectHideFlags: 0
@@ -18216,6 +18224,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152326096788112560, guid: c1c374edb5c8e16449442f0a7e04070b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8152326096788112561, guid: c1c374edb5c8e16449442f0a7e04070b,
         type: 3}
@@ -42753,6 +42766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1336239447}
   - component: {fileID: 1336239448}
+  - component: {fileID: 1336239449}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -42827,12 +42841,25 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2007377935}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 900
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1336239449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336239446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2557c04b3ee2546bcf7bae529d3638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleType: 4
 --- !u!1 &1337924189
 GameObject:
   m_ObjectHideFlags: 0
@@ -44791,8 +44818,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4095842802503923522, guid: f939e4916bcce2f4da1a7753cc029037,
         type: 3}
+      propertyPath: dialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 172207213}
+    - target: {fileID: 4095842802503923522, guid: f939e4916bcce2f4da1a7753cc029037,
+        type: 3}
       propertyPath: dialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095842802503923522, guid: f939e4916bcce2f4da1a7753cc029037,
+        type: 3}
+      propertyPath: dialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSceneEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095842802503923522, guid: f939e4916bcce2f4da1a7753cc029037,
+        type: 3}
+      propertyPath: dialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChangeScene, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4095842802503923522, guid: f939e4916bcce2f4da1a7753cc029037,
         type: 3}
@@ -44812,6 +44854,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: de19a42407803c249a2035813fcb8ddd,
         type: 2}
+    - target: {fileID: 4095842802503923522, guid: f939e4916bcce2f4da1a7753cc029037,
+        type: 3}
+      propertyPath: dialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4095842802503923523, guid: f939e4916bcce2f4da1a7753cc029037,
         type: 3}
       propertyPath: m_Name
@@ -50982,7 +51029,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707972017}
   m_Mesh: {fileID: 6162401304737288215, guid: ea26748b7b48f6e4dae426b0e78ff6d5, type: 3}
---- !u!114 &1716188882
+--- !u!114 &1722174092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -169,7 +169,8 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        StartCoroutine(FreezePlayer());
+        _isFreezing = true;
+        //StartCoroutine(FreezePlayer());
     }
 
     private IEnumerator FreezePlayer()
