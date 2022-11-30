@@ -33,6 +33,6 @@ public class StartUI : MonoBehaviour
     public void creativebuttonClicked()
     {
         PlayerPrefs.SetString("mode", "creativemode");
-        SceneManager.LoadScene("customize");//creativemode jump to customrize scene
+        SceneManager.LoadScene("CreativeMode");//creativemode jump to CreativeMode scene
     }
 }

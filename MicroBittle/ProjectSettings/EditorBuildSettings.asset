@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DialogueSystem/Scenes/Hui/programplaymode.unity
     guid: 9be1e35303e7c8145a2069c880ce3678
+  - enabled: 1
+    path: Assets/CreativeMode.unity
+    guid: 31505893abdf7084782e456a6738027a
   m_configObjects: {}

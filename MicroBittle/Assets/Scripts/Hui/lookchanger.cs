@@ -282,6 +282,7 @@ public class lookchanger : MonoBehaviour
         else if (PlayerPrefs.GetString("mode") == "creativemode")
         {
             Debug.Log("mode is " + PlayerPrefs.GetString("mode"));
+            //SceneManager.LoadScene();//switch to maze gameplay
         }
         
         //SceneManager.LoadScene("test");

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class CreativeMgr : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class CreativeMgr : MonoBehaviour
     GameObject setupPanel;
     [SerializeField]
     GameObject diyPanel;
+    public Text mazenamelabel;
     #endregion
 
     #region Init
@@ -107,6 +110,12 @@ public class CreativeMgr : MonoBehaviour
         setupPanel.SetActive(false);
         diyPanel.SetActive(true);
         setObstacleChoice();
+        //save maze name
+        PlayerPrefs.SetString("mazename", mazenamelabel.text);
+    }
+    public void goodtogo()
+    {
+        SceneManager.LoadScene("programplaymode");
     }
     #endregion
 
@@ -126,7 +135,7 @@ public class CreativeMgr : MonoBehaviour
         Vector3 pos = allButtons[2].transform.position;
         for(int i = 0; i < curObstacle.Count; i++)
         {
-            pos.y -= 100;
+            pos.y -= 160;
             allButtons[(int)curObstacle[i]].SetActive(true);
             allButtons[(int)curObstacle[i]].transform.position = pos;
         }
