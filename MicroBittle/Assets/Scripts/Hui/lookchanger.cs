@@ -247,6 +247,13 @@ public class lookchanger : MonoBehaviour
         //gameObjectList[currentOptionForMesh].SetTexture("_BaseMap", materialchange.material.GetTexture("_BaseMap"));
         // gameObjectList[currentOptionForMesh].SetColor("_Color", materialchange.material.GetColor("_Color"));
     }
+    public void UItexturepicker(GameObject buttonClick)
+    {
+        Texture texturechange = buttonClick.GetComponent<Image>().sprite.texture;
+        materialchange.material.SetTexture("_BaseMap", texturechange);
+        newmaterial.SetTexture("_BaseMap", materialchange.material.GetTexture("_BaseMap"));
+        newmaterial.SetColor("_BaseColor", materialchange.material.GetColor("_BaseColor"));
+    }
     public void saveasprefab()
     {
         GameObject character = gameObjectList[currentOptionForMesh];
