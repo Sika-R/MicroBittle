@@ -134,7 +134,7 @@ public class ProgramUIMgr : MonoBehaviour
     public void AddSuccess()
     {
         successCnt++;
-        if(successCnt >= 3)
+        if(successCnt >= ParamManager.Instance.GetObstacleCnt())
         {
             nextButton.SetActive(true);
             nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene(PlayerPrefs.GetString("mazeselection")));

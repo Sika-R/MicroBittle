@@ -4,16 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
+public enum Biome
+{
+    desert,
+    tundra,
+    grassland,
+    forest
+}
 public class CreativeMgr : MonoBehaviour
 {
-    public enum Biome
-    { 
-        desert,
-        tundra,
-        grassland
-    }
-
     public static CreativeMgr Instance = null;
 
     #region Parameter Setup

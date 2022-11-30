@@ -111,4 +111,9 @@ public class ParamManager : MonoBehaviour
             }*/
         }
     }
+
+    public int GetObstacleCnt()
+    {
+        return allParams.Keys.Count;
+    }
 }
