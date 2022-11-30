@@ -137,7 +137,7 @@ public class ProgramUIMgr : MonoBehaviour
         if(successCnt >= 3)
         {
             nextButton.SetActive(true);
-            nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene(nextSceneName));
+            nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene(PlayerPrefs.GetString("mazeselection")));
         }
     }
 }
