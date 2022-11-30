@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartUI : MonoBehaviour
 {
@@ -21,14 +22,17 @@ public class StartUI : MonoBehaviour
     }
     public void playbuttonClicked()
     {
-        SceneManager.LoadScene("Intro");
+        PlayerPrefs.SetString("mode", "playmode");
+        SceneManager.LoadScene("customize");//playmode jump to customrize scene
     }
     public void storybuttonClicked()
     {
-
+        PlayerPrefs.SetString("mode", "storymode");
+        SceneManager.LoadScene("customize");//storymode jump to customrize scene
     }
     public void creativebuttonClicked()
     {
-
+        PlayerPrefs.SetString("mode", "creativemode");
+        SceneManager.LoadScene("customize");//creativemode jump to customrize scene
     }
 }

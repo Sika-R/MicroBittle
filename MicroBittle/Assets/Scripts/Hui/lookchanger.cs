@@ -40,6 +40,8 @@ public class lookchanger : MonoBehaviour
     public GameObject afternamepanel;
     public Text namelabel;
     public Text namedtext;
+
+    public GameObject mazeselectionpanel;
     void Start()
     {
        // meshtochange = meshchange.GetComponent<MeshFilter>();
@@ -265,9 +267,50 @@ public class lookchanger : MonoBehaviour
         //AssetDatabase.CreateAsset(newmaterial, "Assets/Player.mat");
         //AssetDatabase.SaveAssets();
         //AssetDatabase.Refresh();
-        SceneManager.LoadScene("program");
+        
+        if(PlayerPrefs.GetString("mode") == "storymode")
+        {
+            //story mode
+            Debug.Log("mode is " + PlayerPrefs.GetString("mode"));
+            SceneManager.LoadScene("programstorymodenew");
+        }
+        else if(PlayerPrefs.GetString("mode") == "playmode")
+        {
+            Debug.Log("mode is " + PlayerPrefs.GetString("mode"));
+            mazeselectionpanel.SetActive(true);
+        }
+        else if (PlayerPrefs.GetString("mode") == "creativemode")
+        {
+            Debug.Log("mode is " + PlayerPrefs.GetString("mode"));
+        }
+        
         //SceneManager.LoadScene("test");
     }
+    public void mazeselectionclicked(int i)
+    {
+        if( i == 0)
+        {
+            //desert clicked
+            PlayerPrefs.SetString("mazeselection", "DesertPyramid");
+            //SceneManager.LoadScene("DesertPyramid");
+            SceneManager.LoadScene("programplaymode");
+            
+        }
+        else if(i == 1)
+        {
+            //tundra clicked
+            PlayerPrefs.SetString("mazeselection", "TundraCave");
+            //SceneManager.LoadScene("TundraCave");
+            SceneManager.LoadScene("programplaymode");
+        }
+        else if(i == 2)
+        {
+            //grassland clicked
+            PlayerPrefs.SetString("mazeselection", "GrassLand");
+            SceneManager.LoadScene("programplaymode");
+        }
+    }
+
     public void namebuttonClicked()
     {
         namelabel.text = namedtext.text;
