@@ -112,6 +112,7 @@ public class SliderObstacle : Obstacle
         if (ProgramUIMgr.Instance)
         {
             ProgramUIMgr.Instance.AddSuccess();
+            gameObject.SetActive(false);
         }
 
         if (programUI.Instance)

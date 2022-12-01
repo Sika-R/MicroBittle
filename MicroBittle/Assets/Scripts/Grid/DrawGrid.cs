@@ -32,7 +32,26 @@ public class DrawGrid : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    public void SetInstance()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
  	
  	private void Start()
@@ -246,21 +265,21 @@ public class DrawGrid : MonoBehaviour
             {
                 return true;
             }
-            if(!CreativeMgr.Instance)
-            {
+            //if(!CreativeMgr.Instance)
+            //{
                 if(curType == maze[idx].obstacle)
                 {
                     return true;
                 } 
-            }
-            else
-            {
+            //}
+            /*else
+            //{
                 ObstacleType realType = CreativeMgr.Instance.GetObstacleType((int)curType);
                 if(realType == maze[idx].obstacle)
                 {
                     return true;
                 } 
-            }
+            //}*/
             
         }
         return false;

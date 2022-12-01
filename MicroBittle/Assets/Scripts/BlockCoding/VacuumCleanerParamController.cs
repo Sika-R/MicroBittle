@@ -10,18 +10,18 @@ public class VacuumCleanerParamController : ParamController
 
     void Awake()
     {
-        if (mode != 2)
-        {
-            pinSelection.ClearOptions();
+        // if (mode != 2)
+        // {
+        //  pinSelection.ClearOptions();
+        // Dropdown.OptionData newData = new Dropdown.OptionData();
+        // newData.text = "P1";
+        // pinSelection.options.Add(newData);
+        base.Awake();
+        obstacleSelection.ClearOptions();
             Dropdown.OptionData newData = new Dropdown.OptionData();
-            newData.text = "P1";
-            pinSelection.options.Add(newData);
-
-            obstacleSelection.ClearOptions();
-            newData = new Dropdown.OptionData();
             newData.text = "Spider Web";
             obstacleSelection.options.Add(newData);
-        }
+        // }
     }
 
 }

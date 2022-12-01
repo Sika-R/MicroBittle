@@ -227,8 +227,14 @@ public class WebGLDeviceConnection : MonoBehaviour
                     float sliderValue = float.Parse(str.Substring(1));
                     // sliderValue /= 20;
                     text.text += "Slider: " + sliderValue + " \n";
-                    sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
-                    sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
+                    if(ParamManager.Instance)
+                    {
+                        ObstacleType o = ParamManager.Instance.GetObstacleByPin(0);
+                        sliderEvent.Invoke(sliderValue, o);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
+                    }
+                    
                     sliderValueEvent.Invoke(sliderValue);
                     getDataEvent.Invoke(0, sliderValue);
                     // sliderValueEvent.Invoke(Mathf.Floor(sliderValue / 50));
@@ -239,7 +245,14 @@ public class WebGLDeviceConnection : MonoBehaviour
                     // waterLvl = (1000 - waterLvl) / 7; 
                     text.text += "Water: " + waterLvl + " \n";
                     // sliderEvent.Invoke(waterLvl, ObstacleType.Humid);
-                    sliderEvent.Invoke(waterLvl, ObstacleType.Vacuum);
+                    if (ParamManager.Instance)
+                    {
+                        ObstacleType o = ParamManager.Instance.GetObstacleByPin(1);
+                        sliderEvent.Invoke(waterLvl, o);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
+                    }
+                    // sliderEvent.Invoke(waterLvl, ObstacleType.Vacuum);
                     waterValueEvent.Invoke(waterLvl);
                     getDataEvent.Invoke(1, waterLvl);
                     // waterValueEvent.Invoke(Mathf.Floor(waterLvl / 30));
@@ -249,6 +262,13 @@ public class WebGLDeviceConnection : MonoBehaviour
                     float lightLvl = float.Parse(str.Substring(1));
                     // lightLvl = 830 - lightLvl;
                     text.text += "Light: " + lightLvl + " \n";
+                    if (ParamManager.Instance)
+                    {
+                        ObstacleType o = ParamManager.Instance.GetObstacleByPin(2);
+                        sliderEvent.Invoke(lightLvl, o);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
+                    }
                     sliderEvent.Invoke(lightLvl, ObstacleType.Light);
                     lightValueEvent.Invoke(lightLvl);
                     getDataEvent.Invoke(2, lightLvl);

@@ -17,6 +17,7 @@ public class ParamManager : MonoBehaviour
     Dictionary<Obstacle, List<float>> allParams = new Dictionary<Obstacle, List<float>>();
     Dictionary<int, Obstacle> pinToObstacle = new Dictionary<int, Obstacle>();
     Dictionary<FunctionType, Obstacle> functionToObstacle = new Dictionary<FunctionType, Obstacle>();
+    public List<ParamController> allControllers = new List<ParamController>();
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,7 +32,7 @@ public class ParamManager : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -83,6 +84,87 @@ public class ParamManager : MonoBehaviour
     public void SetPin(int i, Obstacle o)
     {
         pinToObstacle[i] = o;
+        PinValueCheck();
+        // return pinToObstacle[i].Count != 1;
+    }
+
+    public ObstacleType GetObstacleByPin(int i)
+    {
+        if(!pinToObstacle.ContainsKey(i))
+        {
+            return ObstacleType.None;
+        }
+        ParamManager.Obstacle o = pinToObstacle[i];
+        if(o == ParamManager.Obstacle.mouse)
+        {
+            return ObstacleType.Light;
+        }
+        if (o == ParamManager.Obstacle.spiderweb)
+        {
+            return ObstacleType.Vacuum;
+        }
+        if (o == ParamManager.Obstacle.wall)
+        {
+            return ObstacleType.Slider;
+        }
+        if (o == ParamManager.Obstacle.rock)
+        {
+            return ObstacleType.Knob;
+        }
+        return ObstacleType.None;
+    }
+
+    private bool PinValueCheck()
+    {
+        pinToObstacle.Clear();
+        bool result = true;
+        for (int i = 0; i < allControllers.Count; i++)
+        {
+            allControllers[i].ChangePinColor(Color.white);
+        }
+        for (int i = 0; i < allControllers.Count; i++)
+        {
+            bool hasConflicted = false;
+            for (int j = i + 1; j < allControllers.Count; j++)
+            {
+                if(allControllers[i].pinNum == allControllers[j].pinNum)
+                {
+                    hasConflicted = true;
+                    allControllers[i].ChangePinColor(Color.red);
+                    allControllers[j].ChangePinColor(Color.red);
+                    result = false;
+                }
+            }
+            if(!hasConflicted)
+            {
+                pinToObstacle[allControllers[i].pinNum] = allControllers[i].obstacle;
+            }
+        }
+        return result;
+    }
+
+    public bool paramValidationCheck(ParamManager.Obstacle o)
+    {
+        foreach(ParamController c in allControllers)
+        {
+            if(c.obstacle == o)
+            {
+                return c.isAllInputValid();
+            }
+        }
+        return false;
+    }
+    
+    public bool allParamValidationCheck()
+    {
+        foreach (ParamController c in allControllers)
+        {
+            if(!c.isAllInputValid())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void SetFunction(FunctionType f, Obstacle o)
@@ -115,5 +197,10 @@ public class ParamManager : MonoBehaviour
     public int GetObstacleCnt()
     {
         return allParams.Keys.Count;
+    }
+
+    public void AddController(ParamController ctrl)
+    {
+        allControllers.Add(ctrl);
     }
 }

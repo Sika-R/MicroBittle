@@ -148,6 +148,7 @@ public class OutfitMgr : MonoBehaviour
 
     public void ChangeOutfit(bool isLeft)
     {
+        if (allPossibleTypes.Count == 0) return;
         // SoundMgr.Instance.StopAudio();
         int newOutfitIdx = allPossibleTypes.IndexOf(currentObstacleType) + (isLeft ? -1 : 1);
         int cnt = allPossibleTypes.Count;

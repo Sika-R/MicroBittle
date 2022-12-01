@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CreativeMode.unity
     guid: 31505893abdf7084782e456a6738027a
+  - enabled: 1
+    path: Assets/LayoutScenes/EmptyCreativeScene.unity
+    guid: 718978fc8e189374f87e4e131219940e
   m_configObjects: {}

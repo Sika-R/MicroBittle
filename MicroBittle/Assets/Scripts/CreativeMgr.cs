@@ -168,6 +168,7 @@ public class CreativeMgr : MonoBehaviour
     public void goodtogo()
     {
         updateCurObstacle();
+        maze.SetActive(false);
         SceneManager.LoadScene("programplaymode");
     }
     #endregion
@@ -386,4 +387,6 @@ public class CreativeMgr : MonoBehaviour
         }
         return ParamManager.Obstacle.wall;
     }
+
+    
 }
