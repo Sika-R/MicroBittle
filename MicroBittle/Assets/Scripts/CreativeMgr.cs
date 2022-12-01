@@ -179,7 +179,11 @@ public class CreativeMgr : MonoBehaviour
         foreach (Transform child in transform)
         {
             MaterialController ctrl = child.gameObject.GetComponent<MaterialController>();
-            ctrl.ChangeMaterial();
+            if(ctrl)
+            {
+                ctrl.ChangeMaterial();
+            }
+            
         }
     }
     private void getLayout()
@@ -187,7 +191,7 @@ public class CreativeMgr : MonoBehaviour
         maze = Instantiate(allLayouts[curLayout]) as GameObject;
         DontDestroyOnLoad(maze);
     
-        // setAllMaterials(newLayout.transform);
+        //setAllMaterials(newLayout.transform);
     }
 
     private void setObstacleChoice()
