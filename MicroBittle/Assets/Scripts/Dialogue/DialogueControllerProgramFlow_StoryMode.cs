@@ -6,10 +6,19 @@ public class DialogueControllerProgramFlow_StoryMode : DialogueController
 {
     public GameObject DialogueUI;
     public GameObject PowerLog;
-    public static DialogueControllerProgramFlow_StoryMode Instance = null;
+    public static DialogueControllerProgramFlow_StoryMode Instance_ = null;
     // Start is called before the first frame update
     private void Awake()
     {
+        if (Instance_ != null && Instance_ != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance_ = this;
+        }
+
         if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
@@ -18,7 +27,6 @@ public class DialogueControllerProgramFlow_StoryMode : DialogueController
         {
             Instance = this;
         }
-
     }
     // Update is called once per frame
     public override void Update()
@@ -28,6 +36,7 @@ public class DialogueControllerProgramFlow_StoryMode : DialogueController
     // Start is called before the first frame update
     void Start()
     {
+        DoInteraction();
     }
 
     public override void IncreaseDialogueIndex()
