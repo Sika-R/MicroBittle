@@ -27,7 +27,7 @@ public class MaterialController : MonoBehaviour
         
     }
 
-    void ChangeMaterial()
+    public void ChangeMaterial()
     {
         if (CreativeMgr.Instance)
         {

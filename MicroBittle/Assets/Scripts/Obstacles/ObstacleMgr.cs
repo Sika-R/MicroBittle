@@ -10,6 +10,7 @@ public class ObstacleMgr : MonoBehaviour
     private int currentObstacleIndex = 0;
     private Obstacle currentEncounteredObstacle = null;
     private Dictionary<int, List<GameObject>> allCreatedObstacles = new Dictionary<int, List<GameObject>>();
+    public GameObject hasCreate = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +41,17 @@ public class ObstacleMgr : MonoBehaviour
         {
             return;
         }
+
+        if(hasCreate)
+        {
+            Destroy(hasCreate);
+        }
         //Debug.Log();
         //Debug.Log("Prefabs/Obstacles/Test" + obstacleType.ToString() + "Obstacle");
         //Debug.Log("Test" + obstacleType.ToString() + "Obstacle");
         //GameObject newObstacle_ = Resources.Load("enemy") as GameObject;
         GameObject newObstacle = Instantiate(obstaclePrefabs[(int)obstacleType]);
+        hasCreate = newObstacle;
         if(allCreatedObstacles.ContainsKey((int)obstacleType))
         {
             allCreatedObstacles[(int)obstacleType].Add(newObstacle);

@@ -63,6 +63,7 @@ public class ParamController : MonoBehaviour
             allParams.Add(0);
             ParamValueChanged(paramInputs[i]);
             MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize inputResize = paramInputs[i].GetComponent<MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize>();
+            Debug.Log(this.gameObject.name);
             inputResize.Resize();
             InputField inputField = paramInputs[i];
             inputField.onValueChanged.AddListener(delegate { ParamValueChanged(inputField); });

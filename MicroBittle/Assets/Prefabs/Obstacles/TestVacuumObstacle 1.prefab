@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6747333485999008449}
   m_Layer: 0
   m_Name: TestVacuumObstacle 1
-  m_TagString: Cube
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,8 +64,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.479619, y: 1, z: 2.3180017}
+  m_Center: {x: 0.014112245, y: 0, z: -0.041638732}
 --- !u!54 &6747333485999008449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887094840826776197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.44, z: 0}
   m_LocalScale: {x: 44.586, y: 44.586, z: 44.586}
   m_Children:
   - {fileID: 3323993213269778298}
@@ -305,7 +305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3078663398380493511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.018065112, y: 0, z: -0.009727421}
+  m_LocalPosition: {x: 0.018065112, y: 0.44000015, z: -0.009727421}
   m_LocalScale: {x: 97.66095, y: 97.66095, z: 97.66095}
   m_Children: []
   m_Father: {fileID: 4366800408788870271}

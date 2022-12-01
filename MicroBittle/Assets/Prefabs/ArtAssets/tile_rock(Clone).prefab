@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4371487611435728466}
   m_Layer: 0
   m_Name: tile_rock(Clone)
-  m_TagString: Cube
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,8 +116,6 @@ MonoBehaviour:
   index: 0
   isMovingWithMouse: 0
   drawGridScript: {fileID: 0}
-  startValue: 0
-  endValue: 800
   slideTime: 1
 --- !u!1 &4371487612049815483
 GameObject:

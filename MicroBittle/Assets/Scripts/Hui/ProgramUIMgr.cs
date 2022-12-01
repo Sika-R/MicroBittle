@@ -37,6 +37,7 @@ public class ProgramUIMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitObstacleType();
         InitObstacleDropdown(obstacleTypeDropdown);
         InitObstacleDropdown(liveDemoDropdown);
         obstacleMap.Add(ParamManager.Obstacle.mouse, ObstacleType.Light);
@@ -49,6 +50,35 @@ public class ProgramUIMgr : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void InitObstacleType()
+    {
+        if(CreativeMgr.Instance)
+        {
+            allObstacles.Clear();
+            allObstacles = CreativeMgr.Instance.curObstacle;
+            return;
+        }
+        String mazeName = PlayerPrefs.GetString("mazeselection");
+        if(mazeName == "DesertPyramid")
+        {
+            allObstacles.Clear();
+            allObstacles.Add(ParamManager.Obstacle.mouse);
+            allObstacles.Add(ParamManager.Obstacle.spiderweb);
+        }
+        else if(mazeName == "TundraCave")
+        {
+            allObstacles.Clear();
+            allObstacles.Add(ParamManager.Obstacle.rock);
+            allObstacles.Add(ParamManager.Obstacle.spiderweb);
+        }
+        else if(mazeName == "GrassLand")
+        {
+            allObstacles.Clear();
+            allObstacles.Add(ParamManager.Obstacle.mouse);
+            allObstacles.Add(ParamManager.Obstacle.rock);
+        }
     }
     
     void InitObstacleDropdown(Dropdown dropdown)
@@ -71,7 +101,11 @@ public class ProgramUIMgr : MonoBehaviour
             if((int)allObstacles[obstacleTypeDropdown.value] == i)
             {
                 allCodingBlocks[i].SetActive(true);
-                allCodingBlocks[i].GetComponent<ParamController>().Init();
+                if(allCodingBlocks[i].activeInHierarchy)
+                {
+                    allCodingBlocks[i].GetComponent<ParamController>().Init();
+                }
+                
             }
             else
             {
@@ -134,7 +168,7 @@ public class ProgramUIMgr : MonoBehaviour
     public void AddSuccess()
     {
         successCnt++;
-        if(successCnt >= ParamManager.Instance.GetObstacleCnt())
+        if(successCnt >= allObstacles.Count)
         {
             nextButton.SetActive(true);
             nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene(PlayerPrefs.GetString("mazeselection")));
