@@ -27,7 +27,7 @@ public class SliderObstacle : Obstacle
             slidingTime = Time.time - startSlideTime;
             //Debug.Log("slidingTime: " + slidingTime);
             //Debug.Log("slidingTime: " + slidingTime + " start value: " + startValue + " end value: " + endValue + " changed value: " + Mathf.Abs(startValue - endValue));
-            if (Mathf.Abs(startValue - endValue) >= 600)
+            if (Mathf.Abs(startValue - endValue) >= minInput)
             {
                 destroyRock();
                 isInCoroutine = false;
@@ -138,7 +138,7 @@ public class SliderObstacle : Obstacle
     {
         // startValue = (int)values[0];
         // endValue = (int)values[1];
-        minInput = (int)values[0];
+        minInput = (int)values[1] - values[0];
         // slideTime = (int)values[2];
     }
 

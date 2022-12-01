@@ -129,7 +129,10 @@ public class Obstacle : MonoBehaviour
         }
         return false;
     }
-
+    private void OnEnable()
+    {
+        TryInit();
+    }
     public virtual void OnTriggerEnter(Collider collider)
     {
         //Debug.Log("Enter");

@@ -31,10 +31,7 @@ public class LightObstacle : Obstacle
     {
         ObstacleUpdate();
     }
-    private void OnEnable()
-    {
-        TryInit();
-    }
+
 
     private void ScarePlayer()
     {
