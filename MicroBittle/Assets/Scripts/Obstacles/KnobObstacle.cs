@@ -39,13 +39,18 @@ public class KnobObstacle : Obstacle
                     {
                         ProgramUIMgr.Instance.AddSuccess();
                     }
-                    gameObject.SetActive(false);
-
+                    //gameObject.SetActive(false);
+                    Invoke("SetUnactive", 1.0f);
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    void SetUnactive()
+    {
+        gameObject.SetActive(false);
     }
 
     private void DestroyRock(int index)

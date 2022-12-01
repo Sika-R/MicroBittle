@@ -112,19 +112,24 @@ public class SliderObstacle : Obstacle
         if (ProgramUIMgr.Instance)
         {
             ProgramUIMgr.Instance.AddSuccess();
-            gameObject.SetActive(false);
+            // gameObject.SetActive(false);
         }
         if(DialogueControllerProgramFlow_StoryMode.Instance)
         {
             programUI.Instance.setDemoWork();
         }
-        gameObject.SetActive(false);
+        Invoke("SetUnactive", 1.0f);
 
         /*if (programUI.Instance)
         {
             programUI.Instance.setDemoWork();
         }*/
 
+    }
+
+    void SetUnactive()
+    {
+        gameObject.SetActive(false);
     }
 
     IEnumerator slideCoroutine()
