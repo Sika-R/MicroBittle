@@ -246,7 +246,11 @@ public class CreativeMgr : MonoBehaviour
     public void addObstacle(int num)
     {
         obstacleCnt += num;
-        obstacleText.text = "Obstacle: " + obstacleCnt;
+        if(obstacleText)
+        {
+            obstacleText.text = "Obstacle: " + obstacleCnt;
+        }
+        
         if(ObstacleMgr.Instance.hasCreate && num > 0)
         {
             allObstacles.Add(ObstacleMgr.Instance.hasCreate.GetComponent<Obstacle>());
@@ -336,7 +340,7 @@ public class CreativeMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (ProgramUIMgr.Instance == null && Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;

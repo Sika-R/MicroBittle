@@ -283,7 +283,7 @@ public class lookchanger : MonoBehaviour
         {
             Debug.Log("mode is " + PlayerPrefs.GetString("mode"));
             SceneManager.LoadScene("EmptyCreativeScene");//switch to maze gameplay
-            PlayerPrefs.SetString("mazeselection", "EmptyCreativeScene");
+            // PlayerPrefs.SetString("mazeselection", "EmptyCreativeScene");
         }
         
         //SceneManager.LoadScene("test");

@@ -17,9 +17,13 @@ public class CreativeInitializer : MonoBehaviour
         for(int i = 0; i < CreativeMgr.Instance.curObstacle.Count; i++)
         {
             ObstacleType obs = ObstacleToObstacleType(CreativeMgr.Instance.curObstacle[i]);
-            if (obs != ObstacleType.None)
+            if (obs != ObstacleType.None && obs != ObstacleType.Light)
             {
                 allOutfit.Add(obs);
+            }
+            else if(obs == ObstacleType.Light)
+            {
+                OutfitMgr.Instance.headLight.SetActive(true);
             }
         }
         OutfitMgr.Instance.ChangeOutfit(true);

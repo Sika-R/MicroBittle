@@ -273,7 +273,7 @@ public class WebGLDeviceConnection : MonoBehaviour
                         // sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
                         // sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
                     }
-                    sliderEvent.Invoke(lightLvl, ObstacleType.Light);
+                    // sliderEvent.Invoke(lightLvl, ObstacleType.Light);
                     lightValueEvent.Invoke(lightLvl);
                     getDataEvent.Invoke(2, lightLvl);
                     getDataOrNotEvent.Invoke(lightLvl);

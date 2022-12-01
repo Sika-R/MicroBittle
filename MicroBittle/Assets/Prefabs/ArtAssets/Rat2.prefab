@@ -103,7 +103,7 @@ MonoBehaviour:
   isMovingWithMouse: 0
   drawGridScript: {fileID: 0}
   minVal: 10
-  radius: 2
+  radius: 3
   playerCollideRadius: 4
 --- !u!135 &107770416775326949
 SphereCollider:

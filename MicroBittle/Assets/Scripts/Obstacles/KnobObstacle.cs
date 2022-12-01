@@ -39,6 +39,7 @@ public class KnobObstacle : Obstacle
                     {
                         ProgramUIMgr.Instance.AddSuccess();
                     }
+                    gameObject.SetActive(false);
 
                     return true;
                 }

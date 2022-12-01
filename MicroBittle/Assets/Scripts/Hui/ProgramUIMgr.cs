@@ -205,8 +205,16 @@ public class ProgramUIMgr : MonoBehaviour
             }
             warningText.SetActive(false);
             nextButton.SetActive(true);
-            nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene(PlayerPrefs.GetString("mazeselection")));
-            // nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene("customize"));
+            if(PlayerPrefs.GetString("mode") == "creativemode")
+            {
+                nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene("customize"));
+            }
+            else
+            {
+                nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene(PlayerPrefs.GetString("mazeselection")));
+            }
+            
+            // 
         }
     }
 }

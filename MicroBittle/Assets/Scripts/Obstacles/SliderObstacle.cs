@@ -118,12 +118,13 @@ public class SliderObstacle : Obstacle
         {
             programUI.Instance.setDemoWork();
         }
+        gameObject.SetActive(false);
 
         /*if (programUI.Instance)
         {
             programUI.Instance.setDemoWork();
         }*/
-        
+
     }
 
     IEnumerator slideCoroutine()
