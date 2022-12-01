@@ -46,8 +46,12 @@ public class Collector : MonoBehaviour
             if (finalUI)
             {
                 GetComponent<PlayerMovement>().PlayerFreeze();
-                DialogueUI.SetActive(true);
-                DialogueController.Instance.DoInteraction();
+                if(DialogueUI)
+                {
+                    DialogueUI.SetActive(true);
+                    DialogueController.Instance.DoInteraction();
+                }
+                
                 //showFinalPanel();
                 StartCoroutine(doInteraction());
             }

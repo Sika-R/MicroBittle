@@ -88,9 +88,12 @@ public class SpiderWeb : Obstacle
     {
         if (other.gameObject.tag == "Player" && !isMovingWithMouse)
         {
-            if (Photoresistor.Instance.currentLightVal > 10)
+            if(Photoresistor.Instance)
             {
-                Photoresistor.Instance.LightOn();
+                if (Photoresistor.Instance.currentLightVal > 10)
+                {
+                    Photoresistor.Instance.LightOn();
+                }
             }
             exitTriggerEvent(other);
         }

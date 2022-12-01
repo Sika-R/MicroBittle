@@ -751,9 +751,14 @@ public class programUI : MonoBehaviour
                 break;
         }*/
     }
-    public void getdataornot(float value, ObstacleType type)
+    public void getdataornot(float value)
     {
         if (hasGetData) return;
+        if (value > 0.0f)
+        {
+            stagenow = panelstage.GetData;
+        }
+        /*
         switch (type)
         {
             case ObstacleType.Slider:
@@ -762,7 +767,7 @@ public class programUI : MonoBehaviour
                     stagenow = panelstage.GetData;
                 }
                 break;
-                /*case 1:
+                case 1:
                     if (value > 0.0f)
                     {
                         stagenow = panelstage.GetData;
@@ -773,8 +778,8 @@ public class programUI : MonoBehaviour
                     {
                         stagenow = panelstage.GetData;
                     }
-                    break;*/
-        }
+                    break;
+        }*/
     }
 
     public void setDemoWork()

@@ -44,6 +44,7 @@ public class WebGLDeviceConnection : MonoBehaviour
     public FloatEvent sliderValueEvent;
     public FloatEvent waterValueEvent;
     public FloatEvent lightValueEvent;
+    public FloatEvent getDataOrNotEvent;
     public GetDataEvent getDataEvent = new GetDataEvent();
     bool isParsing = false;
     [SerializeField]
@@ -79,10 +80,11 @@ public class WebGLDeviceConnection : MonoBehaviour
         if(programUI.Instance)
         {
             sliderValueEvent.AddListener(programUI.Instance.sliderforJackhamer);
-            sliderEvent.AddListener(programUI.Instance.getdataornot);
+            // sliderEvent.AddListener(programUI.Instance.getdataornot);
             waterValueEvent.AddListener(programUI.Instance.sliderforDivingGear);
             lightValueEvent.AddListener(programUI.Instance.sliderforHeadLamp);
             getDataEvent.AddListener(programUI.Instance.showpinvalue);
+            getDataOrNotEvent.AddListener(programUI.Instance.getdataornot);
         }
         // OpenPort();
         // pressAEvent.AddListener(() => ObstacleMgr.Instance.getInput(1, ObstacleType.ButtonA));
@@ -237,6 +239,7 @@ public class WebGLDeviceConnection : MonoBehaviour
                     
                     sliderValueEvent.Invoke(sliderValue);
                     getDataEvent.Invoke(0, sliderValue);
+                    getDataOrNotEvent.Invoke(sliderValue);
                     // sliderValueEvent.Invoke(Mathf.Floor(sliderValue / 50));
                     break;
                 case MicrobitEventType.P1:
@@ -255,6 +258,7 @@ public class WebGLDeviceConnection : MonoBehaviour
                     // sliderEvent.Invoke(waterLvl, ObstacleType.Vacuum);
                     waterValueEvent.Invoke(waterLvl);
                     getDataEvent.Invoke(1, waterLvl);
+                    getDataOrNotEvent.Invoke(waterLvl);
                     // waterValueEvent.Invoke(Mathf.Floor(waterLvl / 30));
                     break;
 
@@ -272,6 +276,7 @@ public class WebGLDeviceConnection : MonoBehaviour
                     sliderEvent.Invoke(lightLvl, ObstacleType.Light);
                     lightValueEvent.Invoke(lightLvl);
                     getDataEvent.Invoke(2, lightLvl);
+                    getDataOrNotEvent.Invoke(lightLvl);
 
                     break;
             }

@@ -72,7 +72,7 @@ public class ProgramUIMgr : MonoBehaviour
         else if(mazeName == "TundraCave")
         {
             allObstacles.Clear();
-            allObstacles.Add(ParamManager.Obstacle.rock);
+            allObstacles.Add(ParamManager.Obstacle.wall);
             allObstacles.Add(ParamManager.Obstacle.spiderweb);
         }
         else if(mazeName == "GrassLand")
@@ -205,8 +205,8 @@ public class ProgramUIMgr : MonoBehaviour
             }
             warningText.SetActive(false);
             nextButton.SetActive(true);
-            // nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene(PlayerPrefs.GetString("mazeselection")));
-            nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene("customize"));
+            nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene(PlayerPrefs.GetString("mazeselection")));
+            // nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene("customize"));
         }
     }
 }
