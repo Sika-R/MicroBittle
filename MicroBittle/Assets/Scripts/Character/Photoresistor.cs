@@ -24,8 +24,9 @@ public class Photoresistor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boxVolumeProfile = boxVolume.profile;
+        // boxVolumeProfile = boxVolume.profile;
         normalIntensityVal = FlashLight.GetComponent<Light>().intensity;
+        lightStatus = LightStatus.OFF;
         LightOn();
     }
 
