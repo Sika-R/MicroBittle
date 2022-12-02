@@ -144,6 +144,7 @@ public class SliderObstacle : Obstacle
         // startValue = (int)values[0];
         // endValue = (int)values[1];
         minInput = (int)values[1] - values[0];
+        minInput = Mathf.Max(minInput, 50.0f);
         // slideTime = (int)values[2];
     }
 
