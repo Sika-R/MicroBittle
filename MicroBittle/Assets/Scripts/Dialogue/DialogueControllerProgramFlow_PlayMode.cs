@@ -47,6 +47,7 @@ public class DialogueControllerProgramFlow_PlayMode : DialogueController
             headlamp.SetActive(true);
             jackhammer.SetActive(true);
         }
+        DialogueUI.SetActive(true);
         DoInteraction();
     }
 

@@ -39,15 +39,23 @@ public class DialogueController_Intro_Scene : DialogueController
         if (dialogueIndex == 0) {
             //background.SetActive(true);
             //platform.SetActive(false);
+            StartCoroutine(doInteraction());
         } else if (dialogueIndex == 1)
         {
             background.SetActive(false);
             //platform.SetActive(true);
+            StartCoroutine(doInteraction());
         }
         if (dialogueIndex == dialogues.Count - 1)
         {
             dialogueEndEvent.Invoke();
         }
         dialogueIndex++;
+    }
+
+    IEnumerator doInteraction()
+    {
+        yield return new WaitForSeconds(1);
+        DoInteraction();
     }
 }
