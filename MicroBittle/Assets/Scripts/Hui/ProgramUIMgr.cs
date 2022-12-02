@@ -75,6 +75,12 @@ public class ProgramUIMgr : MonoBehaviour
             allObstacles.Add(ParamManager.Obstacle.wall);
             allObstacles.Add(ParamManager.Obstacle.spiderweb);
         }
+        else if (mazeName == "ForestCavern")
+        {
+            allObstacles.Clear();
+            allObstacles.Add(ParamManager.Obstacle.mouse);
+            allObstacles.Add(ParamManager.Obstacle.rock);
+        }
         else if(mazeName == "GrassLand")
         {
             allObstacles.Clear();
