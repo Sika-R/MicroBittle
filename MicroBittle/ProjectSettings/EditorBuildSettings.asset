@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LayoutScenes/EmptyCreativeScene.unity
     guid: 718978fc8e189374f87e4e131219940e
+  - enabled: 1
+    path: Assets/LayoutScenes/GrassLand.unity
+    guid: d083779f05b59664fbf762449ea4009a
   m_configObjects: {}
