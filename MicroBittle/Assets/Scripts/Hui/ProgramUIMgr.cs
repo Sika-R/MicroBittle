@@ -125,10 +125,10 @@ public class ProgramUIMgr : MonoBehaviour
             if((int)allObstacles[obstacleTypeDropdown.value] == i)
             {
                 allCodingBlocks[i].SetActive(true);
-                if(allCodingBlocks[i].activeInHierarchy)
+                /*if(allCodingBlocks[i].activeInHierarchy)
                 {
                     allCodingBlocks[i].GetComponent<ParamController>().DelegationInit();
-                }
+                }*/
                 
             }
             else

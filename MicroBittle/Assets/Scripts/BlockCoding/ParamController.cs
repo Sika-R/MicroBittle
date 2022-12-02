@@ -59,6 +59,11 @@ public class ParamController : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        DelegationInit();
+    }
+
     public void Init()
     {
         if (pinSelection)
