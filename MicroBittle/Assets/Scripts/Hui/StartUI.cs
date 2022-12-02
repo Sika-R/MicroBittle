@@ -28,7 +28,7 @@ public class StartUI : MonoBehaviour
     public void storybuttonClicked()
     {
         PlayerPrefs.SetString("mode", "storymode");
-        SceneManager.LoadScene("customize");//storymode jump to customrize scene
+        SceneManager.LoadScene("Intro");//storymode jump to customrize scene
     }
     public void creativebuttonClicked()
     {
