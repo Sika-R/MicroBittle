@@ -58,6 +58,13 @@ public class UIDialogueTextBoxController : MonoBehaviour, DialogueNodeVisitor
         if (node.dialogueAudio) {
             SoundMgr.Instance.PlayDialogue(node.dialogueAudio);
         }
+        Debug.Log(node.cutsceneImage);
+        if (node.cutsceneImage != "") {
+            GameObject image = GameObject.Find(node.cutsceneImage);
+            if (image) {
+                image.GetComponent<Image>().enabled = true;
+            }
+        }
         node.Accept(this);
     }
 
