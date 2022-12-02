@@ -308,7 +308,8 @@ public class lookchanger : MonoBehaviour
         else if(i == 2)
         {
             //grassland clicked
-            PlayerPrefs.SetString("mazeselection", "GrassLand");
+            PlayerPrefs.SetString("mazeselection", "ForestCavern");
+            // PlayerPrefs.SetString("mazeselection", "GrassLand");
             SceneManager.LoadScene("programplaymode");
         }
     }

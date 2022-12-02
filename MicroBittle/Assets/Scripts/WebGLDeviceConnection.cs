@@ -93,8 +93,8 @@ public class WebGLDeviceConnection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-#if UNITY_EDITOR
-        if(Input.GetMouseButtonDown(1))
+// #if UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.Alpha0))
         {
             if(temp)
             {
@@ -114,7 +114,7 @@ public class WebGLDeviceConnection : MonoBehaviour
             }
             
         }
-        if(Input.GetKeyDown(KeyCode.X))
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             if(temp)
             {
@@ -130,7 +130,7 @@ public class WebGLDeviceConnection : MonoBehaviour
         }
 
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             if(temp)
             {
@@ -148,10 +148,12 @@ public class WebGLDeviceConnection : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Z))
         {
             ParseLine("4450");
+            ParseLine("5450");
+            ParseLine("6450");
         }
 
 
-#else
+// #else
         if (Input.GetMouseButtonDown(1))
         {
             // pressAEvent.Invoke();
@@ -159,7 +161,7 @@ public class WebGLDeviceConnection : MonoBehaviour
             
         }
 
-#endif
+// #endif
     }
 
 
