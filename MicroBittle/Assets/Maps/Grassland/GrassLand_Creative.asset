@@ -113,7 +113,6 @@ MonoBehaviour:
   - {x: 3, y: -4}
   - {x: 1, y: -6}
   - {x: 1, y: -7}
-  - {x: 2, y: -7}
   - {x: 2, y: -6}
   - {x: 4, y: -4}
   - {x: 4, y: -3}
@@ -238,6 +237,7 @@ MonoBehaviour:
   - {x: 7, y: -5}
   - {x: 7, y: -6}
   - {x: 7, y: -7}
+  - {x: 2, y: -7}
   values:
   - isOccupied: 1
     x: -7
@@ -641,10 +641,6 @@ MonoBehaviour:
     obstacle: 5
   - isOccupied: 1
     x: 2
-    y: -7
-    obstacle: 5
-  - isOccupied: 1
-    x: 2
     y: -6
     obstacle: 5
   - isOccupied: 1
@@ -1137,5 +1133,9 @@ MonoBehaviour:
     obstacle: 0
   - isOccupied: 0
     x: 7
+    y: -7
+    obstacle: 0
+  - isOccupied: 0
+    x: 2
     y: -7
     obstacle: 0
