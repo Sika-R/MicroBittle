@@ -6,6 +6,10 @@ public class DialogueController_Intro_Scene : DialogueController
 {
     public GameObject background;
     public GameObject platform;
+    public GameObject cutscene1;
+    public GameObject cutscene2;
+    public GameObject cutscene3;
+    public GameObject cutscene4;
     void Start()
     {
         
@@ -33,12 +37,12 @@ public class DialogueController_Intro_Scene : DialogueController
     public override void IncreaseDialogueIndex()
     {
         if (dialogueIndex == 0) {
-            background.SetActive(true);
-            platform.SetActive(false);
+            //background.SetActive(true);
+            //platform.SetActive(false);
         } else if (dialogueIndex == 1)
         {
             background.SetActive(false);
-            platform.SetActive(true);
+            //platform.SetActive(true);
         }
         if (dialogueIndex == dialogues.Count - 1)
         {
