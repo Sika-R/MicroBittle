@@ -36,6 +36,7 @@ public class DialogueControllerProgramFlow_StoryMode : DialogueController
     // Start is called before the first frame update
     void Start()
     {
+        DoInteraction();
     }
 
     public override void IncreaseDialogueIndex()

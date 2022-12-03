@@ -23,7 +23,6 @@ public class LightObstacle : Obstacle
             {
                 SetBoundary(ParamManager.Instance.GetParamByFunction(FunctionType.headlamp));
             }
-           
         }
     }
 
@@ -32,6 +31,7 @@ public class LightObstacle : Obstacle
     {
         ObstacleUpdate();
     }
+
 
     private void ScarePlayer()
     {

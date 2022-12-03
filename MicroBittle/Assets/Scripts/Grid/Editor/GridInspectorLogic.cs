@@ -44,8 +44,7 @@ public class GridInspectorLogic : Editor
     {
     	Event current = Event.current;
     	int controlID = GUIUtility.GetControlID(GetHashCode(), FocusType.Passive);
-
-    	switch (current.type)
+		switch (current.type)
 	    {
 	      	case EventType.MouseDown:
 	      		current.Use();
@@ -90,9 +89,10 @@ public class GridInspectorLogic : Editor
 	        	HandleUtility.AddDefaultControl(controlID);
 	        	break;
 	    }
-    }
 
-    void RaycastTo(ActionType action)
+	}
+
+	void RaycastTo(ActionType action)
     {
     	Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
         RaycastHit hitInfo;
@@ -158,7 +158,8 @@ public class GridInspectorLogic : Editor
     	{
 			if (Physics.Raycast(ray, out hitInfo, 2000, ~mask)) //这里设置层
 	        {
-	        	if(hitInfo.collider.tag == "Cube")
+#if UNITY_EDITOR
+				if(hitInfo.collider.tag == "Cube" || hitInfo.collider.tag == "Obstacle")
 	        	{
 					float x = hitInfo.point.x;
 		            float y = hitInfo.point.y;
@@ -173,7 +174,6 @@ public class GridInspectorLogic : Editor
 	                		if(newhitInfo.collider.tag == "Floor")
 	                		{
 	                			((DrawGrid)target).EditorDeleteFromMaze(hitInfo.point, true);
-	                			Debug.Log("lAST");
 	                		}
 	                		else
 	                		{
@@ -182,7 +182,8 @@ public class GridInspectorLogic : Editor
 	                	}
 		            }
 	        	}
-	        }
+#endif
+			}
     	}
     	else if(action == ActionType.Rotate)
     	{

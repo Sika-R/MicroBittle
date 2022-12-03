@@ -23,7 +23,7 @@ public class Collectable : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (CanCollect(other))
+        if (CanCollect(other) && other.tag == "Player")
             Collect(other);
     }
 

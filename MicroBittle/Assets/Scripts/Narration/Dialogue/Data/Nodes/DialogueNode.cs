@@ -7,6 +7,7 @@ public abstract class DialogueNode : ScriptableObject
 
     public NarrationLine DialogueLine => m_DialogueLine;
     public AudioClip dialogueAudio;
+    public string cutsceneImage;
     public string animationName;
 
     public abstract bool CanBeFollowedByNode(DialogueNode node);

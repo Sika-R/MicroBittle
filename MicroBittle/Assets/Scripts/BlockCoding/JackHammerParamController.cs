@@ -11,18 +11,18 @@ public class JackHammerParamController : ParamController
     // Start is called before the first frame update
     void Awake()
     {
-        if(mode != 2)
-        {
-            pinSelection.ClearOptions();
+        // if(mode != 2)
+        // {
+        /*pinSelection.ClearOptions();
+        Dropdown.OptionData newData = new Dropdown.OptionData();
+        newData.text = "P0";
+        pinSelection.options.Add(newData);*/
+        base.Awake();
+        obstacleSelection.ClearOptions();
             Dropdown.OptionData newData = new Dropdown.OptionData();
-            newData.text = "P0";
-            pinSelection.options.Add(newData);
-
-            obstacleSelection.ClearOptions();
-            newData = new Dropdown.OptionData();
             newData.text = "Rock";
             obstacleSelection.options.Add(newData);
-        }
+        // }
         /*else if(mode == 2)
         {
             

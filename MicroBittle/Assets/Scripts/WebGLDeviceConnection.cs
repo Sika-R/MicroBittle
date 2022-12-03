@@ -44,6 +44,7 @@ public class WebGLDeviceConnection : MonoBehaviour
     public FloatEvent sliderValueEvent;
     public FloatEvent waterValueEvent;
     public FloatEvent lightValueEvent;
+    public FloatEvent getDataOrNotEvent;
     public GetDataEvent getDataEvent = new GetDataEvent();
     bool isParsing = false;
     [SerializeField]
@@ -79,10 +80,11 @@ public class WebGLDeviceConnection : MonoBehaviour
         if(programUI.Instance)
         {
             sliderValueEvent.AddListener(programUI.Instance.sliderforJackhamer);
-            sliderEvent.AddListener(programUI.Instance.getdataornot);
+            // sliderEvent.AddListener(programUI.Instance.getdataornot);
             waterValueEvent.AddListener(programUI.Instance.sliderforDivingGear);
             lightValueEvent.AddListener(programUI.Instance.sliderforHeadLamp);
             getDataEvent.AddListener(programUI.Instance.showpinvalue);
+            getDataOrNotEvent.AddListener(programUI.Instance.getdataornot);
         }
         // OpenPort();
         // pressAEvent.AddListener(() => ObstacleMgr.Instance.getInput(1, ObstacleType.ButtonA));
@@ -91,8 +93,8 @@ public class WebGLDeviceConnection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-#if UNITY_EDITOR
-        if(Input.GetMouseButtonDown(1))
+// #if UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.Alpha0))
         {
             if(temp)
             {
@@ -112,7 +114,7 @@ public class WebGLDeviceConnection : MonoBehaviour
             }
             
         }
-        if(Input.GetKeyDown(KeyCode.X))
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             if(temp)
             {
@@ -128,7 +130,7 @@ public class WebGLDeviceConnection : MonoBehaviour
         }
 
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             if(temp)
             {
@@ -146,10 +148,12 @@ public class WebGLDeviceConnection : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Z))
         {
             ParseLine("4450");
+            ParseLine("5450");
+            ParseLine("6450");
         }
 
 
-#else
+// #else
         if (Input.GetMouseButtonDown(1))
         {
             // pressAEvent.Invoke();
@@ -157,7 +161,7 @@ public class WebGLDeviceConnection : MonoBehaviour
             
         }
 
-#endif
+// #endif
     }
 
 
@@ -227,10 +231,17 @@ public class WebGLDeviceConnection : MonoBehaviour
                     float sliderValue = float.Parse(str.Substring(1));
                     // sliderValue /= 20;
                     text.text += "Slider: " + sliderValue + " \n";
-                    sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
-                    sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
+                    if(ParamManager.Instance)
+                    {
+                        ObstacleType o = ParamManager.Instance.GetObstacleByPin(0);
+                        sliderEvent.Invoke(sliderValue, o);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
+                    }
+                    
                     sliderValueEvent.Invoke(sliderValue);
                     getDataEvent.Invoke(0, sliderValue);
+                    getDataOrNotEvent.Invoke(sliderValue);
                     // sliderValueEvent.Invoke(Mathf.Floor(sliderValue / 50));
                     break;
                 case MicrobitEventType.P1:
@@ -239,9 +250,17 @@ public class WebGLDeviceConnection : MonoBehaviour
                     // waterLvl = (1000 - waterLvl) / 7; 
                     text.text += "Water: " + waterLvl + " \n";
                     // sliderEvent.Invoke(waterLvl, ObstacleType.Humid);
-                    sliderEvent.Invoke(waterLvl, ObstacleType.Vacuum);
+                    if (ParamManager.Instance)
+                    {
+                        ObstacleType o = ParamManager.Instance.GetObstacleByPin(1);
+                        sliderEvent.Invoke(waterLvl, o);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
+                    }
+                    // sliderEvent.Invoke(waterLvl, ObstacleType.Vacuum);
                     waterValueEvent.Invoke(waterLvl);
                     getDataEvent.Invoke(1, waterLvl);
+                    getDataOrNotEvent.Invoke(waterLvl);
                     // waterValueEvent.Invoke(Mathf.Floor(waterLvl / 30));
                     break;
 
@@ -249,9 +268,17 @@ public class WebGLDeviceConnection : MonoBehaviour
                     float lightLvl = float.Parse(str.Substring(1));
                     // lightLvl = 830 - lightLvl;
                     text.text += "Light: " + lightLvl + " \n";
-                    sliderEvent.Invoke(lightLvl, ObstacleType.Light);
+                    if (ParamManager.Instance)
+                    {
+                        ObstacleType o = ParamManager.Instance.GetObstacleByPin(2);
+                        sliderEvent.Invoke(lightLvl, o);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Slider);
+                        // sliderEvent.Invoke(sliderValue, ObstacleType.Knob);
+                    }
+                    // sliderEvent.Invoke(lightLvl, ObstacleType.Light);
                     lightValueEvent.Invoke(lightLvl);
                     getDataEvent.Invoke(2, lightLvl);
+                    getDataOrNotEvent.Invoke(lightLvl);
 
                     break;
             }

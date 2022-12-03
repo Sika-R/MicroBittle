@@ -3320,7 +3320,7 @@ MonoBehaviour:
   - {fileID: 576839054253390288}
   functionType: 3
   pinNum: 0
-  obstacle: 0
+  obstacle: 4
   allParams: []
 --- !u!1 &7356380876769659716
 GameObject:

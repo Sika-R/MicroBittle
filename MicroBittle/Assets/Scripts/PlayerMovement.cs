@@ -57,6 +57,14 @@ public class PlayerMovement : MonoBehaviour
         AS = GetComponent<AudioSource>();
     }
 
+    public void Init()
+    {
+        curIdx = DrawGrid.Instance.GetIdx(transform.position);
+        Vector3 pos = DrawGrid.Instance.IdentifyCenter(transform.position);
+        pos.y += GetComponent<CapsuleCollider>().height / 2;
+        transform.position = pos;
+    }
+
 
     // Update is called once per frame
     void Update()

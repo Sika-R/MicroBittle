@@ -4,16 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
+public enum Biome
+{
+    desert,
+    tundra,
+    grassland,
+    forest
+}
 public class CreativeMgr : MonoBehaviour
 {
-    public enum Biome
-    { 
-        desert,
-        tundra,
-        grassland
-    }
-
     public static CreativeMgr Instance = null;
 
     #region Parameter Setup
@@ -25,6 +24,14 @@ public class CreativeMgr : MonoBehaviour
     [SerializeField]
     GameObject diyPanel;
     public Text mazenamelabel;
+    [SerializeField]
+    Text obstacleCntWarning;
+    [SerializeField]
+    List<Toggle> allBiomeSelection = new List<Toggle>();
+    [SerializeField]
+    List<Toggle> allLayoutSelection = new List<Toggle>();
+    [SerializeField]
+    List<Toggle> allObstacleSelection = new List<Toggle>();
     #endregion
 
     #region Init
@@ -56,6 +63,8 @@ public class CreativeMgr : MonoBehaviour
 
 
     Dictionary<int, ObstacleType> realObstacleType = new Dictionary<int, ObstacleType>();
+    List<Obstacle> allObstacles = new List<Obstacle>();
+    public GameObject maze;
 
 
     private void Awake()
@@ -68,6 +77,7 @@ public class CreativeMgr : MonoBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(this);
     }
 
     // Start is called before the first frame update
@@ -80,10 +90,40 @@ public class CreativeMgr : MonoBehaviour
     public void setBiome(int i)
     {
         curBiome = (Biome)(i);
+        for(int j = 0; j < allBiomeSelection.Count; j++)
+        {
+            ColorBlock cb = allBiomeSelection[j].colors;
+            if (i == j)
+            {
+                cb.normalColor = Color.gray;
+                cb.selectedColor = Color.gray;
+            }
+            else
+            {
+                cb.normalColor = Color.white;
+                cb.selectedColor = Color.white;
+            }
+            allBiomeSelection[j].colors = cb;
+        }
     }
     public void setLayout(int i)
     {
         curLayout = i;
+        for (int j = 0; j < allLayoutSelection.Count; j++)
+        {
+            ColorBlock cb = allLayoutSelection[j].colors;
+            if (i == j)
+            {
+                cb.normalColor = Color.gray;
+                cb.selectedColor = Color.gray;
+            }
+            else
+            {
+                cb.normalColor = Color.white;
+                cb.selectedColor = Color.white;
+            }
+            allLayoutSelection[j].colors = cb;
+        }
     }
 
     public void setObstacle(int i)
@@ -91,11 +131,23 @@ public class CreativeMgr : MonoBehaviour
         ParamManager.Obstacle type = (ParamManager.Obstacle)i;
         if(curObstacle.Contains(type))
         {
+            ColorBlock cb = allObstacleSelection[i].colors;
+            cb.normalColor = Color.white;
+            cb.selectedColor = Color.white;
+            allObstacleSelection[i].colors = cb;
             curObstacle.Remove(type);
+        }
+        else if(curObstacle.Count < 3)
+        {
+            ColorBlock cb = allObstacleSelection[i].colors;
+            cb.normalColor = Color.gray;
+            cb.selectedColor = Color.gray;
+            allObstacleSelection[i].colors = cb;
+            curObstacle.Add(type);
         }
         else
         {
-            curObstacle.Add(type);
+            UpdateWarning("Can only choose at most three obstacles", obstacleCntWarning);
         }
     }
 
@@ -106,7 +158,7 @@ public class CreativeMgr : MonoBehaviour
             return;
         }
         getLayout();
-        setAllMaterials();
+        // setAllMaterials();
         setupPanel.SetActive(false);
         diyPanel.SetActive(true);
         setObstacleChoice();
@@ -115,18 +167,31 @@ public class CreativeMgr : MonoBehaviour
     }
     public void goodtogo()
     {
+        updateCurObstacle();
+        maze.SetActive(false);
         SceneManager.LoadScene("programplaymode");
     }
     #endregion
 
     #region Init
-    private void setAllMaterials()
+    private void setAllMaterials(Transform transform)
     {
-
+        foreach (Transform child in transform)
+        {
+            MaterialController ctrl = child.gameObject.GetComponent<MaterialController>();
+            if(ctrl)
+            {
+                ctrl.ChangeMaterial();
+            }
+            
+        }
     }
     private void getLayout()
     {
-        GameObject newLayout = Instantiate(allLayouts[curLayout]) as GameObject;
+        maze = Instantiate(allLayouts[curLayout]) as GameObject;
+        DontDestroyOnLoad(maze);
+    
+        //setAllMaterials(newLayout.transform);
     }
 
     private void setObstacleChoice()
@@ -163,24 +228,50 @@ public class CreativeMgr : MonoBehaviour
     {
         if (gemCnt < maxGem)
         {
+            
             // 
             return true;
         }
-        UpdateWarning("Cannot add more Gems");
+        UpdateWarning("Cannot add more Gems", warningText);
         return false;
     }
     public void addGem(int num)
     {
         gemCnt += num;
         gemText.text = "Gem: " + gemCnt;
+        ObstacleMgr.Instance.hasCreate = null;
         canShowProgramming();
     }
 
     public void addObstacle(int num)
     {
         obstacleCnt += num;
-        obstacleText.text = "Obstacle: " + obstacleCnt;
+        if(obstacleText)
+        {
+            obstacleText.text = "Obstacle: " + obstacleCnt;
+        }
+        
+        if(ObstacleMgr.Instance.hasCreate && num > 0)
+        {
+            allObstacles.Add(ObstacleMgr.Instance.hasCreate.GetComponent<Obstacle>());
+        }
+        ObstacleMgr.Instance.hasCreate = null;
         canShowProgramming();
+    }
+
+    private void updateCurObstacle()
+    {
+        curObstacle.Clear();
+        foreach(Obstacle o in allObstacles)
+        {
+            ParamManager.Obstacle obs = ObstacleTypeToObstacle(o.obstacleType);
+            if (!curObstacle.Contains(obs))
+            {
+                curObstacle.Add(obs);
+            }
+        }
+        
+        
     }
 
     public bool canAddObstacle()
@@ -190,7 +281,7 @@ public class CreativeMgr : MonoBehaviour
             // obstacleCnt++;
             return true;
         }
-        UpdateWarning("Cannot add more obstacles");
+        UpdateWarning("Cannot add more obstacles", warningText);
         return false;
     }
 
@@ -221,22 +312,22 @@ public class CreativeMgr : MonoBehaviour
         obstacle.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
     }
 
-    public void UpdateWarning(string warning)
+    public void UpdateWarning(string warning, Text text)
     {
         warningTimer = 5.0f;
-        warningText.text = warning;
-        StartCoroutine(warningCountdown());
+        text.text = warning;
+        StartCoroutine(warningCountdown(text));
         
     }
 
-    IEnumerator warningCountdown()
+    IEnumerator warningCountdown(Text text)
     {
         while(warningTimer > 0)
         {
             warningTimer -= Time.deltaTime;
             yield return null;
         }
-        warningText.text = "";
+        text.text = "";
         yield break;
     }
     #endregion
@@ -249,7 +340,7 @@ public class CreativeMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (ProgramUIMgr.Instance == null && Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
@@ -257,12 +348,12 @@ public class CreativeMgr : MonoBehaviour
             if (Physics.Raycast(ray, out hitInfo, 2000, ~mask))
             {
                 Debug.Log(hitInfo.collider.tag);
-                if (hitInfo.collider.tag == "Cube" || hitInfo.collider.tag == "Gem")
+                if (hitInfo.collider.tag == "Obstacle" || hitInfo.collider.tag == "Gem")
                 {
                     float x = hitInfo.point.x;
                     float y = hitInfo.point.y;
                     GameObject hitObj = hitInfo.collider.gameObject;
-                    if (hitInfo.collider.tag == "Cube")
+                    if (hitInfo.collider.tag == "Obstacle")
                     {
                         Obstacle obs = hitObj.GetComponent<Obstacle>();
                         if (obs && obs.obstacleType != ObstacleType.Wall)
@@ -270,6 +361,7 @@ public class CreativeMgr : MonoBehaviour
                             if(!obs.isMovingWithMouse)
                             {
                                 DrawGrid.Instance.DeleteFromMaze(hitInfo.point, false);
+                                allObstacles.Remove(obs);
                                 addObstacle(-1);
                             }
                             
@@ -284,4 +376,25 @@ public class CreativeMgr : MonoBehaviour
             }
         }
     }
+
+    public ParamManager.Obstacle ObstacleTypeToObstacle(ObstacleType o)
+    {
+        switch(o)
+        {
+            case ObstacleType.Slider:
+                return ParamManager.Obstacle.wall;
+            case ObstacleType.Knob:
+                return ParamManager.Obstacle.rock;
+                break;
+            case ObstacleType.Vacuum:
+                return ParamManager.Obstacle.spiderweb;
+                break;
+            case ObstacleType.Light:
+                return ParamManager.Obstacle.mouse;
+                break;
+        }
+        return ParamManager.Obstacle.wall;
+    }
+
+    
 }

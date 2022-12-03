@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/DialogueSystem/Scenes/Hui/Start.unity
+    guid: da758ced796fe2747bd39c967486c5f8
+  - enabled: 1
     path: Assets/DialogueSystem/Scenes/Intro.unity
     guid: 7208dfffeca7dc34ab4cde4b790a281d
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DialogueSystem/Scenes/Hui/programStoryMode.unity
     guid: 61ed7bfb7ebf07946a5bf70b48db5914
-  - enabled: 0
-    path: Assets/DialogueSystem/Scenes/Hui/Start.unity
-    guid: da758ced796fe2747bd39c967486c5f8
   - enabled: 0
     path: Assets/SceneTest.unity
     guid: aa793eef34d726a47bcb748b57250e31
@@ -50,4 +50,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CreativeMode.unity
     guid: 31505893abdf7084782e456a6738027a
+  - enabled: 1
+    path: Assets/LayoutScenes/EmptyCreativeScene.unity
+    guid: 718978fc8e189374f87e4e131219940e
+  - enabled: 1
+    path: Assets/LayoutScenes/GrassLand.unity
+    guid: d083779f05b59664fbf762449ea4009a
   m_configObjects: {}

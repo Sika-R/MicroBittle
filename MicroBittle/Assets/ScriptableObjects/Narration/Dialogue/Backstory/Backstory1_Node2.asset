@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 37aa935741e265f4da3cbeabc12e3e6f, type: 2}
   dialogueAudio: {fileID: 8300000, guid: 09645fb8ec1897846884b88f997c9eb1, type: 3}
+  cutsceneImage: Cutscene2
   animationName: dance
   m_NextNode: {fileID: 11400000, guid: cc2685cff1b1561499ae9dc96a77a108, type: 2}

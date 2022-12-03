@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 107770416775326950}
   m_Layer: 0
   m_Name: Rat2
-  m_TagString: Cube
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   isMovingWithMouse: 0
   drawGridScript: {fileID: 0}
   minVal: 10
-  radius: 2
+  radius: 3
   playerCollideRadius: 4
 --- !u!135 &107770416775326949
 SphereCollider:

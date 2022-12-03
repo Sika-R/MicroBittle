@@ -70,33 +70,37 @@ public class Obstacle : MonoBehaviour
             Debug.Log(hit.collider.tag + hit.collider.name);
             if (hit.collider.tag == "Floor")
             {
-                isMovingWithMouse = false;
                 Transform bottom = hit.transform;
                 DrawGrid drawgrid = DrawGrid.Instance;
-                GameObject prefab = drawgrid.m_obstaclePrefab;
                 Vector3 initPoint = bottom.position;
-                ObstacleType type = GetComponent<Obstacle>().obstacleType;
-                initPoint = drawgrid.InGameEditMaze(hit.point, type);
-                initPoint.y += bottom.gameObject.GetComponent<BoxCollider>().size.y * bottom.localScale.y / 2;
-                if(prefab.GetComponent<BoxCollider>())
+                if (drawgrid.getPointInfo(hit.point) == ObstacleType.None)
                 {
-                    initPoint.y += GetComponent<BoxCollider>().size.y * transform.localScale.y / 2 * drawgrid.m_gridSize;
-                }
+                    GameObject prefab = drawgrid.m_obstaclePrefab;
+                    isMovingWithMouse = false;
+                    ObstacleType type = GetComponent<Obstacle>().obstacleType;
+                    initPoint = drawgrid.InGameEditMaze(hit.point, type);
+                    initPoint.y += bottom.gameObject.GetComponent<BoxCollider>().size.y * bottom.localScale.y / 2;
+                    if (prefab.GetComponent<BoxCollider>())
+                    {
+                        initPoint.y += GetComponent<BoxCollider>().size.y * transform.localScale.y / 2 * drawgrid.m_gridSize;
+                    }
 
-                // GameObject newobj = Instantiate(prefab, initPoint, Quaternion.Euler(0, 0, 0), ((DrawGrid)target).transform) as GameObject;  //设置障碍 
-                transform.SetParent(drawgrid.transform);
-                transform.localScale = transform.localScale = drawgrid.m_gridSize * transform.localScale;
-                transform.position = initPoint;
-                gameObject.layer = LayerMask.NameToLayer("Default");
-                if(gameObject.tag == "Cube")
-                {
-                    CreativeMgr.Instance.addObstacle(1);
+                    // GameObject newobj = Instantiate(prefab, initPoint, Quaternion.Euler(0, 0, 0), ((DrawGrid)target).transform) as GameObject;  //设置障碍 
+                    transform.SetParent(drawgrid.transform);
+                    transform.localScale = transform.localScale = drawgrid.m_gridSize * transform.localScale;
+                    transform.position = initPoint;
+                    gameObject.layer = LayerMask.NameToLayer("Default");
+                    if (gameObject.tag == "Obstacle")
+                    {
+                        CreativeMgr.Instance.addObstacle(1);
+                    }
+                    else
+                    {
+                        CreativeMgr.Instance.addGem(1);
+                        Destroy(this);
+                    }
                 }
-                else
-                {
-                    CreativeMgr.Instance.addGem(1);
-                    Destroy(this);
-                }
+                
                 
 
                 //transform.position = new Vector3(transform.position.x, transform.position.y, hit.collider.transform.position.z);
@@ -125,7 +129,10 @@ public class Obstacle : MonoBehaviour
         }
         return false;
     }
-
+    private void OnEnable()
+    {
+        TryInit();
+    }
     public virtual void OnTriggerEnter(Collider collider)
     {
         //Debug.Log("Enter");

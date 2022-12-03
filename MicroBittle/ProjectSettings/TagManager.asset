@@ -9,6 +9,7 @@ TagManager:
   - Beatle
   - Gem
   - Destination
+  - Obstacle
   layers:
   - Default
   - TransparentFX

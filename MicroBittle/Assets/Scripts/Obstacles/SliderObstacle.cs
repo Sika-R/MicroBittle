@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SliderObstacle : Obstacle
 {
@@ -26,7 +27,7 @@ public class SliderObstacle : Obstacle
             slidingTime = Time.time - startSlideTime;
             //Debug.Log("slidingTime: " + slidingTime);
             //Debug.Log("slidingTime: " + slidingTime + " start value: " + startValue + " end value: " + endValue + " changed value: " + Mathf.Abs(startValue - endValue));
-            if (Mathf.Abs(startValue - endValue) >= 600)
+            if (Mathf.Abs(startValue - endValue) >= minInput)
             {
                 destroyRock();
                 isInCoroutine = false;
@@ -91,7 +92,14 @@ public class SliderObstacle : Obstacle
         MeshDestroy meshDestroy = GetComponentInChildren(typeof(MeshDestroy)) as MeshDestroy;
         if (meshDestroy != null)
         {
-            meshDestroy.DestroyMesh();
+            try
+            {
+                meshDestroy.DestroyMesh();
+            } catch (Exception e)
+            {
+                //nothing
+            }
+            
         }
         if (SoundMgr.Instance)
         {
@@ -104,13 +112,24 @@ public class SliderObstacle : Obstacle
         if (ProgramUIMgr.Instance)
         {
             ProgramUIMgr.Instance.AddSuccess();
+            gameObject.SetActive(false);
         }
-
-        if (programUI.Instance)
+        if(DialogueControllerProgramFlow_StoryMode.Instance)
         {
             programUI.Instance.setDemoWork();
         }
-        
+        Invoke("SetUnactive", 1.0f);
+
+        /*if (programUI.Instance)
+        {
+            programUI.Instance.setDemoWork();
+        }*/
+
+    }
+
+    void SetUnactive()
+    {
+        gameObject.SetActive(false);
     }
 
     IEnumerator slideCoroutine()
@@ -124,7 +143,8 @@ public class SliderObstacle : Obstacle
     {
         // startValue = (int)values[0];
         // endValue = (int)values[1];
-        minInput = (int)values[0];
+        minInput = (int)values[1] - values[0];
+        minInput = Mathf.Max(minInput, 50.0f);
         // slideTime = (int)values[2];
     }
 

@@ -282,7 +282,8 @@ public class lookchanger : MonoBehaviour
         else if (PlayerPrefs.GetString("mode") == "creativemode")
         {
             Debug.Log("mode is " + PlayerPrefs.GetString("mode"));
-            //SceneManager.LoadScene();//switch to maze gameplay
+            SceneManager.LoadScene("EmptyCreativeScene");//switch to maze gameplay
+            // PlayerPrefs.SetString("mazeselection", "EmptyCreativeScene");
         }
         
         //SceneManager.LoadScene("test");
@@ -307,6 +308,7 @@ public class lookchanger : MonoBehaviour
         else if(i == 2)
         {
             //grassland clicked
+            // PlayerPrefs.SetString("mazeselection", "ForestCavern");
             PlayerPrefs.SetString("mazeselection", "GrassLand");
             SceneManager.LoadScene("programplaymode");
         }

@@ -10,18 +10,19 @@ public class HeadLampParamController : ParamController
 
     void Awake()
     {
-        if(mode != 2)
-        {
-            pinSelection.ClearOptions();
-            Dropdown.OptionData newData = new Dropdown.OptionData();
-            newData.text = "P1";
-            pinSelection.options.Add(newData);
-
-            obstacleSelection.ClearOptions();
-            newData = new Dropdown.OptionData();
-            newData.text = "Mouse";
-            obstacleSelection.options.Add(newData);
-        }
+        // if(mode != 2)
+        // {
+        /*pinSelection.ClearOptions();
+        Dropdown.OptionData newData = new Dropdown.OptionData();
+        newData.text = "P1";
+        pinSelection.options.Add(newData);*/
+        base.Awake();
+        Dropdown.OptionData newData = new Dropdown.OptionData();
+        obstacleSelection.ClearOptions();
+        // newData = new Dropdown.OptionData();
+        newData.text = "Mouse";
+        obstacleSelection.options.Add(newData);
+        // }
     }
 
 }

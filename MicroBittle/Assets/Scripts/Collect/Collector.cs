@@ -46,8 +46,12 @@ public class Collector : MonoBehaviour
             if (finalUI)
             {
                 GetComponent<PlayerMovement>().PlayerFreeze();
-                DialogueUI.SetActive(true);
-                DialogueController.Instance.DoInteraction();
+                if(DialogueUI)
+                {
+                    DialogueUI.SetActive(true);
+                    DialogueController.Instance.DoInteraction();
+                }
+                
                 //showFinalPanel();
                 StartCoroutine(doInteraction());
             }
@@ -95,10 +99,13 @@ public class Collector : MonoBehaviour
         inGameUI.SetActive(false);
         finalUI.SetActive(true);
         float cnt = 0;
-        if(collections.ContainsKey("crystal"))
+        /*if(collections.ContainsKey("crystal"))
         {
             cnt = collections["crystal"];
-        }
+        }*/
+        List<string> keyList = new List<string>(this.collections.Keys);
+
+        cnt = collections[keyList[0]];
         finalCnt.text = cnt.ToString();
         if(cnt == 5)
         {

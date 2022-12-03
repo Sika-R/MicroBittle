@@ -32,7 +32,26 @@ public class DrawGrid : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    public void SetInstance()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
  	
  	private void Start()
@@ -176,6 +195,22 @@ public class DrawGrid : MonoBehaviour
         return gridPos;
     }
 
+    public ObstacleType getPointInfo(Vector3 hit)
+    {
+        Vector2 idx = GetIdx(hit);
+        if (idx.x == -99)
+        {
+            return ObstacleType.Wall;
+        }
+        Vector3 gridPos = GetCenterPos((int)idx.x, (int)idx.y);
+        if (maze.ContainsKey(idx) && maze[idx].obstacle == ObstacleType.None)
+        {
+            return ObstacleType.None;
+            // Debug.Log("grid exists.");
+        }
+        return ObstacleType.Wall; ;
+    }
+
     public Vector3 InGameEditMaze(Vector3 hit, ObstacleType type)
     {
         Vector2 idx = GetIdx(hit);
@@ -230,21 +265,21 @@ public class DrawGrid : MonoBehaviour
             {
                 return true;
             }
-            if(!CreativeMgr.Instance)
-            {
+            //if(!CreativeMgr.Instance)
+            //{
                 if(curType == maze[idx].obstacle)
                 {
                     return true;
                 } 
-            }
-            else
-            {
+            //}
+            /*else
+            //{
                 ObstacleType realType = CreativeMgr.Instance.GetObstacleType((int)curType);
                 if(realType == maze[idx].obstacle)
                 {
                     return true;
                 } 
-            }
+            //}*/
             
         }
         return false;
