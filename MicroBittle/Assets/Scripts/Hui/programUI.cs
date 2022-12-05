@@ -350,7 +350,7 @@ public class programUI : MonoBehaviour
     {
         hasGetData = true;
         stagenow = panelstage.Compo3;
-        characterdialog.text = stringdiag[3];
+        characterdialog.text = stringdiag[2];
         buttonCompo3.GetComponent<Image>().sprite = buttonread[2];
         panelCompo.SetActive(false);
         panelCompo1.SetActive(false);
