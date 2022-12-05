@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -53,7 +54,16 @@ public class Collector : MonoBehaviour
                 }
                 
                 //showFinalPanel();
-                StartCoroutine(doInteraction());
+
+                string mazeSelection = PlayerPrefs.GetString("mazeselection");
+                if (mazeSelection == "DesertPyramid" || mazeSelection == "TundraCave" || mazeSelection == "GrassLand")
+                {
+                    StartCoroutine(goBackToHomePage());
+                }
+                else
+                {
+                    StartCoroutine(doInteraction());
+                }
             }
             
         }
@@ -121,6 +131,12 @@ public class Collector : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         showFinalPanel();
+    }
+
+    IEnumerator goBackToHomePage()
+    {
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene("Start");
     }
 }
 
