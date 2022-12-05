@@ -55,12 +55,13 @@ public class programUI : MonoBehaviour
     panelstage stagenow = panelstage.Compo;
 
     private bool[] imageread = new bool[5];
-
     public Text characterdialog;
     public GameObject datashow;
     public List<string> stringdiag;
     public List<string> stringdata;
     public List<string> stringdiagforprogram;
+    public List<Sprite> buttonread;
+    public GameObject dataimage;
     private bool readdataornot = false;
     private bool hasGetData = false;
     //============programming===========//
@@ -176,6 +177,7 @@ public class programUI : MonoBehaviour
     //=============Wiring==============//
     public void Wiringchanger()
     {
+        
         switch (stagenow)
         {
             case panelstage.Compo:
@@ -276,7 +278,9 @@ public class programUI : MonoBehaviour
         panelCompo2.SetActive(false);
         panelCompo3.SetActive(false);
         panelCompo4.SetActive(false);
+        dataimage.SetActive(false);
         characterdialog.text = stringdiag[0];
+       
     }
     public void jackhammerpress()
     {
@@ -319,47 +323,56 @@ public class programUI : MonoBehaviour
         hasGetData = true;
         stagenow = panelstage.Compo1;
         characterdialog.text = stringdiag[1];
-
+        buttonCompo1.GetComponent<Image>().sprite = buttonread[0];
         panelCompo.SetActive(false);
         panelCompo1.SetActive(true);
         panelCompo2.SetActive(false);
         panelCompo3.SetActive(false);
         panelCompo4.SetActive(false);
+        dataimage.SetActive(false);
+
     }
     public void component2press()
     {
         hasGetData = true;
         stagenow = panelstage.Compo2;
         characterdialog.text = stringdiag[2];
-
+        buttonCompo2.GetComponent<Image>().sprite = buttonread[1];
         panelCompo.SetActive(false);
         panelCompo1.SetActive(false);
         panelCompo2.SetActive(true);
         panelCompo3.SetActive(false);
         panelCompo4.SetActive(false);
+        dataimage.SetActive(false);
+
     }
     public void component3press()
     {
         hasGetData = true;
         stagenow = panelstage.Compo3;
         characterdialog.text = stringdiag[3];
-
+        buttonCompo3.GetComponent<Image>().sprite = buttonread[2];
         panelCompo.SetActive(false);
         panelCompo1.SetActive(false);
         panelCompo2.SetActive(false);
         panelCompo3.SetActive(true);
         panelCompo4.SetActive(false);
+        dataimage.SetActive(false);
+
     }
     public void component4press()
     {
         hasGetData = false;
         stagenow = panelstage.Compo4;
         characterdialog.text = stringdiag[3];
+        buttonCompo4.GetComponent<Image>().sprite = buttonread[3];
         panelCompo.SetActive(false);
         panelCompo1.SetActive(false);
         panelCompo2.SetActive(false);
         panelCompo3.SetActive(false);
         panelCompo4.SetActive(true);
+        dataimage.SetActive(true);
+
     }
     public void micbrobitintro()
     {
@@ -556,6 +569,7 @@ public class programUI : MonoBehaviour
         datashow.SetActive(false);
         stagenow = panelstage.ViewCode;
         hasGetData = true;
+        buttonCheckWiring.SetActive(false);
         if(DialogueControllerProgramFlow_StoryMode.Instance_)
         {
             DialogueControllerProgramFlow_StoryMode.Instance_.AfterFollowingInstruction();
