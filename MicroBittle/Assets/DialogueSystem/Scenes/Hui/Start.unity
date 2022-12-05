@@ -1191,11 +1191,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4305626031249031436, guid: 1f1886b42e2e67f469e1e929ffb3daa5,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4305626031249031437, guid: 1f1886b42e2e67f469e1e929ffb3daa5,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1311,21 +1306,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 864336257}
-    - target: {fileID: 4305626031924010502, guid: 1f1886b42e2e67f469e1e929ffb3daa5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Mute
-      objectReference: {fileID: 0}
-    - target: {fileID: 4305626031924010505, guid: 1f1886b42e2e67f469e1e929ffb3daa5,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 4305626031924010505, guid: 1f1886b42e2e67f469e1e929ffb3daa5,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f1886b42e2e67f469e1e929ffb3daa5, type: 3}
 --- !u!1 &1233915816
