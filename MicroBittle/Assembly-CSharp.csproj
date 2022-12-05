@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{542A1B97-2C5E-5F7D-B869-76B45B8A107A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -317,8 +316,10 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RotateAxis.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Nand.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_ContextMenuManager.cs" />
-    <Compile Include="Assets\ProgramSceneLightControl.cs" />
+    <Compile Include="Assets\Scripts\ProgramSceneLightControl.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueControllerProgramFlow_PlayMode.cs" />
+    <Compile Include="Assets\Scripts\CreativeInitializer.cs" />
+    <Compile Include="Assets\Scripts\MaterialController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Decal\decalScreenspace.shader" />
