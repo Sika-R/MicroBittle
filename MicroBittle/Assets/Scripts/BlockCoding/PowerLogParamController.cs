@@ -20,9 +20,13 @@ public class PowerLogParamController : ParamController
         pinSelection.options.Add(newData);*/
         base.Awake();
         obstacleSelection.ClearOptions();
-            Dropdown.OptionData newData = new Dropdown.OptionData();
-            newData.text = "Wall";
-            obstacleSelection.options.Add(newData);
+        Dropdown.OptionData newData = new Dropdown.OptionData();
+        newData.text = "";
+        obstacleSelection.options.Add(newData);
+
+        newData = new Dropdown.OptionData();
+        newData.text = "Wall";
+        obstacleSelection.options.Add(newData);
         // }
         /*else if(mode == 2)
         {

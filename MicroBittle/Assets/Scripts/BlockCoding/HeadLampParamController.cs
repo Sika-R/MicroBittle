@@ -17,8 +17,12 @@ public class HeadLampParamController : ParamController
         newData.text = "P1";
         pinSelection.options.Add(newData);*/
         base.Awake();
-        Dropdown.OptionData newData = new Dropdown.OptionData();
         obstacleSelection.ClearOptions();
+        Dropdown.OptionData newData = new Dropdown.OptionData();
+        newData.text = "";
+        obstacleSelection.options.Add(newData);
+        newData = new Dropdown.OptionData();
+        
         // newData = new Dropdown.OptionData();
         newData.text = "Mouse";
         obstacleSelection.options.Add(newData);
