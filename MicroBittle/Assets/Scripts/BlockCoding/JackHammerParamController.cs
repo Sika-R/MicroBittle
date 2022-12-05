@@ -20,6 +20,9 @@ public class JackHammerParamController : ParamController
         base.Awake();
         obstacleSelection.ClearOptions();
             Dropdown.OptionData newData = new Dropdown.OptionData();
+        newData.text = "";
+        obstacleSelection.options.Add(newData);
+        newData = new Dropdown.OptionData();
             newData.text = "Rock";
             obstacleSelection.options.Add(newData);
         // }

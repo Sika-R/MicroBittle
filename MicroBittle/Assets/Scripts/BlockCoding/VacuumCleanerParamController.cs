@@ -19,6 +19,9 @@ public class VacuumCleanerParamController : ParamController
         base.Awake();
         obstacleSelection.ClearOptions();
             Dropdown.OptionData newData = new Dropdown.OptionData();
+        newData.text = "";
+        obstacleSelection.options.Add(newData);
+        newData = new Dropdown.OptionData();
             newData.text = "Spider Web";
             obstacleSelection.options.Add(newData);
         // }

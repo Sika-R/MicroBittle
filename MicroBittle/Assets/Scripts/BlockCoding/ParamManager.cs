@@ -120,7 +120,8 @@ public class ParamManager : MonoBehaviour
         bool result = true;
         for (int i = 0; i < allControllers.Count; i++)
         {
-            allControllers[i].ChangePinColor(Color.white);
+            allControllers[i].SetPinColor();
+            //allControllers[i].ChangePinColor(Color.white);
         }
         for (int i = 0; i < allControllers.Count; i++)
         {
@@ -201,6 +202,10 @@ public class ParamManager : MonoBehaviour
 
     public void AddController(ParamController ctrl)
     {
-        allControllers.Add(ctrl);
+        if(!allControllers.Contains(ctrl))
+        {
+            allControllers.Add(ctrl);
+        }
+        
     }
 }

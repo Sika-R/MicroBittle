@@ -32,6 +32,9 @@ public class ParamController : MonoBehaviour
     {
         pinSelection.ClearOptions();
         Dropdown.OptionData newData = new Dropdown.OptionData();
+        newData.text = "";
+        pinSelection.options.Add(newData);
+        newData = new Dropdown.OptionData();
         newData.text = "P0";
         pinSelection.options.Add(newData);
         newData = new Dropdown.OptionData();
@@ -49,7 +52,7 @@ public class ParamController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ParamManager.Instance.AddController(this);
+        // ParamManager.Instance.AddController(this);
         Init();
     }
 
@@ -78,7 +81,10 @@ public class ParamController : MonoBehaviour
             ObstacleValueChanged(obstacleSelection);
             obstacleSelection.captionText.text = obstacleSelection.options[0].text;
             MG_BlocksEngine2.Block.BE2_DropdownDynamicResize dropdownResize = obstacleSelection.GetComponent<MG_BlocksEngine2.Block.BE2_DropdownDynamicResize>();
-            dropdownResize.Resize();
+            if(dropdownResize)
+            {
+                dropdownResize.Resize();
+            }
             obstacleSelection.onValueChanged.AddListener(delegate { ObstacleValueChanged(obstacleSelection); });
         }
 
@@ -87,7 +93,10 @@ public class ParamController : MonoBehaviour
             allParams.Add(0);
             ParamValueChanged(paramInputs[i]);
             MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize inputResize = paramInputs[i].GetComponent<MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize>();
-            inputResize.Resize();
+            if(inputResize)
+            {
+                inputResize.Resize();
+            }
             InputField inputField = paramInputs[i];
             inputField.onValueChanged.AddListener(delegate { ParamValueChanged(inputField); });
         }
@@ -113,16 +122,16 @@ public class ParamController : MonoBehaviour
         {
             ObstacleValueChanged(obstacleSelection);
             obstacleSelection.captionText.text = obstacleSelection.options[0].text;
-            MG_BlocksEngine2.Block.BE2_DropdownDynamicResize dropdownResize = obstacleSelection.GetComponent<MG_BlocksEngine2.Block.BE2_DropdownDynamicResize>();
-            dropdownResize.Resize();
+            //MG_BlocksEngine2.Block.BE2_DropdownDynamicResize dropdownResize = obstacleSelection.GetComponent<MG_BlocksEngine2.Block.BE2_DropdownDynamicResize>();
+            // dropdownResize.Resize();
             obstacleSelection.onValueChanged.AddListener(delegate { ObstacleValueChanged(obstacleSelection); });
         }
 
         for (int i = 0; i < paramInputs.Count; i++)
         {
             ParamValueChanged(paramInputs[i]);
-            MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize inputResize = paramInputs[i].GetComponent<MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize>();
-            inputResize.Resize();
+            // MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize inputResize = paramInputs[i].GetComponent<MG_BlocksEngine2.Block.BE2_InputFieldDynamicResize>();
+            // inputResize.Resize();
             InputField inputField = paramInputs[i];
             inputField.onValueChanged.AddListener(delegate { ParamValueChanged(inputField); });
         }
@@ -130,16 +139,38 @@ public class ParamController : MonoBehaviour
 
     void PinValueChanged(Dropdown d)
     {
-        pinNum = d.value;
-        if(ParamManager.Instance)
+        pinNum = d.value - 1;
+        if(pinNum == -1)
         {
-            ParamManager.Instance.SetPin(pinNum, obstacle);
+            ChangePinColor(Color.red);
         }
+        else
+        {
+            ChangePinColor(Color.white);
+            if (ParamManager.Instance)
+            {
+                ParamManager.Instance.SetPin(pinNum, obstacle);
+            }
+        }
+        
     }
 
     void ObstacleValueChanged(Dropdown o)
     {
         string str = o.options[o.value].text;
+        if(str == "")
+        {
+            ColorBlock cb = o.colors;
+            cb.normalColor = Color.red;
+            o.colors = cb;
+            return;
+        }
+        else
+        {
+            ColorBlock cb = o.colors;
+            cb.normalColor = Color.white;
+            o.colors = cb;
+        }
         if(str == "Rock")
         {
             obstacle = ParamManager.Obstacle.rock;
@@ -210,6 +241,18 @@ public class ParamController : MonoBehaviour
         pinSelection.colors = cb;
     }
 
+    public void SetPinColor()
+    {
+        if(pinSelection.value == 0)
+        {
+            ChangePinColor(Color.red);
+        }
+        else
+        {
+            ChangePinColor(Color.white);
+        }
+    }
+
     public bool isAllInputValid()
     {
         ColorBlock cb = pinSelection.colors;
@@ -217,7 +260,12 @@ public class ParamController : MonoBehaviour
         {
             return false;
         }
-        foreach(InputField f in paramInputs)
+        cb = obstacleSelection.colors;
+        if (cb.normalColor == Color.red)
+        {
+            return false;
+        }
+        foreach (InputField f in paramInputs)
         {
             if (f.image.color == Color.red)
             {

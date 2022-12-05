@@ -100,22 +100,20 @@ public class ProgramUIMgr : MonoBehaviour
             dropdown.options.Add(newData);
         }
 
-        StartCoroutine(InitBlockCoding());
-        
+        InitAllBlockCodingController();
+        SwitchBlockCodingPanel();
     }
-    private IEnumerator InitBlockCoding()
+
+    private void InitAllBlockCodingController()
     {
         for (int i = 0; i < allCodingBlocks.Count; i++)
         {
             if (allCodingBlocks[i] && allObstacles.Contains((ParamManager.Obstacle)i))
             {
-                allCodingBlocks[i].SetActive(true);
-                yield return null;
-                allCodingBlocks[i].SetActive(false);
-                yield return null;
+                ParamManager.Instance.AddController(allCodingBlocks[i].GetComponent<ParamController>());
             }
         }
-        SwitchBlockCodingPanel();
+        
     }
 
     public void SwitchBlockCodingPanel()
