@@ -14505,7 +14505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -148, y: 62.999996}
+  m_AnchoredPosition: {x: -148, y: -10.000004}
   m_SizeDelta: {x: 877.5735, y: 1002.416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613002875
@@ -21394,7 +21394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113.000015, y: 62.999996}
+  m_AnchoredPosition: {x: -113.000015, y: -10}
   m_SizeDelta: {x: 877.5735, y: 1002.416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1270104193
@@ -21915,7 +21915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113, y: 63}
+  m_AnchoredPosition: {x: -113, y: -10}
   m_SizeDelta: {x: 877.5735, y: 1002.416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1304124890
@@ -23103,7 +23103,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -140.1195, y: 62.999996}
+  m_AnchoredPosition: {x: -140.1195, y: -10.000004}
   m_SizeDelta: {x: 877.5735, y: 1002.416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1415965042
@@ -35366,7 +35366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 73, y: -165}
+  m_AnchoredPosition: {x: 127, y: -61}
   m_SizeDelta: {x: -65.2546, y: -13.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &696588224316578475
@@ -35478,7 +35478,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 48.114838}
+  m_margin: {x: 0, y: 0, z: 245.2522, w: 132.86713}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -35673,7 +35673,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b808a3e016f21eb4f97ae03b709ba86c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ad409a49f703214a898623748a5b479, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
