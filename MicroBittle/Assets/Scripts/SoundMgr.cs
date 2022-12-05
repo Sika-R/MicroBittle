@@ -14,12 +14,19 @@ public class SoundMgr : MonoBehaviour
     AudioSource audioSource;
     public Sprite[] muteSprite = new Sprite[2];
     public Image muteButton;
-
+    private List<AudioSource> allAS;
+    bool isEnabledAllAudioSource = true;
     private float ringClipLength = 3.5f;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        allAS = new List<AudioSource>();
+        AudioSource[] asObject = (AudioSource[])Object.FindObjectsOfType(typeof(AudioSource));
+        foreach (AudioSource asobject in asObject)
+        {
+            allAS.Add(asobject);
+        }
     }
     private void Awake()
     {
@@ -107,8 +114,12 @@ public class SoundMgr : MonoBehaviour
 
     public void Mute()
     {
-        bgm.mute = !bgm.mute;
-        muteButton.sprite = muteSprite[bgm.mute ? 1 : 0];
+        //bgm.mute = !bgm.mute;
+        isEnabledAllAudioSource = !isEnabledAllAudioSource;
+        muteButton.sprite = muteSprite[isEnabledAllAudioSource ? 0 : 1];
+        foreach (AudioSource audioSource in allAS) {
+            audioSource.mute = !isEnabledAllAudioSource;
+        }
     }
 
     public void Mute(AudioSource AS)

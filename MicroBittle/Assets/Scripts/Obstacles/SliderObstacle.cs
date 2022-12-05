@@ -114,7 +114,7 @@ public class SliderObstacle : Obstacle
             ProgramUIMgr.Instance.AddSuccess();
             gameObject.SetActive(false);
         }
-        if(DialogueControllerProgramFlow_StoryMode.Instance)
+        if(DialogueControllerProgramFlow_StoryMode.Instance_)
         {
             programUI.Instance.setDemoWork();
         }
