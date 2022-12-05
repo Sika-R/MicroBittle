@@ -19,14 +19,22 @@ public class ParamController : MonoBehaviour
     [SerializeField]
     public Dropdown pinSelection;
     [SerializeField]
+    GameObject pinSelectionWarningMsg;
+    [SerializeField]
     public Dropdown obstacleSelection;
     [SerializeField]
     public List<InputField> paramInputs = new List<InputField>();
     [SerializeField]
+    GameObject inputDataWarningMsg;
+    [SerializeField]
     FunctionType functionType;
+    [SerializeField]
+    GameObject functionTypeWarningMsg;
     public int pinNum;
     public ParamManager.Obstacle obstacle;
     public List<float> allParams = new List<float>();
+    [SerializeField]
+    String obstacleType = "null";
 
     protected void Awake()
     {
@@ -52,8 +60,9 @@ public class ParamController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ParamManager.Instance.AddController(this);
+        ParamManager.Instance.AddController(this);
         Init();
+        DelegationInit();
     }
 
     // Update is called once per frame
@@ -111,7 +120,7 @@ public class ParamController : MonoBehaviour
         SaveParams();
     }
 
-    public void DelegationInit()
+    public virtual void DelegationInit()
     {
         if (pinSelection)
         {
@@ -121,7 +130,6 @@ public class ParamController : MonoBehaviour
         if (obstacleSelection)
         {
             ObstacleValueChanged(obstacleSelection);
-            obstacleSelection.captionText.text = obstacleSelection.options[0].text;
             //MG_BlocksEngine2.Block.BE2_DropdownDynamicResize dropdownResize = obstacleSelection.GetComponent<MG_BlocksEngine2.Block.BE2_DropdownDynamicResize>();
             // dropdownResize.Resize();
             obstacleSelection.onValueChanged.AddListener(delegate { ObstacleValueChanged(obstacleSelection); });
@@ -158,11 +166,13 @@ public class ParamController : MonoBehaviour
     void ObstacleValueChanged(Dropdown o)
     {
         string str = o.options[o.value].text;
-        if(str == "")
+        if(str != obstacleType)
         {
             ColorBlock cb = o.colors;
             cb.normalColor = Color.red;
+            cb.colorMultiplier = 5.0f;
             o.colors = cb;
+            functionTypeWarningMsg.SetActive(true);
             return;
         }
         else
@@ -170,8 +180,14 @@ public class ParamController : MonoBehaviour
             ColorBlock cb = o.colors;
             cb.normalColor = Color.white;
             o.colors = cb;
+            functionTypeWarningMsg.SetActive(false);
+            if (ParamManager.Instance)
+            {
+                ParamManager.Instance.SetPin(pinNum, obstacle);
+                ParamManager.Instance.SetFunction(functionType, obstacle);
+            }
         }
-        if(str == "Rock")
+        /*if(str == "Rock")
         {
             obstacle = ParamManager.Obstacle.rock;
         }
@@ -195,7 +211,7 @@ public class ParamController : MonoBehaviour
         {
             ParamManager.Instance.SetPin(pinNum, obstacle);
             ParamManager.Instance.SetFunction(functionType, obstacle);
-        }
+        }*/
     }
 
     public virtual void ParamValueChanged(InputField i)
@@ -204,7 +220,7 @@ public class ParamController : MonoBehaviour
         try
         {
             float parsed = float.Parse(i.text);
-            if (parsed < 0 || parsed > 1024)
+            if (parsed < 0 || parsed > 1000)
             {
                 i.image.color = Color.red;
             }
@@ -213,7 +229,23 @@ public class ParamController : MonoBehaviour
                 allParams[idx] = parsed;
                 i.image.color = Color.white;
             }
-
+            foreach(InputField input in paramInputs)
+            {
+                try
+                {
+                    parsed = float.Parse(input.text);
+                    if (parsed < 0 || parsed > 1000)
+                    {
+                        inputDataWarningMsg.SetActive(true);
+                        return;
+                    }
+                } catch (Exception e)
+                {
+                    inputDataWarningMsg.SetActive(true);
+                    return;
+                }
+            }
+            inputDataWarningMsg.SetActive(false);
         }
         catch(Exception e)
         {
@@ -236,8 +268,17 @@ public class ParamController : MonoBehaviour
 
     public void ChangePinColor(Color c)
     {
+        if(c == Color.red)
+        {
+            pinSelectionWarningMsg.SetActive(true);
+        }
+        else
+        {
+            pinSelectionWarningMsg.SetActive(false);
+        }
         ColorBlock cb = pinSelection.colors;
         cb.normalColor = c;
+        cb.colorMultiplier = 5.0f;
         pinSelection.colors = cb;
     }
 

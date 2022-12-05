@@ -5574,8 +5574,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f9bf32d21490fda45b28070b129c4429, type: 3}
   bgm: {fileID: 2015508049}
   muteSprite:
-  - {fileID: 21300000, guid: f9359273b77ec224797ad97ad0a0691a, type: 3}
-  - {fileID: 21300000, guid: 79afe1bedceb97e46b65ce5e0056c638, type: 3}
+  - {fileID: 21300000, guid: e5ef8c5741603af47aebb0740141b056, type: 3}
+  - {fileID: 21300000, guid: b699505ecc2ddf44496b302b1440417f, type: 3}
   muteButton: {fileID: 1337924192}
 --- !u!82 &1754030347
 AudioSource:
@@ -6038,7 +6038,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bfb8374947f9c4748aa5729e0f8adff7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 42761077fda627b4f88804e4a7a5cbb2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1

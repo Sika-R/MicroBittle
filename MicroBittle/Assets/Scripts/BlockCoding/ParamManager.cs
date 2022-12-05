@@ -138,6 +138,7 @@ public class ParamManager : MonoBehaviour
             }
             if(!hasConflicted)
             {
+                Debug.Log(allControllers[i].pinNum);
                 pinToObstacle[allControllers[i].pinNum] = allControllers[i].obstacle;
             }
         }
