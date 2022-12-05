@@ -85,6 +85,16 @@ public class CreativeMgr : MonoBehaviour
     {
         startPlacement();
         toProgrammingButton.SetActive(false);
+        foreach(Toggle selection in allObstacleSelection)
+        {
+            if(selection)
+            {
+                ColorBlock cb = selection.colors;
+                cb.normalColor = Color.gray;
+                cb.selectedColor = Color.gray;
+                selection.colors = cb;
+            }
+        }
     }
     #region Parameter setup
     public void setBiome(int i)
@@ -95,13 +105,13 @@ public class CreativeMgr : MonoBehaviour
             ColorBlock cb = allBiomeSelection[j].colors;
             if (i == j)
             {
-                cb.normalColor = Color.gray;
-                cb.selectedColor = Color.gray;
+                cb.normalColor = Color.white;
+                cb.selectedColor = Color.white;
             }
             else
             {
-                cb.normalColor = Color.white;
-                cb.selectedColor = Color.white;
+                cb.normalColor = Color.gray;
+                cb.selectedColor = Color.gray;
             }
             allBiomeSelection[j].colors = cb;
         }
@@ -114,13 +124,13 @@ public class CreativeMgr : MonoBehaviour
             ColorBlock cb = allLayoutSelection[j].colors;
             if (i == j)
             {
-                cb.normalColor = Color.gray;
-                cb.selectedColor = Color.gray;
+                cb.normalColor = Color.white;
+                cb.selectedColor = Color.white;
             }
             else
             {
-                cb.normalColor = Color.white;
-                cb.selectedColor = Color.white;
+                cb.normalColor = Color.gray;
+                cb.selectedColor = Color.gray;
             }
             allLayoutSelection[j].colors = cb;
         }
@@ -132,16 +142,16 @@ public class CreativeMgr : MonoBehaviour
         if(curObstacle.Contains(type))
         {
             ColorBlock cb = allObstacleSelection[i].colors;
-            cb.normalColor = Color.white;
-            cb.selectedColor = Color.white;
+            cb.normalColor = Color.gray;
+            cb.selectedColor = Color.gray;
             allObstacleSelection[i].colors = cb;
             curObstacle.Remove(type);
         }
         else if(curObstacle.Count < 3)
         {
             ColorBlock cb = allObstacleSelection[i].colors;
-            cb.normalColor = Color.gray;
-            cb.selectedColor = Color.gray;
+            cb.normalColor = Color.white;
+            cb.selectedColor = Color.white;
             allObstacleSelection[i].colors = cb;
             curObstacle.Add(type);
         }
@@ -210,8 +220,8 @@ public class CreativeMgr : MonoBehaviour
     #region Object placements
     void startPlacement()
     {
-        obstacleText.text = "Obstacle: " + obstacleCnt;
-        gemText.text = "Gem: " + gemCnt;
+        obstacleText.text = "Obstacle(3 ~ 5): " + obstacleCnt;
+        gemText.text = "Gem(5): " + gemCnt;
         
         setupPanel.SetActive(true);
         for(int i = 0; i < allButtons.Count; i++)
@@ -238,7 +248,7 @@ public class CreativeMgr : MonoBehaviour
     public void addGem(int num)
     {
         gemCnt += num;
-        gemText.text = "Gem: " + gemCnt;
+        gemText.text = "Gem(5): " + gemCnt;
         ObstacleMgr.Instance.hasCreate = null;
         canShowProgramming();
     }
@@ -248,7 +258,7 @@ public class CreativeMgr : MonoBehaviour
         obstacleCnt += num;
         if(obstacleText)
         {
-            obstacleText.text = "Obstacle: " + obstacleCnt;
+            obstacleText.text = "Obstacle(3 ~ 5): " + obstacleCnt;
         }
         
         if(ObstacleMgr.Instance.hasCreate && num > 0)

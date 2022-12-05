@@ -1737,7 +1737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -135.1195, y: 31.999996}
+  m_AnchoredPosition: {x: -135.1195, y: -5.9999914}
   m_SizeDelta: {x: 877.5735, y: 1002.416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84931537
@@ -9437,34 +9437,33 @@ MonoBehaviour:
   characterdialog: {fileID: 848977033}
   datashow: {fileID: 1616628716}
   stringdiag:
-  - "These are the components you will be using. If your physical components look
-    slightly different, that\u2019s ok! They\u2019ll work in the same way. Hover
-    over each component to learn more about it! "
+  - "These are the power log\u2019s components (it\u2019s okay if your physical components
+    look a little different). Hover over each component to learn more about it!"
   - "Follow these 3 steps. The micro:bit should light up when it\u2019s connected
-    to the computer (its power source)!"
+    to the computer (its power source)! "
   - Follow these 2 steps. The slider should light up when power and ground are connected
     to the micro:bit!
-  - Follow these 2 steps.
-  - Amazing, you wired the power log! Click here to continue.
+  - Follow these 2 steps, so slider movement can be detected.
+  - 'Amazing, you wired the power log! Click on the check mark to continue. '
   stringdata:
   - 
-  - NO DATA YET,TRY INTERACTING WITH THE SENSOR.
-  - GETTING DATA
+  - WAITING TO DETECT SLIDER MOVEMENT.
+  - SLIDER MOVEMENT DETECTED.
   stringdiagforprogram:
-  - 'Here, you will add values and select options in a block function that controls
-    the power log. Click on the drop-down menu and select the power log. '
-  - 'This is the function! Before you fill it out, click on the Input Data button
-    to get important information for the function. '
-  - 'Fill out the function, and pay attention to any alert messages!  You can click
-    on the Input Data button anytime to check the input data values from the slider. '
-  - 'Click on the drop-down menu and select the data pin that the slider is connected
-    to. When you select it, you should see data changes on screen as you move the
-    slider! '
-  - 'Great! This is the input pin you should select in the function! And you can
-    see the input data values you will need, too. Click on the Code Blocks button
-    to continue. '
-  - 'Move the slider to see a live demo of the power log breaking a wall! '
-  - 'Fantastic, the power log works perfectly! Click here to continue. '
+  - 'Here, you complete the code that controls the power log. Click on the drop-down
+    menu and select the power log. '
+  - 'To fill out these blocks, click on the Input Data button to get important information
+    for the code. '
+  - 'Fill out the function until all red fields turn white. Pay attention to any
+    alert messages! '
+  - 'Click on the drop-down menu and select the pin that your slider is connected
+    to. You should see data values change as you move the slider! '
+  - 'Great! This is the input pin you must select in the code. Here, you can also
+    see the minimum and maximum data values you need for the code. Click on the Code
+    Blocks button to continue. '
+  - 'Great job! You can check if the power log works properly. Click on the Device
+    Demo button to see the power log in action! '
+  - 'Fantastic, the power log works perfectly! Click on the check mark to continue. '
   buttonread:
   - {fileID: 21300000, guid: 57d1fa3ba904ace42b4f75eea213e0f1, type: 3}
   - {fileID: 21300000, guid: 8e918dea32d303341baa05c10baa06df, type: 3}
@@ -13690,7 +13689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -108, y: 32}
+  m_AnchoredPosition: {x: -108, y: -5.9999876}
   m_SizeDelta: {x: 877.5735, y: 1002.416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676117740
@@ -19141,7 +19140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -108, y: -0.000015259}
+  m_AnchoredPosition: {x: -108, y: -38}
   m_SizeDelta: {x: 877.5735, y: 1002.416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1304124890
@@ -19295,7 +19294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -142.99998, y: 31.999996}
+  m_AnchoredPosition: {x: -142.99998, y: -5.9999914}
   m_SizeDelta: {x: 877.5735, y: 1002.416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308380010
@@ -22930,7 +22929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1657132366
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25021,7 +25020,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 56bb4b311b2413d49a5b1dbe35773c40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1538e5efc65230740a6a7aca05be5dd2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

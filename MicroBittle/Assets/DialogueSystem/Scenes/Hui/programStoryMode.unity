@@ -5027,6 +5027,8 @@ MonoBehaviour:
   stringdiag: []
   stringdata: []
   stringdiagforprogram: []
+  buttonread: []
+  dataimage: {fileID: 0}
   viewinputData: {fileID: 0}
   viewdeviceCode: {fileID: 0}
   viewinputDatabutton: {fileID: 0}
@@ -5182,7 +5184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -223.34766, y: 0}
+  m_AnchoredPosition: {x: -223.3476, y: 0}
   m_SizeDelta: {x: -446.6947, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435837849
@@ -5502,6 +5504,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   lightValueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  getDataOrNotEvent:
     m_PersistentCalls:
       m_Calls: []
   text: {fileID: 1718994638}
@@ -8081,6 +8086,8 @@ MonoBehaviour:
     to continue. '
   - 'Move the slider to see a live demo of the power log breaking a wall! '
   - 'Fantastic, the power log works perfectly! Click here to continue. '
+  buttonread: []
+  dataimage: {fileID: 0}
   viewinputData: {fileID: 73212990}
   viewdeviceCode: {fileID: 1500486110}
   viewinputDatabutton: {fileID: 1060496642}
@@ -11323,7 +11330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -116.62604, y: 0}
+  m_AnchoredPosition: {x: -116.62598, y: 0}
   m_SizeDelta: {x: -621.764, y: 2.9479}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &633086707
@@ -12369,7 +12376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab8481131ab72f6438e1fc36116c8253, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a2fa19780c77ec42ae14b1eeb9e1482, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17659,7 +17666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -116.62604, y: 0}
+  m_AnchoredPosition: {x: -116.62598, y: 0}
   m_SizeDelta: {x: -621.764, y: 2.9479}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1433606514
@@ -18867,7 +18874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -116.62604, y: 0}
+  m_AnchoredPosition: {x: -116.62598, y: 0}
   m_SizeDelta: {x: -621.764, y: 2.9479}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1607816201
@@ -22836,6 +22843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17b2d576b61be645a9433e0a72c41d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allControllers: []
 --- !u!1 &2087694145
 GameObject:
   m_ObjectHideFlags: 0
