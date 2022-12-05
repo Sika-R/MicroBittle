@@ -17,6 +17,9 @@ public class UIDialogueTextBoxController : MonoBehaviour, DialogueNodeVisitor
     [SerializeField]
     private DialogueChannel m_DialogueChannel;
 
+    [SerializeField]
+    private Button m_ContinueButton;
+
     private bool m_ListenToInput = false;
     private DialogueNode m_NextNode = null;
 
@@ -27,6 +30,8 @@ public class UIDialogueTextBoxController : MonoBehaviour, DialogueNodeVisitor
 
         gameObject.SetActive(false);
         m_ChoicesBoxTransform.gameObject.SetActive(false);
+
+        if (m_ContinueButton) m_ContinueButton.onClick.AddListener(delegate { if (m_ListenToInput) { m_DialogueChannel.RaiseRequestDialogueNode(m_NextNode); }; });
     }
 
     private void OnDestroy()

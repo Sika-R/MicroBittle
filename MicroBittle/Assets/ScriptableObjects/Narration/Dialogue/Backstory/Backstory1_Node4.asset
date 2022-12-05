@@ -16,4 +16,4 @@ MonoBehaviour:
   dialogueAudio: {fileID: 8300000, guid: dd7f5d36519559641b27e23fde0aeb00, type: 3}
   cutsceneImage: Cutscene3
   animationName: dance
-  m_NextNode: {fileID: 0}
+  m_NextNode: {fileID: 11400000, guid: b030093e35bdf7848a5d53496ca76e13, type: 2}
