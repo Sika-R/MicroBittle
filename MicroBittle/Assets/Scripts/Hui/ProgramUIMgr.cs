@@ -110,7 +110,9 @@ public class ProgramUIMgr : MonoBehaviour
         {
             if (allCodingBlocks[i] && allObstacles.Contains((ParamManager.Obstacle)i))
             {
-                ParamManager.Instance.AddController(allCodingBlocks[i].GetComponent<ParamController>());
+                ParamController ctrl = allCodingBlocks[i].GetComponent<ParamController>();
+                ctrl.SetObstacleOptions(allObstacles);
+                ParamManager.Instance.AddController(ctrl);
             }
         }
         
