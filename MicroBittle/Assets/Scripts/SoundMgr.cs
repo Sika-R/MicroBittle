@@ -127,20 +127,6 @@ public class SoundMgr : MonoBehaviour
         MuteAllAs();
     }
 
-    public void ClickMute()
-    {
-        if (PlayerPrefs.GetInt("IsMuted") == 0)
-        {
-            PlayerPrefs.SetInt("IsMuted", 1);
-            Debug.Log(PlayerPrefs.GetInt("IsMuted"));
-        }
-        else
-        {
-            PlayerPrefs.SetInt("IsMuted", 0);
-        }
-        MuteAllAs();
-    }
-
     public void MuteAllAs() {
         int isEnabledAllAudioSource = PlayerPrefs.GetInt("IsMuted");
         muteButton.sprite = muteSprite[isEnabledAllAudioSource];
