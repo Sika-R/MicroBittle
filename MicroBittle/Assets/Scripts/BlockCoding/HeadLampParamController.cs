@@ -26,6 +26,10 @@ public class HeadLampParamController : ParamController
         // newData = new Dropdown.OptionData();
         newData.text = "Mouse";
         obstacleSelection.options.Add(newData);
+        if(ProgramUIMgr.Instance)
+        {
+            SetObstacleOptions(ProgramUIMgr.Instance.allObstacles);
+        }
         // }
     }
 

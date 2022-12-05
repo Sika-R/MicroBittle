@@ -32,6 +32,10 @@ public class PowerLogParamController : ParamController
         newData = new Dropdown.OptionData();
         newData.text = "Wall";
         obstacleSelection.options.Add(newData);
+        if (ProgramUIMgr.Instance)
+        {
+            SetObstacleOptions(ProgramUIMgr.Instance.allObstacles);
+        }
         // }
         /*else if(mode == 2)
         {

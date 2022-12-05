@@ -57,6 +57,41 @@ public class ParamController : MonoBehaviour
             input.text = "";
         }
     }
+
+    public void SetObstacleOptions(List<ParamManager.Obstacle> obstacles)
+    {
+        obstacleSelection.ClearOptions();
+        Dropdown.OptionData newData = new Dropdown.OptionData();
+        newData.text = "";
+        obstacleSelection.options.Add(newData);
+        foreach(ParamManager.Obstacle o in obstacles)
+        {
+            newData = new Dropdown.OptionData();
+            newData.text = obstacleToString(o);
+            obstacleSelection.options.Add(newData);
+        }
+    }
+
+    public String obstacleToString(ParamManager.Obstacle o)
+    {
+        if(o == ParamManager.Obstacle.wall)
+        {
+            return "Wall";
+        }
+        if (o == ParamManager.Obstacle.mouse)
+        {
+            return "Mouse";
+        }
+        if (o == ParamManager.Obstacle.spiderweb)
+        {
+            return "Spider Web";
+        }
+        if (o == ParamManager.Obstacle.rock)
+        {
+            return "Rock";
+        }
+        return "";
+    }
     // Start is called before the first frame update
     void Start()
     {

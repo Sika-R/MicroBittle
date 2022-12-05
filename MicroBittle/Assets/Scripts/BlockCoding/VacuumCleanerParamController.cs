@@ -24,6 +24,10 @@ public class VacuumCleanerParamController : ParamController
         newData = new Dropdown.OptionData();
             newData.text = "Spider Web";
             obstacleSelection.options.Add(newData);
+        if (ProgramUIMgr.Instance)
+        {
+            SetObstacleOptions(ProgramUIMgr.Instance.allObstacles);
+        }
         // }
     }
 

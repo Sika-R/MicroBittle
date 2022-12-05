@@ -25,6 +25,10 @@ public class JackHammerParamController : ParamController
         newData = new Dropdown.OptionData();
             newData.text = "Rock";
             obstacleSelection.options.Add(newData);
+        if (ProgramUIMgr.Instance)
+        {
+            SetObstacleOptions(ProgramUIMgr.Instance.allObstacles);
+        }
         // }
         /*else if(mode == 2)
         {

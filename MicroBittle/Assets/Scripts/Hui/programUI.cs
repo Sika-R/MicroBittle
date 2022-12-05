@@ -103,6 +103,10 @@ public class programUI : MonoBehaviour
     private bool[] demoworks = new bool[2];
     private bool demowork = false;
     public GameObject movetonextscnebutton;
+
+    private float getMinData = 1024.0f;
+    private float getMaxData = 0.0f;
+    // public GameObject warningText;
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -733,9 +737,31 @@ public class programUI : MonoBehaviour
         panelprogram.SetActive(false);
         panelshowdata.SetActive(false);
         panelshowdemo.SetActive(true);
-        if(livedemo)
+        if (livedemo)
         {
-            livedemo.SetActive(true);
+            if (!DialogueControllerProgramFlow_StoryMode.Instance_)
+            {
+                livedemo.SetActive(true);
+                Obstacle obstacle = livedemo.GetComponentInChildren<Obstacle>();
+                if (obstacle)
+                {
+                    obstacle.TryInit();
+                }
+            }
+            else if (DialogueControllerProgramFlow_StoryMode.Instance_ && ParamManager.Instance.paramValidationCheck(ParamManager.Obstacle.wall))
+            {
+                livedemo.SetActive(true);
+                // warningText.SetActive(false);
+                Obstacle obstacle = livedemo.GetComponentInChildren<Obstacle>();
+                if (obstacle)
+                {
+                    obstacle.TryInit();
+                }
+            }
+            else
+            {
+                // warningText.SetActive(true);
+            }
             // livedemo.GetComponentInChildren<SliderObstacle>().TryInit();
             // ObstacleMgr.Instance.SetCurrentObstacle(livedemo.GetComponentInChildren<SliderObstacle>());
         }
@@ -768,7 +794,9 @@ public class programUI : MonoBehaviour
     public void getdataornot(float value)
     {
         if (hasGetData) return;
-        if (value > 0.0f)
+        getMinData = Mathf.Min(getMinData, value);
+        getMaxData = Mathf.Max(getMaxData, value);
+        if (getMaxData - getMinData > 400.0f)
         {
             stagenow = panelstage.GetData;
         }
