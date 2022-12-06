@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: StoryMode_Intro_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "The time has come! You\u2019re now ready for the Cavern Challenge!"
+  m_Text: The time has come for the Cavern Challenge! The cavern is a maze,and you
+    must find its exit. Use the arrow keys or WASD keys to move.

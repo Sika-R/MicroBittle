@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 7b20242fce745584f82301d011db8ca7, type: 2}
   dialogueAudio: {fileID: 0}
+  cutsceneImage: 
   animationName: birdcage
-  m_NextNode: {fileID: 11400000, guid: 3c27c0e0705a29e4da422da2ed925ee7, type: 2}
+  m_NextNode: {fileID: 0}

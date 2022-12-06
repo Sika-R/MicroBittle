@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: ee63dce18ac38da42ba630e5016f8868, type: 2}
   dialogueAudio: {fileID: 0}
+  cutsceneImage: 
   animationName: idle01
-  m_NextNode: {fileID: 11400000, guid: 301b062d0bff7534dad97aa4d65d74ed, type: 2}
+  m_NextNode: {fileID: 0}

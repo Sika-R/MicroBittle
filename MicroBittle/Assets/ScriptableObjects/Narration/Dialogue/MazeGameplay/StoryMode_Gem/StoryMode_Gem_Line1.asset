@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: StoryMode_Gem_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "But wait, it\u2019s not that easy! You must also collect 5 gems along
-    the way. You cannot exit the maze until you have all the gems."
+  m_Text: Also, collect as many gems as you can!
