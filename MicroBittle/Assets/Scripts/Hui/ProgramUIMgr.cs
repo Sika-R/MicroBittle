@@ -232,7 +232,8 @@ public class ProgramUIMgr : MonoBehaviour
             }
             warningText.SetActive(false);
             nextButton.SetActive(true);
-            if(PlayerPrefs.GetString("mode") == "creativemode")
+            programUI.Instance.changeDialogueForProgramming();
+            if (PlayerPrefs.GetString("mode") == "creativemode")
             {
                 nextButton.GetComponent<Button>().onClick.AddListener(() => programUI.Instance.movetospecificScene("customize"));
             }
