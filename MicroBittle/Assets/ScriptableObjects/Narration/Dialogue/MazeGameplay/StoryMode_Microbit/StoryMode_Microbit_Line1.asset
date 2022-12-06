@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: StoryMode_Microbit_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "And, of course, you must break the walls you find along your path. To
-    activate your power log so you can use it, press the A or B button on your micro:bit.
-    The power log is active when you can see it. Your power log will only break walls
-    when it\u2019s active!"
+  m_Text: To break wall obstacles, you must activate your power log. Press the A
+    or B button on your micro:bit to do so. Good luck!

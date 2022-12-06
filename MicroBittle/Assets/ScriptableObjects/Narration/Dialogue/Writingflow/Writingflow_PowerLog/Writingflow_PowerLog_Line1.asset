@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Writingflow_PowerLog_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "You\u2019ll need a special device to do this: the mighty power log! A
-    log with technologically-enhanced strength that can break through any wall."
+  m_Text: "You\u2019ll need a special device to break the walls: the mighty power
+    log! You must wire the power log\u2019s pieces to make it work."
