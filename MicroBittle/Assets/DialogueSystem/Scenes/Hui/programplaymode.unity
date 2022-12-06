@@ -11200,11 +11200,31 @@ MonoBehaviour:
     Once you do this, check out the diagrams that will help you connect and wire
     all the components to each other. Click on the check mark when you\u2019re done
     wiring! "
+  - "Remember to read each component\u2019s description to learn what they each do.
+    Once you do this, check out the diagrams that will help you connect and wire
+    all the components to each other. Click on the check mark when you\u2019re done
+    wiring! "
   stringdata:
   - 
-  - NO DATA YET,TRY INTERACTING WITH THE SENSOR.
-  - GETTING DATA
+  - WAITING TO DETECT SLIDER MOVEMENT.
+  - SLIDER MOVEMENT DETECTED.
   stringdiagforprogram:
+  - "Remember to use the Input Data button and the Device Demo button to help you
+    fill out the functions for your devices, which you can see in the Code Blocks
+    section. Pay attention to any alert messages! You won\u2019t be able to move
+    on until all the functions are complete and no alert messages are shown."
+  - "Remember to use the Input Data button and the Device Demo button to help you
+    fill out the functions for your devices, which you can see in the Code Blocks
+    section. Pay attention to any alert messages! You won\u2019t be able to move
+    on until all the functions are complete and no alert messages are shown."
+  - "Remember to use the Input Data button and the Device Demo button to help you
+    fill out the functions for your devices, which you can see in the Code Blocks
+    section. Pay attention to any alert messages! You won\u2019t be able to move
+    on until all the functions are complete and no alert messages are shown."
+  - "Remember to use the Input Data button and the Device Demo button to help you
+    fill out the functions for your devices, which you can see in the Code Blocks
+    section. Pay attention to any alert messages! You won\u2019t be able to move
+    on until all the functions are complete and no alert messages are shown."
   - "Remember to use the Input Data button and the Device Demo button to help you
     fill out the functions for your devices, which you can see in the Code Blocks
     section. Pay attention to any alert messages! You won\u2019t be able to move

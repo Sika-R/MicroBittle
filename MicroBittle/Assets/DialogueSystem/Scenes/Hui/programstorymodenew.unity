@@ -9464,6 +9464,8 @@ MonoBehaviour:
   - 'Great job! You can check if the power log works properly. Click on the Device
     Demo button to see the power log in action! '
   - 'Fantastic, the power log works perfectly! Click on the check mark to continue. '
+  - "Click on the drop-down menu and select the power log. Then, move the slider.
+    If the wall doesn\u2019t break, go back to the code to fix it!"
   buttonread:
   - {fileID: 21300000, guid: 57d1fa3ba904ace42b4f75eea213e0f1, type: 3}
   - {fileID: 21300000, guid: 8e918dea32d303341baa05c10baa06df, type: 3}
@@ -23049,7 +23051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1657132366
 RectTransform:
   m_ObjectHideFlags: 0

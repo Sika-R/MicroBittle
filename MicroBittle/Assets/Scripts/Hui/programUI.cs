@@ -63,6 +63,8 @@ public class programUI : MonoBehaviour
     public List<Sprite> buttonread;
     public GameObject dataimage;
     private bool readdataornot = false;
+    private bool[] allblocksrights = new bool[3];
+    private bool breakornot = false;
     private bool hasGetData = false;
     //============programming===========//
 
@@ -148,6 +150,7 @@ public class programUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         Wiringchanger();
     }
     /*
@@ -223,6 +226,22 @@ public class programUI : MonoBehaviour
                 else if(dropdownforprogram.value != 0 && readdataornot == true)
                 {
                     characterdialog.text = stringdiagforprogram[2];
+                    
+                    if (PlayerPrefs.GetString("mode") == "storymode")
+                    {
+                        if(allblocksrights[0] == true)
+                        {
+                            characterdialog.text = stringdiagforprogram[5];
+                        }
+                    }
+                    else
+                    {
+                        bool alltrue = checkifallcorrectforprogram();
+                        if (alltrue)
+                        {
+                            characterdialog.text = stringdiagforprogram[5];
+                        }
+                    }
                 }
                 break;
             case panelstage.ViewData:
@@ -236,27 +255,38 @@ public class programUI : MonoBehaviour
                 }
                 break;
             case panelstage.ViewDemo:
-                checkifdemoworks();
-                if (dropdownforshowdemo.value == 0)
+                //checkifdemoworks();
+               
+                //else if(dropdownforshowdemo.value != 0 && !demowork)
+               // {
+                //    characterdialog.text = stringdiagforprogram[7];//demo work fall
+                //}
+                if(!breakornot)
                 {
-                    characterdialog.text = stringdiagforprogram[0];
+                   characterdialog.text = stringdiagforprogram[7];
                 }
-                else if(dropdownforshowdemo.value != 0 && !demowork)
-                {
-                    characterdialog.text = stringdiagforprogram[5];
-                }
-                else if(dropdownforshowdemo.value != 0 && demowork)
+                else
                 {
                     characterdialog.text = stringdiagforprogram[6];
-                    if(movetonextscnebutton)
-                    {
-                        movetonextscnebutton.SetActive(true);
-                    }
-                    
                 }
-                
+
                 break;
         }
+    }
+    public bool checkifallcorrectforprogram()
+    {
+        for (int i = 0; i < dropdownforprogram.options.Count; i++)
+        {
+            if (allblocksrights[i - 1] == true)
+            {
+                continue;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
     }
     public void componentpress()
     {
@@ -470,6 +500,25 @@ public class programUI : MonoBehaviour
             }
         }
         demowork = true;
+    }
+    //for robin
+    public void checkiffilloutcorrectly(int index)
+    {
+        
+        if(index == 1)
+        {
+            allblocksrights[0] = true;
+        }
+
+        if(index == 2)
+        {
+            allblocksrights[1] = true;
+        }
+
+        if (index == 3)
+        {
+            allblocksrights[2] = true;
+        }
     }
 
     //public void checkifhammermovefine()
@@ -831,6 +880,8 @@ public class programUI : MonoBehaviour
         if(movetonextscnebutton)
         {
             movetonextscnebutton.SetActive(true);
+            characterdialog.text = stringdiagforprogram[6];
+            breakornot = true;
         }
         
         
