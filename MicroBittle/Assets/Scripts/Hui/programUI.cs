@@ -35,10 +35,10 @@ public class programUI : MonoBehaviour
     public GameObject Jumpintro;
     public GameObject Sliderintro;
     public GameObject Photointro;
-    public GameObject Waterintro;
-    public GameObject jackintro1;
-    public GameObject jackintro2;
-    public GameObject jackintro3;
+    public GameObject Waterintro; 
+    public GameObject storymodeImage;
+    public GameObject playmodeImage;
+    public GameObject creativemodeImage;
 
     public GameObject sliderJack;
     public GameObject sliderdiv;
@@ -51,7 +51,7 @@ public class programUI : MonoBehaviour
     private bool[] sliderJackiftrue = new bool[2];
     private bool[] sliderdivingiftrue = new bool[2];
     private bool[] sliderheadiftrue = new bool[2];
-    private enum panelstage { Compo, Compo1, Compo2, Compo3, Compo4,GetData,Jack, Dive,Head,ViewCode,ViewData,ViewDemo};
+    public enum panelstage { Compo, Compo1, Compo2, Compo3, Compo4,GetData,Jack, Dive,Head,ViewCode,ViewData,ViewDemo};
     panelstage stagenow = panelstage.Compo;
 
     private bool[] imageread = new bool[5];
@@ -109,6 +109,12 @@ public class programUI : MonoBehaviour
     private float getMinData = 1024.0f;
     private float getMaxData = 0.0f;
     // public GameObject warningText;
+
+    //========AudioEffect===============//
+    public AudioClip[] audioEffects;
+    public AudioSource audiosource;
+    private bool[] alreadyplayed;
+    private string charactertext;
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -145,10 +151,27 @@ public class programUI : MonoBehaviour
 
         */
         hasGetData = true;
-    }
+        
+        //set up which image shoud shows up in components
+        switch (PlayerPrefs.GetString("mode"))
+        {
+            case "storymode":
+                storymodeImage.SetActive(true);
+                
+                break;
+            case "playmode":
+                playmodeImage.SetActive(true);
+                break;
+            case "creativemode":
+                creativemodeImage.SetActive(true);
+                break;
+        }
+        
 
-    // Update is called once per frame
-    void Update()
+}
+
+// Update is called once per frame
+void Update()
     {
        
         Wiringchanger();
@@ -176,7 +199,19 @@ public class programUI : MonoBehaviour
     {
         throw new System.NotImplementedException();
     }*/
+    //=============audio===============//
+    public void audiochanger()
+    {
+        if (PlayerPrefs.GetString("mode") == "storymode")
+        {
+            switch (charactertext)
+            {
+                
 
+            }
+        }
+        
+    }
     //=============Wiring==============//
     public void Wiringchanger()
     {
@@ -190,6 +225,8 @@ public class programUI : MonoBehaviour
                 break;
             case panelstage.Compo1:
                 datashow.GetComponent<Text>().text = stringdata[0];
+                //audiosource.Stop();
+                //audiosource.PlayOneShot(audioEffects[0]);
                 break;
             case panelstage.Compo2:
                 datashow.GetComponent<Text>().text = stringdata[0];
@@ -203,6 +240,7 @@ public class programUI : MonoBehaviour
             case panelstage.GetData:
                 buttonCheckWiring.SetActive(true);
                 characterdialog.text = stringdiag[4];
+                charactertext = stringdiag[4];
                 datashow.GetComponent<Text>().text = stringdata[2];
                 break;
             case panelstage.Jack:
@@ -215,9 +253,12 @@ public class programUI : MonoBehaviour
                 //checkifHeadLampfine();
                 break;
             case panelstage.ViewCode:
-                if(dropdownforprogram.value == 0)
+                
+                if (dropdownforprogram.value == 0)
                 {
                     characterdialog.text = stringdiagforprogram[0];
+                    charactertext = stringdiagforprogram[0];
+
                 }
                 else if(dropdownforprogram.value != 0 && readdataornot == false)
                 {
@@ -404,6 +445,15 @@ public class programUI : MonoBehaviour
         dataimage.SetActive(true);
 
     }
+    public void imageopen(GameObject text)
+    {
+        text.SetActive(true);
+    }
+    public void imageclose(GameObject text)
+    {
+        text.SetActive(false);
+    }
+    /*
     public void micbrobitintro()
     {
         Microbitintro.SetActive(true);
@@ -466,6 +516,7 @@ public class programUI : MonoBehaviour
     {
         objinto.SetActive(false);
     }
+    */
     public void checkifreadall()
     {
         foreach(var af in imageread)
