@@ -34,21 +34,39 @@ public class DialogueControllerProgramFlow_PlayMode : DialogueController
     private void Start()
     {
         //PlayerPrefs.SetString("mazeselection", "DesertPyramid");
-        string mazeSelection = PlayerPrefs.GetString("mazeselection");
-        if (mazeSelection == "DesertPyramid") {
-            headlamp.SetActive(true);
-            vacuum.SetActive(true);
+        if (PlayerPrefs.GetString("mode") == "creativemode")
+        {
+            foreach (ParamManager.Obstacle o in ProgramUIMgr.Instance.allObstacles) { 
+                string obstacleName = ProgramUIMgr.Instance.ObstacleToFunctionName(o);
+                if (obstacleName == "Headlamp") {
+                    headlamp.SetActive(true);
+                } else if (obstacleName == "JackHammer") {
+                    jackhammer.SetActive(true);
+                } else if (obstacleName == "Vacuum Cleaner") {
+                    vacuum.SetActive(true);
+                }
+            }
         }
-        else if (mazeSelection == "TundraCave") {
-            jackhammer.SetActive(true);
-            vacuum.SetActive(true);
+        else {
+            string mazeSelection = PlayerPrefs.GetString("mazeselection");
+            if (mazeSelection == "DesertPyramid")
+            {
+                headlamp.SetActive(true);
+                vacuum.SetActive(true);
+            }
+            else if (mazeSelection == "TundraCave")
+            {
+                jackhammer.SetActive(true);
+                vacuum.SetActive(true);
+            }
+            else if (mazeSelection == "GrassLand")
+            {
+                headlamp.SetActive(true);
+                jackhammer.SetActive(true);
+            }
+            DialogueUI.SetActive(true);
+            DoInteraction();
         }
-        else if (mazeSelection == "GrassLand") {
-            headlamp.SetActive(true);
-            jackhammer.SetActive(true);
-        }
-        DialogueUI.SetActive(true);
-        DoInteraction();
     }
 
     public override void IncreaseDialogueIndex()
