@@ -9673,13 +9673,13 @@ MonoBehaviour:
   characterdialog: {fileID: 848977033}
   datashow: {fileID: 1616628716}
   stringdiag:
-  - "These are the power log\u2019s components (it\u2019s okay if your physical components
-    look a little different). Hover over each component to learn more about it!"
+  - "These are the power log\u2019s pieces (it\u2019s okay if your physical pieces
+    look a little different). Hover over each pieces to learn more about it!"
   - "Follow these 3 steps. The micro:bit should light up when it\u2019s connected
     to the computer (its power source)! "
   - Follow these 2 steps. The slider should light up when power and ground are connected
     to the micro:bit!
-  - Follow these 2 steps, so slider movement can be detected.
+  - "Follow these 2 steps so the slider\u2019s movement can be detected."
   - 'Amazing, you wired the power log! Click on the check mark to continue. '
   stringdata:
   - 
@@ -18588,7 +18588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 843.6524, y: -186}
+  m_AnchoredPosition: {x: 843.6524, y: -459}
   m_SizeDelta: {x: 108.5679, y: 107.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1180929684
@@ -20305,6 +20305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312298378}
   - component: {fileID: 1312298377}
+  - component: {fileID: 1312298379}
   m_Layer: 0
   m_Name: SoundMgrforUI
   m_TagString: Untagged
@@ -20422,6 +20423,70 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1312298379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312298376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f429beda9a8ffa8458b6eb6e354162b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioEffects:
+  - {fileID: 8300000, guid: 460e175a47dc71a45b1fbe6775dede06, type: 3}
+  - {fileID: 8300000, guid: 34844ef54249e6a4892eb2bd4a569a85, type: 3}
+  - {fileID: 8300000, guid: f9bf32d21490fda45b28070b129c4429, type: 3}
+  - {fileID: 8300000, guid: 18f416a3e5713034fbb79c9d3bf39bda, type: 3}
+  - {fileID: 8300000, guid: c667490544e83d242a074c02044c239f, type: 3}
+  - {fileID: 8300000, guid: 460e175a47dc71a45b1fbe6775dede06, type: 3}
+  - {fileID: 8300000, guid: 0e22aa405e4ecb74a886af78598e54be, type: 3}
+  - {fileID: 8300000, guid: d69c961b7d69b554188ff364739d7de6, type: 3}
+  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
+  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
+  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
+  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
+  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
+  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
+  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
+  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
+  audioSource: {fileID: 1312298377}
+  dialogforstory:
+  - "Okay, let\u2019s get started! The Cavern Challenge is a maze with incomplete
+    paths, so you\u2019ll have to break through walls to move forward."
+  - "You\u2019ll need a special device to break the walls: the mighty power log!
+    You must wire the power log\u2019s pieces to make it work."
+  - "These are the power log\u2019s pieces (it\u2019s okay if your physical pieces
+    look a little different). Hover over each pieces to learn more about it!"
+  - "Follow these 3 steps. The micro:bit should light up when it\u2019s connected
+    to the computer (its power source)!"
+  - Follow these 2 steps. The slider should light up when power and ground are connected
+    to the micro:bit!
+  - "Follow these 2 steps so the slider\u2019s movement can be detected."
+  - Amazing, you wired the power log! Click on the check mark to continue.
+  - "The second thing you must do is program the power log. Through coding, you can
+    make the power log work with the slider\u2019s data."
+  - Here, you complete the code that controls the power log. Click on the drop-down
+    menu and select the power log.
+  - To fill out these blocks, click on the Input Data button to get important information
+    for the code.
+  - Click on the drop-down menu and select the pin that your slider is connected
+    to. You should see data values change as you move the slider!
+  - Great! This is the input pin you must select in the code. Here, you can also
+    see the minimum and maximum data values you need for the code. Click on the Code
+    Blocks button to continue.
+  - Fill out the function until all red fields turn white. Pay attention to any alert
+    messages!
+  - Great job! You can check if the power log works properly. Click on the Device
+    Demo button to see the power log in action!
+  - "Click on the drop-down menu and select the power log. Then, move the slider.
+    If the wall doesn\u2019t break, go back to the code to fix it!"
+  - Fantastic, the power log works perfectly! Click on the check mark to continue.
+  dialogforother: []
+  big: {fileID: 5847876145009325154}
+  side: {fileID: 848977033}
 --- !u!1 &1316731549
 GameObject:
   m_ObjectHideFlags: 0
