@@ -1966,7 +1966,7 @@ MonoBehaviour:
   inputDataWarningMsg: {fileID: 3218860985262546571}
   functionType: 2
   functionTypeWarningMsg: {fileID: 4869132347417133369}
-  pinNum: 0
+  pinNum: -1
   obstacle: 3
   allParams: []
   obstacleType: Spider Web
@@ -3616,7 +3616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "The vacuum cleaner works best against walls, try selecting \u201CSpider
+  m_Text: "The vacuum cleaner works best against spider webs, try selecting \u201CSpider
     Web\u201D!\r\n"
 --- !u!1 &5705805016321963875
 GameObject:

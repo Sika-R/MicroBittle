@@ -3014,7 +3014,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "The headlamp works best against walls, try selecting \u201CMouse\u201D!\r\n"
+  m_Text: "The headlamp works best against mouse, try selecting \u201CMouse\u201D!\r\n"
 --- !u!1 &6740207552703089400
 GameObject:
   m_ObjectHideFlags: 0
@@ -4518,7 +4518,7 @@ MonoBehaviour:
   inputDataWarningMsg: {fileID: 818081876305196941}
   functionType: 1
   functionTypeWarningMsg: {fileID: 6721004627797175356}
-  pinNum: 0
+  pinNum: -1
   obstacle: 1
   allParams: []
   obstacleType: Mouse

@@ -121,7 +121,7 @@ public class ParamManager : MonoBehaviour
         for (int i = 0; i < allControllers.Count; i++)
         {
             allControllers[i].SetPinColor();
-            //allControllers[i].ChangePinColor(Color.white);
+            // allControllers[i].ChangePinColor(Color.white);
         }
         for (int i = 0; i < allControllers.Count; i++)
         {

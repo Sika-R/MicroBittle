@@ -3560,12 +3560,10 @@ MonoBehaviour:
   inputDataWarningMsg: {fileID: 2039060185539849877}
   functionType: 3
   functionTypeWarningMsg: {fileID: 3088877416466417690}
-  pinNum: 0
+  pinNum: -1
   obstacle: 4
   allParams: []
   obstacleType: Wall
-  firstInputDataWarningMsg: {fileID: 0}
-  secondInputDataWarningMsg: {fileID: 0}
 --- !u!1 &7356380876769659716
 GameObject:
   m_ObjectHideFlags: 0

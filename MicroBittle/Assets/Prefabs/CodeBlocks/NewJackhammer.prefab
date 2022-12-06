@@ -980,7 +980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 316, y: -306}
+  m_AnchoredPosition: {x: 316, y: -284}
   m_SizeDelta: {x: 1000, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3649324593854663112
@@ -1024,7 +1024,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "The jackhammer works best against walls, try selecting \u201CRock\u201D!\r\n"
+  m_Text: "The jackhammer works best against rocks, try selecting \u201CRock\u201D!\r\n"
 --- !u!1 &1142299089304175353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,7 +1217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 274, y: -825}
+  m_AnchoredPosition: {x: 274, y: -806}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9178373416703552075
@@ -6275,7 +6275,7 @@ MonoBehaviour:
   inputDataWarningMsg: {fileID: 1357671053647635932}
   functionType: 0
   functionTypeWarningMsg: {fileID: 1005998814510412524}
-  pinNum: 0
+  pinNum: -1
   obstacle: 0
   allParams: []
   obstacleType: Rock
@@ -8404,7 +8404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 82, y: -895}
+  m_AnchoredPosition: {x: 82, y: -873}
   m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9028822273948649542

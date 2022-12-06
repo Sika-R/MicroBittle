@@ -30,7 +30,7 @@ public class ParamController : MonoBehaviour
     FunctionType functionType;
     [SerializeField]
     GameObject functionTypeWarningMsg;
-    public int pinNum;
+    public int pinNum = -1;
     public ParamManager.Obstacle obstacle;
     public List<float> allParams = new List<float>();
     [SerializeField]
