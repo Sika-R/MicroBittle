@@ -3012,7 +3012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1018, y: 28}
+  m_AnchoredPosition: {x: 264, y: -418}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5732854128796531528
@@ -3572,8 +3572,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 352, y: -70}
-  m_SizeDelta: {x: 400, y: 120}
+  m_AnchoredPosition: {x: 286, y: -368}
+  m_SizeDelta: {x: 1000, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1077309319380416432
 CanvasRenderer:
@@ -3616,7 +3616,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "The power log works best against walls, try selecting \u201CSpider Web\u201D!\r\n"
+  m_Text: "The vacuum cleaner works best against walls, try selecting \u201CSpider
+    Web\u201D!\r\n"
 --- !u!1 &5705805016321963875
 GameObject:
   m_ObjectHideFlags: 0
@@ -5638,7 +5639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 368, y: -45}
+  m_AnchoredPosition: {x: 74, y: -487}
   m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4489039849526238192

@@ -10,10 +10,7 @@ public class PowerLogParamController : ParamController
     //paramInputs[0] : slider min
     //paramInputs[1] : slider max
     // Start is called before the first frame update
-    [SerializeField]
-    GameObject firstInputDataWarningMsg;
-    [SerializeField]
-    GameObject secondInputDataWarningMsg;
+
 
     void Awake()
     {
@@ -52,7 +49,7 @@ public class PowerLogParamController : ParamController
         }*/
     }
 
-    override public void DelegationInit()
+    /*override public void DelegationInit()
     {
         base.DelegationInit();
         paramInputs[0].onValueChanged.AddListener(delegate { OnFirstInputFieldChange();  });
@@ -98,7 +95,7 @@ public class PowerLogParamController : ParamController
             secondInputDataWarningMsg.SetActive(false);
         }
 
-    }
+    }*/
 
 
 

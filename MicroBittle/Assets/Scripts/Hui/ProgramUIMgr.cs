@@ -96,12 +96,33 @@ public class ProgramUIMgr : MonoBehaviour
         for (int i = 0; i < allObstacles.Count; i++)
         {
             newData = new Dropdown.OptionData();
-            newData.text = Enum.GetName(typeof(ParamManager.Obstacle), allObstacles[i]);
+            newData.text = ObstacleToFunctionName(allObstacles[i]);
             dropdown.options.Add(newData);
         }
 
         InitAllBlockCodingController();
         SwitchBlockCodingPanel();
+    }
+
+    String ObstacleToFunctionName(ParamManager.Obstacle o)
+    {
+        if(o == ParamManager.Obstacle.mouse)
+        {
+            return "Headlamp";
+        }
+        if (o == ParamManager.Obstacle.wall)
+        {
+            return "PowerLog";
+        }
+        if (o == ParamManager.Obstacle.rock)
+        {
+            return "JackHammer";
+        }
+        if (o == ParamManager.Obstacle.spiderweb)
+        {
+            return "Vacuum Cleaner";
+        }
+        return "";
     }
 
     private void InitAllBlockCodingController()

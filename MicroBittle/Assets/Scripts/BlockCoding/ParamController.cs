@@ -96,8 +96,9 @@ public class ParamController : MonoBehaviour
     void Start()
     {
         ParamManager.Instance.AddController(this);
-        Init();
+        
         DelegationInit();
+        Init();
     }
 
     // Update is called once per frame
@@ -113,24 +114,7 @@ public class ParamController : MonoBehaviour
 
     public void Init()
     {
-        if (pinSelection)
-        {
-            pinSelection.value = 0;
-            PinValueChanged(pinSelection);
-            pinSelection.onValueChanged.AddListener(delegate { PinValueChanged(pinSelection); });
-        }
-        if (obstacleSelection)
-        {
-            obstacleSelection.value = 0;
-            ObstacleValueChanged(obstacleSelection);
-            obstacleSelection.captionText.text = obstacleSelection.options[0].text;
-            MG_BlocksEngine2.Block.BE2_DropdownDynamicResize dropdownResize = obstacleSelection.GetComponent<MG_BlocksEngine2.Block.BE2_DropdownDynamicResize>();
-            if(dropdownResize)
-            {
-                dropdownResize.Resize();
-            }
-            obstacleSelection.onValueChanged.AddListener(delegate { ObstacleValueChanged(obstacleSelection); });
-        }
+ 
 
         for (int i = 0; i < paramInputs.Count; i++)
         {
@@ -152,23 +136,34 @@ public class ParamController : MonoBehaviour
                 paramInputs[i].readOnly = true;
             }
         }*/
+        
+
+        if (obstacleSelection)
+        {
+            obstacleSelection.value = 0;
+            ObstacleValueChanged(obstacleSelection);
+            obstacleSelection.captionText.text = obstacleSelection.options[0].text;
+            MG_BlocksEngine2.Block.BE2_DropdownDynamicResize dropdownResize = obstacleSelection.GetComponent<MG_BlocksEngine2.Block.BE2_DropdownDynamicResize>();
+            if (dropdownResize)
+            {
+                dropdownResize.Resize();
+            }
+            obstacleSelection.onValueChanged.AddListener(delegate { ObstacleValueChanged(obstacleSelection); });
+        }
+
+        if (pinSelection)
+        {
+            pinSelection.value = 0;
+            PinValueChanged(pinSelection);
+            pinSelection.onValueChanged.AddListener(delegate { PinValueChanged(pinSelection); });
+        }
         SaveParams();
     }
 
     public virtual void DelegationInit()
     {
-        if (pinSelection)
-        {
-            PinValueChanged(pinSelection);
-            pinSelection.onValueChanged.AddListener(delegate { PinValueChanged(pinSelection); });
-        }
-        if (obstacleSelection)
-        {
-            ObstacleValueChanged(obstacleSelection);
-            //MG_BlocksEngine2.Block.BE2_DropdownDynamicResize dropdownResize = obstacleSelection.GetComponent<MG_BlocksEngine2.Block.BE2_DropdownDynamicResize>();
-            // dropdownResize.Resize();
-            obstacleSelection.onValueChanged.AddListener(delegate { ObstacleValueChanged(obstacleSelection); });
-        }
+
+        
 
         for (int i = 0; i < paramInputs.Count; i++)
         {
@@ -177,6 +172,20 @@ public class ParamController : MonoBehaviour
             // inputResize.Resize();
             InputField inputField = paramInputs[i];
             inputField.onValueChanged.AddListener(delegate { ParamValueChanged(inputField); });
+        }
+
+        if (obstacleSelection)
+        {
+            ObstacleValueChanged(obstacleSelection);
+            //MG_BlocksEngine2.Block.BE2_DropdownDynamicResize dropdownResize = obstacleSelection.GetComponent<MG_BlocksEngine2.Block.BE2_DropdownDynamicResize>();
+            // dropdownResize.Resize();
+            obstacleSelection.onValueChanged.AddListener(delegate { ObstacleValueChanged(obstacleSelection); });
+        }
+
+        if (pinSelection)
+        {
+            PinValueChanged(pinSelection);
+            pinSelection.onValueChanged.AddListener(delegate { PinValueChanged(pinSelection); });
         }
     }
 
@@ -207,7 +216,8 @@ public class ParamController : MonoBehaviour
             cb.normalColor = Color.red;
             cb.colorMultiplier = 5.0f;
             o.colors = cb;
-            functionTypeWarningMsg.SetActive(true);
+            // functionTypeWarningMsg.SetActive(true);
+            isFunctionInputValid(false);
             return;
         }
         else
@@ -215,10 +225,11 @@ public class ParamController : MonoBehaviour
             ColorBlock cb = o.colors;
             cb.normalColor = Color.white;
             o.colors = cb;
-            functionTypeWarningMsg.SetActive(false);
+            // functionTypeWarningMsg.SetActive(false);
+            isFunctionInputValid(true);
             if (ParamManager.Instance)
             {
-                ParamManager.Instance.SetPin(pinNum, obstacle);
+                // ParamManager.Instance.SetPin(pinNum, obstacle);
                 ParamManager.Instance.SetFunction(functionType, obstacle);
             }
         }
@@ -305,11 +316,14 @@ public class ParamController : MonoBehaviour
     {
         if(c == Color.red)
         {
-            pinSelectionWarningMsg.SetActive(true);
+            isInputPinValid(false);
+            // pinSelectionWarningMsg.SetActive(true);
+
         }
         else
         {
-            pinSelectionWarningMsg.SetActive(false);
+            isInputPinValid(true);
+            // pinSelectionWarningMsg.SetActive(false);
         }
         ColorBlock cb = pinSelection.colors;
         cb.normalColor = c;
@@ -349,5 +363,53 @@ public class ParamController : MonoBehaviour
             }
         }
         return true;
+    }
+
+    void isInputPinValid(bool isValid)
+    {
+        if(isValid)
+        {
+            obstacleSelection.enabled = true;
+            functionTypeWarningMsg.SetActive(true);
+            pinSelectionWarningMsg.SetActive(false);
+            ObstacleValueChanged(obstacleSelection);
+        }
+        else
+        {
+            foreach(InputField field in paramInputs)
+            {
+                field.enabled = false;
+            }
+            obstacleSelection.enabled = false;
+            inputDataWarningMsg.SetActive(false);
+            functionTypeWarningMsg.SetActive(false);
+            pinSelectionWarningMsg.SetActive(true);
+        }
+    }
+
+    void isFunctionInputValid(bool isValid)
+    {
+        if (isValid)
+        {
+            functionTypeWarningMsg.SetActive(false);
+            inputDataWarningMsg.SetActive(true);
+            foreach (InputField field in paramInputs)
+            {
+                field.enabled = true;
+                ParamValueChanged(field);
+            }
+            
+        }
+        else
+        {
+            foreach (InputField field in paramInputs)
+            {
+                field.enabled = false;
+            }
+            // obstacleSelection.enabled = false;
+            inputDataWarningMsg.SetActive(false);
+            functionTypeWarningMsg.SetActive(true);
+            // pinSelectionWarningMsg.SetActive(true);
+        }
     }
 }
