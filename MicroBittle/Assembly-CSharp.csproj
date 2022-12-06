@@ -320,6 +320,7 @@
     <Compile Include="Assets\Scripts\Dialogue\DialogueControllerProgramFlow_PlayMode.cs" />
     <Compile Include="Assets\Scripts\CreativeInitializer.cs" />
     <Compile Include="Assets\Scripts\MaterialController.cs" />
+    <Compile Include="Assets\Scripts\Hui\SoundMgrForUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Decal\decalScreenspace.shader" />
