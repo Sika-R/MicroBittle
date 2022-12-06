@@ -6267,7 +6267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   pinSelection: {fileID: 1463997414120373975}
-  pinSelectionWarningMsg: {fileID: 0}
+  pinSelectionWarningMsg: {fileID: 8183051971547248188}
   obstacleSelection: {fileID: 4578541532866864707}
   paramInputs:
   - {fileID: 4162947816973646453}
