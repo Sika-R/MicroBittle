@@ -104,7 +104,7 @@ public class ProgramUIMgr : MonoBehaviour
         SwitchBlockCodingPanel();
     }
 
-    String ObstacleToFunctionName(ParamManager.Obstacle o)
+    public string ObstacleToFunctionName(ParamManager.Obstacle o)
     {
         if(o == ParamManager.Obstacle.mouse)
         {
