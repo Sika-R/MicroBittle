@@ -159,12 +159,20 @@ public class ParamManager : MonoBehaviour
     
     public bool allParamValidationCheck()
     {
+        // bool result = true;
+        // int i = 0;
         foreach (ParamController c in allControllers)
         {
             if(!c.isAllInputValid())
             {
+                // result = false;
                 return false;
             }
+            /*else
+            {
+                // programUI.Instance.checkiffilloutcorrectly(i);
+            }
+            // i++;*/
         }
         return true;
     }

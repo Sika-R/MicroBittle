@@ -267,8 +267,12 @@ void Update()
                 else if(dropdownforprogram.value != 0 && readdataornot == true)
                 {
                     characterdialog.text = stringdiagforprogram[2];
-                    
-                    if (PlayerPrefs.GetString("mode") == "storymode")
+
+                    if (ParamManager.Instance.allParamValidationCheck())
+                    {
+                        characterdialog.text = stringdiagforprogram[5];
+                    }
+                    /*if (PlayerPrefs.GetString("mode") == "storymode")
                     {
                         if(allblocksrights[0] == true)
                         {
@@ -282,7 +286,7 @@ void Update()
                         {
                             characterdialog.text = stringdiagforprogram[5];
                         }
-                    }
+                    }*/
                 }
                 break;
             case panelstage.ViewData:
@@ -314,11 +318,18 @@ void Update()
                 break;
         }
     }
+
+    public void changeDialogueForProgramming()
+    {
+        characterdialog.text = stringdiagforprogram[5];
+    }
     public bool checkifallcorrectforprogram()
     {
-        for (int i = 0; i < dropdownforprogram.options.Count; i++)
+        for (int i = 0; i < ProgramUIMgr.Instance.allObstacles.Count; i++)
+        // for (int i = 0; i < dropdownforprogram.options.Count; i++)
         {
-            if (allblocksrights[i - 1] == true)
+            if (allblocksrights[i] == true)
+            // if (allblocksrights[i - 1] == true)
             {
                 continue;
             }
@@ -555,8 +566,8 @@ void Update()
     //for robin
     public void checkiffilloutcorrectly(int index)
     {
-        
-        if(index == 1)
+
+        /*if(index == 1)
         {
             allblocksrights[0] = true;
         }
@@ -569,7 +580,8 @@ void Update()
         if (index == 3)
         {
             allblocksrights[2] = true;
-        }
+        }*/
+        allblocksrights[index] = true;
     }
 
     //public void checkifhammermovefine()
