@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Backstory1_Line2
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: 'We call ourselves micro bittles. We look and act like beetles for the
+  m_Text: 'We call ourselves micro bittles. We look and act like beetles, for the
     most part. '

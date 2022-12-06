@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Backstory1_Line5
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: But, before traveling to faraway lands, every micro bittle must prove their
-    engineering skills in a legendary test called the Cavern Challenge.
+  m_Text: 'But, before traveling to other lands, every micro bittle must prove their
+    engineering skills in a legendary test called the Cavern Challenge. '

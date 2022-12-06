@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
   m_Text: "Okay, let\u2019s get started! The Cavern Challenge is a maze with incomplete
-    paths, and you\u2019ll have to break through walls to move forward."
+    paths, so you\u2019ll have to break through walls to move forward."
