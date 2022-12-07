@@ -74,6 +74,10 @@ public class SoundMgr : MonoBehaviour
         {
             return;
         }
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
         if (ac)
         {
             StartCoroutine(Play(ac.length));
@@ -87,9 +91,14 @@ public class SoundMgr : MonoBehaviour
         {
             return;
         }
+        if(audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
         if (clip)
         {
             StartCoroutine(Play(clip.length));
+            
             audioSource.PlayOneShot(clip);
         }
         
