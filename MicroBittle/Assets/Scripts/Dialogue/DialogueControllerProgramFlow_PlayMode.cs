@@ -55,6 +55,8 @@ public class DialogueControllerProgramFlow_PlayMode : DialogueController
                     powerlog.SetActive(true);
                 }
             }
+            DialogueUI.SetActive(true);
+            DoInteraction();
         }
         else {
             string mazeSelection = PlayerPrefs.GetString("mazeselection");
