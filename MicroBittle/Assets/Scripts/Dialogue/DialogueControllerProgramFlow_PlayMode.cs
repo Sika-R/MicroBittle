@@ -8,6 +8,7 @@ public class DialogueControllerProgramFlow_PlayMode : DialogueController
     public GameObject vacuum;
     public GameObject jackhammer;
     public GameObject headlamp;
+    public GameObject powerlog;
     public static DialogueControllerProgramFlow_PlayMode Instance_ = null;
     // Start is called before the first frame update
     private void Awake()
@@ -38,12 +39,20 @@ public class DialogueControllerProgramFlow_PlayMode : DialogueController
         {
             foreach (ParamManager.Obstacle o in ProgramUIMgr.Instance.allObstacles) { 
                 string obstacleName = ProgramUIMgr.Instance.ObstacleToFunctionName(o);
-                if (obstacleName == "Headlamp") {
+                if (obstacleName == "Headlamp")
+                {
                     headlamp.SetActive(true);
-                } else if (obstacleName == "JackHammer") {
+                }
+                else if (obstacleName == "JackHammer")
+                {
                     jackhammer.SetActive(true);
-                } else if (obstacleName == "Vacuum Cleaner") {
+                }
+                else if (obstacleName == "Vacuum Cleaner")
+                {
                     vacuum.SetActive(true);
+                }
+                else {
+                    powerlog.SetActive(true);
                 }
             }
         }
