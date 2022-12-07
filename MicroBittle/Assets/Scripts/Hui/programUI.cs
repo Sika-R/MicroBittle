@@ -103,7 +103,7 @@ public class programUI : MonoBehaviour
     public GameObject panelshowdemo;
     public GameObject livedemo;
     private bool[] demoworks = new bool[2];
-    private bool demowork = false;
+    public bool demowork = false;
     public GameObject movetonextscnebutton;
 
     private float getMinData = 1024.0f;
