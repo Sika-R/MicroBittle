@@ -15,6 +15,8 @@ public class ProgramUIMgr : MonoBehaviour
     [SerializeField]
     List<GameObject> allCodingBlocks = new List<GameObject>();
     [SerializeField]
+    List<GameObject> allSensorImages = new List<GameObject>();
+    [SerializeField]
     List<GameObject> allLiveDemos = new List<GameObject>();
     GameObject curLiveDemo = null;
     Dictionary<ParamManager.Obstacle, ObstacleType> obstacleMap = new Dictionary<ParamManager.Obstacle, ObstacleType>();
@@ -24,6 +26,7 @@ public class ProgramUIMgr : MonoBehaviour
     public String nextSceneName = " ";
     [SerializeField]
     GameObject warningText;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -146,17 +149,19 @@ public class ProgramUIMgr : MonoBehaviour
             if((int)allObstacles[obstacleTypeDropdown.value] == i)
             {
                 allCodingBlocks[i].SetActive(true);
+                allSensorImages[i].SetActive(true);
                 /*if(allCodingBlocks[i].activeInHierarchy)
                 {
                     allCodingBlocks[i].GetComponent<ParamController>().DelegationInit();
                 }*/
-                
+
             }
             else
             {
                 if(allCodingBlocks[i])
                 {
                     allCodingBlocks[i].SetActive(false);
+                    allSensorImages[i].SetActive(false);
                 }
                 
             }
@@ -221,7 +226,7 @@ public class ProgramUIMgr : MonoBehaviour
 
     public void AddSuccess()
     {
-        programUI.Instance.demowork = true;
+        programUI.Instance.breakornot = true;
         successCnt++;
         if(successCnt >= allObstacles.Count)
         {

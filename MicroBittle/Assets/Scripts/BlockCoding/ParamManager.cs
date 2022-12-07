@@ -120,27 +120,34 @@ public class ParamManager : MonoBehaviour
         bool result = true;
         for (int i = 0; i < allControllers.Count; i++)
         {
-            allControllers[i].SetPinColor();
+            if(allControllers[i])
+            {
+                allControllers[i].SetPinColor();
+            }
             // allControllers[i].ChangePinColor(Color.white);
         }
         for (int i = 0; i < allControllers.Count; i++)
         {
-            bool hasConflicted = false;
-            for (int j = i + 1; j < allControllers.Count; j++)
+            if(allControllers[i])
             {
-                if(allControllers[i].pinNum == allControllers[j].pinNum)
+                bool hasConflicted = false;
+                for (int j = i + 1; j < allControllers.Count; j++)
                 {
-                    hasConflicted = true;
-                    allControllers[i].ChangePinColor(Color.red);
-                    allControllers[j].ChangePinColor(Color.red);
-                    result = false;
+                    if (allControllers[j] && allControllers[i].pinNum == allControllers[j].pinNum)
+                    {
+                        hasConflicted = true;
+                        allControllers[i].ChangePinColor(Color.red);
+                        allControllers[j].ChangePinColor(Color.red);
+                        result = false;
+                    }
+                }
+                if (!hasConflicted)
+                {
+                    Debug.Log(allControllers[i].pinNum);
+                    pinToObstacle[allControllers[i].pinNum] = allControllers[i].obstacle;
                 }
             }
-            if(!hasConflicted)
-            {
-                Debug.Log(allControllers[i].pinNum);
-                pinToObstacle[allControllers[i].pinNum] = allControllers[i].obstacle;
-            }
+            
         }
         return result;
     }
@@ -149,7 +156,7 @@ public class ParamManager : MonoBehaviour
     {
         foreach(ParamController c in allControllers)
         {
-            if(c.obstacle == o)
+            if(c && c.obstacle == o)
             {
                 return c.isAllInputValid();
             }
@@ -163,7 +170,7 @@ public class ParamManager : MonoBehaviour
         // int i = 0;
         foreach (ParamController c in allControllers)
         {
-            if(!c.isAllInputValid())
+            if(c && !c.isAllInputValid())
             {
                 // result = false;
                 return false;

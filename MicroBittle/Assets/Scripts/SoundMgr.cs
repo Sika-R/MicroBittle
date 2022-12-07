@@ -129,7 +129,10 @@ public class SoundMgr : MonoBehaviour
 
     public void MuteAllAs() {
         int isEnabledAllAudioSource = PlayerPrefs.GetInt("IsMuted");
-        muteButton.sprite = muteSprite[isEnabledAllAudioSource];
+        if(muteButton)
+        {
+            muteButton.sprite = muteSprite[isEnabledAllAudioSource];
+        }
         foreach (AudioSource audioSource in allAS)
         {
             audioSource.mute = (isEnabledAllAudioSource == 1);

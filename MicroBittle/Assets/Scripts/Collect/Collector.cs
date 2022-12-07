@@ -115,7 +115,15 @@ public class Collector : MonoBehaviour
         }*/
         List<string> keyList = new List<string>(this.collections.Keys);
 
-        cnt = collections[keyList[0]];
+        if(keyList.Count > 0)
+        {
+            cnt = collections[keyList[0]];
+        }
+        else
+        {
+            cnt = 0;
+        }
+        
         finalCnt.text = cnt.ToString();
         if(cnt == 5)
         {
@@ -135,8 +143,39 @@ public class Collector : MonoBehaviour
 
     IEnumerator goBackToHomePage()
     {
-        yield return new WaitForSeconds(4);
+        showFinalPanel();
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene("Start");
+        if(ParamManager.Instance)
+        {
+            Destroy(ParamManager.Instance.gameObject);
+        }
+
+        if (ParamManager.Instance)
+        {
+            Destroy(ParamManager.Instance.gameObject);
+        }
+
+        if (ParamManager.Instance)
+        {
+            Destroy(ParamManager.Instance.gameObject);
+        }
+
+        if(CreativeMgr.Instance)
+        {
+            Destroy(CreativeMgr.Instance.maze);
+            Destroy(CreativeMgr.Instance.gameObject);
+        }
+        if(Photoresistor.Instance)
+        {
+            Photoresistor.Instance.LightOn();
+        }
+
+        GameObject[] all = GameObject.FindGameObjectsWithTag("Beatle");
+        for(int i = 0; i < all.Length; i++)
+        {
+            Destroy(all[i]);
+        }
     }
 }
 

@@ -64,7 +64,7 @@ public class programUI : MonoBehaviour
     public GameObject dataimage;
     private bool readdataornot = false;
     private bool[] allblocksrights = new bool[3];
-    private bool breakornot = false;
+    public bool breakornot = false;
     private bool hasGetData = false;
     //============programming===========//
 
@@ -103,7 +103,7 @@ public class programUI : MonoBehaviour
     public GameObject panelshowdemo;
     public GameObject livedemo;
     private bool[] demoworks = new bool[2];
-    public bool demowork = false;
+    private bool demowork = false;
     public GameObject movetonextscnebutton;
 
     private float getMinData = 1024.0f;
@@ -115,6 +115,9 @@ public class programUI : MonoBehaviour
     public AudioSource audiosource;
     private bool[] alreadyplayed;
     private string charactertext;
+
+    [SerializeField]
+    List<GameObject> sensorImages = new List<GameObject>();
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -160,14 +163,34 @@ public class programUI : MonoBehaviour
                 
                 break;
             case "playmode":
-                playmodeImage.SetActive(true);
+                InitImage();
+                // playmodeImage.SetActive(true);
                 break;
             case "creativemode":
-                creativemodeImage.SetActive(true);
+                InitImage();
+                // creativemodeImage.SetActive(true);
                 break;
         }
         
 
+}
+
+void InitImage()
+{
+        foreach(GameObject a in sensorImages)
+        {
+            if(a)
+            {
+                a.SetActive(false);
+            }
+        }
+        Vector3 startPos = playmodeImage.transform.position;
+        foreach(ParamManager.Obstacle o in ProgramUIMgr.Instance.allObstacles)
+        {
+            sensorImages[(int)o].SetActive(true);
+            sensorImages[(int)o].transform.position = startPos;
+            startPos.y += -30;
+        }
 }
 
 // Update is called once per frame

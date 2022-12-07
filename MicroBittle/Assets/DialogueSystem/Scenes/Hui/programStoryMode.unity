@@ -4152,14 +4152,14 @@ RectTransform:
   m_GameObject: {fileID: 280234768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.5471766, y: 3.5471766, z: 3.5471766}
   m_Children: []
   m_Father: {fileID: 678223563}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 0}
+  m_AnchoredPosition: {x: -37, y: 0.00010704}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &280234770
@@ -5029,6 +5029,7 @@ MonoBehaviour:
   stringdiagforprogram: []
   buttonread: []
   dataimage: {fileID: 0}
+  breakornot: 0
   viewinputData: {fileID: 0}
   viewdeviceCode: {fileID: 0}
   viewinputDatabutton: {fileID: 0}
@@ -5058,6 +5059,7 @@ MonoBehaviour:
   movetonextscnebutton: {fileID: 0}
   audioEffects: []
   audiosource: {fileID: 0}
+  sensorImages: []
 --- !u!1 &433598362
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,7 +5152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &435837848
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5539,14 +5541,14 @@ RectTransform:
   m_GameObject: {fileID: 470332908}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.5471766, y: 3.5471766, z: 3.5471766}
   m_Children: []
   m_Father: {fileID: 69190418}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 0}
+  m_AnchoredPosition: {x: -37, y: 0.00010704}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470332910
@@ -8091,6 +8093,7 @@ MonoBehaviour:
   - 'Fantastic, the power log works perfectly! Click here to continue. '
   buttonread: []
   dataimage: {fileID: 0}
+  breakornot: 0
   viewinputData: {fileID: 73212990}
   viewdeviceCode: {fileID: 1500486110}
   viewinputDatabutton: {fileID: 1060496642}
@@ -8120,6 +8123,7 @@ MonoBehaviour:
   movetonextscnebutton: {fileID: 0}
   audioEffects: []
   audiosource: {fileID: 0}
+  sensorImages: []
 --- !u!1 &519721196
 GameObject:
   m_ObjectHideFlags: 0
@@ -15184,14 +15188,14 @@ RectTransform:
   m_GameObject: {fileID: 1196619720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.5471766, y: 3.5471766, z: 3.5471766}
   m_Children: []
   m_Father: {fileID: 2140590503}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 0}
+  m_AnchoredPosition: {x: -37, y: 0.00010704}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1196619722
@@ -19697,7 +19701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1657132366
 RectTransform:
   m_ObjectHideFlags: 0
