@@ -5013,9 +5013,9 @@ MonoBehaviour:
   Sliderintro: {fileID: 0}
   Photointro: {fileID: 0}
   Waterintro: {fileID: 0}
-  jackintro1: {fileID: 0}
-  jackintro2: {fileID: 0}
-  jackintro3: {fileID: 0}
+  storymodeImage: {fileID: 0}
+  playmodeImage: {fileID: 0}
+  creativemodeImage: {fileID: 0}
   sliderJack: {fileID: 0}
   sliderdiv: {fileID: 0}
   sliderHead: {fileID: 0}
@@ -5056,6 +5056,8 @@ MonoBehaviour:
   panelshowdemo: {fileID: 0}
   livedemo: {fileID: 0}
   movetonextscnebutton: {fileID: 0}
+  audioEffects: []
+  audiosource: {fileID: 0}
 --- !u!1 &433598362
 GameObject:
   m_ObjectHideFlags: 0
@@ -8046,9 +8048,9 @@ MonoBehaviour:
   Sliderintro: {fileID: 665359488}
   Photointro: {fileID: 2100632703}
   Waterintro: {fileID: 585472692}
-  jackintro1: {fileID: 0}
-  jackintro2: {fileID: 0}
-  jackintro3: {fileID: 0}
+  storymodeImage: {fileID: 0}
+  playmodeImage: {fileID: 0}
+  creativemodeImage: {fileID: 0}
   sliderJack: {fileID: 1355691455}
   sliderdiv: {fileID: 572044374}
   sliderHead: {fileID: 194398964}
@@ -8084,7 +8086,8 @@ MonoBehaviour:
   - 'Great! This is the input pin you should select in the function! And you can
     see the input data values you will need, too. Click on the Code Blocks button
     to continue. '
-  - 'Move the slider to see a live demo of the power log breaking a wall! '
+  - Move the slider to see a live demo of the power log breaking a wall! If it doesn't
+    work, go back to block coding and change the parameters.
   - 'Fantastic, the power log works perfectly! Click here to continue. '
   buttonread: []
   dataimage: {fileID: 0}
@@ -8115,6 +8118,8 @@ MonoBehaviour:
   panelshowdemo: {fileID: 1607816199}
   livedemo: {fileID: 0}
   movetonextscnebutton: {fileID: 0}
+  audioEffects: []
+  audiosource: {fileID: 0}
 --- !u!1 &519721196
 GameObject:
   m_ObjectHideFlags: 0

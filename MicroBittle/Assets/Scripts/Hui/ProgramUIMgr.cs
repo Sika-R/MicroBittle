@@ -221,6 +221,7 @@ public class ProgramUIMgr : MonoBehaviour
 
     public void AddSuccess()
     {
+        programUI.Instance.demowork = true;
         successCnt++;
         if(successCnt >= allObstacles.Count)
         {

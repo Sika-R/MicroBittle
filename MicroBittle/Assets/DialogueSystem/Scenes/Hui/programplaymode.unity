@@ -6785,7 +6785,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 497981276}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11822,10 +11822,10 @@ RectTransform:
   - {fileID: 435837848}
   - {fileID: 1657132366}
   - {fileID: 1718994637}
+  - {fileID: 1180929683}
   - {fileID: 848977032}
   - {fileID: 336476489}
   - {fileID: 1377050388}
-  - {fileID: 1180929683}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11933,10 +11933,8 @@ MonoBehaviour:
     fill out the functions for your devices, which you can see in the Code Blocks
     section. Pay attention to any alert messages! You won\u2019t be able to move
     on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
+  - Awesome! Change to other obstacles and try breaking them until the checkmark
+    shows up!
   - "Remember to use the Input Data button and the Device Demo button to help you
     fill out the functions for your devices, which you can see in the Code Blocks
     section. Pay attention to any alert messages! You won\u2019t be able to move
@@ -17870,7 +17868,7 @@ RectTransform:
   m_Children:
   - {fileID: 1969389185}
   m_Father: {fileID: 497981276}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21336,7 +21334,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 497981276}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -24383,7 +24381,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 497981276}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33586,9 +33584,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
