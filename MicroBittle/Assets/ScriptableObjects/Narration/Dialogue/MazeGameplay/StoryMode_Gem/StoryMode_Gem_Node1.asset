@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StoryMode_Gem_Node1
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 1ba225a37342dd24aa6520ddcd898e37, type: 2}
-  dialogueAudio: {fileID: 0}
+  dialogueAudio: {fileID: 8300000, guid: 8410ceac4f00f9e4e96f894404ce2028, type: 3}
+  cutsceneImage: 
   animationName: idle02
   m_NextNode: {fileID: 0}

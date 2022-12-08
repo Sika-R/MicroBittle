@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Customization_TypeName_Line1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "Enter your micro bittle name and click on the check mark when you\u2019re
-    done!"
+  m_Text: "Here\u2019s a chance to name and design (or rename and redesign) your
+    micro bittle!"

@@ -42,12 +42,16 @@ public class lookchanger : MonoBehaviour
     public Text namedtext;
 
     public GameObject mazeselectionpanel;
+
+    [SerializeField]
+    NarrationLine line;
     void Start()
     {
        // meshtochange = meshchange.GetComponent<MeshFilter>();
        // meshtochange.mesh = meshlist[0];
         materialchange = gameObjectList[1].GetComponent<MeshRenderer>();
-        
+        InitIntro();
+
         //gameObjectList[1].GetComponent<MeshRenderer>().material = newmaterial;// load the saved material
         //materialchange.material.SetTexture("_MainTex", texturelist[0]);
         //materialchange.material.SetColor("_Color", colorList[0]);
@@ -322,7 +326,7 @@ public class lookchanger : MonoBehaviour
         
         namepanel.SetActive(false);
         afternamepanel.SetActive(true);
-        DialogueControllerCustomize.Instance_.AfterTypeName();
+        // DialogueControllerCustomize.Instance_.AfterTypeName();
     }
     public void changetoWiring()
     {
@@ -331,6 +335,19 @@ public class lookchanger : MonoBehaviour
         character.transform.SetParent(null);
         DontDestroyOnLoad(character);
         SceneManager.LoadScene("program");
+    }
+
+    private void InitIntro()
+    {
+        string mode = PlayerPrefs.GetString("mode");
+        if(mode == "creativemode")
+        {
+            line.m_Text = "Here’s a chance to name and design your micro bittle (or to invite another player to do so)!";
+        }
+        else if(mode == "playmode")
+        {
+            line.m_Text = "Here’s a chance to name and design (or rename and redesign) your micro bittle!";
+        }
     }
 
 }

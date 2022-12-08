@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Backstory1_Node3
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 327f99a6bbb93724cb90d6c01f8e4608, type: 2}
-  dialogueAudio: {fileID: 8300000, guid: 412cb0dc888bcf54eac973a5f8a09804, type: 3}
+  dialogueAudio: {fileID: 8300000, guid: ae633fc1447c1f644b4c83f7d4674186, type: 3}
   cutsceneImage: Cutscene3
   animationName: dance
   m_NextNode: {fileID: 11400000, guid: 9c6d38de47bfa9b43a2c6cc4b8dc96d7, type: 2}
