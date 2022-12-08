@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StoryMode_Intro_Node1
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 7b20242fce745584f82301d011db8ca7, type: 2}
-  dialogueAudio: {fileID: 0}
+  dialogueAudio: {fileID: 8300000, guid: eaa0cf7299242cf428d6cb6a584961a4, type: 3}
   cutsceneImage: 
   animationName: birdcage
   m_NextNode: {fileID: 0}
