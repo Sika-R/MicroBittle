@@ -60,7 +60,7 @@ public class UIDialogueTextBoxController : MonoBehaviour, DialogueNodeVisitor
                 speaker.GetComponent<Animator>().Play(node.animationName);
             }
         }
-        if (node.dialogueAudio) {
+        if (node.dialogueAudio && SoundMgr.Instance) {
             SoundMgr.Instance.PlayDialogue(node.dialogueAudio);
         }
         if (node.cutsceneImage != "") {
