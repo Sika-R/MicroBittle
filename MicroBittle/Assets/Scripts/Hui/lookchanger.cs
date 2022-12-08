@@ -326,7 +326,11 @@ public class lookchanger : MonoBehaviour
         
         namepanel.SetActive(false);
         afternamepanel.SetActive(true);
-        // DialogueControllerCustomize.Instance_.AfterTypeName();
+        if(PlayerPrefs.GetString("mode") == "storymode")
+        {
+            DialogueControllerCustomize.Instance_.AfterTypeName();
+        }
+        // 
     }
     public void changetoWiring()
     {
@@ -347,6 +351,10 @@ public class lookchanger : MonoBehaviour
         else if(mode == "playmode")
         {
             line.m_Text = "Here’s a chance to name and design (or rename and redesign) your micro bittle!";
+        }
+        else
+        {
+            line.m_Text = "Enter your micro bittle name and click on the check mark when you’re done!";
         }
     }
 
