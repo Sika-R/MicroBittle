@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StoryMode_Microbit_Node1
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: ee63dce18ac38da42ba630e5016f8868, type: 2}
-  dialogueAudio: {fileID: 8300000, guid: eb433cb0170145540973abc6099ea5db, type: 3}
+  dialogueAudio: {fileID: 0}
   cutsceneImage: 
   animationName: idle01
   m_NextNode: {fileID: 0}

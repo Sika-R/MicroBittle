@@ -56,7 +56,7 @@ public class SoundMgr : MonoBehaviour
     {
         if (audioSource == null)
         {
-            audioSource = GetComponent<AudioSource>();
+            return;
         }
         audioSource.Stop();
         audioSource.PlayOneShot(clip);

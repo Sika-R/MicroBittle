@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: StoryMode_Success_Node1
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: f6a8d18f0332e584b85afed2dd25ca77, type: 2}
-  dialogueAudio: {fileID: 8300000, guid: 98e169ead0ae50749b24c1cab3458afb, type: 3}
-  cutsceneImage: 
+  dialogueAudio: {fileID: 0}
   animationName: 
   m_NextNode: {fileID: 11400000, guid: a1493c57f00804b4f9a4135e0abd7ac6, type: 2}
