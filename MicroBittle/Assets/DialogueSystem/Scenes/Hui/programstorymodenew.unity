@@ -6650,7 +6650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -223.3476, y: 0}
+  m_AnchoredPosition: {x: -223.34763, y: 0}
   m_SizeDelta: {x: -446.6947, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435837849
@@ -20440,22 +20440,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioEffects:
-  - {fileID: 8300000, guid: 460e175a47dc71a45b1fbe6775dede06, type: 3}
-  - {fileID: 8300000, guid: 34844ef54249e6a4892eb2bd4a569a85, type: 3}
-  - {fileID: 8300000, guid: f9bf32d21490fda45b28070b129c4429, type: 3}
-  - {fileID: 8300000, guid: 18f416a3e5713034fbb79c9d3bf39bda, type: 3}
-  - {fileID: 8300000, guid: c667490544e83d242a074c02044c239f, type: 3}
-  - {fileID: 8300000, guid: 460e175a47dc71a45b1fbe6775dede06, type: 3}
-  - {fileID: 8300000, guid: 0e22aa405e4ecb74a886af78598e54be, type: 3}
-  - {fileID: 8300000, guid: d69c961b7d69b554188ff364739d7de6, type: 3}
-  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
-  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
-  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
-  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
-  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
-  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
-  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
-  - {fileID: 8300000, guid: 758e9739e66281a479bf946d0a957629, type: 3}
+  - {fileID: 8300000, guid: 15f8d89e95805154cbe1f594b31c6f22, type: 3}
+  - {fileID: 8300000, guid: 8b36325500a50c84886133ae0ef3c78c, type: 3}
+  - {fileID: 8300000, guid: 29bcae0a34529124f86f2e0d518e1f61, type: 3}
+  - {fileID: 8300000, guid: 8066ccbe7fd4f074fb5831a0d4cb8a4c, type: 3}
+  - {fileID: 8300000, guid: 373d5ecd062434e4da7f3ec51007555c, type: 3}
+  - {fileID: 8300000, guid: 34d0b194332bce24085a729179d49d24, type: 3}
+  - {fileID: 8300000, guid: c4ff30481814f774c809c23bd341c467, type: 3}
+  - {fileID: 8300000, guid: b6a9e82d2cbb43b41b723a35ee76a43c, type: 3}
+  - {fileID: 8300000, guid: 2270985ac8591e4468109bf3bb413ee7, type: 3}
+  - {fileID: 8300000, guid: 8884c680cc9ab4042b1acef47ab0314e, type: 3}
+  - {fileID: 8300000, guid: 98fbb830113a9c540a950e012355980d, type: 3}
+  - {fileID: 8300000, guid: fb0b43ce392fcf843aa8cf69fd1c7c30, type: 3}
+  - {fileID: 8300000, guid: da44a804b7c9b3b4ba233821d009e3eb, type: 3}
+  - {fileID: 8300000, guid: 6c87107f43ac4f14f92a4de92af50f58, type: 3}
+  - {fileID: 8300000, guid: 9d474a3ef9aece5498a58ac750a7729c, type: 3}
+  - {fileID: 8300000, guid: df093ea31862a33479a8c787b453e626, type: 3}
   audioSource: {fileID: 1312298377}
   dialogforstory:
   - "Okay, let\u2019s get started! The Cavern Challenge is a maze with incomplete

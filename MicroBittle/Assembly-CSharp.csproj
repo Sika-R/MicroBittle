@@ -67,15 +67,18 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\Variable\I_BE2_VariablesManager.cs" />
     <Compile Include="Assets\Art\Ardity\Scripts\Samples\SampleUserPolling_ReadWrite.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\Variable\Lists\BE2_UI_NewVariableListPanel.cs" />
+    <Compile Include="Assets\Scripts\ProgramSceneLightControl.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\EventSystem\BE2_EventsManager.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Cst_Obstacle.cs" />
     <Compile Include="Assets\Scripts\BlockCoding\ParamManager.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_WhenPlayClicked.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\Utils\BE2_ArrayUtils.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueControllerPlayMode.cs" />
     <Compile Include="Assets\Art\Ardity\Scripts\Samples\SampleUserPolling_JustRead.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\HeaderItems\BE2_DropdownDynamicResize.cs" />
+    <Compile Include="Assets\Scripts\Hui\SoundMgrForUI.cs" />
     <Compile Include="Assets\Scripts\Narration\NarrationLine.cs" />
     <Compile Include="Assets\Scripts\Obstacles\HumiditySensor.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Cst_OvercomeObstacle.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_SetVariable.cs" />
     <Compile Include="Assets\Scripts\Obstacles\ObstacleMgr.cs" />
     <Compile Include="Assets\Scripts\Hui\lookchanger.cs" />
+    <Compile Include="Assets\Scripts\MaterialController.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\Variable\BE2_VariablesManager.cs" />
     <Compile Include="Assets\Scripts\UI\HintBlink.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\Variable\BE2_UI_NewVariablePanel.cs" />
@@ -143,6 +147,7 @@
     <Compile Include="Assets\Scripts\SoundMgr.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_KeyPressed.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueControllerProgramFlow_PlayMode.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\DragDrop\I_BE2_Spot.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\BE2_ExecutionManager.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\Custom\BE2_Cst_PinAssignment.cs" />
@@ -192,6 +197,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Art\Ardity\Scripts\Samples\SampleTearDown.cs" />
     <Compile Include="Assets\Scripts\Narration\Dialogue\Data\Nodes\ChoiceDialogueNode.cs" />
+    <Compile Include="Assets\Scripts\CreativeInitializer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Core\BE2_Canvas.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Nor.cs" />
@@ -316,12 +322,6 @@
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Ins_RotateAxis.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\EngineCore\Instruction\BlockInstructions\BE2_Op_Nand.cs" />
     <Compile Include="Assets\BlocksEngine2\Scripts\UI\ContextMenu\BE2_UI_ContextMenuManager.cs" />
-    <Compile Include="Assets\Scripts\ProgramSceneLightControl.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueControllerProgramFlow_PlayMode.cs" />
-    <Compile Include="Assets\Scripts\CreativeInitializer.cs" />
-    <Compile Include="Assets\Scripts\MaterialController.cs" />
-    <Compile Include="Assets\Scripts\Hui\SoundMgrForUI.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueControllerPlayMode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Decal\decalScreenspace.shader" />
