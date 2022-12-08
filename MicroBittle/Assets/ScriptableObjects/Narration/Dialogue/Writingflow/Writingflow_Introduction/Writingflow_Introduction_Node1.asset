@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Writingflow_Introduction_Node1
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: b320ddd85cd77fd4d900b20af80cfee0, type: 2}
-  dialogueAudio: {fileID: 8300000, guid: 15f8d89e95805154cbe1f594b31c6f22, type: 3}
-  cutsceneImage: 
+  dialogueAudio: {fileID: 0}
   animationName: idle01
   m_NextNode: {fileID: 0}

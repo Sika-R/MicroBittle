@@ -13,7 +13,4 @@ MonoBehaviour:
   m_Name: Programmingflow_Intro_Node1
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 403161c6bcaf44c4bae744b71874f14b, type: 2}
-  dialogueAudio: {fileID: 8300000, guid: b6a9e82d2cbb43b41b723a35ee76a43c, type: 3}
-  cutsceneImage: 
-  animationName: 
   m_NextNode: {fileID: 0}
