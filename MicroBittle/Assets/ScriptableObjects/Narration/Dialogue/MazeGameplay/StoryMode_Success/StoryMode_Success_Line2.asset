@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StoryMode_Success_Line2
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: b87f2825baf21f2498dc78672a375c71, type: 2}
-  m_Text: "I\u2019m honored to present you with your own Micro Bittle Badge, that
-    will let everyone know of your accomplishment!"
+  m_Text: "You\u2019re now free to travel around the world on your own and find new
+    maze adventures!"
