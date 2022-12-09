@@ -84,7 +84,8 @@ public class WebGLDeviceConnection : MonoBehaviour
             waterValueEvent.AddListener(programUI.Instance.sliderforDivingGear);
             lightValueEvent.AddListener(programUI.Instance.sliderforHeadLamp);
             getDataEvent.AddListener(programUI.Instance.showpinvalue);
-            getDataOrNotEvent.AddListener(programUI.Instance.getdataornot);
+            getDataEvent.AddListener(programUI.Instance.getdataornot);
+            // getDataOrNotEvent.AddListener(programUI.Instance.getdataornot);
         }
         // OpenPort();
         // pressAEvent.AddListener(() => ObstacleMgr.Instance.getInput(1, ObstacleType.ButtonA));

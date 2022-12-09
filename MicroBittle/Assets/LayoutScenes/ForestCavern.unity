@@ -2318,7 +2318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalMaze: {fileID: 11400000, guid: ac54e6070f9524d40ba1e747e135a6fe, type: 2}
-  maze: {fileID: 1103953184}
+  maze: {fileID: 1110262225}
   bShowGizmos: 1
   m_column: 11
   m_row: 11
@@ -38012,7 +38012,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1099430913}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1103953184
+--- !u!114 &1110262225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82616,7 +82616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8152326096677042978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82640,7 +82640,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -82700,7 +82700,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 48.114838}
+  m_margin: {x: 30.589355, y: 0, z: 47.409668, w: 48.114838}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 1
@@ -82866,7 +82866,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -89.4689, y: 0}
-  m_SizeDelta: {x: 178.93793, y: 10}
+  m_SizeDelta: {x: 178.93793, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!4 &8828307088507357186
 Transform:
