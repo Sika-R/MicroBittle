@@ -54,6 +54,9 @@ public class SoundMgr : MonoBehaviour
 
     public void PlayDialogue(AudioClip clip)
     {
+        if (audioSource == null) {
+            audioSource = GetComponent<AudioSource>();
+        }
         if (audioSource == null)
         {
             return;

@@ -34,22 +34,18 @@ public class DialogueControllerTransitionToStoryMode : DialogueController
     void Start()
     {
         DoInteraction();
+        Keys.SetActive(true);
     }
 
     public override void IncreaseDialogueIndex()
     {
         if (dialogueIndex == 0)
         {
-            Keys.SetActive(true);
-            StartCoroutine(doInteraction());
-        }
-        else if (dialogueIndex == 1)
-        {
             Gem.SetActive(true);
             Keys.SetActive(false);
             StartCoroutine(doInteraction());
         }
-        else if (dialogueIndex == 2)
+        else if (dialogueIndex == 1)
         {
             Gem.SetActive(false);
             Microbit.SetActive(true);
