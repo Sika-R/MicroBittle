@@ -56,13 +56,17 @@ public class Collector : MonoBehaviour
                 //showFinalPanel();
 
                 string mazeSelection = PlayerPrefs.GetString("mazeselection");
-                if (mazeSelection == "DesertPyramid" || mazeSelection == "TundraCave" || mazeSelection == "GrassLand")
+                if (PlayerPrefs.GetString("mode") == "storymode")
+                {
+                    // StartCoroutine(doInteraction());
+                }
+                else if (mazeSelection == "DesertPyramid" || mazeSelection == "TundraCave" || mazeSelection == "GrassLand")
                 {
                     StartCoroutine(goBackToHomePage());
                 }
                 else
                 {
-                    StartCoroutine(doInteraction());
+                    StartCoroutine(goBackToHomePage());
                 }
             }
             
@@ -137,8 +141,9 @@ public class Collector : MonoBehaviour
 
     IEnumerator doInteraction()
     {
-        yield return new WaitForSeconds(3);
-        showFinalPanel();
+        yield return new WaitForSeconds(5);
+        StartCoroutine(goBackToHomePage());
+        // showFinalPanel();
     }
 
     IEnumerator goBackToHomePage()
