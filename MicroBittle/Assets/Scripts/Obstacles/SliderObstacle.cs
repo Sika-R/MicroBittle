@@ -62,7 +62,8 @@ public class SliderObstacle : Obstacle
         }
         else
         {
-            endValue = inputVal;
+            startValue = Mathf.Min(startValue, inputVal);
+            endValue = Mathf.Max(startValue, inputVal);
             //Debug.Log("end value: " + endValue);
         }
         return false;

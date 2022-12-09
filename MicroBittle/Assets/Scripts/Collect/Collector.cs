@@ -37,9 +37,29 @@ public class Collector : MonoBehaviour
         {
             finalUI.SetActive(false);
         }
-        
-    }
+        if(DialogueUI)
+        {
+            DialogueUI.SetActive(true);
+            Invoke("UnactiveDialogue", 0.16f);
+        }
 
+
+    }
+    private void UnactiveDialogue()
+    {
+        DialogueUI.SetActive(false);
+    }
+    /*private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Backspace))
+        {
+            if (DialogueUI)
+            {
+                DialogueUI.SetActive(true);
+                DialogueController.Instance.DoInteraction();
+            }
+        }
+    }*/
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Destination")
@@ -56,13 +76,17 @@ public class Collector : MonoBehaviour
                 //showFinalPanel();
 
                 string mazeSelection = PlayerPrefs.GetString("mazeselection");
-                if (mazeSelection == "DesertPyramid" || mazeSelection == "TundraCave" || mazeSelection == "GrassLand")
+                if (PlayerPrefs.GetString("mode") == "storymode")
+                {
+                    StartCoroutine(doInteraction());
+                }
+                else if (mazeSelection == "DesertPyramid" || mazeSelection == "TundraCave" || mazeSelection == "GrassLand")
                 {
                     StartCoroutine(goBackToHomePage());
                 }
                 else
                 {
-                    StartCoroutine(doInteraction());
+                    StartCoroutine(goBackToHomePage());
                 }
             }
             
@@ -138,6 +162,7 @@ public class Collector : MonoBehaviour
     IEnumerator doInteraction()
     {
         yield return new WaitForSeconds(3);
+        // StartCoroutine(goBackToHomePage());
         showFinalPanel();
     }
 

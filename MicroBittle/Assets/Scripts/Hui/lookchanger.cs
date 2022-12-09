@@ -45,6 +45,11 @@ public class lookchanger : MonoBehaviour
 
     [SerializeField]
     NarrationLine line;
+    [SerializeField]
+    DialogueNode node;
+    [SerializeField]
+    AudioClip clip;
+
     void Start()
     {
        // meshtochange = meshchange.GetComponent<MeshFilter>();
@@ -326,7 +331,11 @@ public class lookchanger : MonoBehaviour
         
         namepanel.SetActive(false);
         afternamepanel.SetActive(true);
-        // DialogueControllerCustomize.Instance_.AfterTypeName();
+        if(PlayerPrefs.GetString("mode") == "storymode")
+        {
+            DialogueControllerCustomize.Instance_.AfterTypeName();
+        }
+        // 
     }
     public void changetoWiring()
     {
@@ -343,10 +352,17 @@ public class lookchanger : MonoBehaviour
         if(mode == "creativemode")
         {
             line.m_Text = "Here’s a chance to name and design your micro bittle (or to invite another player to do so)!";
+            node.dialogueAudio = null;
         }
         else if(mode == "playmode")
         {
             line.m_Text = "Here’s a chance to name and design (or rename and redesign) your micro bittle!";
+            node.dialogueAudio = null;
+        }
+        else
+        {
+            line.m_Text = "Enter your micro bittle name and click on the check mark when you’re done!";
+            node.dialogueAudio = clip;
         }
     }
 

@@ -106,8 +106,8 @@ public class programUI : MonoBehaviour
     private bool demowork = false;
     public GameObject movetonextscnebutton;
 
-    private float getMinData = 1024.0f;
-    private float getMaxData = 0.0f;
+    private float[] getMinData = { 1024.0f, 1024.0f, 1024.0f };
+    private float[] getMaxData = { 0.0f, 0.0f, 0.0f };
     // public GameObject warningText;
 
     //========AudioEffect===============//
@@ -926,15 +926,19 @@ void Update()
                 break;
         }*/
     }
-    public void getdataornot(float value)
+    public void getdataornot(int pin, float value)
     {
         if (hasGetData) return;
-        getMinData = Mathf.Min(getMinData, value);
-        getMaxData = Mathf.Max(getMaxData, value);
-        if (getMaxData - getMinData > 400.0f)
+        getMinData[pin] = Mathf.Min(getMinData[pin], value);
+        getMaxData[pin] = Mathf.Max(getMaxData[pin], value);
+        for(int i = 0; i < 3; i++)
         {
-            stagenow = panelstage.GetData;
+            if (getMaxData[i] - getMinData[i] > 400.0f)
+            {
+                stagenow = panelstage.GetData;
+            }
         }
+        
         /*
         switch (type)
         {
