@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Customization_TypeName_Node1
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 8fedb3fa2f9a88b41b47e7e68a254279, type: 2}
+  dialogueAudio: {fileID: 8300000, guid: 5fae02646a22a5347996024d4785bf46, type: 3}
+  cutsceneImage: 
+  animationName: 
   m_NextNode: {fileID: 0}

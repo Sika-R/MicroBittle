@@ -66,7 +66,9 @@ public class UIDialogueTextBoxController : MonoBehaviour, DialogueNodeVisitor
                 SoundMgr.Instance.PlayDialogue(node.dialogueAudio);
             }
             else {
-                GameObject.Find("SoundMgr").GetComponent<SoundMgr>().PlayDialogue(node.dialogueAudio);
+                if (node != null) {
+                    GameObject.Find("SoundMgr").GetComponent<SoundMgr>().PlayDialogue(node.dialogueAudio);
+                }
             }
         }
         if (node.cutsceneImage != "") {
