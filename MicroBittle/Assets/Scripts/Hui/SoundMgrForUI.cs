@@ -44,12 +44,13 @@ public class SoundMgrForUI : MonoBehaviour
         
         if (PlayerPrefs.GetInt("IsMuted") == 0)
         {
-            mute.sprite = soundUI2;
-            audioSource.mute = !audioSource.mute;
+            mute.sprite = soundUI1;
+            
         }
         else
         {
-            mute.sprite = soundUI1;
+            mute.sprite = soundUI2;
+            audioSource.mute = !audioSource.mute;
         }
     }
 
@@ -331,12 +332,14 @@ public class SoundMgrForUI : MonoBehaviour
         {
             PlayerPrefs.SetInt("IsMuted", 1);
             Debug.Log(PlayerPrefs.GetInt("IsMuted"));
-            mute.sprite = soundUI1;
+            mute.sprite = soundUI2;
         }
         else
         {
             PlayerPrefs.SetInt("IsMuted", 0);
-            mute.sprite = soundUI2;
+            mute.sprite = soundUI1;
+
+
         }
         audioSource.mute = !audioSource.mute;
     }
