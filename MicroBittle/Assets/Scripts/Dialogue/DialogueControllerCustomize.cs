@@ -7,6 +7,10 @@ public class DialogueControllerCustomize : DialogueController
     public GameObject DialogueUI;
     public static DialogueControllerCustomize Instance_ = null;
     // Start is called before the first frame update
+    private void Start()
+    {
+        StartCoroutine(StartPlayAudio());
+    }
     private void Awake()
     {
         if (Instance_ != null && Instance_ != this)
@@ -49,6 +53,11 @@ public class DialogueControllerCustomize : DialogueController
     public void AfterTypeName()
     {
         DialogueUI.SetActive(true);
+        DoInteraction();
+    }
+
+    IEnumerator StartPlayAudio() {
+        yield return new WaitForSeconds(0.3f);
         DoInteraction();
     }
 }
