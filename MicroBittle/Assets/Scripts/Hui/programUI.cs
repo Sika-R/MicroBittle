@@ -189,7 +189,7 @@ void InitImage()
         {
             sensorImages[(int)o].SetActive(true);
             sensorImages[(int)o].transform.position = startPos;
-            startPos.y += -30;
+            startPos.y += -30.0f;
         }
 }
 

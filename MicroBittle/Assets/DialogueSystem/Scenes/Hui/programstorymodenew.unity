@@ -6650,7 +6650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -223.3476, y: 0}
+  m_AnchoredPosition: {x: -223.34753, y: 0}
   m_SizeDelta: {x: -446.6947, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435837849
@@ -20597,7 +20597,7 @@ MonoBehaviour:
     You must wire the power log\u2019s pieces to make it work."
   - "These are the power log\u2019s pieces (it\u2019s okay if your physical pieces
     look a little different). Hover over each pieces to learn more about it!"
-  - "Follow these 3 steps. The micro:bit should light up when it\u2019s connected
+  - "Follow these 4 steps. The micro:bit should light up when it\u2019s connected
     to the computer (its power source)!"
   - Follow these 2 steps. The slider should light up when power and ground are connected
     to the micro:bit!
@@ -30744,7 +30744,7 @@ PrefabInstance:
     - target: {fileID: 3710462151968019441, guid: 9428a05be17f12e408024a6f70f80c5f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 68.96942
+      value: 68.96936
       objectReference: {fileID: 0}
     - target: {fileID: 3710462151968019441, guid: 9428a05be17f12e408024a6f70f80c5f,
         type: 3}

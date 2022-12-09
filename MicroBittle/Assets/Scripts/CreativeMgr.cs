@@ -210,7 +210,7 @@ public class CreativeMgr : MonoBehaviour
         Vector3 pos = allButtons[2].transform.position;
         for(int i = 0; i < curObstacle.Count; i++)
         {
-            pos.y -= 160;
+            pos.y -= 160.0f / 1080.0f * Screen.height;
             allButtons[(int)curObstacle[i]].SetActive(true);
             allButtons[(int)curObstacle[i]].transform.position = pos;
         }
@@ -325,9 +325,11 @@ public class CreativeMgr : MonoBehaviour
     public void UpdateWarning(string warning, Text text)
     {
         warningTimer = 5.0f;
-        text.text = warning;
-        StartCoroutine(warningCountdown(text));
-        
+        if(text)
+        {
+            text.text = warning;
+            StartCoroutine(warningCountdown(text));
+        }
     }
 
     IEnumerator warningCountdown(Text text)
@@ -337,7 +339,10 @@ public class CreativeMgr : MonoBehaviour
             warningTimer -= Time.deltaTime;
             yield return null;
         }
-        text.text = "";
+        if (text)
+        {
+            text.text = "";
+        }
         yield break;
     }
     #endregion
