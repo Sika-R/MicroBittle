@@ -17,6 +17,9 @@ public class SoundMgrForUI : MonoBehaviour
     stageforother stageforothernow;
     public List<string> dialogforstory;
     public List<string> dialogforother;
+    public Sprite soundUI1;
+    public Sprite soundUI2;
+    public Image mute;
     private bool[] played = new bool[30];
     public TextMeshProUGUI big;
     public Text side;
@@ -29,21 +32,32 @@ public class SoundMgrForUI : MonoBehaviour
        //     case "storymode":
                 stageforstorynow = stageforstorymode.Opening;
 
-       //         break;
-       //     case "playmode":
-      //          stageforothernow = stageforother.Opening;
-      //          break;
-      //      case "creativemode":
-      //          stageforothernow = stageforother.Opening;
-      //          break;
-      //  }
-      //
+        //         break;
+        //     case "playmode":
+        //          stageforothernow = stageforother.Opening;
+        //          break;
+        //      case "creativemode":
+        //          stageforothernow = stageforother.Opening;
+        //          break;
+        //  }
+        //
+        
+        if (PlayerPrefs.GetInt("IsMuted") == 0)
+        {
+            mute.sprite = soundUI2;
+            audioSource.mute = !audioSource.mute;
+        }
+        else
+        {
+            mute.sprite = soundUI1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         audiostagechangeforstory();
+        
     }
     public void audiostagechangeforstory()
     {
@@ -160,7 +174,7 @@ public class SoundMgrForUI : MonoBehaviour
                     }
                     
 
-                    if(nowbig != "")
+                    if (played[6] == true && nowbig != "")
                     {
                         //move to transition
                         stageforstorynow = stageforstorymode.Transition;
@@ -309,5 +323,21 @@ public class SoundMgrForUI : MonoBehaviour
             }
         }
         return true;
+    }
+    public void Mute()
+    {
+        //bgm.mute = !bgm.mute;
+        if (PlayerPrefs.GetInt("IsMuted") == 0)
+        {
+            PlayerPrefs.SetInt("IsMuted", 1);
+            Debug.Log(PlayerPrefs.GetInt("IsMuted"));
+            mute.sprite = soundUI1;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("IsMuted", 0);
+            mute.sprite = soundUI2;
+        }
+        audioSource.mute = !audioSource.mute;
     }
 }
