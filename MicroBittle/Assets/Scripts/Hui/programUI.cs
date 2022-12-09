@@ -933,7 +933,7 @@ void Update()
         getMaxData[pin] = Mathf.Max(getMaxData[pin], value);
         for(int i = 0; i < 3; i++)
         {
-            if (getMaxData[i] - getMinData[i] > 400.0f)
+            if (getMaxData[i] - getMinData[i] > 300.0f)
             {
                 stagenow = panelstage.GetData;
             }
