@@ -46,13 +46,7 @@ public class OutfitMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-#if UNITY_EDITOR
-        if(Input.GetKeyDown(KeyCode.B))
-        {
-            ChangeOutfit(true);
-            Debug.Log("Current outfit: " + currentObstacleType);
-        }
-#endif
+
     }
 
     private void Awake()

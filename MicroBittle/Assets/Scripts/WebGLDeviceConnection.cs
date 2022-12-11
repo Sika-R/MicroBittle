@@ -50,6 +50,8 @@ public class WebGLDeviceConnection : MonoBehaviour
     [SerializeField]
     Text text;
     bool temp = false;
+    bool isCheating = false;
+    int cheatCnt = 0;
 
     StringBuilder inputBuffer = new StringBuilder("");
     void Awake()
@@ -94,64 +96,85 @@ public class WebGLDeviceConnection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Equals))
+        {
+            cheatCnt++;
+            if(cheatCnt >= 5)
+            {
+                isCheating = true;
+            }
+        }
 // #if UNITY_EDITOR
-        if(Input.GetKeyDown(KeyCode.Alpha0))
+        if(isCheating)
         {
-            if(temp)
+            if (Input.GetKeyDown(KeyCode.Alpha0))
             {
-                ParseLine("41024");
-                temp = false;
+                if (temp)
+                {
+                    ParseLine("41024");
+                    temp = false;
+                }
+                else
+                {
+                    ParseLine("40");
+                    temp = true;
+                }
+
+                // OpenPort();
+                if (text)
+                {
+                    text.text += "Try\n";
+                }
+
             }
-            else
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                ParseLine("40");
-                temp = true;
+                if (temp)
+                {
+                    ParseLine("51024");
+                    temp = false;
+                }
+                else
+                {
+                    ParseLine("50");
+                    temp = true;
+                }
+                // pressAEvent.Invoke();
             }
-            
-            // OpenPort();
-            if(text)
-            {
-                text.text += "Try\n";
-            }
-            
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            if(temp)
-            {
-                ParseLine("51024");
-                temp = false;
-            }
-            else
-            {
-                ParseLine("50");
-                temp = true;
-            }
-            // pressAEvent.Invoke();
-        }
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if(temp)
+            if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                ParseLine("61024");
-                temp = false;
+                if (temp)
+                {
+                    ParseLine("61024");
+                    temp = false;
+                }
+                else
+                {
+                    ParseLine("60");
+                    temp = true;
+                }
+                // pressAEvent.Invoke();
             }
-            else
-            {
-                ParseLine("60");
-                temp = true;
-            }
-            // pressAEvent.Invoke();
-        }
 
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            ParseLine("4450");
-            ParseLine("5450");
-            ParseLine("6450");
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                ParseLine("4450");
+                ParseLine("5450");
+                ParseLine("6450");
+            }
+
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                if(OutfitMgr.Instance)
+                {
+                    OutfitMgr.Instance.ChangeOutfit(true);
+                }
+                
+            }
         }
+        
 
 
 // #else
