@@ -115,7 +115,7 @@ public class ProgramUIMgr : MonoBehaviour
         }
         if (o == ParamManager.Obstacle.wall)
         {
-            return "PowerLog";
+            return "Power Log";
         }
         if (o == ParamManager.Obstacle.rock)
         {
