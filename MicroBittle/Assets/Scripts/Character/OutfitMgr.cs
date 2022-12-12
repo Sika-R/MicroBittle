@@ -157,7 +157,7 @@ public class OutfitMgr : MonoBehaviour
         Vector3 currentLocalPos = jackhammer.transform.localPosition;
         if (index == 0)
         {
-            jackhammer.transform.localPosition = new Vector3(0.6f, currentLocalPos.y, currentLocalPos.z);
+            jackhammer.transform.localPosition = new Vector3(-0.6f, currentLocalPos.y, currentLocalPos.z);
         }
         else if (index == 1)
         {
@@ -165,7 +165,7 @@ public class OutfitMgr : MonoBehaviour
         }
         else
         {
-            jackhammer.transform.localPosition = new Vector3(-0.6f, currentLocalPos.y, currentLocalPos.z);
+            jackhammer.transform.localPosition = new Vector3(0.6f, currentLocalPos.y, currentLocalPos.z);
         }
     }
 

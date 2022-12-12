@@ -102,7 +102,7 @@ public class ObstacleMgr : MonoBehaviour
             {
                 Photoresistor.Instance.currentLightVal = inputVal;
             }
-            float inputValue = 10;
+            float inputValue = 100;
             if(ParamManager.Instance)
             {
                 inputValue = ParamManager.Instance.GetParam(ParamManager.Obstacle.mouse)[0];
