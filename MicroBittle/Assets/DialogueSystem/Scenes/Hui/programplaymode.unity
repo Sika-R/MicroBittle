@@ -8059,7 +8059,6 @@ RectTransform:
   - {fileID: 1298455015}
   - {fileID: 294823461}
   - {fileID: 1616628717}
-  - {fileID: 1515462756}
   m_Father: {fileID: 497981276}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12318,38 +12317,28 @@ MonoBehaviour:
   - WAITING TO DETECT SENSOR MOVEMENT.
   - SENSOR MOVEMENT DETECTED.
   stringdiagforprogram:
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - 'Remember to fill out the code with the correct information. Pay attention to
-    any alert messages. A check mark button will appear when you complete this stage! '
-  - 'Remember to fill out the code with the correct information. Pay attention to
-    any alert messages. A check mark button will appear when you complete this stage! '
-  - 'Remember to fill out the code with the correct information. Pay attention to
-    any alert messages. A check mark button will appear when you complete this stage! '
-  - 'Remember to fill out the code with the correct information. Pay attention to
-    any alert messages. A check mark button will appear when you complete this stage! '
-  - 'Remember to fill out the code with the correct information. Pay attention to
-    any alert messages. '
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
   - Awesome! Change to other obstacles and try breaking them. A check mark button
     will appear when you complete this stage!
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
-  - "Remember to use the Input Data button and the Device Demo button to help you
-    fill out the functions for your devices, which you can see in the Code Blocks
-    section. Pay attention to any alert messages! You won\u2019t be able to move
-    on until all the functions are complete and no alert messages are shown."
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
+  - Remember to fill out the code with the correct information. Pay attention to
+    any alert messages. A check mark button will appear when you complete this stage!
   buttonread:
   - {fileID: 21300000, guid: 57d1fa3ba904ace42b4f75eea213e0f1, type: 3}
   - {fileID: 21300000, guid: 8e918dea32d303341baa05c10baa06df, type: 3}
@@ -18485,7 +18474,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 594, y: -34}
-  m_SizeDelta: {x: 557.631, y: 607.192}
+  m_SizeDelta: {x: 557.631, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848977033
 MonoBehaviour:
@@ -20380,6 +20369,7 @@ RectTransform:
   - {fileID: 1070769522}
   - {fileID: 312710680}
   - {fileID: 1316337713}
+  - {fileID: 1515462756}
   m_Father: {fileID: 435837848}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27916,7 +27906,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515462755}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -27924,12 +27914,12 @@ RectTransform:
   - {fileID: 1480819212}
   - {fileID: 1929415042}
   - {fileID: 1505697910}
-  m_Father: {fileID: 435837848}
-  m_RootOrder: 20
+  m_Father: {fileID: 997327743}
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.785341, y: 1}
+  m_AnchoredPosition: {x: -74.78534, y: 1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1516145002
@@ -35696,7 +35686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000016212, y: 20}
+  m_AnchoredPosition: {x: 0.000016212, y: 2}
   m_SizeDelta: {x: 763.254, y: 919.758}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969389186
