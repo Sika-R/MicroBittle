@@ -67,7 +67,7 @@ public class DialogueControllerProgramFlow_PlayMode : DialogueController
             }
             else if (mazeSelection == "TundraCave")
             {
-                jackhammer.SetActive(true);
+                powerlog.SetActive(true);
                 vacuum.SetActive(true);
             }
             else if (mazeSelection == "GrassLand")
