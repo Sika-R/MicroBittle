@@ -6,7 +6,7 @@ public class ProgramSceneLightControl : MonoBehaviour
 {
     [SerializeField]
     GameObject black;
-    bool hasAdd = false;
+    int hasAdd = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +21,22 @@ public class ProgramSceneLightControl : MonoBehaviour
             if(Photoresistor.Instance.lightStatus == Photoresistor.LightStatus.OFF)
             {
                 black.SetActive(true);
-                if (ProgramUIMgr.Instance && !hasAdd)
+                if (ProgramUIMgr.Instance && hasAdd == 0)
                 {
-                    hasAdd = true;
-                    ProgramUIMgr.Instance.AddSuccess();
+                    hasAdd = 1;
                 }
                 return;
             }
+            else
+            {
+                if (hasAdd == 1)
+                {
+                    hasAdd = 2;
+                    ProgramUIMgr.Instance.AddSuccess();
+                }
+            }
         }
         black.SetActive(false);
+        
     }
 }

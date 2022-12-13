@@ -10,6 +10,7 @@ public class LightObstacle : Obstacle
     SphereCollider myCollider;
     [SerializeField] float playerCollideRadius;
     GameObject player;
+    
 
     void Start()
     {

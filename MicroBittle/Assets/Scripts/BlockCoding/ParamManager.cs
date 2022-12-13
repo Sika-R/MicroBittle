@@ -18,6 +18,7 @@ public class ParamManager : MonoBehaviour
     Dictionary<int, Obstacle> pinToObstacle = new Dictionary<int, Obstacle>();
     Dictionary<FunctionType, Obstacle> functionToObstacle = new Dictionary<FunctionType, Obstacle>();
     public List<ParamController> allControllers = new List<ParamController>();
+    public bool compare = false;
     // Start is called before the first frame update
     void Awake()
     {

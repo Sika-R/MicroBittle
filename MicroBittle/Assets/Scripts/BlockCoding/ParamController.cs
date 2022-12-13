@@ -25,7 +25,7 @@ public class ParamController : MonoBehaviour
     [SerializeField]
     public List<InputField> paramInputs = new List<InputField>();
     [SerializeField]
-    GameObject inputDataWarningMsg;
+    public GameObject inputDataWarningMsg;
     [SerializeField]
     FunctionType functionType;
     [SerializeField]
@@ -112,7 +112,7 @@ public class ParamController : MonoBehaviour
         DelegationInit();
     }
 
-    public void Init()
+    public virtual void Init()
     {
  
 

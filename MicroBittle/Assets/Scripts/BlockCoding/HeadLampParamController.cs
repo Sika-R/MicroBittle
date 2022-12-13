@@ -7,7 +7,8 @@ public class HeadLampParamController : ParamController
 {
     //Has two params for now:
     //paramInputs[0] : dark max
-
+    [SerializeField]
+    public Dropdown compareSelection;
     void Awake()
     {
         // if(mode != 2)
@@ -31,6 +32,23 @@ public class HeadLampParamController : ParamController
             SetObstacleOptions(ProgramUIMgr.Instance.allObstacles);
         }
         // }
+    }
+    public override void DelegationInit()
+    {
+
+        base.DelegationInit();
+
+        if (compareSelection)
+        {
+            compareSelectionChanged(compareSelection);
+            compareSelection.onValueChanged.AddListener(delegate { compareSelectionChanged(compareSelection); });
+        }
+    }
+
+    void compareSelectionChanged(Dropdown d)
+    {
+        ParamManager.Instance.compare = d.value > 0;
+
     }
 
 }

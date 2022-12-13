@@ -108,7 +108,8 @@ public class ObstacleMgr : MonoBehaviour
                 inputValue = ParamManager.Instance.GetParam(ParamManager.Obstacle.mouse)[0];
             }
 
-            if (inputVal < inputValue)
+            // if (inputVal < inputValue)
+            if(CompareValue(inputVal, inputValue))
             {
                 if (Photoresistor.Instance)
                 {
@@ -186,5 +187,15 @@ public class ObstacleMgr : MonoBehaviour
     public void SetCurrentObstacle(Obstacle o)
     {
         currentEncounteredObstacle = o;
+    }
+
+
+    private bool CompareValue(float input, float value)
+    {
+        if(ParamManager.Instance && ParamManager.Instance.compare)
+        {
+            return input > value;
+        }
+        return input <= value;
     }
 }

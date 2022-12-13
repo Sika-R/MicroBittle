@@ -49,6 +49,70 @@ public class PowerLogParamController : ParamController
         }*/
     }
 
+    public override void ParamValueChanged(InputField i)
+    {
+        int idx = paramInputs.IndexOf(i);
+        inputDataWarningMsg.GetComponent<Text>().text = "Try a whole number between 0 and 1000!";
+        try
+        {
+            float parsed = float.Parse(i.text);
+            if (parsed < 0 || parsed > 1000)
+            {
+                i.image.color = Color.red;
+            }
+            else
+            {
+                allParams[idx] = parsed;
+                i.image.color = Color.white;
+            }
+            foreach (InputField input in paramInputs)
+            {
+                try
+                {
+                    parsed = float.Parse(input.text);
+                    if (parsed < 0 || parsed > 1000)
+                    {
+                        inputDataWarningMsg.SetActive(true);
+                        return;
+                    }
+                }
+                catch (Exception e)
+                {
+                    inputDataWarningMsg.SetActive(true);
+                    return;
+                }
+            }
+            float zero = float.Parse(paramInputs[0].text);
+            float one = float.Parse(paramInputs[1].text);
+            if(one - zero > 0 && one - zero < 300)
+            {
+                inputDataWarningMsg.SetActive(true);
+                paramInputs[0].image.color = Color.red;
+                paramInputs[1].image.color = Color.red;
+                inputDataWarningMsg.GetComponent<Text>().text = "Try numbers with a difference greater than 300!";
+            }
+            else if(one - zero <= 0)
+            {
+                inputDataWarningMsg.SetActive(true);
+                paramInputs[0].image.color = Color.red;
+                paramInputs[1].image.color = Color.red;
+                inputDataWarningMsg.GetComponent<Text>().text = "Try making the second number greater than the first one!";
+            }
+            else
+            {
+                paramInputs[0].image.color = Color.white;
+                paramInputs[1].image.color = Color.white;
+                inputDataWarningMsg.SetActive(false);
+            }
+            
+        }
+        catch (Exception e)
+        {
+            i.image.color = Color.red;
+            Debug.Log(e);
+        }
+    }
+
     /*override public void DelegationInit()
     {
         base.DelegationInit();
